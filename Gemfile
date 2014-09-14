@@ -50,3 +50,6 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 gem 'rb-readline'
 
+gem 'rspec-rails'
+gem 'factory_girl_rails'
+
