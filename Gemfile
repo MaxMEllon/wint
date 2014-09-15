@@ -44,7 +44,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'pry-rails'
+gem 'pry-rails', '0.3.0'
 gem 'slim-rails'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
