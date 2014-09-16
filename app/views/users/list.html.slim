@@ -1,0 +1,42 @@
+
+h2 ユーザ一覧
+br
+
+= link_to users_new_path do
+  button.btn.btn-primary
+    span.glyphicon.glyphicon-tag
+    | &nbsp;&nbsp;新規登録
+br
+br
+
+.user.list
+
+  table.table-base.tablesorter.tablesorter-ice
+    thead
+      tr
+        th.snum 学籍番号
+        th.name 氏名
+        th.depart 学科
+        th.entrance 入学年度
+        th.category 区分
+        th.edit 編集
+        th.disable 有効/無効
+    tbody
+      - @users.each do |user|
+        tr
+          td.snum= user.snum
+          td.name= user.name
+          td.depart= User.depart_options[user.depart]
+          td.entrance= user.entrance
+          td.category= User.category_options[user.category]
+          td.edit
+            = link_to users_edit_path(uid: user.id) do
+             button.btn.btn-primary
+               span.glyphicon.glyphicon-tag
+               | &nbsp;&nbsp;編集
+          td.disable
+            = link_to users_edit_path(uid: user.id) do
+             button.btn.btn-primary
+               span.glyphicon.glyphicon-tag
+               | &nbsp;&nbsp;切替
+

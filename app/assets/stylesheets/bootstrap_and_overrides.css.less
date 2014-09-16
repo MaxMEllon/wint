@@ -27,3 +27,25 @@
 //
 // Example:
 // @link-color: #ff0000;
+
+.table-base {
+  .table;
+  .table-bordered;
+  .table-hover;
+
+  &.tablesorter {
+    thead > tr > th {
+      font-size: 14px;
+      font-weight: bold;
+      height: 40px;
+    }
+  }
+
+  thead > tr > th {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  tbody > tr > td { vertical-align: middle; }
+}
+
