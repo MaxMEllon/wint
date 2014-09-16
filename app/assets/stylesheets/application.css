@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery_tablesorter/theme.blue
+ *= require jquery_tablesorter/theme.blue.css
  *= require jquery_tablesorter/theme.black-ice.css
  *= require jquery_tablesorter/theme.blue.css
  *= require jquery_tablesorter/theme.bootstrap.css

@@ -1,0 +1,39 @@
+
+- if user.id.nil?
+  - title = "ユーザ新規登録"
+  - submit_button = render partial: "shared/buttons/new"
+- else
+  - title = "ユーザ情報編集"
+  - submit_button = render partial: "shared/buttons/edit"
+
+.modal-dialog.modal-content
+  = form_for user, url: path, remote: true do |f|
+    .modal-header
+      h3= title
+    .modal-body.users.form
+      table.table-base
+        tr
+          th.snum 学籍番号
+          td.snum= f.text_field :snum
+        tr
+          th.name 氏名
+          td.name= f.text_field :name
+        tr
+          th.password パスワード
+          td.password= f.password_field :password
+        tr
+          th.password_confirmation パスワード(確認用)
+          td.password_confirmation= f.password_field :password_confirmation
+        tr
+          th.depart 学科
+          td.depart= f.select :depart, User.depart_options.invert
+        tr
+          th.entrance 入学年度
+          td.entrance= f.select :entrance, User.entrance_options.reverse
+        tr
+          th.category 区分
+          td.category= f.select :category, User.category_options.invert
+    .modal-footer
+      = render partial: "shared/buttons/cancel"
+      = submit_button
+

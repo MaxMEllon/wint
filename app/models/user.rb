@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   DEPART_RISE_ENIE = 0
   DEPART_OTHER = 1
 
+  ENTRANCE_START = 2000
+
   def self.category_options
     {
       CATEGORY_STUDENT => '学生',
@@ -24,6 +26,10 @@ class User < ActiveRecord::Base
       DEPART_RISE_ENIE => '信頼・電子情報',
       DEPART_OTHER     => 'その他'
     }
+  end
+
+  def self.entrance_options
+    (ENTRANCE_START..Time.new.year).to_a
   end
 end
 
