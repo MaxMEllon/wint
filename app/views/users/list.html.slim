@@ -24,18 +24,16 @@ br
         th.disable 有効 / 無効
     tbody
       - @users.each do |user|
-        tr
-          td.snum= user.snum
-          td.name= user.name
-          td.depart= User.depart_options[user.depart]
-          td.entrance= user.entrance
-          td.category= User.category_options[user.category]
-          td.edit= link_to users_edit_path(uid: user.id), remote: true do
-            = render partial: "shared/buttons/edit"
-          td.password= link_to users_edit_password_path(uid: user.id), remote: true do
-            = render partial: "shared/buttons/password"
-          td.disable= link_to users_edit_path(uid: user.id) do
-            button.btn.btn-primary
-              span.glyphicon.glyphicon-tag
-              | &nbsp;&nbsp;切替
+        = render partial: "shared/row", locals: {is_active: user.is_active}
+        td.snum= user.snum
+        td.name= user.name
+        td.depart= User.depart_options[user.depart]
+        td.entrance= user.entrance
+        td.category= User.category_options[user.category]
+        td.edit= link_to users_edit_path(uid: user.id), remote: true do
+          = render partial: "shared/buttons/edit"
+        td.password= link_to users_edit_password_path(uid: user.id), remote: true do
+          = render partial: "shared/buttons/password"
+        td.disable= link_to users_toggle_path(uid: user.id) do
+          = render partial: "shared/buttons/toggle", locals: {is_active: user.is_active}
 

@@ -7,6 +7,7 @@ Wint::Application.routes.draw do
   patch 'users/:uid/edit'          => 'users#update'
   get   'users/:uid/edit_password' => 'users#edit_password', as: :users_edit_password
   patch 'users/:uid/edit_password' => 'users#update_password', as: :users_update_password
+  get   'users/:uid/toggle'        => 'users#toggle', as: :users_toggle
 
 end
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:edit, :update, :edit_password, :update_password]
+  before_action :get_user, only: [:edit, :update, :edit_password, :update_password, :toggle]
 
   def list
     @users = User.all
@@ -30,6 +30,12 @@ class UsersController < ApplicationController
   def update_password
     render :edit_password and return unless @user.update(user_params)
     render template: "shared/reload"
+  end
+
+  def toggle
+    @user.is_active = !@user.is_active
+    @user.save
+    redirect_to users_path
   end
 
   private
