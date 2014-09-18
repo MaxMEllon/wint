@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :players, dependent: :destroy
   has_secure_password
 
+  validates_presence_of :snum, :name
+
   CATEGORY_STUDENT = 0
   CATEGORY_TA = 1
   CATEGORY_TEACHER = 2

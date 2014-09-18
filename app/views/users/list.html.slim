@@ -20,6 +20,7 @@ br
         th.entrance 入学年度
         th.category 区分
         th.edit 編集
+        th.password パスワード変更
         th.disable 有効 / 無効
     tbody
       - @users.each do |user|
@@ -29,12 +30,12 @@ br
           td.depart= User.depart_options[user.depart]
           td.entrance= user.entrance
           td.category= User.category_options[user.category]
-          td.edit
-            = link_to users_edit_path(uid: user.id), remote: true do
-              = render partial: "shared/buttons/edit"
-          td.disable
-            = link_to users_edit_path(uid: user.id) do
-             button.btn.btn-primary
-               span.glyphicon.glyphicon-tag
-               | &nbsp;&nbsp;切替
+          td.edit= link_to users_edit_path(uid: user.id), remote: true do
+            = render partial: "shared/buttons/edit"
+          td.password= link_to users_edit_password_path(uid: user.id), remote: true do
+            = render partial: "shared/buttons/password"
+          td.disable= link_to users_edit_path(uid: user.id) do
+            button.btn.btn-primary
+              span.glyphicon.glyphicon-tag
+              | &nbsp;&nbsp;切替
 

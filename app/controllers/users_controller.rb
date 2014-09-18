@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :get_user, only: [:edit, :update, :edit_password, :update_password]
+
   def list
     @users = User.all
   end
@@ -9,24 +11,34 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      redirect_to users_path
-    else
-      render :new
-    end
+    @user.password = @user.password_confirmation = @user.snum.split("").reverse.join
+    render :new and return unless @user.save
+    render template: "shared/reload"
   end
 
   def edit
-    @user = User.where(id: params[:uid]).first
   end
 
   def update
-    render text: params
+    render :edit and return unless @user.update(user_params)
+    render template: "shared/reload"
+  end
+
+  def edit_password
+  end
+
+  def update_password
+    render :edit_password and return unless @user.update(user_params)
+    render template: "shared/reload"
   end
 
   private
   def user_params
     params.require(:user).permit(:snum, :name, :depart, :entrance, :category, :password, :password_confirmation)
+  end
+
+  def get_user
+    @user = User.where(id: params[:uid]).first
   end
 end
 
