@@ -39,13 +39,20 @@
   }
 
   tbody > tr{
-    th, td {
-      vertical-align: middle;
-      input[type="text"], input[type="password"], select {
-        .form-control;
+    th, td { vertical-align: middle; }
+    th { text-align: center; }
+    td {
+      input[type="text"], input[type="password"], select { .form-control; }
+      button.btn {
+        .small;
+        padding: 3px 8px 3px 8px;
       }
     }
-    th { text-align: center; }
   }
+}
+
+button.btn {
+  color: black;
+  opacity: 0.8;
 }
 

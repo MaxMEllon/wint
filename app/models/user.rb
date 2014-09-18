@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def self.entrance_options
-    (ENTRANCE_START..Time.new.year).to_a
+    [0] + (ENTRANCE_START..Time.new.year).to_a
   end
 end
 
