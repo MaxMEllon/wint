@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery_tablesorter/jquery.metadata.js
-//= require jquery_tablesorter/jquery.tablesorter.js
-//= require jquery_tablesorter/jquery.tablesorter.widgets-filter-formatter.js
-//= require jquery_tablesorter/jquery.tablesorter.widgets.js
+//= require dataTables/jquery.dataTables.js
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap.js
 //= require_tree .
+

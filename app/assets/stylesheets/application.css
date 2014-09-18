@@ -9,17 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery_tablesorter/theme.blue.css
- *= require jquery_tablesorter/theme.black-ice.css
- *= require jquery_tablesorter/theme.blue.css
- *= require jquery_tablesorter/theme.bootstrap.css
- *= require jquery_tablesorter/theme.dark.css
- *= require jquery_tablesorter/theme.default.css
- *= require jquery_tablesorter/theme.dropbox.css
- *= require jquery_tablesorter/theme.green.css
- *= require jquery_tablesorter/theme.grey.css
- *= require jquery_tablesorter/theme.ice.css
- *= require jquery_tablesorter/theme.jui.css
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require bootstrap_and_overrides
  *= require common
  */

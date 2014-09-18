@@ -48,7 +48,7 @@ gem 'pry-rails', '0.3.0'
 gem 'slim-rails'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
-gem 'jquery-tablesorter-rails4'
+gem 'jquery-datatables-rails', '~> 2.2.3'
 gem 'rb-readline'
 
 gem 'rspec-rails'
