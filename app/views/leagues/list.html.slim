@@ -26,10 +26,10 @@ br
         td.name= league.name
         td.open= league.start_at
         td.score= league.limit_score
-        td.is_analy= link_to leagues_edit_path(uid: league.id), remote: true do
+        td.is_analy= link_to leagues_edit_path(lid: league.id), remote: true do
           = render partial: "shared/buttons/edit"
-        td.edit= link_to leagues_edit_path(uid: league.id), remote: true do
+        td.edit= link_to leagues_edit_path(lid: league.id), remote: true do
           = render partial: "shared/buttons/edit"
-        td.disable= link_to leagues_toggle_path(uid: league.id) do
+        td.disable= link_to leagues_toggle_path(lid: league.id) do
           = render partial: "shared/buttons/toggle", locals: {is_active: league.is_active}
 

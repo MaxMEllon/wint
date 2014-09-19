@@ -7,7 +7,7 @@
   - render_submit = render partial: "shared/buttons/edit"
 
 .modal-dialog.modal-content
-  = form_tag path, {remote: true, multipart: true} do
+  = form_tag path, data: {remote: true}, multipart: true do
     .modal-header
       h3= title
     .modal-body.leagues.form

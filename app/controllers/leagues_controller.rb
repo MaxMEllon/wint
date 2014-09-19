@@ -12,10 +12,15 @@ class LeaguesController < ApplicationController
 
   def create
     @league = League.new(league_params)
-    #@league.src_path = @league.set_src(file_params)
-    #@league.rule_file = @league.set_rule(rule_params)
-    render :new and return unless @league.save
-    render template: "shared/reload"
+    League.mkdir
+    @league.src_dir = @league.set_src(file_params)
+    @league.rule_file = @league.set_rule(rule_params)
+    unless @league.save
+      League.rmdir
+      render :new and return
+    end
+    #render template: "shared/reload"
+    redirect_to leagues_path
   end
 
   def edit
@@ -38,6 +43,7 @@ class LeaguesController < ApplicationController
   end
 
   def file_params
+    return nil if params[:file].nil?
     params.require(:file).permit(:stock, :header, :exec, :card)
   end
 
