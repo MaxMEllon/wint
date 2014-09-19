@@ -15,5 +15,7 @@
 //= require twitter/bootstrap
 //= require dataTables/jquery.dataTables.js
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap.js
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 

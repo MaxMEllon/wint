@@ -1,5 +1,5 @@
 class LeaguesController < ApplicationController
-  before_action :get_league, only: [:edit, :update, :toggle]
+  before_action :get_league, only: [:edit, :update, :toggle, :toggle_analy]
 
   def list
     @leagues = League.all
@@ -7,7 +7,7 @@ class LeaguesController < ApplicationController
 
   def new
     @league = League.new
-    @league.start_at = @league.end_at = Time.new
+    @league.start_at = @league.end_at = Time.new.strftime("%Y-%m-%d 00:00:00")
   end
 
   def create
@@ -33,6 +33,12 @@ class LeaguesController < ApplicationController
 
   def toggle
     @league.is_active = !@league.is_active
+    @league.save
+    redirect_to leagues_path
+  end
+
+  def toggle_analy
+    @league.is_analy = !@league.is_analy
     @league.save
     redirect_to leagues_path
   end

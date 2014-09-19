@@ -34,6 +34,6 @@ br
           = render partial: "shared/buttons/edit"
         td.password= link_to users_edit_password_path(uid: user.id), remote: true do
           = render partial: "shared/buttons/password"
-        td.disable= link_to users_toggle_path(uid: user.id) do
+        td.toggle= link_to users_toggle_path(uid: user.id) do
           = render partial: "shared/buttons/toggle", locals: {is_active: user.is_active}
 

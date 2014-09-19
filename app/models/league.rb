@@ -3,6 +3,17 @@ class League < ActiveRecord::Base
 
   validates_presence_of :name, :start_at, :end_at, :limit_score, :src_dir, :rule_file
 
+  def rule(symbol)
+    return nil if self.rule_file.blank?
+    ActiveSupport::JSON.decode(File.read(self.rule_file))[symbol]
+  end
+
+  def format_rule
+    take = "%02d" % rule("take")
+    change = "%02d" % rule("change")
+    "#{take}-#{change}-#{rule("try")}"
+  end
+
   def self.mkdir
     path = "#{Rails.root}/public/data/%03d" % get_id
     Dir::mkdir(path)

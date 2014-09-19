@@ -1,4 +1,10 @@
 
+@datetimepicker = ->
+  $(".datepicker").datetimepicker({
+    format: 'YYYY-MM-DD HH:mm:ss',
+    useSeconds: true
+  })
+
 $(document).ready ->
   $(".datatable").dataTable({
     autoWidth: false,

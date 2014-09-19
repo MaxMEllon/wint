@@ -16,6 +16,7 @@ br
       tr
         th.name リーグ名
         th.open 開催期間
+        th.rule ルール
         th.score 理想得点
         th.is_analy 分析
         th.edit 編集
@@ -24,12 +25,16 @@ br
       - @leagues.each do |league|
         = render partial: "shared/row", locals: {is_active: league.is_active}
         td.name= league.name
-        td.open= league.start_at
+        td.open
+          = format_time(league.start_at)
+          | &nbsp;～&nbsp;
+          = format_time(league.end_at)
+        td.rule= league.format_rule
         td.score= league.limit_score
-        td.is_analy= link_to leagues_edit_path(lid: league.id), remote: true do
-          = render partial: "shared/buttons/edit"
+        td.is_analy= link_to leagues_toggle_analy_path(lid: league.id) do
+          = render partial: "shared/buttons/toggle_analy", locals: {is_analy: league.is_analy}
         td.edit= link_to leagues_edit_path(lid: league.id), remote: true do
           = render partial: "shared/buttons/edit"
-        td.disable= link_to leagues_toggle_path(lid: league.id) do
+        td.toggle= link_to leagues_toggle_path(lid: league.id) do
           = render partial: "shared/buttons/toggle", locals: {is_active: league.is_active}
 
