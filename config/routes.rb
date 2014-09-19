@@ -9,5 +9,12 @@ Wint::Application.routes.draw do
   patch 'users/:uid/edit_password' => 'users#update_password', as: :users_update_password
   get   'users/:uid/toggle'        => 'users#toggle', as: :users_toggle
 
+  ##--  League
+  get   'leagues'                    => 'leagues#list'
+  get   'leagues/new'                => 'leagues#new'
+  post  'leagues/new'                => 'leagues#create'
+  get   'leagues/:lid/edit'          => 'leagues#edit', as: :leagues_edit
+  patch 'leagues/:lid/edit'          => 'leagues#update'
+  get   'leagues/:lid/toggle'        => 'leagues#toggle', as: :leagues_toggle
 end
 

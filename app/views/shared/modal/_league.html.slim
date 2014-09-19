@@ -1,0 +1,59 @@
+
+- if league.id.nil?
+  - title = "ユーザ新規登録"
+  - render_submit = render partial: "shared/buttons/new"
+- else
+  - title = "ユーザ情報編集"
+  - render_submit = render partial: "shared/buttons/edit"
+
+.modal-dialog.modal-content
+  = form_tag path, {remote: true, multipart: true} do
+    .modal-header
+      h3= title
+    .modal-body.leagues.form
+      table.table-base
+        tr
+          th.name リーグ名
+          td.name
+            = text_field :league, :name
+            = render partial: "shared/error_messages", locals: {object: league, column: :name}
+          th.score 理想得点
+          td.score
+            = text_field :league, :limit_score
+            = render partial: "shared/error_messages", locals: {object: league, column: :limit_score}
+        tr
+          th.open 開催期間
+          td.open colspan="3"
+            = text_field :league, :start_at
+            = render partial: "shared/error_messages", locals: {object: league, column: :start_at}
+            | ～
+            = text_field :league, :end_at
+            = render partial: "shared/error_messages", locals: {object: league, column: :end_at}
+
+      table.table-base
+        tr
+          th.file Stock.ini
+          td.file= file_field :file, :stock
+        tr
+          th.file Poker.h
+          td.file= file_field :file, :header
+        tr
+          th.file PokerExec.c
+          td.file= file_field :file, :exec
+        tr
+          th.file CardLib.c
+          td.file= file_field :file, :card
+
+      table.table-base
+        tr
+          th.rule テイク数
+          th.rule チェンジ数
+          th.rule トライ数
+        tr
+          td.rule= text_field :rule, :change
+          td.rule= text_field :rule, :take
+          td.rule= text_field :rule, :try
+    .modal-footer
+      = render_submit
+      = render partial: "shared/buttons/cancel"
+
