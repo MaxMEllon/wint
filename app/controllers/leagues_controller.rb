@@ -26,7 +26,7 @@ class LeaguesController < ApplicationController
   end
 
   def update
-    @league.src_dir = @league.set_src(file_params)
+    @league.src_dir = @league.set_src(file_params) if file_params.present?
     @league.rule_file = @league.set_rule(rule_params)
     render :edit and return unless @league.update(league_params)
     render template: "shared/reload"

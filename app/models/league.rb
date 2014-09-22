@@ -3,15 +3,16 @@ class League < ActiveRecord::Base
 
   validates_presence_of :name, :start_at, :end_at, :limit_score, :src_dir, :rule_file
 
-  def rule(symbol)
+  def rule(symbol = nil)
     return nil if self.rule_file.blank?
-    ActiveSupport::JSON.decode(File.read(self.rule_file))[symbol]
+    rules = ModelHelper.decode_json(File.read(self.rule_file))
+    return rules[symbol] if symbol.present?
+    rules
   end
 
   def format_rule
-    take = "%02d" % rule("take")
-    change = "%02d" % rule("change")
-    "#{take}-#{change}-#{rule("try")}"
+    rules = rule
+    "%02d-%02d-#{rules["try"]}" % [rules["take"], rules["change"]]
   end
 
   def self.mkdir
@@ -46,7 +47,7 @@ class League < ActiveRecord::Base
 
     path = "#{Rails.root}/public/data/%03d/rule/rule.json" % League.get_id
     begin
-      File.open(path, "w") {|f| f.puts ActiveSupport::JSON.encode params}
+      File.open(path, "w") {|f| f.puts ModelHelper.encode_json params}
     rescue
       return nil
     end
