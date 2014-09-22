@@ -17,5 +17,16 @@ Wint::Application.routes.draw do
   post 'leagues/:lid/edit'         => 'leagues#update'
   get  'leagues/:lid/toggle'       => 'leagues#toggle', as: :leagues_toggle
   get  'leagues/:lid/toggle_analy' => 'leagues#toggle_analy', as: :leagues_toggle_analy
+
+  ##--  Player
+  get   'players'             => 'players#list', as: :players
+  get   'players/select'      => 'players#select', as: :players_select
+  get   'players/new_many'    => 'players#new_many'
+  post  'players/new_many'    => 'players#create_many'
+  get   'players/new'         => 'players#new'
+  post  'players/new'         => 'players#create'
+  get   'players/:pid/edit'   => 'players#edit', as: :players_edit
+  patch 'players/:pid/edit'   => 'players#update'
+  get   'players/:pid/toggle' => 'players#toggle', as: :players_toggle
 end
 

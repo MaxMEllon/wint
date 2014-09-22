@@ -1,0 +1,36 @@
+
+h2 プレイヤ一覧
+br
+
+= link_to players_select_path do
+  button.btn.btn-primary
+    span.glyphicon.glyphicon-tags
+    | &nbsp;&nbsp;プレイヤ一括登録
+br
+br
+
+= render partial: "shared/modal/target"
+
+.players.list
+
+  table.table-base.datatable
+    thead
+      tr
+        th.name プレイヤ名
+        th.role ロール
+        th.user ユーザ名
+        th.league リーグ名
+        th.edit 編集
+        th.disable 有効 / 無効
+    tbody
+      - @players.each do |player|
+        = render partial: "shared/row", locals: {is_active: player.is_active}
+        td.name= player.name
+        td.role= Player.role_options[player.role]
+        td.user= player.user.name
+        td.league= player.league.name
+        td.edit= link_to players_edit_path(pid: player.id), remote: true do
+          = render partial: "shared/buttons/edit"
+        td.toggle= link_to players_toggle_path(pid: player.id) do
+          = render partial: "shared/buttons/toggle", locals: {is_active: player.is_active}
+

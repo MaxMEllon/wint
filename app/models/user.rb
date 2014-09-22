@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :players, dependent: :destroy
+
   has_secure_password
 
   validates_presence_of :snum, :name
@@ -13,6 +14,10 @@ class User < ActiveRecord::Base
   DEPART_OTHER = 1
 
   ENTRANCE_START = 2000
+
+  def self.select_format
+    self.all.map {|u| [u.name, u.id]}
+  end
 
   def self.category_options
     {

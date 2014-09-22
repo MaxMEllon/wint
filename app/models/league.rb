@@ -3,6 +3,10 @@ class League < ActiveRecord::Base
 
   validates_presence_of :name, :start_at, :end_at, :limit_score, :src_dir, :rule_file
 
+  def self.select_format
+    self.all.map {|l| [l.name, l.id]}
+  end
+
   def rule(symbol = nil)
     return nil if self.rule_file.blank?
     rules = ModelHelper.decode_json(File.read(self.rule_file))

@@ -1,0 +1,38 @@
+
+- if player.id.nil?
+  - title = "プレイヤ新規登録"
+  - render_submit = render partial: "shared/buttons/new"
+- else
+  - title = "プレイヤ情報編集"
+  - render_submit = render partial: "shared/buttons/edit"
+
+.modal-dialog.modal-content
+  = form_for player, url: path, data: {remote: true} do |f|
+    .modal-header
+      h3= title
+    .modal-body.players.form
+      table.table-base
+        tr
+          th.name プレイヤ名
+          td.name
+            = f.text_field :name
+            = render partial: "shared/error_messages", locals: {object: player, column: :name}
+        tr
+          th.role ロール
+          td.role
+            = f.select :role, Player.role_options.invert
+            = render partial: "shared/error_messages", locals: {object: player, column: :role}
+        tr
+          th.user ユーザ
+          td.user
+            = f.select :user_id, User.select_format
+            = render partial: "shared/error_messages", locals: {object: player, column: :user_id}
+        tr
+          th.league リーグ
+          td.league
+            = f.select :league_id, League.select_format
+            = render partial: "shared/error_messages", locals: {object: player, column: :league_id}
+    .modal-footer
+      = render_submit
+      = render partial: "shared/buttons/cancel"
+

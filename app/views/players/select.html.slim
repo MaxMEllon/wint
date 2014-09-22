@@ -1,0 +1,39 @@
+
+h2 ユーザ選択
+br
+
+= form_tag players_new_many_path, method: :get do
+  button.btn.btn-primary
+    span.glyphicon.glyphicon-tags
+    | &nbsp;&nbsp;プレイヤ登録画面へ
+  br
+  br
+
+  .players.select
+    .row
+      .col-lg-4
+      .col-lg-4
+        table.table-base
+          tr
+            th リーグ
+            td= select_tag :league_id, options_for_select(League.select_format)
+
+    table.table-base.datatable
+      thead
+        tr
+          th.check
+          th.snum 学籍番号
+          th.category 区分
+          th.name 氏名
+          th.depart 学科
+          th.entrance 入学年度
+      tbody
+        - @users.each do |user|
+          tr
+            td.check= check_box_tag "user_id[#{user.id}]"
+            td.snum= user.snum
+            td.category= User.category_options[user.category]
+            td.name= user.name
+            td.depart= User.depart_options[user.depart]
+            td.entrance= user.entrance
+

@@ -1,0 +1,36 @@
+
+h2
+  | プレイヤ一括登録
+  small
+    | &nbsp;&nbsp;
+    = @league.name
+br
+
+= form_tag players_new_many_path do
+  = hidden_field_tag :league_id, @league.id
+  button.btn.btn-primary
+    span.glyphicon.glyphicon-tags
+    | &nbsp;&nbsp;プレイヤ一括登録
+  br
+  br
+
+  .players.new_many.row
+    .col-lg-1
+    .col-lg-10
+      table.table-base
+        thead
+          tr
+            th.name プレイヤ名
+            th.role ロール
+            th.snum 学籍番号
+            th.user ユーザ名
+            th.category 区分
+        tbody
+          - @users.each do |user|
+            tr
+              td.name= text_field "player[#{user.id}]", :name, value: user.name
+              td.name= select "player[#{user.id}]", :role, Player.role_options.invert
+              td.snum= user.snum
+              td.user= user.name
+              td.category= User.category_options[user.category]
+
