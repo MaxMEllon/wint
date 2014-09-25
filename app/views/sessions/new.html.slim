@@ -1,0 +1,15 @@
+
+= form_for User.new, url: logins_path do |f|
+  .sessions.form.row
+    .col-lg-2
+    .col-lg-8
+      table.table-base
+        tr
+          th.snum 学籍番号
+          td.snum= f.text_field :snum
+        tr
+          th.password パスワード
+          td.password= f.password_field :password
+      button.btn.btn-primary
+        | ログイン
+

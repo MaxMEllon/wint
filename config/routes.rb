@@ -1,4 +1,8 @@
 Wint::Application.routes.draw do
+  ##--  Session
+  get  'sessions/new' => 'sessions#new', as: :logins
+  post 'sessions/new' => 'sessions#create'
+
   ##--  User
   get   'users'                    => 'users#list'
   get   'users/new'                => 'users#new'
