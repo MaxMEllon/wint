@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :players, dependent: :destroy
+  has_many :leagues, through: :players
 
   has_secure_password
 

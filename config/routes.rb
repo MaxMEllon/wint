@@ -32,5 +32,9 @@ Wint::Application.routes.draw do
   get   'players/:pid/edit'   => 'players#edit', as: :players_edit
   patch 'players/:pid/edit'   => 'players#update'
   get   'players/:pid/toggle' => 'players#toggle', as: :players_toggle
+
+  ##--  Main
+  get 'mains/select' => 'leagues#select', as: :mains_league_select
+  get 'mains/:lid/mypage' => 'mains#mypage', as: :mains_mypage
 end
 

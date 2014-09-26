@@ -44,6 +44,11 @@ class LeaguesController < ApplicationController
     redirect_to leagues_path
   end
 
+  def select
+    user = User.where(id: session[:user_id]).first
+    @leagues = user.leagues
+  end
+
   private
   def league_params
     params.require(:league).permit(:name, :start_at, :end_at, :limit_score, :is_analy)
