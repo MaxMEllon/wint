@@ -1,0 +1,24 @@
+
+.modal-dialog.modal-content
+  /= form_for submit, url: path, data: {remote: true} do |f|
+  = form_for submit, url: path do |f|
+    .modal-header
+      h3 戦略提出
+    .modal-body.users.form
+      table.table-base
+        tr
+          th.src_file 戦略
+          td.src_file
+            = f.file_field :src_file
+            = render partial: "shared/error_messages", locals: {object: submit, column: :src_file}
+        tr
+          th.comment 戦略コメント
+          td.comment
+            = f.text_field :comment
+            = render partial: "shared/error_messages", locals: {object: submit, column: :comment}
+    .modal-footer
+      button.btn.btn-primary
+        span.glyphicon.glyphicon-tags
+        | &nbsp;&nbsp;提出
+      = render partial: "shared/buttons/cancel"
+

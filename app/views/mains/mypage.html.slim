@@ -2,7 +2,7 @@
 h2 マイページ
 br
 
-= link_to players_select_path do
+= link_to submits_new_path(pid: @player.id), remote: true do
   button.btn.btn-primary
     span.glyphicon.glyphicon-tags
     | &nbsp;&nbsp;戦略提出
