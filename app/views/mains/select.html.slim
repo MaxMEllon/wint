@@ -1,0 +1,23 @@
+
+h2 プレイヤ選択
+br
+
+.mains.select
+
+  table.table-base
+    thead
+      tr
+        th.player プレイヤ名
+        th.league リーグ名
+        th.open 開催期間
+    tbody
+      - @players.each do |player|
+        - league = player.league
+        tr
+          td.player= link_to player.name, mains_mypage_path(lid: league.id, pid: player.id)
+          td.league= league.name
+          td.open
+            = format_time(league.start_at)
+            | &nbsp;～&nbsp;
+            = format_time(league.end_at)
+

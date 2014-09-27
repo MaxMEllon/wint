@@ -34,8 +34,8 @@ Wint::Application.routes.draw do
   get   'players/:pid/toggle' => 'players#toggle', as: :players_toggle
 
   ##--  Main
-  get  'mains/select'      => 'leagues#select', as: :mains_league_select
-  get  'mains/:lid/mypage' => 'mains#mypage', as: :mains_mypage
+  get  'mains/select'           => 'mains#select', as: :mains_select
+  get  'mains/:lid/:pid'        => 'mains#mypage', as: :mains_mypage
   get  'mains/:lid/:pid/submit' => 'submits#new', as: :submits_new
   post 'mains/:lid/:pid/submit' => 'submits#create'
 end

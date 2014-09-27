@@ -18,7 +18,9 @@ class PlayersController < ApplicationController
 
   def create_many
     params.require(:player).each do |user_id, value|
-      Player.create(league_id: params[:league_id], user_id: user_id, name: value[:name], role: value[:role], submit_id: 0)
+      player = Player.create(league_id: params[:league_id], user_id: user_id, name: value[:name], role: value[:role], submit_id: 0, data_dir: "dummy")
+      player.data_dir = player.mkdir
+      player.save!
     end
     redirect_to players_path
   end
@@ -42,8 +44,7 @@ class PlayersController < ApplicationController
   end
 
   def toggle
-    @player.is_active = !@player.is_active
-    @player.save
+    @player.update(is_active: !@player.is_active)
     redirect_to players_path
   end
 

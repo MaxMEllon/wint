@@ -2,7 +2,15 @@ class Submit < ActiveRecord::Base
   belongs_to :player
   belongs_to :strategy
 
-  validates_presence_of :src_file
+  validates_presence_of :data_dir
+
+  def src_file
+    self.data_dir + "/PokerOpe.c"
+  end
+
+  def exec_file
+    self.data_dir + "/PokerOpe"
+  end
 
   def get_number
     submits = self.player.submits
@@ -10,22 +18,13 @@ class Submit < ActiveRecord::Base
   end
 
   def mkdir
-    player = self.player
-    path = player.league.src_dir.sub("/rule", "") + "/source/%02d" % player.user.id
+    (self.player.data_dir + "/%03d" % self.number).tap do |path|
+      Dir::mkdir(path)
+    end
   end
 
-  def set_src
-    player = self.player
-    path = player.league.src_dir.sub("/rule", "") + "/source/%02d/%03d" % [player.user.id, self.number]
-    begin
-      Dir::mkdir(path)
-      File.open(path + "/PokerOpe.c", "w") do |f|
-        f.puts self.src_file.read.force_encoding("utf-8")
-      end
-    rescue
-      return nil
-    end
-    path
+  def set_data(source)
+    File.open(self.src_file, "w") {|f| f.puts source}
   end
 end
 

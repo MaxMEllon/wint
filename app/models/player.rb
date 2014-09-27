@@ -12,5 +12,11 @@ class Player < ActiveRecord::Base
       ROLE_AUDIENCE => '聴講者'
     }
   end
+
+  def mkdir
+    (self.league.data_dir + "/source/%04d" % self.id).tap do |path|
+      Dir::mkdir(path)
+    end
+  end
 end
 

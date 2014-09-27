@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915062517) do
+ActiveRecord::Schema.define(version: 20140927051537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140915062517) do
     t.datetime "end_at",      default: '2014-09-15 06:32:36', null: false
     t.float    "limit_score", default: 0.0,                   null: false
     t.boolean  "is_analy",    default: false,                 null: false
-    t.string   "src_dir",     default: "",                    null: false
+    t.string   "data_dir",    default: "",                    null: false
     t.string   "rule_file",   default: "",                    null: false
     t.boolean  "is_active",   default: true,                  null: false
     t.datetime "created_at"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140915062517) do
     t.boolean  "is_active",  default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "data_dir",                  null: false
   end
 
   create_table "strategies", force: true do |t|
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140915062517) do
 
   create_table "submits", force: true do |t|
     t.integer  "player_id",                 null: false
-    t.string   "src_file",   default: "",   null: false
+    t.string   "data_dir",   default: "",   null: false
     t.string   "comment"
     t.integer  "number",                    null: false
     t.integer  "status",     default: 0,    null: false

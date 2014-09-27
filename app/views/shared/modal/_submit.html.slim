@@ -1,16 +1,15 @@
 
 .modal-dialog.modal-content
-  /= form_for submit, url: path, data: {remote: true} do |f|
-  = form_for submit, url: path do |f|
+  = form_for submit, url: path, data: {remote: true} do |f|
     .modal-header
       h3 戦略提出
     .modal-body.users.form
       table.table-base
         tr
-          th.src_file 戦略
-          td.src_file
-            = f.file_field :src_file
-            = render partial: "shared/error_messages", locals: {object: submit, column: :src_file}
+          th.data_dir 戦略
+          td.data_dir
+            = f.file_field :data_dir
+            = render partial: "shared/error_messages", locals: {object: submit, column: :data_dir}
         tr
           th.comment 戦略コメント
           td.comment

@@ -4,19 +4,26 @@ class SubmitsController < ApplicationController
   end
 
   def create
-    @submit = Submit.new(submit_params)
+    @submit = Submit.new(submit_params.merge(player_id: params[:pid], number: 0))
+    unless @submit.data_dir.blank?
+      source = @submit.data_dir.read.force_encoding("utf-8")
+      @submit.data_dir = "dummy"
+    end
     render :new and return unless @submit.save
-    #@submit.player_id = params[:pid]
-    #@submit.number = @submit.get_number
-    #@submit.mkdir if @submit.number == 1
-    #@submit.src_file = @submit.set_src
-    #render text: @submit.inspect
-    render template: "shared/reload"
+
+    @submit.number = @submit.get_number
+    @submit.data_dir = @submit.mkdir
+    @submit.set_data(source)
+
+
+
+    @submit.save!
+    redirect_to mains_mypage
   end
 
   private
   def submit_params
-    params.require(:submit).permit(:src_file, :comment)
+    params.require(:submit).permit(:data_dir, :comment)
   end
 end
 

@@ -21,8 +21,9 @@ br
         th.comment 戦略コメント
         th.status ステータス
     tbody
-      - @player.submits.each do |submit|
-        /tr
+      = @player.submits.map {|s| s.inspect}
+      /- @player.submits.each do |submit|
+        tr
           td.name= player.name
           td.role= Player.role_options[player.role]
           td.user= player.user.name

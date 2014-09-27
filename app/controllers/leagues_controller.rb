@@ -12,13 +12,13 @@ class LeaguesController < ApplicationController
 
   def create
     @league = League.new(league_params)
-    League.mkdir
-    @league.src_dir = @league.set_src(file_params)
+    @league.data_dir = @league.rule_file = "dummy" if full_params?
+    render :new and return unless @league.save
+
+    @league.data_dir = @league.mkdir
+    @league.set_data(file_params)
     @league.rule_file = @league.set_rule(rule_params)
-    unless @league.save
-      League.rmdir
-      render :new and return
-    end
+    @league.save!
     redirect_to leagues_path
   end
 
@@ -26,32 +26,25 @@ class LeaguesController < ApplicationController
   end
 
   def update
-    @league.src_dir = @league.set_src(file_params) if file_params.present?
-    @league.rule_file = @league.set_rule(rule_params)
     render :edit and return unless @league.update(league_params)
-    render template: "shared/reload"
+    @league.set_data(file_params) if file_params.present?
+    @league.set_rule(rule_params) if full_rule_params?
+    redirect_to leagues_path
   end
 
   def toggle
-    @league.is_active = !@league.is_active
-    @league.save
+    @league.update(is_active: !@league.is_active)
     redirect_to leagues_path
   end
 
   def toggle_analy
-    @league.is_analy = !@league.is_analy
-    @league.save
+    @league.update(is_analy: !@league.is_analy)
     redirect_to leagues_path
-  end
-
-  def select
-    user = User.where(id: session[:user_id]).first
-    @leagues = user.leagues
   end
 
   private
   def league_params
-    params.require(:league).permit(:name, :start_at, :end_at, :limit_score, :is_analy)
+    params.require(:league).permit(:name, :start_at, :end_at, :limit_score)
   end
 
   def file_params
@@ -61,6 +54,23 @@ class LeaguesController < ApplicationController
 
   def rule_params
     params.require(:rule).permit(:take, :change, :try)
+  end
+
+  def full_file_params?
+    file = params[:file]
+    return false if file.nil?
+    file[:stock].present? && file[:header].present? && file[:exec].present? && file[:card].present?
+    [file[:stock], file[:header], file[:exec], file[:card]].all? {|f| f.present?}
+  end
+
+  def full_rule_params?
+    rule = params[:rule]
+    return false if rule.nil?
+    [rule[:take], rule[:change], rule[:try]].all? {|r| r.present?}
+  end
+
+  def full_params?
+    full_file_params? && full_rule_params?
   end
 
   def get_league
