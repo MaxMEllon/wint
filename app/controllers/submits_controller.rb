@@ -15,10 +15,10 @@ class SubmitsController < ApplicationController
     @submit.data_dir = @submit.mkdir
     @submit.set_data(source)
     @submit.status = @submit.get_status
-
-
-
     @submit.save!
+
+    #Strategy.create(@submit)
+
     redirect_to mains_mypage_path
   end
 

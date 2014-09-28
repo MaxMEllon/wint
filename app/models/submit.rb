@@ -24,11 +24,12 @@ class Submit < ActiveRecord::Base
   def get_status
     league = self.player.league
     rules = league.rule
-    compile(league.data_dir, rules, self.src_file, self.exec_file)
+    rule_dir = league.data_dir + "/rule"
+    compile(rule_dir, rules, self.src_file, self.exec_file)
     return STATUS_COMPILE_ERROR unless File.exist?(self.exec_file)
 
     begin
-      exec(league.data_dir, rules, self.exec_file)
+      exec(rule_dir, rules, self.exec_file)
     rescue
       return STATUS_RUN_ERROR
     end
@@ -46,13 +47,12 @@ class Submit < ActiveRecord::Base
   end
 
   private
-  def compile(data_dir, rules, src_file, exec_file)
-    data_dir += "/rule"
-    `gcc -O2 -I #{data_dir} #{src_file} #{data_dir}/PokerExec.c #{data_dir}/CardLib.c -DTYPE=#{"%02d" % rules[:take]}-#{"%02d" % rules[:change]} -DTAKE=#{rules[:take]} -DCHNG=#{rules[:change]} -o #{exec_file}`
+  def compile(rule_dir, rules, src_file, exec_file)
+    `gcc -O2 -I #{rule_dir} #{src_file} #{rule_dir}/PokerExec.c #{rule_dir}/CardLib.c -DTYPE=#{"%02d" % rules[:take]}-#{"%02d" % rules[:change]} -DTAKE=#{rules[:take]} -DCHNG=#{rules[:change]} -o #{exec_file}`
   end
 
-  def exec(data_dir, rules, exec_file)
-    `cd #{Rails.root}/tmp && #{exec_file} _tmp #{rules[:try]} #{data_dir}/Stock.ini 0`
+  def exec(rule_dir, rules, exec_file)
+    `cd #{Rails.root}/tmp && #{exec_file} _tmp #{rules[:try]} #{rule_dir}/Stock.ini 0`
   end
 end
 

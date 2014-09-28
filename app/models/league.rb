@@ -8,13 +8,14 @@ class League < ActiveRecord::Base
   end
 
   def rule(symbol = nil)
+    return nil if self.rule_file.blank?
     rules = ModelHelper.decode_json(File.read(self.rule_file))
     symbol.present? ? rules[symbol] : rules.symbolize_keys
   end
 
   def format_rule
     rules = rule
-    "%02d-%02d-#{rules["try"]}" % [rules["take"], rules["change"]]
+    "#{"%02d" % rules[:take]}-#{"%02d" % rules[:change]}-#{rules[:try]}"
   end
 
   def mkdir
