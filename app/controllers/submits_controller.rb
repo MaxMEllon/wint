@@ -4,21 +4,22 @@ class SubmitsController < ApplicationController
   end
 
   def create
-    @submit = Submit.new(submit_params.merge(player_id: params[:pid], number: 0))
+    @submit = Submit.new(submit_params.merge(player_id: params[:pid]))
     unless @submit.data_dir.blank?
       source = @submit.data_dir.read.force_encoding("utf-8")
       @submit.data_dir = "dummy"
     end
+    @submit.number = @submit.get_number
     render :new and return unless @submit.save
 
-    @submit.number = @submit.get_number
     @submit.data_dir = @submit.mkdir
     @submit.set_data(source)
+    @submit.status = @submit.get_status
 
 
 
     @submit.save!
-    redirect_to mains_mypage
+    redirect_to mains_mypage_path
   end
 
   private
