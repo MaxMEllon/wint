@@ -16,8 +16,7 @@ class SubmitsController < ApplicationController
     @submit.set_data(source)
     @submit.status = @submit.get_status
     @submit.save!
-
-    #Strategy.create(@submit)
+    Strategy.create(@submit) if @submit.exec_success?
 
     redirect_to mains_mypage_path
   end

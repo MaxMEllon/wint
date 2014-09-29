@@ -1,12 +1,20 @@
 class Submit < ActiveRecord::Base
   belongs_to :player
-  belongs_to :strategy
+  has_one :strategy
 
   validates_presence_of :data_dir
 
   STATUS_SUCCESS = 0
   STATUS_COMPILE_ERROR = 1
-  STATUS_RUN_ERROR = 2
+  STATUS_EXEC_ERROR = 2
+
+  def self.status_options
+    {
+      STATUS_SUCCESS => '成功',
+      STATUS_COMPILE_ERROR => 'コンパイルエラー',
+      STATUS_EXEC_ERROR => '実行時エラー'
+    }
+  end
 
   def src_file
     self.data_dir + "/PokerOpe.c"
@@ -31,7 +39,7 @@ class Submit < ActiveRecord::Base
     begin
       exec(rule_dir, rules, self.exec_file)
     rescue
-      return STATUS_RUN_ERROR
+      return STATUS_EXEC_ERROR
     end
     STATUS_SUCCESS
   end
@@ -46,12 +54,18 @@ class Submit < ActiveRecord::Base
     File.open(self.src_file, "w") {|f| f.puts source}
   end
 
+  def exec_success?
+    self.status == STATUS_SUCCESS
+  end
+
   private
   def compile(rule_dir, rules, src_file, exec_file)
     `gcc -O2 -I #{rule_dir} #{src_file} #{rule_dir}/PokerExec.c #{rule_dir}/CardLib.c -DTYPE=#{"%02d" % rules[:take]}-#{"%02d" % rules[:change]} -DTAKE=#{rules[:take]} -DCHNG=#{rules[:change]} -o #{exec_file}`
   end
 
   def exec(rule_dir, rules, exec_file)
+    log = "#{Rails.root}/tmp/log"
+    Dir::mkdir(log) unless File.exist?(log)
     `cd #{Rails.root}/tmp && #{exec_file} _tmp #{rules[:try]} #{rule_dir}/Stock.ini 0`
   end
 end
