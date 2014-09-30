@@ -1,5 +1,8 @@
 class Strategy < ActiveRecord::Base
   belongs_to :submit
+  has_one :player, through: :submit
+
+  scope :score_by, -> { order("score DESC") }
 
   # Analysisクラスを作るまではごちゃごちゃしてるけど仕方ない
 
@@ -8,6 +11,12 @@ class Strategy < ActiveRecord::Base
     analy_file = Strategy.mkdir(submit)
     score = File.read(submit.data_dir + "/analy/result/Result.txt").split.last.to_f
     super(submit_id: submit.id, analy_file: analy_file, score: score, number: Strategy.get_number(submit))
+  end
+
+  def best?
+    strategies = self.submit.player.strategies.score_by
+    return true if strategies.blank? || self.score >= strategies.first.score
+    false
   end
 
   private

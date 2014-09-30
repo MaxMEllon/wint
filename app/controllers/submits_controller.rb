@@ -16,7 +16,10 @@ class SubmitsController < ApplicationController
     @submit.set_data(source)
     @submit.status = @submit.get_status
     @submit.save!
-    Strategy.create(@submit) if @submit.exec_success?
+    if @submit.exec_success?
+      strategy = Strategy.create(@submit)
+      strategy.submit.player.update(submit_id: @submit.id) if strategy.best?
+    end
 
     redirect_to mains_mypage_path
   end

@@ -1,6 +1,7 @@
 class Player < ActiveRecord::Base
   belongs_to :user
   belongs_to :league
+  belongs_to :best, class_name: :Submit, foreign_key: :submit_id
   has_many :submits, dependent: :delete_all
   has_many :strategies, through: :submits
 
