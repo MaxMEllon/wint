@@ -4,7 +4,7 @@ class SubmitsController < ApplicationController
   end
 
   def create
-    @submit = Submit.new(submit_params.merge(player_id: params[:pid]))
+    @submit = Submit.new(submit_params.merge(player_id: session[:pid]))
     unless @submit.data_dir.blank?
       source = @submit.data_dir.read.force_encoding("utf-8")
       @submit.data_dir = "dummy"
@@ -21,7 +21,7 @@ class SubmitsController < ApplicationController
       strategy.submit.player.update(submit_id: @submit.id) if strategy.best?
     end
 
-    redirect_to mains_mypage_path
+    redirect_to main_mypage_path
   end
 
   private

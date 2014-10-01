@@ -14,7 +14,7 @@ br
       - @players.each do |player|
         - league = player.league
         tr
-          td.player= link_to player.name, mains_mypage_path(lid: league.id, pid: player.id)
+          td.player= link_to player.name, main_set_player_path(lid: player.league.id)
           td.league= league.name
           td.open
             = format_time(league.start_at)

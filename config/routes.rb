@@ -4,19 +4,21 @@ Wint::Application.routes.draw do
   ##================================================
 
   ##--  Session
-  get  'sessions/login'  => 'sessions#new', as: :login
-  post 'sessions/login'  => 'sessions#create'
-  get  'sessions/logout' => 'sessions#destroy', as: :logout
+  get  'session/login'  => 'sessions#new', as: :login
+  post 'session/login'  => 'sessions#create'
+  get  'session/logout' => 'sessions#destroy', as: :logout
 
   ##================================================
   ##  Main
   ##================================================
 
   ##--  Main
-  get  'mains/select'           => 'mains#select', as: :mains_select
-  get  'mains/:lid/:pid'        => 'mains#mypage', as: :mains_mypage
-  get  'mains/:lid/:pid/submit' => 'submits#new', as: :submits_new
-  post 'mains/:lid/:pid/submit' => 'submits#create'
+  get  'main/select'          => 'mains#select', as: :main_select
+  get  'main/set_player/:lid' => 'mains#set_player', as: :main_set_player
+  get  'main/ranking'         => 'mains#ranking', as: :main_ranking
+  get  'main/mypage'          => 'mains#mypage', as: :main_mypage
+  get  'main/mypage/submit'   => 'submits#new', as: :submits_new
+  post 'main/mypage/submit'   => 'submits#create'
 
   ##================================================
   ##  Admin

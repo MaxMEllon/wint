@@ -1,0 +1,25 @@
+
+h2 ランキングページ
+br
+
+.mains.ranking
+
+  table.table-base.datatable
+    thead
+      tr
+        th.id 順位
+        th.rank ランク
+        th.score 得点
+        th.player プレイヤ名
+        th.achievement 達成度
+        th.comment コメント
+    tbody
+      - @bests.each.with_index(1) do |best, i|
+        tr
+          td.id= i
+          td.rank= best.strategy.rank
+          td.score= best.strategy.score
+          td.player= best.player.name
+          td.achievement= "%.2f %" % best.strategy.achievement
+          td.comment= best.comment
+
