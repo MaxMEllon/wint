@@ -28,6 +28,7 @@ html lang="en"
               li= link_to "ランキング", main_ranking_path
           ul.nav.navbar-nav.navbar-right
             - if @current_user.present?
+              li= link_to "パスワード変更", users_edit_password_path(uid: @current_user.id), data: {remote: true}
               li= link_to "ログアウト", logout_path
 
     .container.main
