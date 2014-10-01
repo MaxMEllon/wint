@@ -26,6 +26,10 @@ html lang="en"
             - if @current_player.present?
               li= link_to "マイページ", main_mypage_path
               li= link_to "ランキング", main_ranking_path
+            - if @current_user.present?
+              li= link_to "ユーザ", users_path
+              li= link_to "リーグ", leagues_path
+              li= link_to "プレイヤ", players_path
           ul.nav.navbar-nav.navbar-right
             - if @current_user.present?
               li= link_to "パスワード変更", users_edit_password_path(uid: @current_user.id), data: {remote: true}
@@ -33,6 +37,7 @@ html lang="en"
 
     .container.main
       = bootstrap_flash
+      = render partial: "shared/modal/target"
       = yield
 
     .container.footer
