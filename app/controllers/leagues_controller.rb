@@ -7,7 +7,7 @@ class LeaguesController < ApplicationController
 
   def new
     @league = League.new
-    @league.start_at = @league.end_at = Time.new.strftime("%Y-%m-%d 00:00:00")
+    @league.start_at = @league.end_at = Time.new.strftime("%Y.%m.%d 00:00")
   end
 
   def create
