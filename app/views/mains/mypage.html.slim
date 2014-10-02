@@ -22,7 +22,7 @@ br
       - @player.submits.each do |submit|
         tr
           td.number= "%03d" % submit.number
-          td.score= submit.strategy.score
+          td.score= format_score(submit.strategy.score)
           td.status= Submit.status_options[submit.status]
           td.created_at= format_time(submit.created_at)
           td.comment= submit.comment

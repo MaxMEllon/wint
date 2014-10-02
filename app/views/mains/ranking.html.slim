@@ -21,8 +21,8 @@ br
           | <tr>
         td.id= i
         td.rank= best.strategy.rank
-        td.score= best.strategy.score
+        td.score= format_score(best.strategy.score)
         td.player= best.player.name
-        td.achievement= "%.2f %" % best.strategy.achievement
+        td.achievement= format_achievement(best.strategy.achievement)
         td.comment= best.comment
 
