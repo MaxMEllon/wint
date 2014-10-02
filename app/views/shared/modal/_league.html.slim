@@ -3,11 +3,11 @@ coffee:
   datetimepicker()
 
 - if league.id.nil?
-  - title = "リーグ新規登録"
-  - render_submit = render partial: "shared/buttons/new"
+  - title = "リーグ作成"
+  - render_submit = render partial: "shared/buttons/create"
 - else
-  - title = "リーグ情報編集"
-  - render_submit = render partial: "shared/buttons/edit"
+  - title = "リーグ編集"
+  - render_submit = render partial: "shared/buttons/update"
 
 .modal-dialog.modal-content
   = form_tag path, data: {remote: true}, multipart: true do

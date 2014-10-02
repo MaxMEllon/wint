@@ -1,10 +1,10 @@
 
 - if user.id.nil?
-  - title = "ユーザ新規登録"
-  - render_submit = render partial: "shared/buttons/new"
+  - title = "ユーザ作成"
+  - render_submit = render partial: "shared/buttons/create"
 - else
-  - title = "ユーザ情報編集"
-  - render_submit = render partial: "shared/buttons/edit"
+  - title = "ユーザ編集"
+  - render_submit = render partial: "shared/buttons/update"
 
 .modal-dialog.modal-content
   = form_for user, url: path, remote: true do |f|

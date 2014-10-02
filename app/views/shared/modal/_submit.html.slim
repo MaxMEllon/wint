@@ -17,7 +17,6 @@
             = render partial: "shared/error_messages", locals: {object: submit, column: :comment}
     .modal-footer
       button.btn.btn-primary
-        span.glyphicon.glyphicon-tags
-        | &nbsp;&nbsp;提出
+        = fa_icon "folder-open", text: "提出"
       = render partial: "shared/buttons/cancel"
 

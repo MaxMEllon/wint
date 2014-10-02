@@ -1,10 +1,10 @@
 
 - if player.id.nil?
-  - title = "プレイヤ新規登録"
-  - render_submit = render partial: "shared/buttons/new"
+  - title = "プレイヤ作成"
+  - render_submit = render partial: "shared/buttons/create"
 - else
-  - title = "プレイヤ情報編集"
-  - render_submit = render partial: "shared/buttons/edit"
+  - title = "プレイヤ編集"
+  - render_submit = render partial: "shared/buttons/update"
 
 .modal-dialog.modal-content
   = form_for player, url: path, data: {remote: true} do |f|
