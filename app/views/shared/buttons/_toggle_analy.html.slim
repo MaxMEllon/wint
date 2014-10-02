@@ -1,10 +1,8 @@
 
 - if is_analy
-  button.btn.btn-warning
-    span.glyphicon.glyphicon-stats
-    | &nbsp;&nbsp;実施中
+  button.btn.btn-info
+    = fa_icon "area-chart", text: "実施中"
 - else
   button.btn.btn-default
-    span.glyphicon.glyphicon-play
-    | &nbsp;&nbsp;開始
+    = fa_icon "play", text: "開始"
 

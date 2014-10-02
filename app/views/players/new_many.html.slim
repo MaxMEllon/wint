@@ -9,8 +9,7 @@ br
 = form_tag players_new_many_path do
   = hidden_field_tag :league_id, @league.id
   button.btn.btn-primary
-    span.glyphicon.glyphicon-tags
-    | &nbsp;&nbsp;プレイヤ一括登録
+    = fa_icon "tags", text: "プレイヤ一括登録"
   br
   br
 

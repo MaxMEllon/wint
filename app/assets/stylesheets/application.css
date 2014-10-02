@@ -13,6 +13,7 @@
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require bootstrap-datetimepicker
  *= require bootstrap_and_overrides
+ *= require font-awesome
  *= require common
  */
 
