@@ -18,5 +18,10 @@ class SessionsController < ApplicationController
     session[:uid] = session[:lid] = session[:pid] = nil
     redirect_to login_path
   end
+
+  def destroy_player
+    session[:lid] = session[:pid] = nil
+    redirect_to main_select_path
+  end
 end
 

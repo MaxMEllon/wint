@@ -4,9 +4,10 @@ Wint::Application.routes.draw do
   ##================================================
 
   ##--  Session
-  get  'session/login'  => 'sessions#new', as: :login
-  post 'session/login'  => 'sessions#create'
-  get  'session/logout' => 'sessions#destroy', as: :logout
+  get  'session/login'          => 'sessions#new', as: :login
+  post 'session/login'          => 'sessions#create'
+  get  'session/logout'         => 'sessions#destroy', as: :logout
+  get  'session/destroy_player' => 'sessions#destroy_player', as: :destroy_player
 
   ##================================================
   ##  Main
