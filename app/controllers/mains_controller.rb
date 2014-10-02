@@ -1,15 +1,15 @@
 class MainsController < ApplicationController
   def ranking
-    players = Player.where(league_id: current_player.league_id)
+    players = Player.where(league_id: @current_player.league_id)
     @bests = players.map {|p| p.best}.sort {|a, b| b.strategy.score <=> a.strategy.score}
   end
 
   def mypage
-    @player = current_player
+    @player = @current_player
   end
 
   def select
-    @players = current_user.players
+    @players = @current_user.players
   end
 
   def set_player
