@@ -15,13 +15,15 @@ br
       tr
         th.number 提出番号
         th.score 得点
-        th.comment 戦略コメント
         th.status ステータス
+        th.created_at 提出日時
+        th.comment 戦略コメント
     tbody
       - @player.submits.each do |submit|
         tr
           td.number= "%03d" % submit.number
           td.score= submit.strategy.score
-          td.comment= submit.comment
           td.status= Submit.status_options[submit.status]
+          td.created_at= format_time(submit.created_at)
+          td.comment= submit.comment
 
