@@ -18,7 +18,7 @@ br
         th.user ユーザ名
         th.league リーグ名
         th.edit 編集
-        th.disable 有効 / 無効
+        th.toggle 有効 / 無効
     tbody
       - @players.each do |player|
         = render partial: "shared/row", locals: {is_active: player.is_active}

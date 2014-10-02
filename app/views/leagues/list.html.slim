@@ -18,7 +18,7 @@ br
         th.score 理想得点
         th.is_analy 分析切替
         th.edit 編集
-        th.disable 有効 / 無効
+        th.toggle 有効 / 無効
     tbody
       - @leagues.each do |league|
         = render partial: "shared/row", locals: {is_active: league.is_active}

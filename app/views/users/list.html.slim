@@ -8,7 +8,6 @@ br
 br
 
 .users.list
-
   table.table.table-base.datatable
     thead
       tr
@@ -18,8 +17,8 @@ br
         th.depart 学科
         th.entrance 入学年度
         th.edit 編集
-        th.password パスワード変更
-        th.disable 有効 / 無効
+        th.password パスワード
+        th.toggle 有効 / 無効
     tbody
       - @users.each do |user|
         = render partial: "shared/row", locals: {is_active: user.is_active}

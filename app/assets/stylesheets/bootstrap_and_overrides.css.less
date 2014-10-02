@@ -15,7 +15,7 @@
 @import "fontawesome/font-awesome";
 
 @media (min-width: @screen-lg-min) {
-  .container.main { width: 80%; }
+  .container { width: 80%; }
 }
 
 .table-base {
@@ -29,8 +29,21 @@
 
   tbody > tr {
     th, td { vertical-align: middle; }
+
     th { text-align: center; }
+
     td {
+      &.number, &.status, &.id, &.rank, &.player,
+      &.snum, &.category, &.name, &.depart, &.entrance,
+      &.open, &.rule, &.is_analy, &.user, &.role,
+      &.league, &.check, &.edit, &.password, &.toggle {
+        text-align: center;
+      }
+
+      &.score, &.achievement {
+        text-align: right;
+      }
+
       input[type="text"], input[type="password"], select { .form-control; }
       button.btn {
         .small;
