@@ -1,15 +1,18 @@
 
-h2
-  | プレイヤ一括登録
-  small
-    | &nbsp;&nbsp;
-    = @league.name
-br
-
 = form_tag players_new_many_path do
   = hidden_field_tag :league_id, @league.id
-  button.btn.btn-primary
-    = fa_icon "tags", text: "プレイヤ一括登録"
+  .title
+    .row
+      .col-lg-5
+        h2
+          | プレイヤ一括登録
+          small
+            | &nbsp;&nbsp;
+            = @league.name
+      .col-lg-7
+        br
+        button.btn.btn-primary
+          = fa_icon "tags", text: "プレイヤ一括登録"
   br
   br
 

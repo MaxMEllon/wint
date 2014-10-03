@@ -1,10 +1,13 @@
 
-h2 ユーザ選択
-br
-
 = form_tag players_new_many_path, method: :get do
-  button.btn.btn-primary
-    = fa_icon "share", text: "プレイヤ登録画面へ"
+  .title
+    .row
+      .col-lg-5
+        h2 ユーザ選択
+      .col-lg-7
+        br
+        button.btn.btn-primary
+          = fa_icon "share", text: "プレイヤ登録画面へ"
   br
   br
 
@@ -16,7 +19,7 @@ br
           tr
             th リーグ
             td= select_tag :league_id, options_for_select(League.select_format)
-
+  
     table.table-base.datatable
       thead
         tr

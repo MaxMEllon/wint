@@ -1,9 +1,12 @@
 
-h2 リーグ一覧
-br
-
-= link_to leagues_new_path, remote: true do
-  = render partial: "shared/buttons/new"
+.title
+  .row
+    .col-lg-5
+      h2 リーグ一覧
+    .col-lg-7
+      br
+      = link_to leagues_new_path, remote: true do
+        = render partial: "shared/buttons/new"
 br
 br
 

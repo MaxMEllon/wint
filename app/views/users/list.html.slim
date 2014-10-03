@@ -1,9 +1,12 @@
 
-h2 ユーザ一覧
-br
-
-= link_to users_new_path, remote: true do
-  = render partial: "shared/buttons/new"
+.title
+  .row
+    .col-lg-5
+      h2 ユーザ一覧
+    .col-lg-7
+      br
+      = link_to users_new_path, data: {remote: true} do
+        = render partial: "shared/buttons/new"
 br
 br
 
