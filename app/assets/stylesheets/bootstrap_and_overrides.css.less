@@ -14,6 +14,8 @@
 // Font Awesome
 @import "fontawesome/font-awesome";
 
+@import "variable";
+
 @media (min-width: @screen-lg-min) {
   .container { width: 80%; }
 }
@@ -55,6 +57,22 @@
 
 button.btn {
   color: black;
-  opacity: 0.8;
+
+  &.btn-primary {
+    background-color: @tmng_primary;
+    border-color: @tmng_primary_border;
+  }
+  &.btn-success {
+    background-color: @tmng_success;
+    border-color: @tmng_success_border;
+  }
+  &.btn-info {
+    background-color: @tmng_info;
+    border-color: @tmng_info_border;
+  }
+  &.btn-warning {
+    background-color: @tmng_warning;
+    border-color: @tmng_warning_border;
+  }
 }
 
