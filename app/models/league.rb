@@ -10,7 +10,7 @@ class League < ActiveRecord::Base
   def rule(symbol = nil)
     return nil if self.rule_file.blank?
     rules = ModelHelper.decode_json(File.read(self.rule_file))
-    symbol.present? ? rules[symbol] : rules.symbolize_keys
+    symbol.present? ? rules[symbol] : rules
   end
 
   def format_rule
