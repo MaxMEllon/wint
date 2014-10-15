@@ -10,17 +10,11 @@ class SubmitsController < ApplicationController
       @submit.data_dir = "dummy"
     end
     @submit.number = @submit.get_number
+    @submit.data_dir = @submit.mkdir
     render :new and return unless @submit.save
 
-    @submit.data_dir = @submit.mkdir
     @submit.set_data(source)
-    @submit.status = @submit.get_status
-    @submit.save!
-    if @submit.exec_success?
-      strategy = Strategy.create(@submit)
-      strategy.submit.player.update(submit_id: @submit.id) if strategy.best?
-    end
-
+    EventWorker.perform_async(@submit.id)
     redirect_to main_mypage_path
   end
 
