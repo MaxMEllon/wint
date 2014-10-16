@@ -4,12 +4,14 @@ class Submit < ActiveRecord::Base
 
   validates_presence_of :data_dir
 
-  STATUS_SUCCESS = 0
-  STATUS_COMPILE_ERROR = 1
-  STATUS_EXEC_ERROR = 2
+  STATUS_RUNNINNG = 0
+  STATUS_SUCCESS = 1
+  STATUS_COMPILE_ERROR = 2
+  STATUS_EXEC_ERROR = 3
 
   def self.status_options
     {
+      STATUS_RUNNINNG => '実行中',
       STATUS_SUCCESS => '成功',
       STATUS_COMPILE_ERROR => 'コンパイルエラー',
       STATUS_EXEC_ERROR => '実行時エラー'
