@@ -13,7 +13,7 @@ br
 
 .main.mypage
 
-  table.table-base.datatable-desc
+  table.table.table-base.datatable-desc
     thead
       tr
         th.number 提出番号
@@ -23,10 +23,15 @@ br
         th.comment 戦略コメント
     tbody
       - @player.submits.each do |submit|
-        tr
-          td.number= "%03d" % submit.number
-          td.score= submit.strategy ? format_score(submit.strategy.score) : "???"
-          td.status= Submit.status_options[submit.status]
-          td.created_at= format_time(submit.created_at)
-          td.comment= submit.comment
+        - if submit.status == Submit::STATUS_SUCCESS
+          | <tr>
+        - elsif submit.status == Submit::STATUS_RUNNING
+          | <tr class="warning">
+        - else
+          | <tr class="danger">
+        td.number= "%03d" % submit.number
+        td.score= submit.strategy ? format_score(submit.strategy.score) : "???"
+        td.status= Submit.status_options[submit.status]
+        td.created_at= format_time(submit.created_at)
+        td.comment= submit.comment
 
