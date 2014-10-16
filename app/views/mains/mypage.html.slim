@@ -5,7 +5,7 @@
       h2 マイページ
     .col-lg-7
       br
-      = link_to submits_new_path(pid: @player.id), data: {remote: true} do
+      = link_to submits_new_path, data: {remote: true} do
         button.btn.btn-primary
           = fa_icon "folder-open", text: "戦略提出"
 br

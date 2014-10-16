@@ -1,0 +1,19 @@
+
+- title = "プレイヤ名変更"
+- render_submit = render partial: "shared/buttons/update"
+
+.modal-dialog.modal-content
+  = form_for player, url: path, data: {remote: true} do |f|
+    .modal-header
+      h3= title
+    .modal-body.players.form
+      table.table-base
+        tr
+          th.name プレイヤ名
+          td.name
+            = f.text_field :name
+            = render partial: "shared/error_messages", locals: {object: player, column: :name}
+    .modal-footer
+      = render_submit
+      = render partial: "shared/buttons/cancel"
+

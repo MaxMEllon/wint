@@ -48,6 +48,10 @@ class PlayersController < ApplicationController
     redirect_to players_path
   end
 
+  def edit_name
+    @player = @current_player
+  end
+
   private
   def player_params
     params.require(:player).permit(:user_id, :league_id, :name, :role)

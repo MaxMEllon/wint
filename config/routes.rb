@@ -54,5 +54,6 @@ Wint::Application.routes.draw do
   get   'admin/players/:pid/edit'   => 'players#edit', as: :players_edit
   patch 'admin/players/:pid/edit'   => 'players#update'
   get   'admin/players/:pid/toggle' => 'players#toggle', as: :players_toggle
+  get   'admin/players/edit_name'   => 'players#edit_name', as: :players_edit_name
 end
 
