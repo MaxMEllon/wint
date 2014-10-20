@@ -25,10 +25,6 @@ class UsersController < ApplicationController
   end
 
   def edit_password
-    unless @user.id == @current_user.id
-      flash[:alert] = "不正なアクセスを検出。教員に通知しました。"
-      render template: "shared/reload"
-    end
   end
 
   def update_password

@@ -14,12 +14,16 @@ Wint::Application.routes.draw do
   ##================================================
 
   ##--  Main
-  get  'main/select'          => 'mains#select', as: :main_select
-  get  'main/set_player/:lid' => 'mains#set_player', as: :main_set_player
-  get  'main/ranking'         => 'mains#ranking', as: :main_ranking
-  get  'main/mypage'          => 'mains#mypage', as: :main_mypage
-  get  'main/mypage/submit'   => 'submits#new', as: :submits_new
-  post 'main/mypage/submit'   => 'submits#create'
+  get   'main/select'          => 'mains#select', as: :main_select
+  get   'main/set_player/:lid' => 'mains#set_player', as: :main_set_player
+  get   'main/ranking'         => 'mains#ranking', as: :main_ranking
+  get   'main/mypage'          => 'mains#mypage', as: :main_mypage
+  get   'main/mypage/submit'   => 'submits#new', as: :submits_new
+  post  'main/mypage/submit'   => 'submits#create'
+  get   'main/edit_name'       => 'mains#edit_name', as: :main_edit_name
+  patch 'main/edit_name'       => 'mains#update_name'
+  get   'main/edit_password'   => 'mains#edit_password', as: :main_edit_password
+  patch 'main/edit_password'   => 'mains#update_password'
 
   ##================================================
   ##  Admin
@@ -54,6 +58,5 @@ Wint::Application.routes.draw do
   get   'admin/players/:pid/edit'   => 'players#edit', as: :players_edit
   patch 'admin/players/:pid/edit'   => 'players#update'
   get   'admin/players/:pid/toggle' => 'players#toggle', as: :players_toggle
-  get   'admin/players/edit_name'   => 'players#edit_name', as: :players_edit_name
 end
 

@@ -5,6 +5,8 @@ class Player < ActiveRecord::Base
   has_many :submits, dependent: :delete_all
   has_many :strategies, through: :submits
 
+  validates_presence_of :name
+
   ROLE_PARTICIPANT = 0
   ROLE_AUDIENCE = 1
 
