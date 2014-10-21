@@ -13,13 +13,26 @@
 
 // Font Awesome
 @import "fontawesome/font-awesome";
-
 @import "variable";
+
+//--  container
+.container {
+  &.header {
+    i.fa {
+      font-size: 16px;
+      padding-right: 3px;
+    }
+  }
+
+  &.main {}
+  &.footer { text-align: right; }
+}
 
 @media (min-width: @screen-lg-min) {
   .container { width: 80%; }
 }
 
+//--  table
 .table-base {
   .table;
   .table-bordered;
@@ -56,6 +69,7 @@
   }
 }
 
+//--  button
 button.btn {
   color: black;
 
@@ -77,6 +91,7 @@ button.btn {
   }
 }
 
+//--  navbar
 .navbar-inverse {
   background-color: #655595;
   border-color: #655595;
@@ -87,5 +102,16 @@ button.btn {
   }
 }
 
-h2 small { color: black; }
+//--  modal
+.modal-header {
+  padding: 0px 20px 0px 20px;
+}
+
+.modal-body {
+  padding-bottom: 0px;
+}
+
+.modal-footer {
+  padding: 10px 20px 10px 20px;
+}
 
