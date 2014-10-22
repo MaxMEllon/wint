@@ -1,20 +1,30 @@
 class Submit < ActiveRecord::Base
-  belongs_to :player
-  has_one :strategy
-
-  validates_presence_of :data_dir
+  include ExecManager
 
   STATUS_RUNNING = 0
   STATUS_SUCCESS = 1
   STATUS_COMPILE_ERROR = 2
   STATUS_EXEC_ERROR = 3
+  STATUS_TIME_OVER = 4
+  STATUS_SYNTAX_ERROR = 5
+
+  TIME_LIMIT = 30
+
+  belongs_to :player
+  has_one :strategy
+
+  validates_presence_of :data_dir
+
+  scope :number_by, -> {order("number")}
 
   def self.status_options
     {
       STATUS_RUNNING => '実行中',
       STATUS_SUCCESS => '成功',
       STATUS_COMPILE_ERROR => 'コンパイルエラー',
-      STATUS_EXEC_ERROR => '実行時エラー'
+      STATUS_EXEC_ERROR => '実行時エラー',
+      STATUS_TIME_OVER => '時間超過',
+      STATUS_SYNTAX_ERROR => '危険なコード'
     }
   end
 
@@ -27,7 +37,7 @@ class Submit < ActiveRecord::Base
   end
 
   def get_number
-    submits = self.player.submits
+    submits = self.player.submits.number_by
     submits.present? ? submits.last.number+1 : 1
   end
 
@@ -35,14 +45,13 @@ class Submit < ActiveRecord::Base
     league = self.player.league
     rules = league.rule
     rule_dir = league.data_dir + "/rule"
-    compile(rule_dir, rules, self.src_file, self.exec_file)
-    return STATUS_COMPILE_ERROR unless File.exist?(self.exec_file)
 
-    begin
-      exec(rule_dir, rules, self.exec_file)
-    rescue
-      return STATUS_EXEC_ERROR
-    end
+    status = filecheck(self.src_file)
+    return status unless status == STATUS_SUCCESS
+    status = compile(rule_dir, rules, self.src_file, self.exec_file)
+    return status unless status == STATUS_SUCCESS
+    status = exec(rule_dir, rules, self.exec_file)
+    return status unless status == STATUS_SUCCESS
     STATUS_SUCCESS
   end
 
@@ -58,17 +67,6 @@ class Submit < ActiveRecord::Base
 
   def exec_success?
     self.status == STATUS_SUCCESS
-  end
-
-  private
-  def compile(rule_dir, rules, src_file, exec_file)
-    `gcc -O2 -I #{rule_dir} #{src_file} #{rule_dir}/PokerExec.c #{rule_dir}/CardLib.c -DTYPE=#{"%02d" % rules[:take]}-#{"%02d" % rules[:change]} -DTAKE=#{rules[:take]} -DCHNG=#{rules[:change]} -o #{exec_file}`
-  end
-
-  def exec(rule_dir, rules, exec_file)
-    log = "#{Rails.root}/tmp/log"
-    Dir::mkdir(log) unless File.exist?(log)
-    `cd #{Rails.root}/tmp && #{exec_file} _tmp #{rules[:try]} #{rule_dir}/Stock.ini 0`
   end
 end
 

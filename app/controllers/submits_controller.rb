@@ -14,7 +14,7 @@ class SubmitsController < ApplicationController
 
     @submit.update(data_dir: @submit.mkdir)
     @submit.set_data(source)
-    EventWorker.perform_async(@submit.id)
+    HardWorker.perform_async(@submit.id)
     redirect_to main_mypage_path
   end
 
