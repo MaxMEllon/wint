@@ -10,9 +10,9 @@ class SubmitsController < ApplicationController
       @submit.data_dir = "dummy"
     end
     @submit.number = @submit.get_number
-    @submit.data_dir = @submit.mkdir
     render :new and return unless @submit.save
 
+    @submit.update(data_dir: @submit.mkdir)
     @submit.set_data(source)
     EventWorker.perform_async(@submit.id)
     redirect_to main_mypage_path
