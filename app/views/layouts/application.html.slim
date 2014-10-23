@@ -30,7 +30,7 @@ html lang="en"
                 = fa_icon "home", text: "マイページ"
               li= link_to main_ranking_path do
                 = fa_icon "trophy", text: "ランキング"
-            - if @current_user
+            - if @current_user && @current_user.admin?
               li.dropdown
                 a.dropdown-toggle href="#" data-toggle="dropdown"
                   = fa_icon "cogs", text: "管理"
@@ -44,10 +44,9 @@ html lang="en"
                   li= link_to players_path do
                     = fa_icon "child", text: "プレイヤ"
           ul.nav.navbar-nav.navbar-right
-            - if @current_player
+            - if @current_user
               li= link_to destroy_player_path do
                 = fa_icon "users", text: "プレイヤ選択"
-            - if @current_user
               li.dropdown
                 a.dropdown-toggle href="#" data-toggle="dropdown"
                   = fa_icon "cog", text: @current_user.name

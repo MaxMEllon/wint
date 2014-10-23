@@ -14,10 +14,13 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :snum, uniqueness: true, presence: true
-  validates_presence_of :name, :password, :password_confirmation
+  validates_presence_of :snum, :name
   validates_inclusion_of :category, in: [CATEGORY_STUDENT, CATEGORY_TA, CATEGORY_TEACHER, CATEGORY_GUEST]
   validates_inclusion_of :depart, in: [DEPART_RISE_ENIE, DEPART_OTHER]
+
+  def admin?
+    self.category == CATEGORY_TEACHER
+  end
 
   def self.select_format
     self.all.map {|u| [u.name, u.id]}
