@@ -1,8 +1,11 @@
 
 = form_for User.new, url: login_path do |f|
   .sessions.form.row
-    .col-lg-2
-    .col-lg-8
+    .col-lg-5
+      .jumbotron
+        h2 ようこそ WinT へ
+        h4 WinTは、情報環境実験IIのPoker演習における大会運営サーバです。
+    .col-lg-7
       table.table-base
         tr
           th.snum 学籍番号
@@ -10,6 +13,7 @@
         tr
           th.password パスワード
           td.password= f.password_field :password
-      button.btn.btn-primary
-        = fa_icon "sign-in", text: "ログイン"
+      div style="text-align: center"
+        button.btn.btn-primary
+          = fa_icon "sign-in", text: "ログイン"
 
