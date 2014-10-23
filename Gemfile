@@ -54,6 +54,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'font-awesome-rails'
 gem 'rb-readline'
 gem 'sidekiq'
+gem 'quiet_assets'
 
 gem 'rspec-rails'
 gem 'factory_girl_rails'
