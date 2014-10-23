@@ -8,12 +8,12 @@ class Player < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: 10}
 
   ROLE_PARTICIPANT = 0
-  ROLE_AUDIENCE = 1
+  ROLE_AUDITOR = 1
 
   def self.role_options
     {
       ROLE_PARTICIPANT => '受講者',
-      ROLE_AUDIENCE => '聴講者'
+      ROLE_AUDITOR => '聴講者'
     }
   end
 

@@ -22,7 +22,7 @@ br
         th.created_at 提出日時
         th.comment 戦略コメント
     tbody
-      - @player.submits.each do |submit|
+      - @submits.each do |submit|
         - if submit.status == Submit::STATUS_SUCCESS
           | <tr>
         - elsif submit.status == Submit::STATUS_RUNNING
