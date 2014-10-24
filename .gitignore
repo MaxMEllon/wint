@@ -18,3 +18,5 @@
 /public/data/*
 !/public/data/.keep
 
+/public/assets
+
