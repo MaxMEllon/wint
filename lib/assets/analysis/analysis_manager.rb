@@ -3,28 +3,33 @@ require "analysis/code_analysis"
 require "analysis/log_analysis"
 
 class AnalysisManager
+  attr_reader :result, :code, :log
 
-  # Strategy
-  def initialize(data_dir)
-    dirs = ModelHelper.decode_json(File.read(data_dir + "/analy/analy.json"))
-    result = ResultAnalysis.new(dirs[:rpath])
-    code = CodeAnalysis.new(dirs[:cpath])
-    log = LogAnalysis.new(dirs[:lpath])
-    @analy = {result: result, code: code, log: log}
+  def initialize(path)
+    @data = ModelHelper.decode_json(File.read(path))
+    @result = ResultAnalysis.new(@data[:rpath])
+    @code = CodeAnalysis.new(@data[:cpath])
+    @log = LogAnalysis.new(@data[:lpath])
   end
 
-  # update
+  def update
+    @result.update
+    @code.update
+    @log.update
+  end
 
-  def get_score
-    @analy[:result].score
+  def save
+    File.open(@data[:rpath], "w") {|f| f.puts ModelHelper.encode_json(@result)}
+    File.open(@data[:cpath], "w") {|f| f.puts ModelHelper.encode_json(@code)}
+    File.open(@data[:lpath], "w") {|f| f.puts ModelHelper.encode_json(@log)}
   end
 
   def self.create(data_dir)
     path = data_dir + "/analy"
     Dir::mkdir(path)
-    rpath = ResultAnalysis.create(path)
-    cpath = CodeAnalysis.create(path)
-    lpath = LogAnalysis.create(path)
+    rpath = ResultAnalysis.create(path + "/result")
+    cpath = CodeAnalysis.create(path + "/code", data_dir + "/PokerOpe.c")
+    lpath = LogAnalysis.create(path + "/log")
     (path + "/analy.json").tap do |analy_file|
       File.open(analy_file, "w") do |f|
         f.puts ModelHelper.encode_json({rpath: rpath, cpath: cpath, lpath: lpath})
