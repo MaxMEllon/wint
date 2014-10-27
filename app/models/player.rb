@@ -10,6 +10,9 @@ class Player < ActiveRecord::Base
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
 
+  def rank
+  end
+
   def self.role_options
     {
       ROLE_PARTICIPANT => '受講者',

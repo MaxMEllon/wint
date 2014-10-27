@@ -3,6 +3,7 @@ require "analysis/analysis_manager"
 class Strategy < ActiveRecord::Base
   belongs_to :submit
   has_one :player, through: :submit
+  has_one :league, through: :player
 
   scope :score_by, -> { order("score DESC") }
 
@@ -21,16 +22,6 @@ class Strategy < ActiveRecord::Base
     strategies = self.submit.player.strategies.score_by
     return true if strategies.blank? || self.score >= strategies.first.score
     false
-  end
-
-  def rank
-    RANK.each do |range, rank|
-      return rank if range.include?(self.achievement)
-    end
-  end
-
-  def achievement
-    (self.score / self.submit.player.league.limit_score) * 100
   end
 
   private

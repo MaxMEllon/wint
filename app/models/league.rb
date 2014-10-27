@@ -3,6 +3,16 @@ class League < ActiveRecord::Base
 
   validates_presence_of :name, :start_at, :end_at, :limit_score, :data_dir, :rule_file
 
+  def rank(strategy)
+    Strategy::RANK.each do |range, rank|
+      return rank if range.include?(self.achievement(strategy))
+    end
+  end
+
+  def achievement(strategy)
+    (strategy.score / self.limit_score) * 100
+  end
+
   def self.select_format
     self.all.map {|l| [l.name, l.id]}
   end
