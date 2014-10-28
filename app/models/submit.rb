@@ -14,6 +14,7 @@ class Submit < ActiveRecord::Base
   has_one :strategy
 
   validates_presence_of :data_dir
+  validates_length_of :comment, maximum: 20
 
   scope :number_by, -> {order("number")}
   scope :participant, -> {order("role = #{Player::ROLE_PARTICIPANT}")}

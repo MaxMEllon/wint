@@ -13,7 +13,7 @@
         tr
           th.comment 戦略コメント
           td.comment
-            = f.text_field :comment
+            = f.text_field :comment, placeholder: "20文字以内で入力してください。 (例) ストレート狙い"
             = render partial: "shared/error_messages", locals: {object: submit, column: :comment}
     .modal-footer
       button.btn.btn-primary
