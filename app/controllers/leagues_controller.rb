@@ -29,7 +29,7 @@ class LeaguesController < ApplicationController
     render :edit and return unless @league.update(league_params)
     @league.set_data(file_params) if file_params.present?
     @league.set_rule(rule_params) if full_rule_params?
-    redirect_to leagues_path
+    render "shared/reload"
   end
 
   def toggle
