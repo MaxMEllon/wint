@@ -9,6 +9,7 @@ class Submit < ActiveRecord::Base
   STATUS_SYNTAX_ERROR = 5
 
   TIME_LIMIT = 30
+  SIZE_LIMIT = 100.kilobytes
 
   belongs_to :player
   has_one :strategy
@@ -17,7 +18,6 @@ class Submit < ActiveRecord::Base
   validates_length_of :comment, maximum: 20
 
   scope :number_by, -> {order("number")}
-  scope :participant, -> {order("role = #{Player::ROLE_PARTICIPANT}")}
 
   def self.status_options
     {
@@ -36,6 +36,10 @@ class Submit < ActiveRecord::Base
 
   def exec_file
     self.data_dir + "/PokerOpe"
+  end
+
+  def size_over?
+    self.data_dir.size >= SIZE_LIMIT
   end
 
   def get_number

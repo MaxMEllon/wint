@@ -9,6 +9,7 @@
           th.data_dir 戦略
           td.data_dir
             = f.file_field :data_dir
+            div style="color:gray;" ※ ファイルサイズは100KBまで
             = render partial: "shared/error_messages", locals: {object: submit, column: :data_dir}
         tr
           th.comment 戦略コメント

@@ -7,7 +7,7 @@ class SubmitsController < ApplicationController
     @submit = Submit.new(submit_params.merge(player_id: session[:pid]))
     unless @submit.data_dir.blank?
       source = @submit.data_dir.read.force_encoding("utf-8")
-      @submit.data_dir = "dummy"
+      @submit.data_dir = @submit.size_over? ? nil : "dummy"
     end
     @submit.number = @submit.get_number
     render :new and return unless @submit.save
