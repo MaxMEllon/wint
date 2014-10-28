@@ -18,6 +18,7 @@ class Submit < ActiveRecord::Base
   validates_length_of :comment, maximum: 20
 
   scope :number_by, -> {order("number")}
+  Scope.active(self)
 
   def self.status_options
     {

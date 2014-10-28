@@ -43,6 +43,8 @@ html lang="en"
                     = fa_icon "users", text: "リーグ"
                   li= link_to players_path do
                     = fa_icon "child", text: "プレイヤ"
+              li= link_to analysis_list_path do
+                = fa_icon "bar-chart-o", text: "分析ページ"
           ul.nav.navbar-nav.navbar-right
             - if @current_user
               li= link_to destroy_player_path do

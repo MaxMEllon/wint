@@ -1,0 +1,30 @@
+
+.title
+  .row
+    .col-xs-5
+      h2= "リーグ詳細 -#{@league.name}-"
+    .col-xs-7
+      / = リフレッシュ(再分析)ボタン
+br
+br
+
+.analysis.league
+
+  table.table.table-base
+    tr
+      th
+      th.player プレイヤ数
+      th.submit 提出数
+    tr
+      th 全プレイヤ
+      td.player= @league.players.count
+      td.submit= @league.players.map {|p| p.submits.active.count}.inject {|sum, n| sum + n}
+    tr
+      th 受講者
+      td.player= @league.players.where(role: Player::ROLE_PARTICIPANT).active.count
+      td.submit= @league.players.where(role: Player::ROLE_PARTICIPANT).map {|p| p.submits.active.count}.inject {|sum, n| sum + n}
+    tr
+      th 聴講者
+      td.player= @league.players.where(role: Player::ROLE_AUDITOR).active.count
+      td.submit= @league.players.where(role: Player::ROLE_AUDITOR).map {|p| p.submits.active.count}.inject {|sum, n| sum + n}
+

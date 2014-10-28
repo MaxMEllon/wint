@@ -7,11 +7,10 @@ class Player < ActiveRecord::Base
 
   validates :name, presence: true, length: {maximum: 10}
 
+  Scope.active(self)
+
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
-
-  def rank
-  end
 
   def self.role_options
     {

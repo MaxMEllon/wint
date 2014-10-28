@@ -10,6 +10,14 @@ Wint::Application.routes.draw do
   get  'destroy_player' => 'sessions#destroy_player', as: :destroy_player
 
   ##================================================
+  ##  Analysis
+  ##================================================
+
+  ##--  Analysis
+  get 'analysis'          => 'analysis#list', as: :analysis_list
+  get 'analysis/:lid'     => 'analysis#league', as: :analysis_league
+
+  ##================================================
   ##  Main
   ##================================================
 
