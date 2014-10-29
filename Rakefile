@@ -43,6 +43,7 @@ namespace :wint do
 
   def sidekiq_signal(signal)
     Process.kill signal, sidekiq_pid
+    sh "rm #{rails_root}/tmp/pids/sidekiq.pid"
   end
 
   def unicorn_pid
