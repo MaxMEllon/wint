@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_user, unless: :session_controller?
   before_action :current_player, unless: :session_controller?
+  before_action :login_check, unless: :session_controller?
   before_action :render_404, if: :admin_area?
 
   def current_user
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def render_404
     render file: "#{Rails.root}/public/404", status: 404, layout: false
+  end
+
+  def login_check
+    redirect_to login_path unless @current_user
   end
 
   private
