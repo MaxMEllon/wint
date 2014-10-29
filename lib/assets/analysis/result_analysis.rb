@@ -7,14 +7,18 @@ class ResultAnalysis
   def initialize(path)
     data = ModelHelper.decode_json(File.read(path))
     @ver = data[:ver].to_f
-    @base = data[:base]
+    @base_path = data[:base_path]
     @score = data[:score].to_f
   end
 
+  def latest?
+    @ver >= VERSION
+  end
+
   def update
-    return unless @ver < VERSION
+    return if self.latest?
     @ver = VERSION
-    @score = File.read(@base).split.last.to_f
+    @score = File.read(@base_path).split.last.to_f
   end
 
   def self.create(data_dir)
@@ -22,7 +26,7 @@ class ResultAnalysis
     `mv #{Rails.root}/tmp/log/_tmp/Result.txt #{data_dir}`
     (data_dir + "/result.json").tap do |path|
       File.open(path, "w") do |f|
-        f.puts ModelHelper.encode_json({ver: 0.0, base: "#{data_dir}/Result.txt"})
+        f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Result.txt"})
       end
     end
   end

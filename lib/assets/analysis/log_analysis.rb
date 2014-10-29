@@ -5,11 +5,15 @@ class LogAnalysis
   def initialize(path)
     data = ModelHelper.decode_json(File.read(path))
     @ver = data[:ver].to_f
-    @base = data[:base]
+    @base_path = data[:base_path]
+  end
+
+  def latest?
+    @ver >= VERSION
   end
 
   def update
-    return unless @ver < VERSION
+    return if self.latest?
     @ver = VERSION
   end
 
@@ -18,7 +22,7 @@ class LogAnalysis
     `mv #{Rails.root}/tmp/log/_tmp/Game.log #{data_dir}`
     (data_dir + "/log.json").tap do |path|
       File.open(path, "w") do |f|
-        f.puts ModelHelper.encode_json({ver: 0.0, base: "#{data_dir}/Game.log"})
+        f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Game.log"})
       end
     end
   end
