@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     self.category == CATEGORY_TEACHER
   end
 
+  def teacher_side?
+    self.admin? || self.category == CATEGORY_TA
+  end
+
   def self.select_format
     self.all.map {|u| [u.name, u.id]}
   end

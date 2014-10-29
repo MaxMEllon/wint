@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     user = User.where(snum: attr[:snum]).first
     if user && user.authenticate(attr[:password])
       session[:uid] = user.id
+      redirect_to analysis_list_path and return if user.teacher_side?
       redirect_to main_select_path and return
     else
       flash.now.alert = "ログイン失敗"
