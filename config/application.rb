@@ -27,6 +27,8 @@ module Wint
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
+    config.assets.precompile += %w(*.eot *.svg *.ttf *.woff)
+
     config.generators do |g|
       g.assets false
       g.helper false

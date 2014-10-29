@@ -12,6 +12,7 @@ namespace :wint do
     unicorn_config = rails_root + "/config/unicorn.rb"
     sidekiq_config = rails_root + "/config/sidekiq.yml"
     env = ENV['RAILS_ENV'] || "production"
+    sh "RAILS_ENV=#{env} bundle exec rake assets:precompile RAILS_RELATIVE_URL_ROOT=/App/GameExrc/WinT"
     sh "bundle exec unicorn_rails -D -c #{unicorn_config} -E #{env} --path /App/GameExrc/WinT"
     sh "RAILS_ENV=#{env} bundle exec sidekiq -d -C #{sidekiq_config}"
   end
