@@ -16,6 +16,7 @@ class AnalysisManager
     @result.update
     @code.update
     @log.update
+    save
   end
 
   def save

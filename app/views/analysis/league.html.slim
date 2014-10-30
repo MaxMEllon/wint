@@ -4,7 +4,10 @@
     .col-xs-5
       h2= "リーグ詳細 -#{@league.name}-"
     .col-xs-7
-      / = リフレッシュ(再分析)ボタン
+      br
+      = link_to analysis_refresh_path do
+        button.btn.btn-success
+          = fa_icon "refresh", text: "再分析"
 br
 br
 

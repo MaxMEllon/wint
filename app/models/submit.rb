@@ -70,6 +70,7 @@ class Submit < ActiveRecord::Base
 
   def set_data(source)
     File.open(self.src_file, "w") {|f| f.puts source}
+    `nkf --overwrite -w #{self.src_file}`
   end
 
   def exec_success?

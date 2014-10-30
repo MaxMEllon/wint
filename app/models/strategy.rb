@@ -14,8 +14,11 @@ class Strategy < ActiveRecord::Base
     analy_file = AnalysisManager.create(submit.data_dir)
     analy = AnalysisManager.new(analy_file)
     analy.update
-    analy.save
     super(submit_id: submit.id, analy_file: analy_file, score: analy.result.score, number: Strategy.get_number(submit))
+  end
+
+  def analysis_update
+    AnalysisManager.new(self.analy_file).update
   end
 
   def best?
