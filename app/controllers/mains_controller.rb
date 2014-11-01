@@ -1,11 +1,7 @@
 class MainsController < ApplicationController
   def ranking
     @league = League.where(id: session[:lid]).eager_load(players: {best: :strategy}).first
-    if @league.players.map {|p| p.submits.count}.inject(:+) == 0
-      @players = []
-    else
-      @players = @league.players.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
-    end
+    @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
   end
 
   def mypage
