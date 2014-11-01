@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :current_user, unless: :session_controller?
   before_action :current_player, unless: :session_controller?
   before_action :login_check, unless: :session_controller?
-  before_action :render_404, if: :admin_area?
+  before_action :render_404, if: :teacher_side?
 
   def current_user
     @current_user = User.where(id: session[:uid]).first if session[:uid]
@@ -28,9 +28,9 @@ class ApplicationController < ActionController::Base
     controller_name == "sessions"
   end
 
-  def admin_area?
-    return false if @current_user && @current_user.admin?
-    %w(users leagues players).any? {|c| controller_name == c}
+  def teacher_side?
+    return false if @current_user && @current_user.teacher_side?
+    %w(users leagues players analysis).any? {|c| controller_name == c}
   end
 end
 
