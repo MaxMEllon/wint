@@ -1,0 +1,15 @@
+
+.title
+  .row
+    .col-xs-5
+      h2 戦略コード分析
+    .col-xs-7
+br
+br
+
+.analysis.strategy
+
+  h3 戦略分析
+  hr
+  = high_chart("scatter_line", @graph_data)
+

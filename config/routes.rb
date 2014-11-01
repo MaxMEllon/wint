@@ -14,9 +14,10 @@ Wint::Application.routes.draw do
   ##================================================
 
   ##--  Analysis
-  get 'analysis'              => 'analysis#list', as: :analysis_list
-  get 'analysis/:lid'         => 'analysis#league', as: :analysis_league
-  get 'analysis/:lid/refresh' => 'analysis#refresh', as: :analysis_refresh
+  get 'analysis'               => 'analysis#list', as: :analysis_list
+  get 'analysis/:lid'          => 'analysis#league', as: :analysis_league
+  get 'analysis/:lid/refresh'  => 'analysis#refresh', as: :analysis_refresh
+  get 'analysis/:lid/strategy' => 'analysis#strategy', as: :analysis_strategy
 
   ##================================================
   ##  Main

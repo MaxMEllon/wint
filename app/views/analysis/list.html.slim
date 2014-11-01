@@ -13,8 +13,10 @@ br
     thead
       tr
         th.league リーグ詳細
+        th.strategy 戦略コード分析
     tbody
       - @leagues.each do |league|
         tr
           td.league= link_to league.name, analysis_league_path(lid: league.id)
+          td.strategy= link_to "リンク", analysis_strategy_path(lid: league.id)
 

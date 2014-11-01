@@ -16,6 +16,8 @@
 //= require dataTables/jquery.dataTables.js
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap.js
 //= require moment
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
 //= require bootstrap-datetimepicker
 //= require_tree .
 

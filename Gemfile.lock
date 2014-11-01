@@ -65,6 +65,7 @@ GEM
       railties (>= 3.0.0)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
+    hash-deep-merge (0.1.1)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (1.5.3)
@@ -78,6 +79,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.9.2)
+    lazy_high_charts (1.5.4)
+      bundler (>= 1.0)
+      hash-deep-merge
     less (2.5.1)
       commonjs (~> 0.2.7)
     less-rails (2.5.0)
@@ -281,6 +285,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-datatables-rails (~> 2.2.3)
   jquery-rails
+  lazy_high_charts
   less-rails
   momentjs-rails (>= 2.8.1)
   pg

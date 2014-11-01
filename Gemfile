@@ -55,6 +55,7 @@ gem 'font-awesome-rails', '4.1.0'
 gem 'rb-readline'
 gem 'sidekiq'
 gem 'quiet_assets'
+gem 'lazy_high_charts'
 
 gem 'rspec-rails'
 gem 'factory_girl_rails'
