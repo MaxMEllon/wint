@@ -28,6 +28,7 @@ Wint::Application.routes.draw do
   get   'main/set_player/:lid' => 'mains#set_player', as: :main_set_player
   get   'main/ranking'         => 'mains#ranking', as: :main_ranking
   get   'main/mypage'          => 'mains#mypage', as: :main_mypage
+  get   'main/mypage/:number'  => 'mains#strategy', as: :main_strategy
   get   'main/mypage/submit'   => 'submits#new', as: :submits_new
   post  'main/mypage/submit'   => 'submits#create'
   get   'main/edit_name'       => 'mains#edit_name', as: :main_edit_name

@@ -8,6 +8,11 @@ class MainsController < ApplicationController
     @submits = Submit.where(player_id: @current_player.id).eager_load(:strategy)
   end
 
+  def strategy
+    @strategy = @current_player.submits.where(number: params[:number]).first.strategy
+    @result = AnalysisManager.new(@strategy.analy_file).result.get_result
+  end
+
   def select
     @players = @current_user.players
   end

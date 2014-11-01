@@ -21,6 +21,10 @@ class ResultAnalysis
     @score = File.read(@base_path).split.last.to_f
   end
 
+  def get_result
+    File.read(@base_path)
+  end
+
   def self.create(data_dir)
     Dir::mkdir(data_dir)
     `mv #{Rails.root}/tmp/log/_tmp/Result.txt #{data_dir}`
