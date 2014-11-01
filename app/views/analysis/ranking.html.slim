@@ -1,0 +1,39 @@
+
+.title
+  h2 ランキングページ
+br
+br
+
+.analysis.ranking
+
+  table.table.table-base.datatable
+    thead
+      tr
+        th.id 順位
+        th.score 得点
+        th.achievement 達成度
+        th.snum 学籍番号
+        th.user ユーザ名
+        th.player プレイヤ名
+        th.role ロール
+    tbody
+      - @players.each.with_index(1) do |player, i|
+        - if player.best
+          tr
+            td.id= i
+            td.score= format_score(player.best.strategy.score)
+            td.achievement= format_achievement(@league.achievement(player.best.strategy))
+            td.snum= player.user.snum
+            td.user= player.user.name
+            td.player= player.name
+            td.role= Player.role_options[player.role]
+        - else
+          tr.warning
+            td.id= i
+            td.score ???
+            td.achievement ???
+            td.snum= player.user.snum
+            td.user= player.user.name
+            td.player= player.name
+            td.role= Player.role_options[player.role]
+

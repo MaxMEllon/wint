@@ -36,6 +36,12 @@ class AnalysisController < ApplicationController
     @graph_data = GraphGenerator.scatter_line(data)
   end
 
+  def ranking
+    @league = League.where(id: params[:lid]).eager_load(players: {best: :strategy}).first
+    @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    @players += @league.players.select {|p| !p.best}
+  end
+
   private
   def get_league
     @league = League.where(id: params[:lid]).first
