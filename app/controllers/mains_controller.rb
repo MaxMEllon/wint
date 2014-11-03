@@ -10,7 +10,7 @@ class MainsController < ApplicationController
 
   def strategy
     @strategy = @current_player.submits.where(number: params[:number]).first.strategy
-    @result = AnalysisManager.new(@strategy.analy_file).result.get_result
+    @result_table = AnalysisManager.new(@strategy.analy_file).result.get_result_table
   end
 
   def select

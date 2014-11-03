@@ -9,6 +9,18 @@ br
 
 .main.strategy
 
-  textarea disabled="disabled" style="height: 400px; width: 400px;"
-    = @result
+  .row
+    .col-lg-6
+      table.table-base
+        thead
+          tr
+            - @result_table.shift.each do |head|
+              th= head
+        tbody
+          - @result_table.each do |line|
+            tr
+              td.name style="font-weight: bold;" = line.shift
+              - line.each do |elem|
+                td.num= elem
+    .col-lg-6
 

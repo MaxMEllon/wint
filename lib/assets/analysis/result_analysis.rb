@@ -21,8 +21,8 @@ class ResultAnalysis
     @score = File.read(@base_path).split.last.to_f
   end
 
-  def get_result
-    File.read(@base_path)
+  def get_result_table
+    File.read(@base_path).split(/\r\n|\n/).map {|line| line.gsub(/\||-|\+/, "").split}.delete_if {|line| line.empty? || line.first == "平均得点"}
   end
 
   def self.create(data_dir)
