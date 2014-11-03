@@ -32,6 +32,7 @@ class AnalysisController < ApplicationController
 
     func = LinearRegression.new(data.map {|d| d[:x]}, data.map {|d| d[:y]})
     @scatter_line = GraphGenerator.scatter_line_with_regression(data, func)
+    @histgram_line = GraphGenerator.histgram_line(data, func)
   end
 
   def ranking

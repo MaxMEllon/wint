@@ -1,4 +1,6 @@
 class LinearRegression
+  attr_reader :a, :b
+
   def initialize(x, y)
     n = x.size
     # n*Σx^2 - (Σx)^2
