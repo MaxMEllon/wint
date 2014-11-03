@@ -11,5 +11,8 @@ br
 
   h3 戦略分析
   hr
-  = high_chart("scatter_line", @graph_data)
+  .row
+    .col-lg-6
+      = high_chart("scatter_line", @scatter_line)
+    .col-lg-6
 

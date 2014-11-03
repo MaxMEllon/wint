@@ -1,6 +1,3 @@
-require "analysis/analysis_manager"
-require "graph_generator"
-
 class AnalysisController < ApplicationController
   include GraphGenerator
   before_action :get_league, only: [:league, :refresh, :strategy]
@@ -20,20 +17,21 @@ class AnalysisController < ApplicationController
   end
 
   def strategy
-    #data = @league.players.active.map do |player|
-    #  next unless player.best
+    #data = @league.players.active.select {|p| p.best}.map do |player|
     #  strategy = player.best.strategy
     #  analy = AnalysisManager.new(player.best.strategy.analy_file)
-    #  {name: player.user.snum, x: "%.2f" % analy.result.score, y: analy.code.line}
-    #end
+    #  {name: player.user.snum, x: ("%.2f" % analy.result.score).to_f, y: analy.code.line}
+    #end.sort {|a, b| a[:x] <=> b[:x]}
 
     # debug
     strategies = @league.players.first.strategies
     data = strategies.map do |strategy|
       analy = AnalysisManager.new(strategy.analy_file)
-      {name: "s11t230", x: "%.2f" % analy.result.score, y: analy.code.line}
-    end
-    @graph_data = GraphGenerator.scatter_line(data)
+      {name: "s11t230", x: ("%.2f" % analy.result.score).to_f, y: analy.code.line}
+    end.sort {|a, b| a[:x] <=> b[:x]}
+
+    func = LinearRegression.new(data.map {|d| d[:x]}, data.map {|d| d[:y]})
+    @scatter_line = GraphGenerator.scatter_line_with_regression(data, func)
   end
 
   def ranking
