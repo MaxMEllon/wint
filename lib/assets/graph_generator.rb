@@ -29,9 +29,9 @@ module GraphGenerator
   def line_score(data)
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: "得点の推移"
-      f.xAxis title: axis_style("戦略番号")
+      f.xAxis title: axis_style("戦略番号"), allowDecimals: false
       f.yAxis title: axis_style("得点")
-      f.series type: "line", name: "得点", data: data#, pointStart: 1, pointInterval: 1
+      f.series type: "line", name: "得点", data: data
       f.legend enabled: false
     end
   end

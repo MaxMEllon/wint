@@ -37,3 +37,6 @@ br
         td.created_at= format_time(submit.created_at)
         td.comment= submit.comment
 
+  br
+  = high_chart("line_score", @line_score)
+

@@ -6,6 +6,8 @@ class MainsController < ApplicationController
 
   def mypage
     @submits = Submit.where(player_id: @current_player.id).eager_load(:strategy)
+    data = @current_player.strategies.map {|s| [s.number, s.score]}
+    @line_score = GraphGenerator.line_score(data)
   end
 
   def strategy
