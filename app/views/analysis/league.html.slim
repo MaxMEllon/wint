@@ -13,21 +13,31 @@ br
 
 .analysis.league
 
+  - participants = @league.players.where(role: Player::ROLE_PARTICIPANT)
+  - auditors = @league.players.where(role: Player::ROLE_AUDITOR)
   table.table.table-base
     tr
       th
       th.player プレイヤ数
       th.submit 提出数
-    tr
-      th 全プレイヤ
-      td.player= @league.players.count
-      td.submit= @league.players.map {|p| p.submits.active.count}.inject {|sum, n| sum + n}
+      th.strategy 戦略数
+      th.max 最多提出数
     tr
       th 受講者
-      td.player= @league.players.where(role: Player::ROLE_PARTICIPANT).active.count
-      td.submit= @league.players.where(role: Player::ROLE_PARTICIPANT).map {|p| p.submits.active.count}.inject {|sum, n| sum + n}
+      td.player= participants.active.count
+      td.submit= participants.map {|p| p.submits.count}.inject(:+)
+      td.strategy= participants.map {|p| p.submits.joins(:strategy).count}.inject(:+)
+      td.max= participants.map {|p| p.submits.joins(:strategy).count}.max
     tr
       th 聴講者
-      td.player= @league.players.where(role: Player::ROLE_AUDITOR).active.count
-      td.submit= @league.players.where(role: Player::ROLE_AUDITOR).map {|p| p.submits.active.count}.inject {|sum, n| sum + n}
+      td.player= auditors.active.count
+      td.submit= auditors.map {|p| p.submits.count}.inject(:+)
+      td.strategy= auditors.map {|p| p.submits.joins(:strategy).count}.inject(:+)
+      td.max= auditors.map {|p| p.submits.joins(:strategy).count}.max
+    tr
+      th 合計
+      td.player= @league.players.count
+      td.submit= @league.players.map {|p| p.submits.count}.inject(:+)
+      td.strategy= @league.players.map {|p| p.submits.joins(:strategy).count}.inject(:+)
+      td.max= @league.players.map {|p| p.submits.joins(:strategy).count}.max
 
