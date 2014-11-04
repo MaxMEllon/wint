@@ -19,7 +19,7 @@ module GraphGenerator
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: "ヒストグラム"
       f.xAxis title: axis_style("点と直線の距離"), categories: dataset.map {|d| d.first}
-      f.yAxis title: axis_style("度数")
+      f.yAxis title: axis_style("度数"), allowDecimals: false
       f.series type: "column", name: "度数", data: dataset
       f.legend enabled: false
       f.plotOptions column: histgram_style
