@@ -10,7 +10,11 @@ br
 .analysis.player
 
   .row
-    .col-lg-5
+    .col-lg-6
+      textarea.form-control disabled="disabled" style="height: 600px;"
+        = File.read(@player.best.src_file)
+      br
+    .col-lg-6
       table.table-base
         tr
           th プレイヤ名
@@ -27,7 +31,6 @@ br
         tr
           th 戦略数
           td.number= @player.strategies.count
-    .col-lg-7
-      = high_chart("line_score", @line_score)
       br
+      = high_chart("line_score", @line_score)
 
