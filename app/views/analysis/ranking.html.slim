@@ -10,30 +10,30 @@ br
     thead
       tr
         th.id 順位
-        th.score 得点
-        th.achievement 達成度
-        th.snum 学籍番号
-        th.user ユーザ名
         th.player プレイヤ名
         th.role ロール
+        th.snum 学籍番号
+        th.user ユーザ名
+        th.score 得点
+        th.achievement 達成度
     tbody
       - @players.each.with_index(1) do |player, i|
         - if player.best
           tr
             td.id= i
-            td.score= format_score(player.best.strategy.score)
-            td.achievement= format_achievement(@league.achievement(player.best.strategy))
+            td.player= link_to player.name, analysis_player_path(pid: player.id)
+            td.role= Player.role_options[player.role]
             td.snum= player.user.snum
             td.user= player.user.name
-            td.player= player.name
-            td.role= Player.role_options[player.role]
+            td.score= format_score(player.best.strategy.score)
+            td.achievement= format_achievement(@league.achievement(player.best.strategy))
         - else
           tr.warning
             td.id= i
-            td.score ???
-            td.achievement ???
-            td.snum= player.user.snum
-            td.user= player.user.name
             td.player= player.name
             td.role= Player.role_options[player.role]
+            td.snum= player.user.snum
+            td.user= player.user.name
+            td.score 未提出
+            td.achievement 未提出
 

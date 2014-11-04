@@ -26,6 +26,16 @@ module GraphGenerator
     end
   end
 
+  def line_score(data)
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: "得点の推移"
+      f.xAxis title: axis_style("戦略番号")
+      f.yAxis title: axis_style("得点")
+      f.series type: "line", name: "得点", data: data#, pointStart: 1, pointInterval: 1
+      f.legend enabled: false
+    end
+  end
+
   def column_submits_per_day(data, start_at)
     column_submits(data, start_at, {title: "日毎の提出数"})
   end
@@ -70,6 +80,7 @@ module GraphGenerator
   end
 
   module_function :scatter_line_with_regression, :histgram_line,
+                  :line_score,
                   :column_submits_per_day, :column_submits_total, :column_submits,
                   :axis_style, :histgram_style, :calc_histgram
 end

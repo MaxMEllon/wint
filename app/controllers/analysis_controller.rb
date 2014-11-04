@@ -28,6 +28,12 @@ class AnalysisController < ApplicationController
     redirect_to analysis_league_path
   end
 
+  def player
+    @player = Player.where(id: params[:pid]).first
+    data = @player.strategies.map {|s| [s.number, s.score]}
+    @line_score = GraphGenerator.line_score(data)
+  end
+
   def strategy
     #data = @league.players.active.select {|p| p.best}.map do |player|
     #  strategy = player.best.strategy

@@ -1,0 +1,33 @@
+
+.title
+  .row
+    .col-xs-5
+      h2 プレイヤ詳細
+    .col-xs-7
+br
+br
+
+.analysis.player
+
+  .row
+    .col-lg-5
+      table.table-base
+        tr
+          th プレイヤ名
+          td.player= @player.name
+        tr
+          th ユーザ名
+          td.user= @player.user.name
+        tr
+          th 学籍番号
+          td.snum= @player.user.snum
+        tr
+          th 提出数
+          td.number= @player.submits.count
+        tr
+          th 戦略数
+          td.number= @player.strategies.count
+    .col-lg-7
+      = high_chart("line_score", @line_score)
+      br
+
