@@ -26,7 +26,25 @@ module GraphGenerator
     end
   end
 
+  def column_submits_per_day(data, start_at)
+    column_submits(data, start_at, {title: "日毎の提出数"})
+  end
+
+  def column_submits_total(data, start_at)
+    column_submits(data, start_at, {title: "累計提出数"})
+  end
+
   private
+  def column_submits(data, start_at, attributes = {})
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: attributes[:title]
+      f.xAxis title: axis_style("提出日"), type: "datetime", labels: {format: "{value:%m.%d}"}
+      f.yAxis title: axis_style("提出数"), allowDecimals: false
+      f.series type: "column", name: "提出数", data: data, pointStart: start_at, pointInterval: 1.days
+      f.legend enabled: false
+    end
+  end
+
   def axis_style(text)
     {text: text, style: {"font-size" => "16px"}}
   end
@@ -52,6 +70,7 @@ module GraphGenerator
   end
 
   module_function :scatter_line_with_regression, :histgram_line,
+                  :column_submits_per_day, :column_submits_total, :column_submits,
                   :axis_style, :histgram_style, :calc_histgram
 end
 
