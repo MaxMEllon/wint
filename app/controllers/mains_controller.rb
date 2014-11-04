@@ -11,7 +11,7 @@ class MainsController < ApplicationController
   end
 
   def strategy
-    @strategy = @current_player.submits.where(number: params[:number]).first.strategy
+    @strategy = @current_player.submits.where(number: params[:num]).first.strategy
     @result_table = AnalysisManager.new(@strategy.analy_file).result.get_result_table
   end
 

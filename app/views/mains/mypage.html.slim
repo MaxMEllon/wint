@@ -25,7 +25,7 @@ br
       - @submits.each do |submit|
         - if submit.status == Submit::STATUS_SUCCESS
           | <tr>
-          td.number= link_to "%03d" % submit.number, main_strategy_path(number: submit.number)
+          td.number= link_to "%03d" % submit.number, main_strategy_path(num: submit.number)
         - elsif submit.status == Submit::STATUS_RUNNING
           | <tr class="warning">
           td.number= "%03d" % submit.number
