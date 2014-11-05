@@ -25,7 +25,10 @@ br
       - @submits.each do |submit|
         - if submit.status == Submit::STATUS_SUCCESS
           | <tr>
-          td.number= link_to "%03d" % submit.number, main_strategy_path(num: submit.number)
+          - if @league.is_analy
+            td.number= link_to "%03d" % submit.number, main_strategy_path(num: submit.number)
+          - else
+            td.number= "%03d" % submit.number
         - elsif submit.status == Submit::STATUS_RUNNING
           | <tr class="warning">
           td.number= "%03d" % submit.number

@@ -1,8 +1,10 @@
 
 - if is_analy
   button.btn.btn-info
-    = fa_icon "area-chart", text: "実施中"
+    | 公開中
+    /= fa_icon "area-chart", text: "実施中"
 - else
   button.btn.btn-default
-    = fa_icon "play", text: "開始"
+    | 非公開中
+    /= fa_icon "play", text: "開始"
 
