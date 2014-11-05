@@ -57,6 +57,9 @@ class AnalysisController < ApplicationController
     @league = League.where(id: params[:lid]).eager_load(players: {best: :strategy}).first
     @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
     @players += @league.players.select {|p| !p.best}
+
+    data = @players.map {|p| [p.user.snum, p.strategies.count]}
+    @bar_submits = GraphGenerator.bar_submits(data)
   end
 
   private
