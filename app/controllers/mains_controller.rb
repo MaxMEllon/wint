@@ -12,7 +12,11 @@ class MainsController < ApplicationController
 
   def strategy
     @strategy = @current_player.submits.where(number: params[:num]).first.strategy
-    @result_table = AnalysisManager.new(@strategy.analy_file).result.get_result_table
+    analy = AnalysisManager.new(@strategy.analy_file)
+    @result_table = analy.result.get_result_table
+    sum = analy.result.result_amount.values.inject(:+).to_f
+    data = analy.result.result_amount.map {|k, v| [Strategy.hand_text[k], v / sum]}
+    @pie_result = GraphGenerator.pie_result(data)
   end
 
   def select

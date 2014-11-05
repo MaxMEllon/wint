@@ -41,7 +41,7 @@ class ResultAnalysis
   private
   def get_result_amount(table)
     table.shift  # 一番上の行を削除
-    t = table.map {|t| t.last}
+    t = table.map {|t| t.last.to_i}
     {P0: t[0], P1: t[1], P2: t[2], P3: t[3], P4: t[4], P5: t[5], P6: t[6], P7: t[7], P8: t[8], P9: t[9]}
   end
 end

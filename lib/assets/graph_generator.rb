@@ -46,6 +46,14 @@ module GraphGenerator
     end
   end
 
+  def pie_result(data)
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: "各手役の出現数の割合"
+      f.series type: "pie", name: "割合", data: data
+      f.tooltip pointFormat: "{series.name} : {point.percentage:.2f}%"
+    end
+  end
+
   def column_submits_per_day(data, start_at)
     column_submits(data, start_at, {title: "日毎の提出数"})
   end
@@ -92,6 +100,7 @@ module GraphGenerator
   module_function :scatter_line_with_regression, :histgram_line,
                   :line_score,
                   :bar_submits,
+                  :pie_result,
                   :column_submits_per_day, :column_submits_total, :column_submits,
                   :axis_style, :histgram_style, :calc_histgram
 end

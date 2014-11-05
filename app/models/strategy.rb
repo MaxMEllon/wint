@@ -17,6 +17,21 @@ class Strategy < ActiveRecord::Base
     super(submit_id: submit.id, analy_file: analy_file, score: analy.result.score, number: Strategy.get_number(submit))
   end
 
+  def self.hand_text
+    {
+      P0: "ノーペア",
+      P1: "ワンペア",
+      P2: "ツーペア",
+      P3: "スリーカード",
+      P4: "ストレート",
+      P5: "フラッシュ",
+      P6: "フルハウス",
+      P7: "フォーカード",
+      P8: "ストレートフラッシュ",
+      P9: "ロイヤルストレート",
+    }
+  end
+
   def analysis_update
     AnalysisManager.new(self.analy_file).update
   end
