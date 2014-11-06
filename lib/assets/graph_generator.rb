@@ -1,27 +1,14 @@
 module GraphGenerator
-  def scatter_line_with_regression(data, func)
-    regression_data = [{x: data.first[:x], y: func.val(data.first[:x])}, {x: data.last[:x], y: func.val(data.last[:x])}]
-    LazyHighCharts::HighChart.new(:graph) do |f|
-      f.title text: "コードの行数と得点"
-      f.xAxis title: axis_style("得点")
-      f.yAxis title: axis_style("行数")
-      f.series type: "scatter", name: "散布図", data: data
-      f.series type: "line", name: "回帰直線", data: regression_data, marker: {enabled: false}
-      f.tooltip headerFormat: "<b>{point.key}</b><br />", pointFormat: "score : {point.x}<br />line : {point.y}<br />"
-      f.legend layout: "horizontal"
-    end
+  def scatter_size(data, func)
+    scatter(data, func, {title: "ファイルサイズと得点", yAxis: "ファイルサイズ", pointFormat: "score : {point.x:.2f}<br />size : {point.y}"})
   end
 
-  def histgram_line(data, func)
-    dataset = calc_histgram(data, func)
-    LazyHighCharts::HighChart.new(:graph) do |f|
-      f.title text: "ヒストグラム"
-      f.xAxis title: axis_style("偏差値"), categories: dataset.map {|d| d.first}
-      f.yAxis title: axis_style("度数"), allowDecimals: false
-      f.series type: "column", name: "度数", data: dataset
-      f.legend enabled: false
-      f.plotOptions column: {pointPadding: 0, groupPadding: 0, shadow: false}
-    end
+  def scatter_line(data, func)
+    scatter(data, func, {title: "コードの行数と得点", yAxis: "行数", pointFormat: "score : {point.x:.2f}<br />line : {point.y}"})
+  end
+
+  def histgram_size(data, func)
+    histgram(data, func)
   end
 
   def line_score(data)
@@ -61,6 +48,31 @@ module GraphGenerator
   end
 
   private
+  def scatter(data, func, attributes = {})
+    regression_data = [{x: data.first[:x], y: func.val(data.first[:x])}, {x: data.last[:x], y: func.val(data.last[:x])}]
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: attributes[:title]
+      f.xAxis title: axis_style("得点")
+      f.yAxis title: axis_style(attributes[:yAxis])
+      f.series type: "scatter", name: "散布図", data: data
+      f.series type: "line", name: "回帰直線", data: regression_data, marker: {enabled: false}
+      f.tooltip headerFormat: "<b>{point.key}</b><br />", pointFormat: attributes[:pointFormat]
+      f.legend layout: "horizontal"
+    end
+  end
+
+  def histgram(data, func, attributes = {})
+    dataset = calc_histgram(data, func)
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: "ヒストグラム"
+      f.xAxis title: axis_style("偏差値"), categories: dataset.map {|d| d.first}
+      f.yAxis title: axis_style("度数"), allowDecimals: false
+      f.series type: "column", name: "度数", data: dataset
+      f.legend enabled: false
+      f.plotOptions column: {pointPadding: 0, groupPadding: 0, shadow: false}
+    end
+  end
+
   def column_strategies(data, start_at, attributes = {})
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: attributes[:title]
@@ -95,7 +107,8 @@ module GraphGenerator
     dataset
   end
 
-  module_function :scatter_line_with_regression, :histgram_line,
+  module_function :scatter, :scatter_size, :scatter_line,
+                  :histgram, :histgram_size,
                   :line_score,
                   :bar_submits,
                   :pie_result,

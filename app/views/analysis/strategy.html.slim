@@ -11,12 +11,12 @@ br
 
   h3 戦略分析
   hr
-  - if @scatter_line && @histgram_line
+  - if @scatter_size && @histgram_size
     .row
       .col-lg-6
-        = high_chart("scatter_line", @scatter_line)
+        = high_chart("scatter_size", @scatter_size)
         br
       .col-lg-6
-        = high_chart("histgram_line", @histgram_line)
+        = high_chart("histgram_size", @histgram_size)
         br
 

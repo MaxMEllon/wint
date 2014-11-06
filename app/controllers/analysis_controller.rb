@@ -44,15 +44,21 @@ class AnalysisController < ApplicationController
     data = @league.players.active.select {|p| p.best}.map do |player|
       strategy = player.best.strategy
       analy = AnalysisManager.new(player.best.strategy.analy_file)
-      {name: player.user.snum, x: ("%.2f" % analy.result.score).to_f, y: analy.code.line}
+      # {name: player.user.snum, x: analy.result.score, y: analy.code.line}  # line
+      {name: player.user.snum, x: analy.result.score, y: analy.code.size}
     end.sort {|a, b| a[:x] <=> b[:x]}
 
     if data.blank?
-      @scatter_line = @histgram_line = nil
+      # @scatter_line = @histgram_line = nil  # line
+      @scatter_size = @histgram_size = nil
     else
       func = LinearRegression.new(data.map {|d| d[:x]}, data.map {|d| d[:y]})
-      @scatter_line = GraphGenerator.scatter_line_with_regression(data, func)
-      @histgram_line = GraphGenerator.histgram_line(data, func)
+      # line
+      # @scatter_line = GraphGenerator.scatter_line(data, func)
+      # @histgram_line = GraphGenerator.histgram_line(data, func)
+      # size
+      @scatter_size = GraphGenerator.scatter_size(data, func)
+      @histgram_size = GraphGenerator.histgram_size(data, func)
     end
   end
 
