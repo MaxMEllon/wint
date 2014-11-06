@@ -1,6 +1,4 @@
 module GraphGenerator
-  HIST_SEQ_NUM = 9   #=> 間に0が入るため必ず奇数
-
   def scatter_line_with_regression(data, func)
     regression_data = [{x: data.first[:x], y: func.val(data.first[:x])}, {x: data.last[:x], y: func.val(data.last[:x])}]
     LazyHighCharts::HighChart.new(:graph) do |f|
@@ -18,11 +16,11 @@ module GraphGenerator
     dataset = calc_histgram(data, func)
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: "ヒストグラム"
-      f.xAxis title: axis_style("点と直線の距離"), categories: dataset.map {|d| d.first}
+      f.xAxis title: axis_style("偏差値"), categories: dataset.map {|d| d.first}
       f.yAxis title: axis_style("度数"), allowDecimals: false
       f.series type: "column", name: "度数", data: dataset
       f.legend enabled: false
-      f.plotOptions column: histgram_style
+      f.plotOptions column: {pointPadding: 0, groupPadding: 0, shadow: false}
     end
   end
 
@@ -77,21 +75,21 @@ module GraphGenerator
     {text: text, style: {"font-size" => "16px"}}
   end
 
-  def histgram_style
-    #{pointPadding: 0, borderWidth: 0, groupPadding: 0, shadow: false}
-    {pointPadding: 0, groupPadding: 0, shadow: false}
-  end
-
   def calc_histgram(data, func)
+    # 点と直線の距離
     # y = ax + b => ax - y + b = 0
     # (ax - y + b) / sqrt(a^2 + (-1)^2)
-    distance = data.map {|d| -1*(func.a*d[:x] - d[:y] + func.b) / Math.sqrt(func.a**2 + 1)}
-    base = [distance.max.abs, distance.min.abs].max / (HIST_SEQ_NUM / 2)
-    sum = base * (HIST_SEQ_NUM / 2) * -1 - base/2
+    distance = data.map {|d| (func.a*d[:x] - d[:y] + func.b) / Math.sqrt(func.a**2 + 1)}
+
+    ave = distance.inject(:+)
+    std_dev = Math.sqrt(distance.map {|d| (d-ave)**2}.inject(:+) / distance.size) # 標準偏差
+    dev_val = distance.map {|d| ((d-ave) / std_dev)*10 + 50}  # 偏差値
+    sum = 5  # 10 / 2
     dataset = []
-    HIST_SEQ_NUM.times do
-      next_sum = sum+base
-      dataset << ["%.2f" % ((sum+next_sum)/2), distance.count {|d| (sum..next_sum).include?(d)}]
+
+    9.times do  # 10, 20, ... , 90
+      next_sum = sum+10
+      dataset << [(sum+next_sum)/2, dev_val.count {|d| (sum..next_sum).include?(d)}]
       sum = next_sum
     end
     dataset
@@ -102,6 +100,6 @@ module GraphGenerator
                   :bar_submits,
                   :pie_result,
                   :column_strategies_per_day, :column_strategies_total, :column_strategies,
-                  :axis_style, :histgram_style, :calc_histgram
+                  :axis_style, :calc_histgram
 end
 
