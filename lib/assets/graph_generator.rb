@@ -12,13 +12,21 @@ module GraphGenerator
     scatter(data, func, {title: "制御構文の数と得点", yAxis: "制御構文の数", pointFormat: "score : {point.x:.2f}<br />loop+if : {point.y}"})
   end
 
-  ##--  histgram
-  def histgram_size(data, func)
-    histgram(data, func)
+  def scatter_fun(data, func)
+    scatter(data, func, {title: "関数の定義数と得点", yAxis: "関数の定義数", pointFormat: "score : {point.x:.2f}<br />func_num : {point.y}"})
   end
 
-  def histgram_syntax(data, func)
-    histgram(data, func)
+  ##--  histgram
+  def histgram(data, func)
+    dataset = calc_histgram(data, func)
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: "ヒストグラム"
+      f.xAxis title: axis_style("偏差値")
+      f.yAxis title: axis_style("度数"), allowDecimals: false
+      f.series type: "column", name: "度数", data: dataset
+      f.legend enabled: false
+      f.plotOptions column: {pointPadding: 0, groupPadding: 0, shadow: false}
+    end
   end
 
   def line_score(data)
@@ -71,18 +79,6 @@ module GraphGenerator
     end
   end
 
-  def histgram(data, func, attributes = {})
-    dataset = calc_histgram(data, func)
-    LazyHighCharts::HighChart.new(:graph) do |f|
-      f.title text: "ヒストグラム"
-      f.xAxis title: axis_style("偏差値")
-      f.yAxis title: axis_style("度数"), allowDecimals: false
-      f.series type: "column", name: "度数", data: dataset
-      f.legend enabled: false
-      f.plotOptions column: {pointPadding: 0, groupPadding: 0, shadow: false}
-    end
-  end
-
   def column_strategies(data, start_at, attributes = {})
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: attributes[:title]
@@ -117,8 +113,8 @@ module GraphGenerator
     dataset
   end
 
-  module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax,
-                  :histgram, :histgram_size, :histgram_syntax,
+  module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax, :scatter_fun,
+                  :histgram,
                   :line_score,
                   :bar_submits,
                   :pie_result,
