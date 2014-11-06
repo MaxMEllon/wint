@@ -9,14 +9,23 @@ br
 
 .analysis.strategy
 
-  h3 戦略分析
-  hr
   - if @scatter_size && @histgram_size
+    h3 ファイルサイズ
+    hr
     .row
       .col-lg-6
         = high_chart("scatter_size", @scatter_size)
         br
       .col-lg-6
         = high_chart("histgram_size", @histgram_size)
+        br
+    h3 制御構文(loop+if)の数
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_syntax", @scatter_syntax)
+        br
+      .col-lg-6
+        = high_chart("histgram_syntax", @histgram_syntax)
         br
 

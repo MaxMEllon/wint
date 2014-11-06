@@ -41,24 +41,26 @@ class AnalysisController < ApplicationController
   end
 
   def strategy
-    data = @league.players.active.select {|p| p.best}.map do |player|
-      strategy = player.best.strategy
-      analy = AnalysisManager.new(player.best.strategy.analy_file)
-      # {name: player.user.snum, x: analy.result.score, y: analy.code.line}  # line
-      {name: player.user.snum, x: analy.result.score, y: analy.code.size}
-    end.sort {|a, b| a[:x] <=> b[:x]}
+    players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    analysis = players.map do |player|
+      [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
+    end
 
-    if data.blank?
-      # @scatter_line = @histgram_line = nil  # line
+    data_size = analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}}
+    data_syntax = analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}}
+
+    if data_size.blank?
       @scatter_size = @histgram_size = nil
+      @scatter_syntax = @histgram_syntax = nil
     else
-      func = LinearRegression.new(data.map {|d| d[:x]}, data.map {|d| d[:y]})
-      # line
-      # @scatter_line = GraphGenerator.scatter_line(data, func)
-      # @histgram_line = GraphGenerator.histgram_line(data, func)
-      # size
-      @scatter_size = GraphGenerator.scatter_size(data, func)
-      @histgram_size = GraphGenerator.histgram_size(data, func)
+      #-- size
+      func_size = LinearRegression.new(data_size.map {|d| d[:x]}, data_size.map {|d| d[:y]})
+      @scatter_size = GraphGenerator.scatter_size(data_size, func_size)
+      @histgram_size = GraphGenerator.histgram_size(data_size, func_size)
+      #-- syntax
+      func_syntax = LinearRegression.new(data_syntax.map {|d| d[:x]}, data_syntax.map {|d| d[:y]})
+      @scatter_syntax = GraphGenerator.scatter_syntax(data_syntax, func_syntax)
+      @histgram_syntax = GraphGenerator.histgram_syntax(data_syntax, func_syntax)
     end
   end
 

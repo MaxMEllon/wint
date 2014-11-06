@@ -1,4 +1,5 @@
 module GraphGenerator
+  ##--  scatter
   def scatter_size(data, func)
     scatter(data, func, {title: "ファイルサイズと得点", yAxis: "ファイルサイズ", pointFormat: "score : {point.x:.2f}<br />size : {point.y}"})
   end
@@ -7,7 +8,16 @@ module GraphGenerator
     scatter(data, func, {title: "コードの行数と得点", yAxis: "行数", pointFormat: "score : {point.x:.2f}<br />line : {point.y}"})
   end
 
+  def scatter_syntax(data, func)
+    scatter(data, func, {title: "制御構文の数と得点", yAxis: "制御構文の数", pointFormat: "score : {point.x:.2f}<br />loop+if : {point.y}"})
+  end
+
+  ##--  histgram
   def histgram_size(data, func)
+    histgram(data, func)
+  end
+
+  def histgram_syntax(data, func)
     histgram(data, func)
   end
 
@@ -107,8 +117,8 @@ module GraphGenerator
     dataset
   end
 
-  module_function :scatter, :scatter_size, :scatter_line,
-                  :histgram, :histgram_size,
+  module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax,
+                  :histgram, :histgram_size, :histgram_syntax,
                   :line_score,
                   :bar_submits,
                   :pie_result,
