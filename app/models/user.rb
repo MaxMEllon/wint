@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :players, dependent: :destroy
   has_many :leagues, through: :players
 
+  Scope.active(self)
+
   has_secure_password
 
   validates_presence_of :snum, :name

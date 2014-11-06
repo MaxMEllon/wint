@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     attr = params[:user]
-    user = User.where(snum: attr[:snum]).first
+    user = User.where(snum: attr[:snum]).active.first
     if user && user.authenticate(attr[:password])
       session[:uid] = user.id
       redirect_to analysis_list_path and return if user.teacher_side?
