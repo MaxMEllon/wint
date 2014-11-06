@@ -41,9 +41,13 @@ class AnalysisController < ApplicationController
       {name: player.user.snum, x: ("%.2f" % analy.result.score).to_f, y: analy.code.line}
     end.sort {|a, b| a[:x] <=> b[:x]}
 
-    func = LinearRegression.new(data.map {|d| d[:x]}, data.map {|d| d[:y]})
-    @scatter_line = GraphGenerator.scatter_line_with_regression(data, func)
-    @histgram_line = GraphGenerator.histgram_line(data, func)
+    if data.blank?
+      @scatter_line = @histgram_line = nil
+    else
+      func = LinearRegression.new(data.map {|d| d[:x]}, data.map {|d| d[:y]})
+      @scatter_line = GraphGenerator.scatter_line_with_regression(data, func)
+      @histgram_line = GraphGenerator.histgram_line(data, func)
+    end
   end
 
   def ranking
