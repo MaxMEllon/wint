@@ -2,7 +2,7 @@
 .title
   .row
     .col-xs-5
-      h2 マイページ
+      h2= @player.name
     .col-xs-7
       br
       = link_to submits_new_path, data: {remote: true} do

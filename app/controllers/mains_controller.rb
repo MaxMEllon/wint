@@ -5,9 +5,10 @@ class MainsController < ApplicationController
   end
 
   def mypage
-    @submits = Submit.where(player_id: @current_player.id).eager_load(:strategy)
-    @league = @current_player.league
-    data = @current_player.strategies.map {|s| [s.number, s.score]}
+    @player = @current_player
+    @submits = Submit.where(player_id: @player.id).eager_load(:strategy)
+    @league = @player.league
+    data = @player.strategies.map {|s| [s.number, s.score]}
     @line_score = GraphGenerator.line_score(data)
   end
 
