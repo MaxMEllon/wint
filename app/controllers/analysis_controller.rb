@@ -10,15 +10,15 @@ class AnalysisController < ApplicationController
     sum = @league.start_at
     per_day = []
     total = [0]
-    submits = @league.players.map {|p| p.submits}.flatten
+    strategies = @league.players.map {|p| p.strategies}.flatten
     while sum < @league.end_at
-      per_day << submits.select {|s| sum <= s.created_at && s.created_at < sum+1.days}.count
+      per_day << strategies.select {|s| sum <= s.created_at && s.created_at < sum+1.days}.count
       total << per_day.last + total.last if sum < Time.new
       sum += 1.days
     end
     total.shift
-    @column_submits_per_day = GraphGenerator.column_submits_per_day(per_day, @league.start_at)
-    @column_submits_total = GraphGenerator.column_submits_total(total, @league.start_at)
+    @column_strategies_per_day = GraphGenerator.column_strategies_per_day(per_day, @league.start_at)
+    @column_strategies_total = GraphGenerator.column_strategies_total(total, @league.start_at)
   end
 
   def refresh
