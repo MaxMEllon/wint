@@ -1,6 +1,6 @@
 
 class CodeAnalysis
-  attr_reader :count, :line, :func_ref, :func_num
+  attr_reader :count, :line, :size, :func_ref, :func_num
 
   VERSION = 1.0
 
@@ -13,6 +13,7 @@ class CodeAnalysis
 
     @count = data[:count]
     @line = data[:line]
+    @size = data[:size]
     @func_ref = data[:func_ref]
     @func_num = data[:func_num]
   end
@@ -29,6 +30,7 @@ class CodeAnalysis
 
     @count = { loop: count_word("for") + count_word("while"), if: count_if }
     @line = File.read(@base_path).split(/\r\n|\n/).size
+    @size = File.stat(@base_path).size
     @func_ref = amount_func_ref
     @func_num = File.read(@func_ref_path).split(/\r\n|\n/).size - 2 # 一番上の行は要らない。strategyはカウントしない
   end
