@@ -65,7 +65,7 @@ module GraphGenerator
     dataset = calc_histgram(data, func)
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: "ヒストグラム"
-      f.xAxis title: axis_style("偏差値"), categories: dataset.map {|d| d.first}
+      f.xAxis title: axis_style("偏差値")
       f.yAxis title: axis_style("度数"), allowDecimals: false
       f.series type: "column", name: "度数", data: dataset
       f.legend enabled: false
@@ -99,9 +99,9 @@ module GraphGenerator
     sum = 5  # 10 / 2
     dataset = []
 
-    9.times do  # 10, 20, ... , 90
+    9.times do  # -40, -30, ... , 0 , ... , 30, 40
       next_sum = sum+10
-      dataset << [(sum+next_sum)/2, dev_val.count {|d| (sum..next_sum).include?(d)}]
+      dataset << {x: (sum+next_sum)/2 - 50, y: dev_val.count {|d| (sum..next_sum).include?(d)}}
       sum = next_sum
     end
     dataset
