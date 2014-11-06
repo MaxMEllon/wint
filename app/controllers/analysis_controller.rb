@@ -31,7 +31,13 @@ class AnalysisController < ApplicationController
   def player
     @player = Player.where(id: params[:pid]).first
     data = @player.strategies.map {|s| [s.number, s.score]}
+    @strategies = @player.strategies
+    @league = @player.league
     @line_score = GraphGenerator.line_score(data)
+  end
+
+  def best_code
+    @submit = Submit.where(id: params[:sid]).first
   end
 
   def strategy

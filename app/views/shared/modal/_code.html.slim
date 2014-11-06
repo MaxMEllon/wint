@@ -1,0 +1,10 @@
+
+.modal-dialog.modal-content
+  .modal-header
+    h3 最良戦略のソースコード
+  .modal-body
+    textarea.form-control style="height: 600px; font-size: 11px;"
+      = File.read(@submit.src_file)
+  .modal-footer
+    = render partial: "shared/buttons/cancel"
+

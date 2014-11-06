@@ -4,17 +4,17 @@
     .col-xs-5
       h2 プレイヤ詳細
     .col-xs-7
+      br
+      = link_to analysis_player_best_code_path(sid: @player.best.id), data: {remote: true}
+        button.btn.btn-info
+          | 最良戦略
 br
 br
 
 .analysis.player
 
   .row
-    .col-lg-6
-      textarea.form-control disabled="disabled" style="height: 600px;"
-        = File.read(@player.best.src_file)
-      br
-    .col-lg-6
+    .col-lg-4
       table.table-base
         tr
           th プレイヤ名
@@ -31,6 +31,20 @@ br
         tr
           th 戦略数
           td.number= @player.strategies.count
-      br
+    .col-lg-8
       = high_chart("line_score", @line_score)
+  br
+
+  table.table-base.datatable-desc
+    thead
+      tr
+        th.number 戦略番号
+        th.score 得点
+        th.achievement 達成度
+    tbody
+      - @strategies.each do |strategy|
+        tr
+          td.number= "%03d" % strategy.number
+          td.score= format_score(strategy.score)
+          td.achievement= format_achievement(@league.achievement(strategy))
 

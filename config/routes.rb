@@ -19,6 +19,7 @@ Wint::Application.routes.draw do
   get 'analysis/:lid/refresh'  => 'analysis#refresh', as: :analysis_refresh
   get 'analysis/:lid/strategy' => 'analysis#strategy', as: :analysis_strategy
   get 'analysis/:lid/ranking'  => 'analysis#ranking', as: :analysis_ranking
+  get 'analysis/:lid/best/:sid'  => 'analysis#best_code', as: :analysis_player_best_code
   get 'analysis/:lid/:pid'     => 'analysis#player', as: :analysis_player
 
   ##================================================
