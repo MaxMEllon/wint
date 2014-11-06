@@ -26,9 +26,14 @@ class MainsController < ApplicationController
   end
 
   def set_player
-    session[:lid] = params[:lid]
-    session[:pid] = Player.where(user_id: session[:uid], league_id: session[:lid]).first.id
-    redirect_to main_mypage_path
+    player = Player.where(id: params[:pid]).first
+    unless @current_user.id == player.user.id
+      @current_user.update(is_active: false)
+      redirect_to login_path, alert: "不正なアクセスを検出しました。" and return
+    end
+    session[:pid] = player.id
+    session[:lid] = player.league.id
+    redirect_to main_mypage_path and return
   end
 
   def edit_name

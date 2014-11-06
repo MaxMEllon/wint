@@ -17,7 +17,7 @@ br
       - @players.each do |player|
         - league = player.league
         tr
-          td.player= link_to player.name, main_set_player_path(lid: player.league.id)
+          td.player= link_to player.name, main_set_player_path(pid: player.id)
           td.league= league.name
           td.score= league.limit_score
           td.open

@@ -27,7 +27,7 @@ Wint::Application.routes.draw do
 
   ##--  Main
   get   'main/select'                => 'mains#select', as: :main_select
-  get   'main/set_player/:lid'       => 'mains#set_player', as: :main_set_player
+  get   'main/set_player/:pid'       => 'mains#set_player', as: :main_set_player
   get   'main/ranking'               => 'mains#ranking', as: :main_ranking
   get   'main/mypage'                => 'mains#mypage', as: :main_mypage
   get   'main/mypage/strategy/:num'  => 'mains#strategy', as: :main_strategy
