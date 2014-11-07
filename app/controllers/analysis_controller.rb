@@ -46,25 +46,21 @@ class AnalysisController < ApplicationController
       [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
     end
 
-    data_size = analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}}
-    data_syntax = analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}}
-    data_fun = analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}}
-
-    if data_size.blank?
+    if analysis.blank?
       @scatter_size = @histgram_size = nil
     else
+      dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
+      dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
+      dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
       #-- size
-      func_size = LinearRegression.new(data_size.map {|d| d[:x]}, data_size.map {|d| d[:y]})
-      @scatter_size = GraphGenerator.scatter_size(data_size, func_size)
-      @histgram_size = GraphGenerator.histgram(data_size, func_size)
+      @scatter_size = GraphGenerator.scatter_size(dev_size)
+      @histgram_size = GraphGenerator.histgram(dev_size)
       #-- syntax
-      func_syntax = LinearRegression.new(data_syntax.map {|d| d[:x]}, data_syntax.map {|d| d[:y]})
-      @scatter_syntax = GraphGenerator.scatter_syntax(data_syntax, func_syntax)
-      @histgram_syntax = GraphGenerator.histgram(data_syntax, func_syntax)
+      @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax)
+      @histgram_syntax = GraphGenerator.histgram(dev_syntax)
       #-- fun
-      func_fun = LinearRegression.new(data_fun.map {|d| d[:x]}, data_fun.map {|d| d[:y]})
-      @scatter_fun = GraphGenerator.scatter_fun(data_fun, func_fun)
-      @histgram_fun = GraphGenerator.histgram(data_fun, func_fun)
+      @scatter_fun = GraphGenerator.scatter_fun(dev_fun)
+      @histgram_fun = GraphGenerator.histgram(dev_fun)
     end
   end
 

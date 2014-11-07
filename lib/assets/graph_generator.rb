@@ -1,24 +1,24 @@
 module GraphGenerator
   ##--  scatter
-  def scatter_size(data, func)
-    scatter(data, func, {title: "ファイルサイズと得点", yAxis: "ファイルサイズ", pointFormat: "score : {point.x:.2f}<br />size : {point.y}"})
+  def scatter_size(deviation, user_data = nil)
+    scatter(deviation, user_data, {title: "ファイルサイズと得点", yAxis: "ファイルサイズ", pointFormat: "score : {point.x:.2f}<br />size : {point.y}"})
   end
 
-  def scatter_line(data, func)
-    scatter(data, func, {title: "コードの行数と得点", yAxis: "行数", pointFormat: "score : {point.x:.2f}<br />line : {point.y}"})
+  def scatter_line(deviation, user_data = nil)
+    scatter(deviation, user_data, {title: "コードの行数と得点", yAxis: "行数", pointFormat: "score : {point.x:.2f}<br />line : {point.y}"})
   end
 
-  def scatter_syntax(data, func)
-    scatter(data, func, {title: "制御構文の数と得点", yAxis: "制御構文の数", pointFormat: "score : {point.x:.2f}<br />loop+if : {point.y}"})
+  def scatter_syntax(deviation, user_data = nil)
+    scatter(deviation, user_data, {title: "制御構文中の条件の数と得点", yAxis: "制御構文中の条件の数", pointFormat: "score : {point.x:.2f}<br />while/for+if : {point.y}"})
   end
 
-  def scatter_fun(data, func)
-    scatter(data, func, {title: "関数の定義数と得点", yAxis: "関数の定義数", pointFormat: "score : {point.x:.2f}<br />func_num : {point.y}"})
+  def scatter_fun(deviation, user_data = nil)
+    scatter(deviation, user_data, {title: "関数の定義数と得点", yAxis: "関数の定義数", pointFormat: "score : {point.x:.2f}<br />func_num : {point.y}"})
   end
 
   ##--  histgram
-  def histgram(data, func)
-    dataset = calc_histgram(data, func)
+  def histgram(deviation)
+    dataset = calc_histgram(deviation)
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: "ヒストグラム"
       f.xAxis title: axis_style("偏差値")
@@ -66,15 +66,20 @@ module GraphGenerator
   end
 
   private
-  def scatter(data, func, attributes = {})
-    regression_data = [{x: data.first[:x], y: func.val(data.first[:x])}, {x: data.last[:x], y: func.val(data.last[:x])}]
+  def scatter(deviation, user_data = nil, attributes = {})
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: attributes[:title]
       f.xAxis title: axis_style("得点")
       f.yAxis title: axis_style(attributes[:yAxis])
-      f.series type: "scatter", name: "散布図", data: data
-      f.series type: "line", name: "回帰直線", data: regression_data, marker: {enabled: false}
-      f.tooltip headerFormat: "<b>{point.key}</b><br />", pointFormat: attributes[:pointFormat]
+      f.series type: "line", name: "回帰直線", data: deviation.regression_data, marker: {enabled: false}, color: "black"
+      if user_data
+        f.series type: "scatter", name: "全員のコード", data: deviation.data.map {|d| [d[:x], d[:y]]}, color: "#2F7ED8"
+        f.series type: "scatter", name: "あなたのコード", data: user_data, color: "red"
+        f.tooltip pointFormat: attributes[:pointFormat]
+      else
+        f.series type: "scatter", name: "散布図", data: deviation.data, color: "#2F7ED8"
+        f.tooltip headerFormat: "<b>{point.key}</b><br />", pointFormat: attributes[:pointFormat]
+      end
       f.legend layout: "horizontal"
     end
   end
@@ -93,21 +98,12 @@ module GraphGenerator
     {text: text, style: {"font-size" => "16px"}}
   end
 
-  def calc_histgram(data, func)
-    # 点と直線の距離
-    # y = ax + b => ax - y + b = 0
-    # (ax - y + b) / sqrt(a^2 + (-1)^2)
-    distance = data.map {|d| (func.a*d[:x] - d[:y] + func.b) / Math.sqrt(func.a**2 + 1)}
-
-    ave = distance.inject(:+)
-    std_dev = Math.sqrt(distance.map {|d| (d-ave)**2}.inject(:+) / distance.size) # 標準偏差
-    dev_val = distance.map {|d| ((d-ave) / std_dev)*10 + 50}  # 偏差値
+  def calc_histgram(deviation)
     sum = 5  # 10 / 2
     dataset = []
-
     9.times do  # -40, -30, ... , 0 , ... , 30, 40
       next_sum = sum+10
-      dataset << {x: (sum+next_sum)/2 - 50, y: dev_val.count {|d| (sum..next_sum).include?(d)}}
+      dataset << {x: (sum+next_sum)/2 - 50, y: deviation.dev_val.count {|d| (sum..next_sum).include?(d)}}
       sum = next_sum
     end
     dataset
