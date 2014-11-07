@@ -1,8 +1,8 @@
 
 class CodeAnalysis
-  attr_reader :count, :line, :size, :func_ref, :func_num
+  attr_reader :count, :line, :size, :gzip_size, :func_ref, :func_num
 
-  VERSION = 2.0
+  VERSION = 3.0
 
   def initialize(path)
     data = ModelHelper.decode_json(File.read(path))

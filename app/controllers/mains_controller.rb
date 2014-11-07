@@ -25,13 +25,12 @@ class MainsController < ApplicationController
     dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
     dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
     dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
+    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (a.code.gzip_size / a.code.size.to_f)*100}})
 
-    #-- size
     @scatter_size = GraphGenerator.scatter_size(dev_size, [[analy.result.score, analy.code.size]])
-    #-- syntax
     @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [[analy.result.score, analy.code.count[:loop] + analy.code.count[:if]]])
-    #-- fun
     @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [[analy.result.score, analy.code.func_num]])
+    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [[analy.result.score, (analy.code.gzip_size / analy.code.size.to_f)*100]])
 
     @result_table = analy.result.get_result_table
   end

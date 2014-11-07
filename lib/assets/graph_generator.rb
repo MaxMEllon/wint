@@ -16,6 +16,10 @@ module GraphGenerator
     scatter(deviation, user_data, {title: "関数の定義数と得点", yAxis: "関数の定義数", pointFormat: "score : {point.x:.2f}<br />func_num : {point.y}"})
   end
 
+  def scatter_gzip(deviation, user_data = nil)
+    scatter(deviation, user_data, {title: "圧縮率と得点", yAxis: "圧縮率", pointFormat: "score : {point.x:.2f}<br />圧縮率 : {point.y:.1f}%"})
+  end
+
   ##--  histgram
   def histgram(deviation)
     dataset = calc_histgram(deviation)
@@ -109,7 +113,7 @@ module GraphGenerator
     dataset
   end
 
-  module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax, :scatter_fun,
+  module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax, :scatter_fun, :scatter_gzip,
                   :histgram,
                   :line_score,
                   :bar_submits,

@@ -37,4 +37,13 @@ br
       .col-lg-6
         = high_chart("histgram_fun", @histgram_fun)
         br
+    h3 圧縮率
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_gzip", @scatter_gzip)
+        br
+      .col-lg-6
+        = high_chart("histgram_gzip", @histgram_gzip)
+        br
 
