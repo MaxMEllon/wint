@@ -28,9 +28,9 @@ class ResultAnalysis
     File.read(@base_path).split(/\r\n|\n/).map {|line| line.gsub(/\||-|\+/, "").split}.delete_if {|line| line.empty? || line.first == "平均得点"}
   end
 
-  def self.create(data_dir)
+  def self.create(data_dir, submit_id)
     Dir::mkdir(data_dir)
-    `mv #{Rails.root}/tmp/log/_tmp/Result.txt #{data_dir}`
+    `mv #{Rails.root}/tmp/log/_tmp#{submit_id}/Result.txt #{data_dir}`
     (data_dir + "/result.json").tap do |path|
       File.open(path, "w") do |f|
         f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Result.txt"})

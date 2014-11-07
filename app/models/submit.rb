@@ -57,7 +57,7 @@ class Submit < ActiveRecord::Base
     return status unless status == STATUS_SUCCESS
     status = compile(rule_dir, rules, self.src_file, self.exec_file)
     return status unless status == STATUS_SUCCESS
-    status = exec(rule_dir, rules, self.exec_file)
+    status = exec(rule_dir, rules, self.exec_file, self.id)
     return status unless status == STATUS_SUCCESS
     STATUS_SUCCESS
   end

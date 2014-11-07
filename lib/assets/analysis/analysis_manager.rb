@@ -25,12 +25,12 @@ class AnalysisManager
     File.open(@data[:lpath], "w") {|f| f.puts ModelHelper.encode_json(@log)}
   end
 
-  def self.create(data_dir)
+  def self.create(data_dir, submit_id)
     path = data_dir + "/analy"
     Dir::mkdir(path)
-    rpath = ResultAnalysis.create(path + "/result")
+    rpath = ResultAnalysis.create(path + "/result", submit_id)
     cpath = CodeAnalysis.create(path + "/code", data_dir + "/PokerOpe.c")
-    lpath = LogAnalysis.create(path + "/log")
+    lpath = LogAnalysis.create(path + "/log", submit_id)
     (path + "/analy.json").tap do |analy_file|
       File.open(analy_file, "w") do |f|
         f.puts ModelHelper.encode_json({rpath: rpath, cpath: cpath, lpath: lpath})

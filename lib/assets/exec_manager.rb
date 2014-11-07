@@ -16,12 +16,11 @@ module ExecManager
     Submit::STATUS_SUCCESS
   end
 
-  def exec(rule_dir, rules, exec_file)
-    log = "#{Rails.root}/tmp/log"
-    Dir::mkdir(log) unless File.exist?(log)
+  def exec(rule_dir, rules, exec_file, submit_id)
+    Dir::mkdir("#{Rails.root}/tmp/log") unless File.exist?("#{Rails.root}/tmp/log")
     begin
       Timeout.timeout(Submit::TIME_LIMIT) do
-        Rake::sh "cd #{Rails.root}/tmp && #{exec_file} _tmp #{rules[:try]} #{rule_dir}/Stock.ini 0" rescue return Submit::STATUS_EXEC_ERROR
+        Rake::sh "cd #{Rails.root}/tmp && #{exec_file} _tmp#{submit_id} #{rules[:try]} #{rule_dir}/Stock.ini 0" rescue return Submit::STATUS_EXEC_ERROR
       end
     rescue
       return Submit::STATUS_TIME_OVER

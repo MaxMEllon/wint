@@ -11,7 +11,7 @@ class Strategy < ActiveRecord::Base
 
   # override
   def self.create(submit)
-    analy_file = AnalysisManager.create(submit.data_dir)
+    analy_file = AnalysisManager.create(submit.data_dir, submit.id)
     analy = AnalysisManager.new(analy_file)
     analy.update
     super(submit_id: submit.id, analy_file: analy_file, score: analy.result.score, number: Strategy.get_number(submit))
