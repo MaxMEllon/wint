@@ -2,7 +2,7 @@
 class CodeAnalysis
   attr_reader :count, :line, :size, :func_ref, :func_num
 
-  VERSION = 1.0
+  VERSION = 2.0
 
   def initialize(path)
     data = ModelHelper.decode_json(File.read(path))
@@ -10,10 +10,12 @@ class CodeAnalysis
     @base_path = data[:base_path]
     @cflow_path = data[:cflow_path]
     @func_ref_path = data[:func_ref_path]
+    @gzip_path = data[:gzip_path]
 
     @count = data[:count]
     @line = data[:line]
     @size = data[:size]
+    @gzip_size = data[:gzip_size]
     @func_ref = data[:func_ref]
     @func_num = data[:func_num]
   end
@@ -27,10 +29,12 @@ class CodeAnalysis
     @ver = VERSION
     @cflow_path = create_cflow
     @func_ref_path = create_func_ref
+    @gzip_path = create_gzip
 
     @count = { loop: count_word("for") + count_word("while"), if: count_if }
     @line = File.read(@base_path).split(/\r\n|\n/).size
     @size = File.stat(@base_path).size
+    @gzip_size = File.stat(@gzip_path).size
     @func_ref = amount_func_ref
     @func_num = File.read(@func_ref_path).split(/\r\n|\n/).size - 2 # 一番上の行は要らない。strategyはカウントしない
   end
@@ -71,6 +75,12 @@ class CodeAnalysis
     reference = get_reference
     @base_path.sub(/comcut.c/, "func_ref.csv").tap do |path|
       File.open(path, "w") { |f| f.puts reference_to_matrix(reference) }
+    end
+  end
+
+  def create_gzip
+    @base_path.sub(/comcut.c/, "comcut.gz").tap do |path|
+      `gzip -c -9 #{@base_path} > #{path}`
     end
   end
 
