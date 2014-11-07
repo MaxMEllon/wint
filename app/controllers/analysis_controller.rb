@@ -52,7 +52,7 @@ class AnalysisController < ApplicationController
       dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
       dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
       dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
-      dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (a.code.gzip_size / a.code.size.to_f)*100}})
+      dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (1-(a.code.gzip_size / a.code.size.to_f))*100}})
       #-- size
       @scatter_size = GraphGenerator.scatter_size(dev_size)
       @histgram_size = GraphGenerator.histgram(dev_size)

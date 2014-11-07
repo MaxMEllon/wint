@@ -25,12 +25,12 @@ class MainsController < ApplicationController
     dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
     dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
     dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
-    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (a.code.gzip_size / a.code.size.to_f)*100}})
+    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (1-(a.code.gzip_size / a.code.size.to_f))*100}})
 
     data_size = [analy.result.score, analy.code.size]
     data_syntax = [analy.result.score, analy.code.count[:loop] + analy.code.count[:if]]
     data_fun = [analy.result.score, analy.code.func_num]
-    data_gzip = [analy.result.score, (analy.code.gzip_size / analy.code.size.to_f)*100]
+    data_gzip = [analy.result.score, (1-(analy.code.gzip_size / analy.code.size.to_f))*100]
     @scatter_size = GraphGenerator.scatter_size(dev_size, [data_size])
     @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [data_syntax])
     @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [data_fun])
