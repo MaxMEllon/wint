@@ -13,12 +13,27 @@ class MainsController < ApplicationController
   end
 
   def strategy
-    @strategy = @current_player.submits.where(number: params[:num]).first.strategy
+    @player = @current_player
+    @strategy = @player.submits.where(number: params[:num]).first.strategy
     analy = AnalysisManager.new(@strategy.analy_file)
+
+    players = @player.league.players.select {|p| p.id != @player.id && p.best }.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    analysis = players.map do |player|
+      [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
+    end
+
+    dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
+    dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
+    dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
+
+    #-- size
+    @scatter_size = GraphGenerator.scatter_size(dev_size, [[analy.result.score, analy.code.size]])
+    #-- syntax
+    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [[analy.result.score, analy.code.count[:loop] + analy.code.count[:if]]])
+    #-- fun
+    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [[analy.result.score, analy.code.func_num]])
+
     @result_table = analy.result.get_result_table
-    sum = analy.result.result_amount.values.inject(:+).to_f
-    data = analy.result.result_amount.map {|k, v| [Strategy.hand_text[k], v / sum]}
-    @pie_result = GraphGenerator.pie_result(data)
   end
 
   def select

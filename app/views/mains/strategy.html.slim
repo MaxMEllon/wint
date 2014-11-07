@@ -23,5 +23,17 @@ br
               - line.each do |elem|
                 td.num= elem
     .col-lg-6
-      = high_chart("pie_result", @pie_result)
+      /= high_chart("pie_result", @pie_result)
+  br
+  .row
+    .col-lg-6
+      = high_chart("scatter_size", @scatter_size)
+    .col-lg-6
+      = high_chart("scatter_syntax", @scatter_syntax)
+  br
+  .row
+    .col-lg-6
+      = high_chart("scatter_fun", @scatter_fun)
+    .col-lg-6
+      /= high_chart("scatter_syntax", @scatter_syntax)
 
