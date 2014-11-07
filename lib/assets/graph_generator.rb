@@ -33,6 +33,18 @@ module GraphGenerator
     end
   end
 
+  def polar_dev(data)
+    LazyHighCharts::HighChart.new(:graph) do |f|
+      f.title text: "乖離度"
+      f.chart polar: true
+      f.yAxis min: -50, max: 50
+      f.xAxis categories: data.map {|d| d[:x]}
+      f.series type: "area", name: "乖離度", data: data.map {|d| d[:y]}
+      f.tooltip pointFormat: "{series.name} : {point.y:.1f}"
+      f.legend enabled: false
+    end
+  end
+
   def line_score(data)
     LazyHighCharts::HighChart.new(:graph) do |f|
       f.title text: "得点の推移"
@@ -114,10 +126,8 @@ module GraphGenerator
   end
 
   module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax, :scatter_fun, :scatter_gzip,
-                  :histgram,
-                  :line_score,
-                  :bar_submits,
-                  :pie_result,
+                  :histgram, :polar_dev,
+                  :line_score, :bar_submits, :pie_result,
                   :column_strategies_per_day, :column_strategies_total, :column_strategies,
                   :axis_style, :calc_histgram
 end
