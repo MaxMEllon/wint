@@ -18,12 +18,12 @@ class Deviation
     (@func.a*x - y + @func.b) / Math.sqrt(@func.a**2 + 1)
   end
 
-  def get_deviation_value(x, y)
-    ((get_distance(x, y) - @ave) / @std_dev)*10 + 50
+  def value(x, y)
+    ((self.get_distance(x, y) - @ave) / @std_dev)*10 + 50
   end
 
-  def get_deviation_degree(x, y)
-    get_deviation_value(x, y) - 50
+  def degree(attributes = {})
+    self.value(attributes[:x], attributes[:y]) - 50
   end
 
   def regression_data

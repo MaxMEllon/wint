@@ -25,6 +25,22 @@ class AnalysisManager
     File.open(@data[:lpath], "w") {|f| f.puts ModelHelper.encode_json(@log)}
   end
 
+  def plot_size
+    {x: @result.score, y: @code.size}
+  end
+
+  def plot_syntax
+    {x: @result.score, y: @code.count[:loop] + @code.count[:if]}
+  end
+
+  def plot_fun
+    {x: @result.score, y: @code.func_num}
+  end
+
+  def plot_gzip
+    {x: @result.score, y: (1-(@code.gzip_size / @code.size.to_f))*100}
+  end
+
   def self.create(data_dir, submit_id)
     path = data_dir + "/analy"
     Dir::mkdir(path)

@@ -49,10 +49,10 @@ class AnalysisController < ApplicationController
     if analysis.blank?
       @scatter_size = @histgram_size = nil
     else
-      dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
-      dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
-      dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
-      dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (1-(a.code.gzip_size / a.code.size.to_f))*100}})
+      dev_size = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_size)})
+      dev_syntax = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
+      dev_fun = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
+      dev_gzip = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
       #-- size
       @scatter_size = GraphGenerator.scatter_size(dev_size)
       @histgram_size = GraphGenerator.histgram(dev_size)
@@ -69,11 +69,29 @@ class AnalysisController < ApplicationController
   end
 
   def ranking
-    @league = League.where(id: params[:lid]).eager_load(players: {best: :strategy}).first
+    @league = League.where(id: params[:lid]).eager_load(players: [{best: :strategy}, :strategies, :user]).first
     @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    analysis = @players.map do |player|
+      [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
+    end
+
+    dev_size = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_size)})
+    dev_syntax = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
+    dev_fun = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
+    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
+
+    @degrees = analysis.map do |_, analy|
+      {
+        size: dev_size.degree(analy.plot_size),
+        syntax: dev_syntax.degree(analy.plot_syntax),
+        fun: dev_fun.degree(analy.plot_fun),
+        gzip: dev_gzip.degree(analy.plot_gzip)
+      }
+    end
+
     @players += @league.players.select {|p| !p.best}
 
-    data = @players.map {|p| [p.user.snum, p.strategies.count]}
+    data = @players.map {|p| [p.user.snum, p.strategies.to_a.count]}
     @bar_submits = GraphGenerator.bar_submits(data)
   end
 

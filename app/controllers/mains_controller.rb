@@ -22,24 +22,26 @@ class MainsController < ApplicationController
       [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
     end
 
-    dev_size = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.size}})
-    dev_syntax = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.count[:loop] + a.code.count[:if]}})
-    dev_fun = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: a.code.func_num}})
-    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n, x: a.result.score, y: (1-(a.code.gzip_size / a.code.size.to_f))*100}})
+    dev_size = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_size)})
+    dev_syntax = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
+    dev_fun = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
+    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
 
-    data_size = [analy.result.score, analy.code.size]
-    data_syntax = [analy.result.score, analy.code.count[:loop] + analy.code.count[:if]]
-    data_fun = [analy.result.score, analy.code.func_num]
-    data_gzip = [analy.result.score, (1-(analy.code.gzip_size / analy.code.size.to_f))*100]
-    @scatter_size = GraphGenerator.scatter_size(dev_size, [data_size])
-    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [data_syntax])
-    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [data_fun])
-    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [data_gzip])
+    data_size = analy.plot_size
+    data_syntax = analy.plot_syntax
+    data_fun = analy.plot_fun
+    data_gzip = analy.plot_gzip
+
+    @scatter_size = GraphGenerator.scatter_size(dev_size, [data_size.values])
+    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [data_syntax.values])
+    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [data_fun.values])
+    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [data_gzip.values])
+
     data = [
-      {x: "ファイルサイズ", y: dev_size.get_deviation_degree(data_size[0], data_size[1])},
-      {x: "制御構文の条件の数", y: dev_size.get_deviation_degree(data_syntax[0], data_syntax[1])},
-      {x: "関数の宣言数", y: dev_size.get_deviation_degree(data_fun[0], data_fun[1])},
-      {x: "圧縮率", y: dev_size.get_deviation_degree(data_gzip[0], data_gzip[1])}
+      {x: "ファイルサイズ", y: dev_size.degree(data_size)},
+      {x: "制御構文の条件の数", y: dev_size.degree(data_syntax)},
+      {x: "関数の宣言数", y: dev_size.degree(data_fun)},
+      {x: "圧縮率", y: dev_size.degree(data_gzip)}
     ]
     @polar_dev = GraphGenerator.polar_dev(data)
 
