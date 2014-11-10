@@ -2,7 +2,7 @@
 class ResultAnalysis
   attr_reader :score, :result_amount
 
-  VERSION = 2.0
+  VERSION = 1.0
   HAND = 10  # 役の数
 
   def initialize(path)
