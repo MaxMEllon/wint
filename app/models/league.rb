@@ -32,7 +32,7 @@ class League < ActiveRecord::Base
 
   def format_rule
     rules = rule
-    "#{"%02d" % rules[:take]}-#{"%02d" % rules[:change]}-#{rules[:try]}"
+    "#{"%02d" % rules[:change]}-#{"%02d" % rules[:take]}-#{rules[:try]}"
   end
 
   def mkdir
