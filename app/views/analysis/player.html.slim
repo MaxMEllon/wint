@@ -41,10 +41,18 @@ br
         th.number 戦略番号
         th.score 得点
         th.achievement 達成度
+        th.score サイズ
+        th.score 条件式
+        th.score 宣言数
+        th.score 圧縮率
     tbody
-      - @strategies.each do |strategy|
+      - @strategies.zip(@degrees).each do |strategy, degree|
         tr
           td.number= "%03d" % strategy.number
           td.score= format_score(strategy.score)
           td.achievement= format_achievement(@league.achievement(strategy))
+          td.score= format_score(degree[:size])
+          td.score= format_score(degree[:syntax])
+          td.score= format_score(degree[:fun])
+          td.score= format_score(degree[:gzip])
 
