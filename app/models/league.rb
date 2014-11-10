@@ -15,6 +15,11 @@ class League < ActiveRecord::Base
     (strategy.score / self.limit_score) * 100
   end
 
+  def open?
+    now = Time.new
+    self.start_at <= now && now < self.end_at
+  end
+
   def self.select_format
     self.all.map {|l| [l.name, l.id]}
   end
