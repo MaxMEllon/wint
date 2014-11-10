@@ -1,6 +1,6 @@
 
 .title
-  h2 ランキング
+  h2 管理者用ランキング
 br
 br
 
@@ -8,7 +8,9 @@ br
 
   ul.nav.nav-tabs
     li.active
-      a href="#ranking" data-toggle="tab" ランキング
+      a href="#ranking" data-toggle="tab" プレイヤランキング
+    li
+      a href="#strategies" data-toggle="tab" 戦略ランキング
     li
       a href="#submits" data-toggle="tab" 提出数
   br
@@ -27,12 +29,12 @@ br
             th.score 宣言数
             th.score 圧縮率
         tbody
-          - @players.zip(@degrees).each.with_index(1) do |data, i|
+          - @players.zip(@player_degrees).each.with_index(1) do |data, i|
             - player, degree = data
             - if player.best
               tr
                 td.id= i
-                td.snum= link_to  player.user.snum, analysis_player_path(pid: player.id)
+                td.snum= link_to player.user.snum, analysis_player_path(pid: player.id)
                 td.user= player.user.name
                 td.role= Player.role_options[player.role]
                 td.score= format_score(player.best.strategy.score)
@@ -51,6 +53,26 @@ br
                 td.score 未提出
                 td.score 未提出
                 td.score 未提出
+
+    .tab-pane#strategies
+      table.table.table-base.datatable
+        thead
+          tr
+            th.id 順位
+            th.snum 戦略番号
+            th.score サイズ
+            th.score 条件式
+            th.score 宣言数
+            th.score 圧縮率
+        tbody
+          - @strategies_degrees.each.with_index(1) do |degree, i|
+            tr
+              td.id= i
+              td.snum= degree[:name]
+              td.score= format_score(degree[:size])
+              td.score= format_score(degree[:syntax])
+              td.score= format_score(degree[:fun])
+              td.score= format_score(degree[:gzip])
 
     .tab-pane#submits
       = high_chart("bar_submits", @bar_submits)

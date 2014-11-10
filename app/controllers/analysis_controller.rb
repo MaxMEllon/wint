@@ -69,18 +69,26 @@ class AnalysisController < ApplicationController
   end
 
   def ranking
-    @league = League.where(id: params[:lid]).eager_load(players: [{best: :strategy}, :strategies, :user]).first
+    @league = League.where(id: params[:lid]).eager_load(players: [{best: :strategy}, :strategies, :user, :submits]).first
     @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
-    analysis = @players.map do |player|
+    player_analysis = @players.map do |player|
       [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
     end
+    strategies_analysis = []
+    @players.each do |player|
+      player.strategies.each do |strategy|
+        strategies_analysis << ["#{player.user.snum}_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
+      end
+    end
 
-    dev_size = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_size)})
-    dev_syntax = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
-    dev_fun = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
-    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
+    @players += @league.players.select {|p| !p.best}
 
-    @degrees = analysis.map do |_, analy|
+    dev_size = Deviation.new(player_analysis.map {|n, a| {name: n}.merge(a.plot_size)})
+    dev_syntax = Deviation.new(player_analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
+    dev_fun = Deviation.new(player_analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
+    dev_gzip = Deviation.new(player_analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
+
+    @player_degrees = player_analysis.map do |_, analy|
       {
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
@@ -89,10 +97,17 @@ class AnalysisController < ApplicationController
       }
     end
 
-    @players += @league.players.select {|p| !p.best}
+    @strategies_degrees = strategies_analysis.map do |name, analy|
+      {
+        name: name,
+        size: dev_size.degree(analy.plot_size),
+        syntax: dev_syntax.degree(analy.plot_syntax),
+        fun: dev_fun.degree(analy.plot_fun),
+        gzip: dev_gzip.degree(analy.plot_gzip)
+      }
+    end
 
-    data = @players.map {|p| [p.user.snum, p.strategies.to_a.count]}
-    @bar_submits = GraphGenerator.bar_submits(data)
+    @bar_submits = GraphGenerator.bar_submits(@players.map {|p| [p.user.snum, p.strategies.to_a.count]})
   end
 
   private
