@@ -17,7 +17,7 @@ class MainsController < ApplicationController
     @strategy = @player.submits.where(number: params[:num]).first.strategy
     analy = AnalysisManager.new(@strategy.analy_file)
 
-    players = @player.league.players.select {|p| p.id != @player.id && p.best }.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    players = Player.where(league_id: @player.league.id).includes(best: :strategy).select {|p| p.id != @player.id && p.best }.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
     analysis = players.map do |player|
       [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
     end
