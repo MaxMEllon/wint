@@ -8,8 +8,7 @@ class MainsController < ApplicationController
     @player = @current_player
     @submits = Submit.where(player_id: @player.id).eager_load(:strategy)
     @league = @player.league
-    data = @player.strategies.map {|s| [s.number, s.score]}
-    @line_score = GraphGenerator.line_score(data)
+    @line_score = GraphGenerator.line_score(@player.strategies.number_by.map {|s| [s.number, s.score]})
   end
 
   def strategy

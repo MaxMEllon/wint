@@ -30,7 +30,7 @@ class AnalysisController < ApplicationController
 
   def player
     @player = Player.where(id: params[:pid]).first
-    @strategies = @player.strategies
+    @strategies = @player.strategies.number_by
     analysis = @strategies.map {|strategy| AnalysisManager.new(strategy.analy_file)}
 
     dev_size = Deviation.new(analysis.map {|a| a.plot_size})
@@ -48,7 +48,7 @@ class AnalysisController < ApplicationController
     end
 
     @league = @player.league
-    @line_score = GraphGenerator.line_score(@player.strategies.map {|s| [s.number, s.score]})
+    @line_score = GraphGenerator.line_score(@strategies.map {|s| [s.number, s.score]})
   end
 
   def best_code

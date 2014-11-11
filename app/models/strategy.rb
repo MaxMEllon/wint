@@ -6,6 +6,7 @@ class Strategy < ActiveRecord::Base
   has_one :league, through: :player
 
   scope :score_by, -> { order("score DESC") }
+  scope :number_by, -> { order("number") }
 
   RANK = {0...30 => "X", 30...35 => "C", 35...40 => "B", 40...45 => "A", 45...50 => "S", 50...75 => "SS", 75..100 => "SSS"}
 
@@ -44,7 +45,7 @@ class Strategy < ActiveRecord::Base
 
   private
   def self.get_number(submit)
-    strategies = submit.player.strategies
+    strategies = submit.player.strategies.number_by
     strategies.present? ? strategies.last.number+1 : 1
   end
 end
