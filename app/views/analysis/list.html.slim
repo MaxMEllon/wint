@@ -12,13 +12,15 @@ br
   table.table.table-base.datatable
     thead
       tr
+        th.league リーグ
         th.league リーグ詳細
         th.strategy 戦略コード分析
         th.ranking ランキング
     tbody
       - @leagues.each do |league|
         tr
-          td.league= link_to league.name, analysis_league_path(lid: league.id)
-          td.strategy= link_to "リンク", analysis_strategy_path(lid: league.id)
-          td.ranking= link_to "リンク", analysis_ranking_path(lid: league.id)
+          td.league= league.name
+          td.link= link_to "リンク", analysis_league_path(lid: league.id)
+          td.link= link_to "リンク", analysis_strategy_path(lid: league.id)
+          td.link= link_to "リンク", analysis_ranking_path(lid: league.id)
 
