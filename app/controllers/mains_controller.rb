@@ -14,37 +14,36 @@ class MainsController < ApplicationController
   def strategy
     @player = @current_player
     @strategy = @player.submits.where(number: params[:num]).first.strategy
-    analy = AnalysisManager.new(@strategy.analy_file)
+    player_analy = AnalysisManager.new(@strategy.analy_file)
 
-    players = Player.where(league_id: @player.league.id).includes(best: :strategy).select {|p| p.id != @player.id && p.best }.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
-    analysis = players.map do |player|
-      [player.user.snum, AnalysisManager.new(player.best.strategy.analy_file)]
-    end
+    league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user, :submits, :strategies]).first
+    players = league.players_ranking
+    analysis = players.map {|player| player.analysis_with_snum}
 
-    dev_size = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_size)})
-    dev_syntax = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
-    dev_fun = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
-    dev_gzip = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
+    dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
+    dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
+    dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
+    dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
 
-    data_size = analy.plot_size
-    data_syntax = analy.plot_syntax
-    data_fun = analy.plot_fun
-    data_gzip = analy.plot_gzip
+    player_size = player_analy.plot_size
+    player_syntax = player_analy.plot_syntax
+    player_fun = player_analy.plot_fun
+    player_gzip = player_analy.plot_gzip
 
-    @scatter_size = GraphGenerator.scatter_size(dev_size, [data_size.values])
-    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [data_syntax.values])
-    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [data_fun.values])
-    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [data_gzip.values])
+    @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
+    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
+    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [player_fun.values])
+    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [player_gzip.values])
 
     data = [
-      {x: "ファイルサイズ", y: dev_size.degree(data_size)},
-      {x: "制御構文の条件の数", y: dev_size.degree(data_syntax)},
-      {x: "関数の宣言数", y: dev_size.degree(data_fun)},
-      {x: "圧縮率", y: dev_size.degree(data_gzip)}
+      {x: "ファイルサイズ", y: dev_size.degree(player_size)},
+      {x: "制御構文の条件の数", y: dev_size.degree(player_syntax)},
+      {x: "関数の宣言数", y: dev_size.degree(player_fun)},
+      {x: "圧縮率", y: dev_size.degree(player_gzip)}
     ]
     @polar_dev = GraphGenerator.polar_dev(data)
 
-    @result_table = analy.result.get_result_table
+    @result_table = player_analy.result.get_result_table
   end
 
   def select
