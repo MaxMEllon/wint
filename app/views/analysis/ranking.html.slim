@@ -20,7 +20,7 @@ br
         thead
           tr
             th.id 順位
-            th.snum 学籍番号
+            th.snum 戦略名
             th.user ユーザ名
             th.role ロール
             th.score 得点
@@ -34,7 +34,7 @@ br
             - if player.best
               tr
                 td.id= i
-                td.snum= link_to player.user.snum, analysis_player_path(pid: player.id)
+                td.snum= link_to degree[:name], analysis_player_path(pid: player.id)
                 td.user= player.user.name
                 td.role= Player.role_options[player.role]
                 td.score= format_score(player.best.strategy.score)
@@ -59,7 +59,7 @@ br
         thead
           tr
             th.id 順位
-            th.snum 戦略番号
+            th.snum 戦略名
             th.score サイズ
             th.score 条件式
             th.score 宣言数

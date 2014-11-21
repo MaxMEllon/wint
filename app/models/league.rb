@@ -15,6 +15,10 @@ class League < ActiveRecord::Base
     (strategy.score / self.limit_score) * 100
   end
 
+  def players_ranking
+    self.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+  end
+
   def open?
     now = Time.new
     self.start_at <= now && now < self.end_at

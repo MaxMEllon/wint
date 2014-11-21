@@ -12,6 +12,11 @@ class Player < ActiveRecord::Base
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
 
+  def analysis_with_snum
+    strategy = self.best.strategy
+    [self.user.snum + "_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
+  end
+
   def self.role_options
     {
       ROLE_PARTICIPANT => '受講者',
