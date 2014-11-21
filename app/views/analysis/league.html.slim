@@ -14,8 +14,8 @@ br
 
 .analysis.league
 
-  - participants = @league.players.where(role: Player::ROLE_PARTICIPANT)
-  - auditors = @league.players.where(role: Player::ROLE_AUDITOR)
+  - participants = @league.players.select {|player| !player.auditor?}
+  - auditors = @league.players.select {|player| player.auditor?}
   table.table.table-base
     tr
       th
@@ -25,22 +25,22 @@ br
       th.max 最多提出数
     tr
       th 受講者
-      td.player= participants.active.count
-      td.submit= participants.map {|p| p.submits.count}.inject(:+)
-      td.strategy= participants.map {|p| p.strategies.count}.inject(:+)
-      td.max= participants.map {|p| p.strategies.count}.max
+      td.player= participants.to_a.count
+      td.submit= participants.map {|p| p.submits.to_a.count}.inject(:+)
+      td.strategy= participants.map {|p| p.strategies.to_a.count}.inject(:+)
+      td.max= participants.map {|p| p.strategies.to_a.count}.max
     tr
       th 聴講者
-      td.player= auditors.active.count
-      td.submit= auditors.map {|p| p.submits.count}.inject(:+)
-      td.strategy= auditors.map {|p| p.strategies.count}.inject(:+)
-      td.max= auditors.map {|p| p.strategies.count}.max
+      td.player= auditors.to_a.count
+      td.submit= auditors.map {|p| p.submits.to_a.count}.inject(:+)
+      td.strategy= auditors.map {|p| p.strategies.to_a.count}.inject(:+)
+      td.max= auditors.map {|p| p.strategies.to_a.count}.max
     tr
       th 合計
-      td.player= @league.players.count
-      td.submit= @league.players.map {|p| p.submits.count}.inject(:+)
-      td.strategy= @league.players.map {|p| p.strategies.count}.inject(:+)
-      td.max= @league.players.map {|p| p.strategies.count}.max
+      td.player= @league.players.to_a.count
+      td.submit= @league.players.map {|p| p.submits.to_a.count}.inject(:+)
+      td.strategy= @league.players.map {|p| p.strategies.to_a.count}.inject(:+)
+      td.max= @league.players.map {|p| p.strategies.to_a.count}.max
 
   .row
     .col-lg-6

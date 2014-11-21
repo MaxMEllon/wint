@@ -6,7 +6,7 @@ class AnalysisController < ApplicationController
   end
 
   def league
-    @league = League.where(id: params[:lid]).first
+    @league = League.where(id: params[:lid]).includes(players: [:submits, :strategies]).first
     sum = @league.start_at
     per_day = []
     total = [0]
@@ -32,14 +32,15 @@ class AnalysisController < ApplicationController
   def player
     @player = Player.where(id: params[:pid]).first
     @strategies = @player.strategies.number_by
-    analysis = @strategies.map {|strategy| AnalysisManager.new(strategy.analy_file)}
+    @league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user]).first
+    analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
 
-    dev_size = Deviation.new(analysis.map {|a| a.plot_size})
-    dev_syntax = Deviation.new(analysis.map {|a| a.plot_syntax})
-    dev_fun = Deviation.new(analysis.map {|a| a.plot_fun})
-    dev_gzip = Deviation.new(analysis.map {|a| a.plot_gzip})
+    dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
+    dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
+    dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
+    dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
 
-    @degrees = analysis.map do |analy|
+    @degrees = analysis.map do |_, analy|
       {
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
@@ -48,7 +49,6 @@ class AnalysisController < ApplicationController
       }
     end
 
-    @league = @player.league
     @line_score = GraphGenerator.line_score(@strategies.map {|s| [s.number, s.score]})
   end
 

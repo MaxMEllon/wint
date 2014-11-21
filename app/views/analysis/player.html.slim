@@ -27,10 +27,10 @@ br
           td.snum= @player.user.snum
         tr
           th 提出数
-          td.number= @player.submits.count
+          td.number= @player.submits.to_a.count
         tr
           th 戦略数
-          td.number= @player.strategies.count
+          td.number= @player.strategies.to_a.count
     .col-lg-8
       = high_chart("line_score", @line_score)
   br
