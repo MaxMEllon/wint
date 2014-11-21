@@ -17,6 +17,10 @@ class Player < ActiveRecord::Base
     [self.user.snum + "_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
   end
 
+  def auditor?
+    self.role == ROLE_AUDITOR
+  end
+
   def self.role_options
     {
       ROLE_PARTICIPANT => '受講者',

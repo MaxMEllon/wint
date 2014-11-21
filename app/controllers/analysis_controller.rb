@@ -114,6 +114,7 @@ class AnalysisController < ApplicationController
     @strategies_degrees = strategies_analysis.map do |name, analy|
       {
         name: name,
+        score: analy.result.score,
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
         fun: dev_fun.degree(analy.plot_fun),
