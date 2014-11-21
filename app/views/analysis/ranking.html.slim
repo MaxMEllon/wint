@@ -20,10 +20,11 @@ br
         thead
           tr
             th.id 順位
-            th.snum 戦略名
+            th.snum 学籍番号
             th.user ユーザ名
+            th.user 最終提出日
             th.score 得点
-            th.score サイズ
+            th.score Size
             th.score 条件
             th.score 宣言
             th.score 圧縮
@@ -36,8 +37,9 @@ br
               - else
                 | <tr>
               td.id= i
-              td.snum= link_to degree[:name], analysis_player_path(pid: player.id)
+              td.snum= link_to "#{degree[:name]} (#{player.strategies.to_a.count})", analysis_player_path(pid: player.id)
               td.user= player.user.name
+              td.user= format_time(player.strategies.max {|a, b| a.created_at <=> b.created_at}.created_at)
               td.score= format_score(player.best.strategy.score)
               td.score= format_score(degree[:size])
               td.score= format_score(degree[:syntax])
@@ -48,6 +50,7 @@ br
                 td.id= i
                 td.snum= player.user.snum
                 td.user= player.user.name
+                td.user 未提出
                 td.score 0
                 td.score 0
                 td.score 0
@@ -61,7 +64,7 @@ br
             th.id 順位
             th.snum 戦略名
             th.score 得点
-            th.score サイズ
+            th.score Size
             th.score 条件
             th.score 宣言
             th.score 圧縮
