@@ -35,11 +35,11 @@ module GraphGenerator
 
   def polar_dev(data)
     LazyHighCharts::HighChart.new(:graph) do |f|
-      f.title text: "乖離度"
+      f.title text: "偏差度"
       f.chart polar: true
       f.yAxis min: -50, max: 50
       f.xAxis categories: data.map {|d| d[:x]}
-      f.series type: "area", name: "乖離度", data: data.map {|d| d[:y]}
+      f.series type: "area", name: "偏差度", data: data.map {|d| d[:y]}
       f.tooltip pointFormat: "{series.name} : {point.y:.1f}"
       f.legend enabled: false
     end
