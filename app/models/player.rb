@@ -14,7 +14,7 @@ class Player < ActiveRecord::Base
 
   def analysis_with_snum
     strategy = self.best.strategy
-    [self.user.snum, AnalysisManager.new(strategy.analy_file)]
+    ["#{self.user.snum}_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
   end
 
   def auditor?
