@@ -112,6 +112,7 @@ class AnalysisController < ApplicationController
       }
     end
 
+    strategies_analysis.sort! {|a, b| b[1].result.score <=> a[1].result.score}
     @strategies_degrees = strategies_analysis.map do |name, analy|
       {
         name: name,
