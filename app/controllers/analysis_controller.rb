@@ -40,7 +40,8 @@ class AnalysisController < ApplicationController
     dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
     dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
 
-    @degrees = analysis.map do |_, analy|
+    @degrees = @strategies.map do |strategy|
+      analy = AnalysisManager.new(strategy.analy_file)
       {
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
