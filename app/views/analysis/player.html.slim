@@ -5,7 +5,7 @@
       h2 プレイヤ詳細
     .col-xs-7
       br
-      = link_to analysis_player_best_code_path(sid: @player.best.id), data: {remote: true}
+      = link_to analysis_player_code_path(sid: @player.best.id), data: {remote: true}
         button.btn.btn-info
           | 最良戦略
 br
@@ -48,7 +48,7 @@ br
     tbody
       - @strategies.zip(@degrees).each do |strategy, degree|
         tr
-          td.number= "%03d" % strategy.number
+          td.number= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
           td.score= format_score(strategy.score)
           td.achievement= format_achievement(@league.achievement(strategy))
           td.score= format_score(degree[:size])

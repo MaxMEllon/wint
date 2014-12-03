@@ -14,18 +14,18 @@ Wint::Application.routes.draw do
   ##================================================
 
   ##--  Analysis
-  get 'analysis'               => 'analysis#list', as: :analysis_list
-  get 'analysis/:lid'          => 'analysis#league', as: :analysis_league
-  get 'analysis/:lid/refresh'  => 'analysis#refresh', as: :analysis_refresh
-  get 'analysis/:lid/strategy' => 'analysis#strategy', as: :analysis_strategy
-  get 'analysis/:lid/ranking'  => 'analysis#ranking', as: :analysis_ranking
-  get 'analysis/:lid/best/:sid'  => 'analysis#best_code', as: :analysis_player_best_code
-  get 'analysis/:lid/:pid'     => 'analysis#player', as: :analysis_player
+  get 'analysis'                 => 'analysis#list', as: :analysis_list
+  get 'analysis/:lid'            => 'analysis#league', as: :analysis_league
+  get 'analysis/:lid/refresh'    => 'analysis#refresh', as: :analysis_refresh
+  get 'analysis/:lid/strategies' => 'analysis#strategies', as: :analysis_strategies
+  get 'analysis/:lid/ranking'    => 'analysis#ranking', as: :analysis_ranking
+  get 'analysis/:lid/code/:sid'  => 'analysis#code', as: :analysis_player_code
+  get 'analysis/:lid/:pid'       => 'analysis#player', as: :analysis_player
+  get 'analysis/:lid/:pid/:num'  => 'analysis#strategy', as: :analysis_strategy
 
   ##================================================
   ##  Main
   ##================================================
-
   ##--  Main
   get   'main/select'                => 'mains#select', as: :main_select
   get   'main/set_player/:pid'       => 'mains#set_player', as: :main_set_player

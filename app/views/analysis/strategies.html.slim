@@ -1,0 +1,49 @@
+
+.title
+  .row
+    .col-xs-5
+      h2 戦略コード分析
+    .col-xs-7
+br
+br
+
+.analysis.strategy
+
+  - if @scatter_size && @histgram_size
+    h3 ファイルサイズ
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_size", @scatter_size)
+        br
+      .col-lg-6
+        = high_chart("histgram_size", @histgram_size)
+        br
+    h3 制御構文中の条件の数
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_syntax", @scatter_syntax)
+        br
+      .col-lg-6
+        = high_chart("histgram_syntax", @histgram_syntax)
+        br
+    h3 関数の定義数
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_fun", @scatter_fun)
+        br
+      .col-lg-6
+        = high_chart("histgram_fun", @histgram_fun)
+        br
+    h3 圧縮率
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_gzip", @scatter_gzip)
+        br
+      .col-lg-6
+        = high_chart("histgram_gzip", @histgram_gzip)
+        br
+

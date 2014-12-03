@@ -2,48 +2,42 @@
 .title
   .row
     .col-xs-5
-      h2 戦略コード分析
+      h2 戦略詳細
     .col-xs-7
+      br
+      = link_to analysis_player_code_path(sid: @strategy.submit.id), data: {remote: true}
+        button.btn.btn-info
+          | 戦略コード
 br
 br
 
 .analysis.strategy
 
-  - if @scatter_size && @histgram_size
-    h3 ファイルサイズ
-    hr
-    .row
-      .col-lg-6
-        = high_chart("scatter_size", @scatter_size)
-        br
-      .col-lg-6
-        = high_chart("histgram_size", @histgram_size)
-        br
-    h3 制御構文中の条件の数
-    hr
-    .row
-      .col-lg-6
-        = high_chart("scatter_syntax", @scatter_syntax)
-        br
-      .col-lg-6
-        = high_chart("histgram_syntax", @histgram_syntax)
-        br
-    h3 関数の定義数
-    hr
-    .row
-      .col-lg-6
-        = high_chart("scatter_fun", @scatter_fun)
-        br
-      .col-lg-6
-        = high_chart("histgram_fun", @histgram_fun)
-        br
-    h3 圧縮率
-    hr
-    .row
-      .col-lg-6
-        = high_chart("scatter_gzip", @scatter_gzip)
-        br
-      .col-lg-6
-        = high_chart("histgram_gzip", @histgram_gzip)
-        br
+  .row
+    .col-lg-6
+      table.table-base
+        thead
+          tr
+            - @result_table.shift.each do |head|
+              th= head
+        tbody
+          - @result_table.each do |line|
+            tr
+              td.name style="font-weight: bold;" = line.shift
+              - line.each do |elem|
+                td.num= elem
+    .col-lg-6
+      = high_chart("polar_dev", @polar_dev)
+  br
+  .row
+    .col-lg-6
+      = high_chart("scatter_size", @scatter_size)
+    .col-lg-6
+      = high_chart("scatter_syntax", @scatter_syntax)
+  br
+  .row
+    .col-lg-6
+      = high_chart("scatter_fun", @scatter_fun)
+    .col-lg-6
+      = high_chart("scatter_gzip", @scatter_gzip)
 
