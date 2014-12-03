@@ -12,6 +12,9 @@
 br
 br
 
+p= link_to "最良戦略 (zip)", download_best_strategies_path
+br
+
 .analysis.league
 
   - participants = @league.players.select {|player| !player.auditor?}

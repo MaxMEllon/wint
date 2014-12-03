@@ -23,6 +23,9 @@ Wint::Application.routes.draw do
   get 'analysis/:lid/:pid'       => 'analysis#player', as: :analysis_player
   get 'analysis/:lid/:pid/:num'  => 'analysis#strategy', as: :analysis_strategy
 
+  ##--  Download
+  get 'downloads/:lid/best' => 'download#best_strategies', as: :download_best_strategies
+
   ##================================================
   ##  Main
   ##================================================
