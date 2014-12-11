@@ -27,6 +27,7 @@ Wint::Application.routes.draw do
   get 'downloads/:lid/best_strategies' => 'download#best_strategies', as: :download_best_strategies
   get 'downloads/:lid/all_strategies'  => 'download#all_strategies', as: :download_all_strategies
   get 'downloads/:lid/best_analysis'   => 'download#best_analysis', as: :download_best_analysis
+  get 'downloads/:lid/all_analysis'    => 'download#all_analysis', as: :download_all_analysis
 
   ##================================================
   ##  Main

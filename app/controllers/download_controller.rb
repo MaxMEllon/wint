@@ -22,7 +22,6 @@ class DownloadController < ApplicationController
     Dir.mkdir(tmp_dir)
 
     @league.players.each do |player|
-      next unless player.best
       player.strategies.each do |strategy|
         filename = "#{player.user.snum}_%03d.c" % strategy.number
         `cp #{strategy.submit.src_file} #{tmp_dir}/#{filename}`
@@ -33,14 +32,33 @@ class DownloadController < ApplicationController
   end
 
   def best_analysis
-    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :strategies, :user]).first
+    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
     @players = @league.players_ranking
+
     csv = [AnalysisManager.to_csv_header]
     @players.each do |player|
       analy = AnalysisManager.new(player.best.strategy.analy_file)
       csv << analy.to_csv
     end
+
     filename = ROOT_DIR + "/best_analysis.csv"
+    File.open(filename, "w") {|f| f.puts csv}
+    `nkf -s --overwrite #{filename}`
+    send_file filename
+  end
+
+  def all_analysis
+    @league = League.where(id: params[:lid]).includes(players: :strategies).first
+
+    csv = [AnalysisManager.to_csv_header]
+    @league.players.each do |player|
+      player.strategies.each do |strategy|
+        analy = AnalysisManager.new(strategy.analy_file)
+        csv << analy.to_csv
+      end
+    end
+
+    filename = ROOT_DIR + "/all_analysis.csv"
     File.open(filename, "w") {|f| f.puts csv}
     `nkf -s --overwrite #{filename}`
     send_file filename
