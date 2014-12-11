@@ -35,10 +35,10 @@ class DownloadController < ApplicationController
     @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
     @players = @league.players_ranking
 
-    csv = [AnalysisManager.to_csv_header]
+    csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @players.each do |player|
       analy = AnalysisManager.new(player.best.strategy.analy_file)
-      csv << analy.to_csv
+      csv << player.user.snum + "," + analy.to_csv
     end
 
     filename = ROOT_DIR + "/best_analysis.csv"
@@ -48,13 +48,14 @@ class DownloadController < ApplicationController
   end
 
   def all_analysis
-    @league = League.where(id: params[:lid]).includes(players: :strategies).first
+    @league = League.where(id: params[:lid]).includes(players: [:strategies, :user]).first
 
-    csv = [AnalysisManager.to_csv_header]
+    csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @league.players.each do |player|
       player.strategies.each do |strategy|
         analy = AnalysisManager.new(strategy.analy_file)
-        csv << analy.to_csv
+        name = "#{player.user.snum}_%03d" % strategy.number
+        csv << name + "," + analy.to_csv
       end
     end
 
