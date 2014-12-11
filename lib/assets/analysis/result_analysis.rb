@@ -28,6 +28,14 @@ class ResultAnalysis
     File.read(@base_path).split(/\r\n|\n/).map {|line| line.gsub(/\||-|\+/, "").split}.delete_if {|line| line.empty? || line.first == "平均得点"}
   end
 
+  def to_csv
+    [@score].join(",")
+  end
+
+  def self.to_csv_header
+    %w(得点).join(",")
+  end
+
   def self.create(data_dir, submit_id)
     Dir::mkdir(data_dir)
     `mv #{Rails.root}/tmp/log/_tmp#{submit_id}/Result.txt #{data_dir}`

@@ -32,6 +32,20 @@ class DownloadController < ApplicationController
     send_file "#{tmp_dir}.zip"
   end
 
+  def best_analysis
+    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :strategies, :user]).first
+    @players = @league.players_ranking
+    csv = [AnalysisManager.to_csv_header]
+    @players.each do |player|
+      analy = AnalysisManager.new(player.best.strategy.analy_file)
+      csv << analy.to_csv
+    end
+    filename = ROOT_DIR + "/best_analysis.csv"
+    File.open(filename, "w") {|f| f.puts csv}
+    `nkf -s --overwrite #{filename}`
+    send_file filename
+  end
+
   private
   def mkdir
     `rm -rf #{ROOT_DIR}` if File.exist?(ROOT_DIR)

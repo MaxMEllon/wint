@@ -41,6 +41,16 @@ class AnalysisManager
     {x: @result.score, y: (1-(@code.gzip_size / @code.size.to_f))*100}
   end
 
+  def to_csv
+    # [@result.to_csv, @code.to_csv, @log.to_csv].join(",")
+    [@result.to_csv, @code.to_csv].join(",")
+  end
+
+  def self.to_csv_header
+    # [ResultAnalysis.to_csv_header, CodeAnalysis.to_csv_header, LogAnalysis.to_csv_header].join(",")
+    [ResultAnalysis.to_csv_header, CodeAnalysis.to_csv_header].join(",")
+  end
+
   def self.create(data_dir, submit_id)
     path = data_dir + "/analy"
     Dir::mkdir(path)

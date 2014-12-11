@@ -17,6 +17,14 @@ class LogAnalysis
     @ver = VERSION
   end
 
+  def to_csv
+    [].join(",")
+  end
+
+  def self.to_csv_header
+    %w().join(",")
+  end
+
   def self.create(data_dir, submit_id)
     Dir::mkdir(data_dir)
     `mv #{Rails.root}/tmp/log/_tmp#{submit_id}/Game.log #{data_dir}`

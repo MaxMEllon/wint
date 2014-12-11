@@ -39,6 +39,14 @@ class CodeAnalysis
     @func_num = File.read(@func_ref_path).split(/\r\n|\n/).size - 2 # 一番上の行は要らない。strategyはカウントしない
   end
 
+  def to_csv
+    [@line, @size, @gzip_size, @count[:if], @count[:loop], @func_ref[:strategy], @func_ref[:max], @func_ref[:average], @func_num].join(",")
+  end
+
+  def self.to_csv_header
+    %w(行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(",")
+  end
+
   def self.create(data_dir, source_file)
     Dir::mkdir(data_dir)
     CodeAnalysis.create_base(source_file, "#{data_dir}/comcut.c")
