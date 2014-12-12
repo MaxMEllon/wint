@@ -30,7 +30,7 @@ class AnalysisController < ApplicationController
   end
 
   def player
-    @player = Player.where(id: params[:pid]).first
+    @player = Player.where(id: params[:pid]).includes(strategies: :submit).first
     @strategies = @player.strategies.number_by
     @league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user]).first
     analysis = @league.players_ranking.map {|player| player.analysis_with_snum}

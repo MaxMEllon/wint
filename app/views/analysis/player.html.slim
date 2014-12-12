@@ -39,6 +39,7 @@ br
     thead
       tr
         th.number 戦略番号
+        th.code コード
         th.score 得点
         th.open 提出日時
         th.score サイズ
@@ -49,6 +50,8 @@ br
       - @strategies.zip(@degrees).each do |strategy, degree|
         tr
           td.number= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
+          td.number= link_to analysis_player_code_path(sid: strategy.submit.id), data: {remote: true}
+            button.btn.btn-info リンク
           td.score= format_score(strategy.score)
           td.open= format_time(strategy.created_at)
           td.score= format_score(degree[:size])
