@@ -40,7 +40,7 @@ br
       tr
         th.number 戦略番号
         th.score 得点
-        th.achievement 達成度
+        th.open 提出日時
         th.score サイズ
         th.score 条件式
         th.score 宣言数
@@ -50,7 +50,7 @@ br
         tr
           td.number= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
           td.score= format_score(strategy.score)
-          td.achievement= format_achievement(@league.achievement(strategy))
+          td.open= format_time(strategy.created_at)
           td.score= format_score(degree[:size])
           td.score= format_score(degree[:syntax])
           td.score= format_score(degree[:fun])
