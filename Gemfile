@@ -60,3 +60,8 @@ gem 'lazy_high_charts'
 gem 'rspec-rails'
 gem 'factory_girl_rails'
 
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rbenv'
+
