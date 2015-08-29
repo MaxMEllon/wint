@@ -60,4 +60,5 @@ gem 'lazy_high_charts'
 gem 'rspec-rails'
 gem 'test-unit'
 gem 'factory_girl_rails'
+gem 'rubocop'
 
