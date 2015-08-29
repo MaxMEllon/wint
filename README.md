@@ -1,28 +1,20 @@
-== README
+# WinT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Status
 
-Things you may want to cover:
+## About
 
-* Ruby version
+- ポーカー戦略を題材とする応用Cプログラミング演習の大会運営サーバ
+- ポーカーの戦略AIを提出することで得点を算出しランキング化
+- 提出されたコードのメトリクスを計測しグラフ化
 
-* System dependencies
+## Installation
 
-* Configuration
+## Usage
 
-* Database creation
+## Future work
 
-* Database initialization
+## Requirements
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Redis
+- cflow
