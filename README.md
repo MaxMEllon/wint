@@ -2,6 +2,8 @@
 
 ## Status
 
+[![Code Climate](https://codeclimate.com/github/gembaf/wint/badges/gpa.svg)](https://codeclimate.com/github/gembaf/wint)
+
 ## About
 
 - ポーカー戦略を題材とする応用Cプログラミング演習の大会運営サーバ
