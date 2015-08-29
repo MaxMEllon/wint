@@ -61,4 +61,5 @@ gem 'rspec-rails'
 gem 'test-unit'
 gem 'factory_girl_rails'
 gem 'rubocop'
+gem 'capybara'
 
