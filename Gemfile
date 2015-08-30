@@ -64,4 +64,5 @@ gem 'rubocop'
 gem 'capybara'
 gem 'pry-byebug'
 gem 'bullet'
+gem 'annotate'
 

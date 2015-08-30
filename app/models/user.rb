@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  snum            :string(255)      not null
+#  name            :string(255)      not null
+#  depart          :integer          default(0), not null
+#  entrance        :integer          default(2012), not null
+#  category        :integer          default(0), not null
+#  is_active       :boolean          default(TRUE), not null
+#  password_digest :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   CATEGORY_STUDENT = 0
   CATEGORY_TA = 1
