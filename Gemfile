@@ -62,4 +62,6 @@ gem 'test-unit'
 gem 'factory_girl_rails'
 gem 'rubocop'
 gem 'capybara'
+gem 'pry-byebug'
+gem 'bullet'
 
