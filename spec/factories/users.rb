@@ -18,12 +18,16 @@
 
 FactoryGirl.define do
   factory :user do
-    snum "MyString"
-    name "MyString"
-    password_digest "MyString"
-    depart 1
-    entrance 1
-    category 1
-    is_active false
+    snum 's00t000'
+    name '北海太郎'
+    password 'hoge'
+    password_confirmation 'hoge'
+    depart 0
+    entrance 2011
+    is_active true
+
+    factory :student do
+      category 2
+    end
   end
 end
