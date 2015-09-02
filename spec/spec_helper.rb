@@ -16,11 +16,13 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'database_cleaner'
+require './spec/support/login_helper.rb'
 
 RSpec.configure do |config|
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
+
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -92,6 +94,7 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+  config.include LoginHelper
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
