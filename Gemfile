@@ -65,4 +65,5 @@ gem 'capybara'
 gem 'pry-byebug'
 gem 'bullet'
 gem 'annotate'
+gem 'database_cleaner'
 
