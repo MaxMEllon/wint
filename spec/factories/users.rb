@@ -27,6 +27,10 @@ FactoryGirl.define do
     is_active true
 
     factory :student do
+      category 0
+    end
+
+    factory :admin do
       category 2
     end
   end
