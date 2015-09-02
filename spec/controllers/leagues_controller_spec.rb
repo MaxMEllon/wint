@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'fakefs/spec_helpers'
 
 RSpec.describe LeaguesController, type: :feature do
-  include FakeFS::SpecHelpers
-
   feature 'リーグ一覧ページへのアクセス' do
     background do
       sign_in user
@@ -11,7 +8,7 @@ RSpec.describe LeaguesController, type: :feature do
     end
 
     context '管理者の場合' do
-      given(:user) { create :admin }
+      given(:user) { FactoryGirl.create :admin }
       scenario 'アクセス可能' do
         expect(page).to have_content 'リーグ一覧'
       end
@@ -54,8 +51,12 @@ RSpec.describe LeaguesController, type: :feature do
         fill_in 'rule[change]', with: 7
         fill_in 'rule[take]', with: 5
         fill_in 'rule[try]', with: 10000
-        #click_button '作成'
-        #expect(page).to have_content 'hogeリーグ'
+        # FakeFS.activate!
+        click_button '作成'
+        # FakeFS.deactivate!
+      end
+      within('div.leagues') do
+        expect(page).to have_content 'hogeリーグ'
       end
     end
   end
