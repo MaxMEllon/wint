@@ -1,69 +1,45 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
-
-# Use postgresql as the database for Active Record
-gem 'pg'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-# gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt-ruby'
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'rubocop'
+  gem 'test-unit'
+end
 
-# Use unicorn as the app server
-gem 'unicorn'
+group :development do
+  gem 'annotate'
+  gem 'bcrypt-ruby'
+  gem 'bullet'
+  gem 'pry-byebug'
+  gem 'pry-rails', '0.3.0'
+  gem 'quiet_assets'
+  gem 'rb-readline'
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
-gem 'pry-rails', '0.3.0'
-gem 'slim-rails'
-gem 'less-rails'
-gem 'twitter-bootstrap-rails', git: 'https://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
-gem 'jquery-datatables-rails', '~> 2.2.3'
-gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'font-awesome-rails', '4.1.0'
-gem 'rb-readline'
-gem 'sidekiq'
-gem 'quiet_assets'
+gem 'jbuilder', '~> 1.2'
+gem 'jquery-datatables-rails', '~> 2.2.3'
+gem 'jquery-rails'
 gem 'lazy_high_charts'
-
-gem 'rspec-rails'
-gem 'test-unit'
-gem 'factory_girl_rails'
-gem 'rubocop'
-gem 'capybara'
-gem 'pry-byebug'
-gem 'bullet'
-gem 'annotate'
-gem 'database_cleaner'
+gem 'less-rails'
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'pg'
+gem 'rails', '4.0.2'
+gem 'sass-rails', '~> 4.0.0'
+gem 'sidekiq'
+gem 'slim-rails'
+gem 'therubyracer', platforms: :ruby
+gem 'twitter-bootstrap-rails', git: 'https://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
+gem 'uglifier', '>= 1.3.0'
+gem 'unicorn'
 
