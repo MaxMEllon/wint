@@ -2,6 +2,7 @@
 
 ## Status
 
+[![Circle CI](https://circleci.com/gh/gembaf/wint.svg?style=shield)](https://circleci.com/gh/gembaf/wint)
 [![Code Climate](https://codeclimate.com/github/gembaf/wint/badges/gpa.svg)](https://codeclimate.com/github/gembaf/wint)
 
 ## About
