@@ -19,13 +19,16 @@
 
 FactoryGirl.define do
   factory :league do
-    name "MyString"
-    start_at "2014-09-15"
-    end_at "2014-09-15"
-    limit_score 1.5
+    name 'テストリーグ'
+    start_at '2014-09-15'
+    end_at '2014-09-15'
+    limit_score 150.0
     is_analysis false
-    src_dir "MyString"
-    rule_file "MyString"
-    is_active false
+    is_active true
+
+    factory :before_submit do
+      src_dir ''
+      rule_file ''
+    end
   end
 end
