@@ -1,12 +1,7 @@
 require 'database_cleaner'
 require 'fakefs/spec_helpers'
-require './spec/support/login_helper.rb'
 
 RSpec.configure do |config|
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
-  require 'rspec/rails'
-
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
   Capybara.register_driver :poltergeist do |app|
@@ -22,8 +17,6 @@ RSpec.configure do |config|
   end
 
   config.include Capybara::DSL
-  config.include FactoryGirl::Syntax::Methods
-  config.include LoginHelper
   config.include FakeFS::SpecHelpers, fakefs: true
 
   require './spec/support/share_db_connection.rb'
