@@ -1,4 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe LeaguesController, type: :feature do
   feature 'リーグ一覧ページへのアクセス' do

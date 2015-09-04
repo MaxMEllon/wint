@@ -19,8 +19,6 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FakeFS::SpecHelpers, fakefs: true
 
-  require './spec/support/share_db_connection.rb'
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end

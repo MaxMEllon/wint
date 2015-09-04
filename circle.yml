@@ -1,6 +1,11 @@
 dependencies:
   pre:
+    - sudo apt-get update
     - sudo apt-get install nkf
+    - sudo wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2 -P /home/ubuntu/src
+    - tar jxf /home/ubuntu/src/phantomjs-1.9.8-linux-x86_64.tar.bz2
+    - chmod a+x /home/ubuntu/src/phantomjs-1.9.8-linux-x86_64/bin/phantomjs
+    - sudo ln -s --force /home/ubuntu/src/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
 
 machine:
   timezone:
