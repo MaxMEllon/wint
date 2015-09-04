@@ -1,5 +1,5 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe MainsController, :type => :controller do
-
+RSpec.feature MainsController, type: :feature do
 end
+

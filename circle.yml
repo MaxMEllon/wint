@@ -1,0 +1,14 @@
+dependencies:
+  pre:
+    - sudo apt-get install nkf
+
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version: 2.2.2
+
+test:
+  override:
+    - "bundle exec rspec --color --format documentation"
+
