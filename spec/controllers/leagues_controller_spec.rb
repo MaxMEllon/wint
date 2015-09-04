@@ -55,7 +55,7 @@ RSpec.describe LeaguesController, type: :feature do
         click_button '作成'
         # FakeFS.deactivate!
       end
-      within('div.leagues') do
+      within('div.leagues.list') do
         expect(page).to have_content 'hogeリーグ'
       end
     end

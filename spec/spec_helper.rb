@@ -26,6 +26,8 @@ RSpec.configure do |config|
   config.include LoginHelper
   config.include FakeFS::SpecHelpers, fakefs: true
 
+  require './spec/support/share_db_connection.rb'
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
