@@ -6,6 +6,7 @@ RSpec.configure do |config|
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
+  require './spec/support/shared_connection.rb'
 
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
