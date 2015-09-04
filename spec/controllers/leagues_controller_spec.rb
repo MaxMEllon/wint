@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe LeaguesController, type: :feature do
   feature 'リーグ一覧ページへのアクセス' do
@@ -30,6 +30,7 @@ RSpec.describe LeaguesController, type: :feature do
       sign_in user
       visit leagues_path
       click_button '登録'
+      wait_for_ajax
     end
 
     scenario '新規登録フォームを表示する' do
@@ -53,6 +54,7 @@ RSpec.describe LeaguesController, type: :feature do
         fill_in 'rule[try]', with: 10000
         # FakeFS.activate!
         click_button '作成'
+        wait_for_ajax
         # FakeFS.deactivate!
       end
       within('div.leagues.list') do
