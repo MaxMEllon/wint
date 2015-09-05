@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe SessionsController, type: :feature do
   feature 'ログイン' do
     background do
