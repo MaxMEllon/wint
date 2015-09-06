@@ -24,6 +24,6 @@ FactoryGirl.define do
     role 0
     submit_id 1
     is_active false
-    data_dir "#{Rails.root}/spec/files/source/001"
+    data_dir "#{Rails.root}/spec/data/001/source/0001"
   end
 end
