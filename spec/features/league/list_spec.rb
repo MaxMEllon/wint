@@ -1,7 +1,7 @@
 feature 'リーグ一覧ページからのアクセス', js: true do
   shared_context 'リーグ一覧画面を表示している', state: :league_request do
     background do
-      sign_in (create :admin)
+      sign_in create :admin
       visit leagues_path
     end
   end

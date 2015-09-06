@@ -20,15 +20,12 @@
 FactoryGirl.define do
   factory :league do
     name 'テストリーグ'
-    start_at '2014-09-15'
-    end_at '2014-09-15'
     limit_score 150.0
-    is_analysis false
+    is_analy false
     is_active true
-
-    factory :before_submit do
-      src_dir ''
-      rule_file ''
-    end
+    data_dir "#{Rails.root}/spec/factories/files/"
+    rule_file "#{Rails.root}/spec/factories/files/rule.json"
+    start_at '2015-09-01'
+    end_at '2015-09-30'
   end
 end

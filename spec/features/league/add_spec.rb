@@ -26,7 +26,7 @@ feature 'リーグの登録', js: true do
 
     context '全て入力している場合', state: :league_add do
       background do
-        files_path = "#{Rails.root}/spec/factories/files/"
+        files_path = "#{Rails.root}/spec/factories/data/001/rule/"
         within('div#myModal') do
           fill_in 'league[name]', with: 'hogeリーグ'
           fill_in 'league[limit_score]', with: '150'
