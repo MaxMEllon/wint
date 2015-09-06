@@ -23,12 +23,9 @@ FactoryGirl.define do
     start_at '2014-09-15'
     end_at '2014-09-15'
     limit_score 150.0
-    is_analysis false
+    is_analy false
     is_active true
-
-    factory :before_submit do
-      src_dir ''
-      rule_file ''
-    end
+    data_dir "#{Rails.root}/spec/factories/files/"
+    rule_file "#{Rails.root}/spec/factories/files/rule.json"
   end
 end
