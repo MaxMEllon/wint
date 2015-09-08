@@ -22,20 +22,19 @@ feature '戦略ファイルの提出', js: true do
     end
   end
 
-  context '全て入力している場合', state: :main_submit do
-    # background do
-    #   path = "#{Rails.root}/spec/factories/data/001/source/0001/001/"
-    #   within('div#myModal') do
-    #     attach_file 'submit[data_dir]', path + 'PokerOpe.c'
-    #     fill_in 'submit[comment]', with: 'hoge狙い'
-    #     click_button '提出'
-    #     wait_for_action
-    #   end
-    # end
+  context '全て入力している場合', state: [:main_submit, :league_new_and_create] do
+    background do
+      path = "#{Rails.root}/spec/factories/data/001/source/0001/001/"
+      FileUtils.mkdir "#{Rails.root}/tmp/data/001/source/0001"
+      fill_in 'submit[data_dir]', with: File.read(path + 'PokerOpe.c')
+      fill_in 'submit[comment]', with: 'hoge狙い'
+      click_button '提出'
+      wait_for_action
+    end
 
-    # scenario '提出履歴に表示が追加される' do
-    #   expect(page).to have_content 'hoge狙い'
-    # end
+    scenario '提出履歴に表示が追加される' do
+      expect(page).to have_content 'hoge狙い'
+    end
   end
 end
 

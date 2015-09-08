@@ -1,5 +1,6 @@
 require 'database_cleaner'
 require 'fakefs/spec_helpers'
+require 'sidekiq/testing'
 
 RSpec.configure do |config|
   require 'capybara/poltergeist'
@@ -36,5 +37,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
     FileUtils.rm_rf "#{Rails.root}/tmp/data"
   end
+
+  Sidekiq::Testing.inline!
 end
 

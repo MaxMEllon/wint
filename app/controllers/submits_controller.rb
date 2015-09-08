@@ -6,8 +6,8 @@ class SubmitsController < ApplicationController
   def create
     @submit = Submit.new(submit_params.merge(player_id: session[:pid]))
     unless @submit.data_dir.blank?
-      source = @submit.data_dir.read.force_encoding("utf-8")
-      if @submit.size_over? || @submit.data_dir.original_filename.split(".").last != "c"
+      source = @submit.data_dir
+      if @submit.size_over?
         @submit.data_dir = nil
       else
         @submit.data_dir = "dummy"
