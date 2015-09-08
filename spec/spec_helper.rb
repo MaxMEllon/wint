@@ -20,7 +20,7 @@ RSpec.configure do |config|
   config.include FakeFS::SpecHelpers, fakefs: true
 
   config.before do
-    allow(ModelHelper).to receive(:data_root).and_return("#{Rails.root}/tmp/")
+    allow(ModelHelper).to receive(:data_root).and_return("#{Rails.root}/tmp/data")
   end
 
   config.before(:suite) do
@@ -29,10 +29,12 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    FileUtils.mkdir "#{Rails.root}/tmp/data"
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+    FileUtils.rm_rf "#{Rails.root}/tmp/data"
   end
 end
 

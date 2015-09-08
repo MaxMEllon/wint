@@ -52,11 +52,10 @@ feature 'リーグの登録', js: true do
         end
       end
 
-      # FakeFSが効いていないとディレクトリが重複してエラーになる
-      # scenario 'データが登録されている' do
-      #   league = League.where(name: 'hogeリーグ').first
-      #   expect(league.name).to eq 'hogeリーグ'
-      # end
+      scenario 'データが登録されている' do
+        league = League.where(name: 'hogeリーグ').first
+        expect(league.name).to eq 'hogeリーグ'
+      end
     end
   end
 end
