@@ -19,6 +19,10 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FakeFS::SpecHelpers, fakefs: true
 
+  config.before do
+    allow(ModelHelper).to receive(:data_root).and_return("#{Rails.root}/tmp/")
+  end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end

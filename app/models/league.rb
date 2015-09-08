@@ -57,7 +57,7 @@ class League < ActiveRecord::Base
   end
 
   def mkdir
-    ("#{Rails.root}/public/data/%03d" % self.id).tap do |path|
+    ("#{ModelHelper.data_root}/%03d" % self.id).tap do |path|
       Dir::mkdir(path)
       Dir::mkdir("#{path}/rule")
       Dir::mkdir("#{path}/source")
