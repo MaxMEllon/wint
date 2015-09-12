@@ -22,6 +22,7 @@ RSpec.configure do |config|
 
   config.before do
     allow(ModelHelper).to receive(:data_root).and_return("#{Rails.root}/tmp/data")
+    FileUtils.mkdir "#{Rails.root}/tmp" unless File.exist?("#{Rails.root}/tmp")
   end
 
   config.before(:suite) do
