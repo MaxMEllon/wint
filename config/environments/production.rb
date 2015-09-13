@@ -81,4 +81,5 @@ Wint::Application.configure do
   config.action_controller.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
 
   config.react.variant = :production
+  config.react.addons = true
 end

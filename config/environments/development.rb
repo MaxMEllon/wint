@@ -28,4 +28,5 @@ Wint::Application.configure do
   config.assets.debug = true
 
   config.react.variant = :development
+  config.react.addons = true
 end

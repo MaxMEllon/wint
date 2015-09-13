@@ -24,7 +24,7 @@ class SubmitsController < ApplicationController
 
   private
   def submit_params
-    params.require(:submit).permit(:data_dir, :comment)
+    params.permit(:data_dir, :comment)
   end
 end
 
