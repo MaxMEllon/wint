@@ -23,9 +23,12 @@ FactoryGirl.define do
     limit_score 150.0
     is_analy false
     is_active true
-    data_dir "#{Rails.root}/spec/factories/files/"
-    rule_file "#{Rails.root}/spec/factories/files/rule.json"
     start_at '2015-09-01'
     end_at '2015-09-30'
+
+    factory :factory_league do
+      data_dir "#{Rails.root}/spec/factories/files/"
+      rule_file "#{Rails.root}/spec/factories/files/rule.json"
+    end
   end
 end
