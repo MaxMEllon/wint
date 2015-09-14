@@ -45,6 +45,6 @@ gem 'slim-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'twitter-bootstrap-rails', git: 'https://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 gem 'uglifier', '>= 1.3.0'
-gem 'uikit-sass-rails'
+gem 'uikit-sass-rails', git: 'https://github.com/8398a7/uikit-sass-rails.git'
 gem 'unicorn'
 
