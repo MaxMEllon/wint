@@ -19,7 +19,7 @@ feature 'マイページへのアクセス' do
 
       context 'プレイヤを選択している' do
         background do
-          create :league
+          League.create attributes_for :league
           player = create :player
           visit main_set_player_path(pid: player.id)
           wait_for_action

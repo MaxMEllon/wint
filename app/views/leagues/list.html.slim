@@ -5,8 +5,7 @@
       h2 リーグ一覧
     .col-xs-7
       br
-      = link_to leagues_new_path, remote: true do
-        = render partial: "shared/buttons/new"
+      = react_component 'LeagueForm'
 br
 br
 
