@@ -25,10 +25,13 @@ FactoryGirl.define do
     is_active true
     start_at '2015-09-01'
     end_at '2015-09-30'
+    rule_files "#{Rails.root}/spec/factories/rule.zip"
+    compile_command 'gcc -O2 -I ${rule} ${src_file} ${rule}/PokerExec.c ${rule}/CardLib.c -DTYPE=5-7 -DTAKE=5 -DCHNG=7 -o ${exec_file}'
+    exec_command '${exec_file} 10000 ${rule}/Stock.ini 0'
 
     factory :factory_league do
-      data_dir "#{Rails.root}/spec/factories/files/"
-      rule_file "#{Rails.root}/spec/factories/files/rule.json"
+      data_dir "#{Rails.root}/spec/factories/data/001"
+      rule_file "#{Rails.root}/spec/factories/data/001/rule/rule.json"
     end
   end
 end
