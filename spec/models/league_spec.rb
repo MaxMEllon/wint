@@ -23,6 +23,7 @@ RSpec.describe League, type: :model do
     context 'data_dir' do
       context '最初の登録の場合' do
         it { expect(league.data_dir).to eq path + '/001' }
+        it { expect(File).to exist league.data_dir }
       end
       context '2番目移行の登録の場合' do
         before { League.create attributes_for :league }
@@ -51,6 +52,5 @@ RSpec.describe League, type: :model do
       it { expect(league.exec_command).to be_truthy }
     end
   end
-
 end
 

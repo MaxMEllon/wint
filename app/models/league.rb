@@ -23,8 +23,8 @@ class League < ActiveRecord::Base
   Scope.active(self)
 
   def self.create(attributes)
-    attributes[:data_dir] = "#{ModelHelper.data_root}/%03d" % self.last_id if attributes[:data_dir].nil?
-    self.create_dirs(attributes[:data_dir])
+    attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id) if attributes[:data_dir].nil?
+    create_dirs(attributes[:data_dir])
     `unzip #{attributes[:rule_files]} -d #{attributes[:data_dir]}/rule` # 後で直す
     `mv #{attributes[:data_dir]}/rule/*/* #{attributes[:data_dir]}/rule` # 後で直す、必ずだ
     attributes[:rule_file] = attributes[:data_dir] + '/rule/rule.json' if attributes[:rule_file].nil?
