@@ -22,8 +22,7 @@ FactoryGirl.define do
     league_id 1
     name 'ほげ太郎'
     role 0
-    submit_id 1
-    is_active false
-    data_dir "#{Rails.root}/tmp/data/001/source/0001"
+    submit_id 0
+    is_active true
   end
 end

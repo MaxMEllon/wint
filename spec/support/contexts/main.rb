@@ -1,5 +1,5 @@
 shared_context 'マイページを表示している', state: :main_mypage do
-  given(:player) { create :player }
+  given(:player) { Player.create attributes_for :player }
 
   background do
     sign_in create :student

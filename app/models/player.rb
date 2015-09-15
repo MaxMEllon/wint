@@ -28,6 +28,17 @@ class Player < ActiveRecord::Base
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
 
+  def self.create(attributes)
+    league = League.find(attributes[:league_id])
+    attributes[:data_dir] = league.source_path + format('/%04d', last_id)
+    FileUtils.mkdir(attributes[:data_dir])
+    super(attributes)
+  end
+
+  def self.last_id
+    Player.count == 0 ? 1 : Player.last.id + 1
+  end
+
   def analysis_with_snum
     strategy = self.best.strategy
     ["#{self.user.snum}_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
@@ -42,12 +53,6 @@ class Player < ActiveRecord::Base
       ROLE_PARTICIPANT => '受講者',
       ROLE_AUDITOR => '聴講者'
     }
-  end
-
-  def mkdir
-    (self.league.data_dir + "/source/%04d" % self.id).tap do |path|
-      Dir::mkdir(path)
-    end
   end
 end
 
