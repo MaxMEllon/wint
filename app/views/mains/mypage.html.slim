@@ -6,9 +6,7 @@
     .col-xs-7
       br
       - if @league.open?
-        = link_to submits_new_path, data: {remote: true} do
-          button.btn.btn-primary
-            = fa_icon "folder-open", text: "戦略提出"
+        = react_component 'SubmitForm'
 br
 br
 

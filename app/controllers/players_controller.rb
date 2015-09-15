@@ -18,9 +18,7 @@ class PlayersController < ApplicationController
 
   def create_many
     params.require(:player).each do |user_id, value|
-      player = Player.create(league_id: params[:league_id], user_id: user_id, name: value[:name], role: value[:role], submit_id: 0, data_dir: "dummy")
-      player.data_dir = player.mkdir
-      player.save!
+      Player.create(league_id: params[:league_id], user_id: user_id, name: value[:name], role: value[:role], submit_id: 0)
     end
     redirect_to players_path
   end

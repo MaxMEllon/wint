@@ -22,6 +22,34 @@ class League < ActiveRecord::Base
 
   Scope.active(self)
 
+  def self.create(attributes)
+    attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id) if attributes[:data_dir].nil?
+    create_dirs(attributes[:data_dir])
+    `unzip #{attributes[:rule_files]} -d #{attributes[:data_dir]}/rule` # 後で直す
+    `mv #{attributes[:data_dir]}/rule/*/* #{attributes[:data_dir]}/rule` # 後で直す、必ずだ
+    attributes[:rule_file] = attributes[:data_dir] + '/rule/rule.json' if attributes[:rule_file].nil?
+    attributes.delete(:rule_files)
+    super(attributes)
+  end
+
+  def self.create_dirs(path)
+    FileUtils.mkdir(path)
+    FileUtils.mkdir(path + '/rule')
+    FileUtils.mkdir(path + '/source')
+  end
+
+  def rule_path
+    data_dir + '/rule'
+  end
+
+  def source_path
+    data_dir + '/source'
+  end
+
+  def self.last_id
+    League.count == 0 ? 1 : League.last.id + 1
+  end
+
   def rank(strategy)
     Strategy::RANK.each do |range, rank|
       return rank if range.include?(self.achievement(strategy))
