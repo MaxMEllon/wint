@@ -80,8 +80,9 @@ class League < ActiveRecord::Base
   end
 
   def format_rule
-    rules = rule
-    "#{"%02d" % rules[:change]}-#{"%02d" % rules[:take]}-#{rules[:try]}"
+    # rules = rule
+    # "#{"%02d" % rules[:change]}-#{"%02d" % rules[:take]}-#{rules[:try]}"
+    'hoge-foo-bar'
   end
 
   def mkdir

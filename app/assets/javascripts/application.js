@@ -20,8 +20,5 @@
 //= require highcharts/highcharts-more
 //= require bootstrap-datetimepicker
 //= require uikit
-//= require react
-//= require react_ujs
-//= require components
 //= require_tree .
 
