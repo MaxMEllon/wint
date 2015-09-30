@@ -35,6 +35,17 @@ class Submit < ActiveRecord::Base
   scope :number_by, -> {order("number")}
   Scope.active(self)
 
+  def self.create(attributes)
+    player = Player.find(attributes[:player_id])
+    attributes[:number] = last_number(player)
+    path = player.data_dir + format('/%03d', attributes[:number])
+    FileUtils.mkdir(path)
+    File.open(path + '/PokerOpe.c', 'w') {|f| f.puts attributes[:data_dir]}
+    `nkf --overwrite -w #{path}/PokerOpe.c`
+    attributes[:data_dir] = path
+    super(attributes)
+  end
+
   def self.status_options
     {
       STATUS_RUNNING => '実行中',
@@ -58,8 +69,8 @@ class Submit < ActiveRecord::Base
     self.data_dir.size >= SIZE_LIMIT
   end
 
-  def get_number
-    submits = self.player.submits.number_by
+  def self.last_number(player)
+    submits = player.submits.number_by
     submits.present? ? submits.last.number+1 : 1
   end
 
