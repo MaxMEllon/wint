@@ -42,7 +42,7 @@
 
 char *card_str(int id) 
 {
-  char str[3];
+  char *str = (char*)malloc(sizeof(char)*3);
   str[0] = SUITE[id / 13];
   str[1] = NUMBER[id % 13];
   str[2] = '\0';
