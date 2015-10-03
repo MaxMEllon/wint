@@ -12,7 +12,7 @@ module ExecManager
   def compile(rule_dir, rules, src_file, exec_file)
     take = "%02d" % rules[:take]
     change = "%02d" % rules[:change]
-    Rake::sh "gcc -O2 -I #{rule_dir} #{src_file} #{rule_dir}/PokerExec.c #{rule_dir}/CardLib.c -DTYPE=#{take}-#{change} -DTAKE=#{rules[:take]} -DCHNG=#{rules[:change]} -o #{exec_file}" rescue return Submit::STATUS_COMPILE_ERROR
+    Rake::sh "gcc -O2 -w -I #{rule_dir} #{src_file} #{rule_dir}/PokerExec.c #{rule_dir}/CardLib.c -DTYPE=#{take}-#{change} -DTAKE=#{rules[:take]} -DCHNG=#{rules[:change]} -o #{exec_file}" rescue return Submit::STATUS_COMPILE_ERROR
     Submit::STATUS_SUCCESS
   end
 
