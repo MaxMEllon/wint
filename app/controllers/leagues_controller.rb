@@ -11,14 +11,13 @@ class LeaguesController < ApplicationController
   end
 
   def create
-    @league = League.new(league_params)
-    @league.data_dir = @league.rule_file = "dummy" if full_params?
-    render :new and return unless @league.save
-
-    @league.data_dir = @league.mkdir
-    @league.set_data(file_params)
-    @league.rule_file = @league.set_rule(rule_params)
-    @league.save!
+    attributes = league_params
+    attributes[:stock] = file_params[:stock].read.force_encoding('utf-8')
+    attributes[:header] = file_params[:header].read.force_encoding('utf-8')
+    attributes[:exec] = file_params[:exec].read.force_encoding('utf-8')
+    attributes[:card] = file_params[:card].read.force_encoding('utf-8')
+    attributes[:rule_json] = ModelHelper.encode_json rule_params
+    League.create(attributes)
     redirect_to leagues_path
   end
 

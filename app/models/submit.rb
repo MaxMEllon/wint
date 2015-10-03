@@ -35,6 +35,17 @@ class Submit < ActiveRecord::Base
   scope :number_by, -> {order("number")}
   Scope.active(self)
 
+  def self.create(attributes)
+    player = Player.find(attributes[:player_id])
+    attributes[:number] = last_number(player)
+    path = player.data_dir + format('/%03d', attributes[:number])
+    FileUtils.mkdir(path)
+    File.open(path + '/PokerOpe.c', 'w') {|f| f.puts attributes[:data_dir]}
+    `nkf --overwrite -w #{path}/PokerOpe.c`
+    attributes[:data_dir] = path
+    super(attributes)
+  end
+
   def self.status_options
     {
       STATUS_RUNNING => '実行中',
@@ -58,38 +69,60 @@ class Submit < ActiveRecord::Base
     self.data_dir.size >= SIZE_LIMIT
   end
 
-  def get_number
-    submits = self.player.submits.number_by
+  def self.last_number(player)
+    submits = player.submits.number_by
     submits.present? ? submits.last.number+1 : 1
   end
 
-  def get_status
-    league = self.player.league
-    rules = league.rule
-    rule_dir = league.data_dir + "/rule"
-
-    status = filecheck(self.src_file)
-    return status unless status == STATUS_SUCCESS
-    status = compile(rule_dir, rules, self.src_file, self.exec_file)
-    return status unless status == STATUS_SUCCESS
-    status = exec(rule_dir, rules, self.exec_file, self.id)
-    return status unless status == STATUS_SUCCESS
-    STATUS_SUCCESS
+  def filecheck
+    league = player.league
+    status = ExecManager.filecheck(src_file)
+    update(status: status)
+    fail 'Syntax Error' if syntax_error?
   end
 
+  def compile
+    league = player.league
+    status = ExecManager.compile(league.rule_path, league.rule, src_file, exec_file)
+    update(status: status)
+    fail 'Compile Error' if compile_error?
+  end
+
+  def execute
+    league = player.league
+    status = ExecManager.exec(league.rule_path, league.rule, exec_file, id)
+    update(status: status)
+    fail 'Execute Error' if execute_error?
+  end
+
+  # Deprecated
   def mkdir
     (self.player.data_dir + "/%03d" % self.number).tap do |path|
       Dir::mkdir(path)
     end
   end
 
+  # Deprecated
   def set_data(source)
     File.open(self.src_file, "w") {|f| f.puts source}
     `nkf --overwrite -w #{self.src_file}`
   end
 
+  def syntax_error?
+    status == STATUS_SYNTAX_ERROR
+  end
+
+  def compile_error?
+    status == STATUS_COMPILE_ERROR
+  end
+
+  def execute_error?
+    status == STATUS_EXEC_ERROR
+  end
+
+  # Deprecated
   def exec_success?
-    self.status == STATUS_SUCCESS
+    status == STATUS_SUCCESS
   end
 end
 

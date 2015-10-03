@@ -1,5 +1,6 @@
 require 'database_cleaner'
 require 'fakefs/spec_helpers'
+require 'sidekiq/testing'
 
 RSpec.configure do |config|
   require 'capybara/poltergeist'
@@ -19,16 +20,25 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FakeFS::SpecHelpers, fakefs: true
 
+  config.before do
+    allow(ModelHelper).to receive(:data_root).and_return("#{Rails.root}/tmp/data")
+    FileUtils.mkdir "#{Rails.root}/tmp" unless File.exist?("#{Rails.root}/tmp")
+  end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
     DatabaseCleaner.start
+    FileUtils.mkdir "#{Rails.root}/tmp/data"
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+    FileUtils.rm_rf "#{Rails.root}/tmp/data"
   end
+
+  Sidekiq::Testing.inline!
 end
 

@@ -8,6 +8,10 @@ module ModelHelper
     ActiveSupport::JSON.encode object
   end
 
-  module_function :decode_json, :encode_json
+  def data_root
+    "#{Rails.root}/public/data"
+  end
+
+  module_function :decode_json, :encode_json, :data_root
 end
 

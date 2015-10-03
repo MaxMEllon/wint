@@ -19,5 +19,6 @@
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require bootstrap-datetimepicker
+//= require uikit
 //= require_tree .
 

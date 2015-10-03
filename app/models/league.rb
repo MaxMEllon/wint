@@ -22,6 +22,48 @@ class League < ActiveRecord::Base
 
   Scope.active(self)
 
+  # def self.create(attributes)
+  #   attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id) if attributes[:data_dir].nil?
+  #   create_dirs(attributes[:data_dir])
+  #   `unzip #{attributes[:rule_files]} -d #{attributes[:data_dir]}/rule` # 後で直す
+  #   `mv #{attributes[:data_dir]}/rule/*/* #{attributes[:data_dir]}/rule` # 後で直す、必ずだ
+  #   attributes[:rule_file] = attributes[:data_dir] + '/rule/rule.json' if attributes[:rule_file].nil?
+  #   attributes.delete(:rule_files)
+  #   super(attributes)
+  # end
+
+  def self.create(attributes)
+    attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id)
+    create_dirs(attributes[:data_dir])
+    File.open(attributes[:data_dir] + '/rule/Stock.ini', "w") { |f| f.puts attributes.delete(:stock) }
+    File.open(attributes[:data_dir] + '/rule/Poker.h', "w") { |f| f.puts attributes.delete(:header) }
+    File.open(attributes[:data_dir] + '/rule/PokerExec.c', "w") { |f| f.puts attributes.delete(:exec) }
+    File.open(attributes[:data_dir] + '/rule/CardLib.c', "w") { |f| f.puts attributes.delete(:card) }
+    attributes[:rule_file] = (attributes[:data_dir] + "/rule/rule.json").tap do |path|
+      File.open(path, "w") { |f| f.puts attributes.delete(:rule_json) }
+    end
+
+    super(attributes)
+  end
+
+  def self.create_dirs(path)
+    FileUtils.mkdir(path)
+    FileUtils.mkdir(path + '/rule')
+    FileUtils.mkdir(path + '/source')
+  end
+
+  def rule_path
+    data_dir + '/rule'
+  end
+
+  def source_path
+    data_dir + '/source'
+  end
+
+  def self.last_id
+    League.count == 0 ? 1 : League.last.id + 1
+  end
+
   def rank(strategy)
     Strategy::RANK.each do |range, rank|
       return rank if range.include?(self.achievement(strategy))
@@ -57,7 +99,7 @@ class League < ActiveRecord::Base
   end
 
   def mkdir
-    ("#{Rails.root}/public/data/%03d" % self.id).tap do |path|
+    ("#{ModelHelper.data_root}/%03d" % self.id).tap do |path|
       Dir::mkdir(path)
       Dir::mkdir("#{path}/rule")
       Dir::mkdir("#{path}/source")
