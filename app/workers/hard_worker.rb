@@ -4,12 +4,12 @@ class HardWorker
   sidekiq_options retry: false
 
   def perform(submit_id)
-    @submit = Submit.where(id: submit_id).first
-    @submit.update(status: @submit.get_status)
-    if @submit.exec_success?
-      strategy = Strategy.create(@submit)
-      strategy.submit.player.update(submit_id: @submit.id) if strategy.best?
-    end
+    submit = Submit.find(submit_id)
+    submit.filecheck rescue return
+    submit.compile rescue return
+    submit.execute rescue return
+    strategy = Strategy.create(submit)
+    strategy.submit.player.update(submit_id: submit.id) if strategy.best?
   end
 end
 
