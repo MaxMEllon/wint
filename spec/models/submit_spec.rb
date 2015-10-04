@@ -13,8 +13,37 @@
 #  updated_at :datetime
 #
 
-require 'rails_helper'
+RSpec.describe Submit, type: :model do
+  describe 'self.create' do
+    let(:submit) { Submit.create attributes_for :submit }
+    let(:path) { "#{Rails.root}/tmp/data/001/source/0001" }
 
-RSpec.describe Submit, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+    before do
+      League.create attributes_for :league
+      Player.create attributes_for :player
+    end
+
+    context 'data_dir' do
+      context 'when the first create' do
+        it { expect(submit.data_dir).to eq path + '/001' }
+        it { expect(File).to exist submit.data_dir }
+      end
+
+      context 'when the second create' do
+        before { Submit.create attributes_for :submit }
+        it { expect(submit.data_dir).to eq path + '/002' }
+      end
+    end
+
+    context 'src_file' do
+      it { expect(submit.src_file).to eq path + '/001/PokerOpe.c' }
+      it { expect(File).to exist submit.src_file }
+    end
+
+    context 'exec_file' do
+      it { expect(submit.exec_file).to eq path + '/001/PokerOpe' }
+      it { expect(File).to exist submit.exec_file }
+    end
+  end
 end
+

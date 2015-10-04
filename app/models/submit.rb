@@ -32,7 +32,7 @@ class Submit < ActiveRecord::Base
   validates_presence_of :data_dir
   validates_length_of :comment, maximum: 20
 
-  scope :number_by, -> {order("number")}
+  scope :number_by, -> { order('number') }
   Scope.active(self)
 
   def self.create(attributes)
@@ -40,10 +40,12 @@ class Submit < ActiveRecord::Base
     attributes[:number] = last_number(player)
     path = player.data_dir + format('/%03d', attributes[:number])
     FileUtils.mkdir(path)
-    File.open(path + '/PokerOpe.c', 'w') {|f| f.puts attributes[:data_dir]}
+    File.open(path + '/PokerOpe.c', 'w') { |f| f.puts attributes[:data_dir] }
     `nkf --overwrite -w #{path}/PokerOpe.c`
     attributes[:data_dir] = path
-    super(attributes)
+    super(attributes).tap do |submit|
+      HardWorker.perform_async(submit.id)
+    end
   end
 
   def self.status_options
@@ -58,20 +60,20 @@ class Submit < ActiveRecord::Base
   end
 
   def src_file
-    self.data_dir + "/PokerOpe.c"
+    data_dir + '/PokerOpe.c'
   end
 
   def exec_file
-    self.data_dir + "/PokerOpe"
+    data_dir + '/PokerOpe'
   end
 
   def size_over?
-    self.data_dir.size >= SIZE_LIMIT
+    data_dir.size >= SIZE_LIMIT
   end
 
   def self.last_number(player)
     submits = player.submits.number_by
-    submits.present? ? submits.last.number+1 : 1
+    submits.present? ? submits.last.number + 1 : 1
   end
 
   def filecheck
@@ -95,19 +97,6 @@ class Submit < ActiveRecord::Base
     fail 'Execute Error' if execute_error?
   end
 
-  # Deprecated
-  def mkdir
-    (self.player.data_dir + "/%03d" % self.number).tap do |path|
-      Dir::mkdir(path)
-    end
-  end
-
-  # Deprecated
-  def set_data(source)
-    File.open(self.src_file, "w") {|f| f.puts source}
-    `nkf --overwrite -w #{self.src_file}`
-  end
-
   def syntax_error?
     status == STATUS_SYNTAX_ERROR
   end
@@ -118,11 +107,6 @@ class Submit < ActiveRecord::Base
 
   def execute_error?
     status == STATUS_EXEC_ERROR
-  end
-
-  # Deprecated
-  def exec_success?
-    status == STATUS_SUCCESS
   end
 end
 
