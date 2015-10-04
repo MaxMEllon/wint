@@ -31,6 +31,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    FileUtils.rm_rf "#{Rails.root}/tmp/data" if File.exist?("#{Rails.root}/tmp/data")
     FileUtils.mkdir "#{Rails.root}/tmp/data"
   end
 
