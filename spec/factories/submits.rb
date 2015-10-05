@@ -16,12 +16,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+  path = "#{Rails.root}/spec/factories/data/001/source/0001/001/"
+
   factory :submit do
     player_id 1
-    src_file "MyString"
-    comment "MyString"
-    number 1
-    status 1
-    is_active false
+    data_dir File.read(path + 'success.c')
+    comment 'hoge狙い'
   end
 end

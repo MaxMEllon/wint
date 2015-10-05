@@ -5,7 +5,6 @@ class SubmitsController < ApplicationController
 
   def create
     submit = Submit.create(submit_params.merge(player_id: session[:pid]))
-    HardWorker.perform_async(submit.id)
     render 'shared/reload'
   end
 

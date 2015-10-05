@@ -12,17 +12,25 @@
 #  updated_at :datetime
 #
 
-require "analysis/analysis_manager"
+require 'analysis/analysis_manager'
 
 class Strategy < ActiveRecord::Base
   belongs_to :submit
   has_one :player, through: :submit
   has_one :league, through: :player
 
-  scope :score_by, -> { order("score DESC") }
-  scope :number_by, -> { order("number") }
+  scope :score_by, -> { order('score DESC') }
+  scope :number_by, -> { order('number') }
 
-  RANK = {0...30 => "X", 30...35 => "C", 35...40 => "B", 40...45 => "A", 45...50 => "S", 50...75 => "SS", 75..100 => "SSS"}
+  RANK = {
+    0...30 => 'X',
+    30...35 => 'C',
+    35...40 => 'B',
+    40...45 => 'A',
+    45...50 => 'S',
+    50...75 => 'SS',
+    75..100 => 'SSS'
+  }
 
   # override
   def self.create(submit)
@@ -34,33 +42,34 @@ class Strategy < ActiveRecord::Base
 
   def self.hand_text
     {
-      P0: "ノーペア",
-      P1: "ワンペア",
-      P2: "ツーペア",
-      P3: "スリーカード",
-      P4: "ストレート",
-      P5: "フラッシュ",
-      P6: "フルハウス",
-      P7: "フォーカード",
-      P8: "ストレートフラッシュ",
-      P9: "ロイヤルストレート",
+      P0: 'ノーペア',
+      P1: 'ワンペア',
+      P2: 'ツーペア',
+      P3: 'スリーカード',
+      P4: 'ストレート',
+      P5: 'フラッシュ',
+      P6: 'フルハウス',
+      P7: 'フォーカード',
+      P8: 'ストレートフラッシュ',
+      P9: 'ロイヤルストレート'
     }
   end
 
   def analysis_update
-    AnalysisManager.new(self.analy_file).update
+    AnalysisManager.new(analy_file).update
   end
 
   def best?
-    strategies = self.submit.player.strategies.score_by
-    return true if strategies.blank? || self.score >= strategies.first.score
+    strategies = submit.player.strategies.score_by
+    return true if strategies.blank? || score >= strategies.first.score
     false
   end
 
-  private
+  private_class_method
+
   def self.get_number(submit)
     strategies = submit.player.strategies.number_by
-    strategies.present? ? strategies.last.number+1 : 1
+    strategies.present? ? strategies.last.number + 1 : 1
   end
 end
 

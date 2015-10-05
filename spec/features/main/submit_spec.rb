@@ -3,6 +3,7 @@ feature '戦略の提出', js: true, state: :main_mypage do
     path = "#{Rails.root}/spec/factories/data/001/source/0001/001/"
     fill_in 'submit[data_dir]', with: File.read(path + filename)
     click_button '提出'
+    visit main_mypage_path if ENV['CI']
     wait_for_action
   end
 
