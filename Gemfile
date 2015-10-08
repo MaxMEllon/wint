@@ -20,6 +20,8 @@ group :development do
   gem 'annotate'
   gem 'bcrypt-ruby'
   gem 'bullet'
+  gem 'guard'
+  gem 'guard-rspec'
   gem 'pry-byebug'
   gem 'pry-rails', '0.3.0'
   gem 'quiet_assets'
