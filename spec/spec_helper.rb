@@ -1,3 +1,5 @@
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 require 'database_cleaner'
 require 'fakefs/spec_helpers'
 require 'sidekiq/testing'
