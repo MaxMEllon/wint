@@ -26,6 +26,8 @@ group :development do
   gem 'pry-rails', '0.3.0'
   gem 'quiet_assets'
   gem 'rb-readline'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
