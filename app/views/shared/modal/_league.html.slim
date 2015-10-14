@@ -63,9 +63,9 @@ coffee:
           th.rule テイク数
           th.rule トライ数
         tr
-          td.rule= text_field :rule, :change, value: league.rule("change")
-          td.rule= text_field :rule, :take, value: league.rule("take")
-          td.rule= text_field :rule, :try, value: league.rule("try")
+          td.rule= text_field :rule, :change, value: league.rule.change
+          td.rule= text_field :rule, :take, value: league.rule.take
+          td.rule= text_field :rule, :try, value: league.rule.try
     .modal-footer
       = render_submit
       = render partial: "shared/buttons/cancel"

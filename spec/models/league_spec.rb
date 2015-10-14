@@ -34,9 +34,6 @@ RSpec.describe League, type: :model do
     context 'rule_path' do
       it { expect(league.rule_path).to eq path + '/001/rule' }
       it { expect(File).to exist league.rule_path }
-      it '解凍されたファイルが存在すること' do
-        expect(`ls #{league.rule_path} | wc -w`.to_i > 0).to be true
-      end
     end
 
     context 'source_path' do

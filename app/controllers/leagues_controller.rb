@@ -12,10 +12,10 @@ class LeaguesController < ApplicationController
 
   def create
     attributes = league_params
-    attributes[:stock] = file_params[:stock].read.force_encoding('utf-8')
-    attributes[:header] = file_params[:header].read.force_encoding('utf-8')
-    attributes[:exec] = file_params[:exec].read.force_encoding('utf-8')
     attributes[:card] = file_params[:card].read.force_encoding('utf-8')
+    attributes[:exec] = file_params[:exec].read.force_encoding('utf-8')
+    attributes[:header] = file_params[:header].read.force_encoding('utf-8')
+    attributes[:stock] = file_params[:stock].read.force_encoding('utf-8')
     attributes[:rule_json] = ModelHelper.encode_json rule_params
     League.create(attributes)
     redirect_to leagues_path
