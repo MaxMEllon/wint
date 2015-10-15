@@ -14,13 +14,12 @@ Documentation:
 TrailingBlankLines:
   EnforcedStyle: final_blank_line
 
-LineLength:
-  Max: 100
-
 AllCops:
   Include:
     - '**/Rakefile'
     - '**/config.ru'
   Exclude:
     - '.bundle/**/*'
+
+inherit_from: .rubocop_todo.yml
 

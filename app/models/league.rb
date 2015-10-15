@@ -22,10 +22,40 @@ class League < ActiveRecord::Base
 
   Scope.active(self)
 
+  public
+
   def rule
     @rule ||= Rule.load(path: data_dir)
   end
 
+  def rule_path
+    rule.path
+  end
+
+  def source_path
+    data_dir + '/source'
+  end
+
+  def rank(strategy)
+    Strategy::RANK.each do |range, rank|
+      return rank if range.include?(achievement(strategy))
+    end
+  end
+
+  def achievement(strategy)
+    (strategy.score / limit_score) * 100
+  end
+
+  def players_ranking
+    players.select(&:best).sort { |a, b| b.best.strategy.score <=> a.best.strategy.score }
+  end
+
+  def open?
+    now = Time.new
+    start_at <= now && now < end_at
+  end
+
+  # @Override
   def update(attributes = {})
     rule.update(
       change: attributes.delete(:change),
@@ -39,6 +69,9 @@ class League < ActiveRecord::Base
     super(attributes)
   end
 
+  public_class_method
+
+  # @Override
   def self.create(attributes = {})
     attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id)
     create_dirs(attributes[:data_dir])
@@ -56,62 +89,19 @@ class League < ActiveRecord::Base
     super(attributes)
   end
 
+  def self.select_format
+    all.map { |l| [l.name, l.id] }
+  end
+
+  private_class_method
+
   def self.create_dirs(path)
     FileUtils.mkdir(path)
     FileUtils.mkdir(path + '/source')
   end
 
-  def rule_path
-    rule.path
-  end
-
-  def source_path
-    data_dir + '/source'
-  end
-
   def self.last_id
     League.count == 0 ? 1 : League.last.id + 1
-  end
-
-  def rank(strategy)
-    Strategy::RANK.each do |range, rank|
-      return rank if range.include?(self.achievement(strategy))
-    end
-  end
-
-  def achievement(strategy)
-    (strategy.score / self.limit_score) * 100
-  end
-
-  def players_ranking
-    self.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
-  end
-
-  def open?
-    now = Time.new
-    self.start_at <= now && now < self.end_at
-  end
-
-  def self.select_format
-    self.all.map {|l| [l.name, l.id]}
-  end
-
-  def set_data(params)
-    path = self.data_dir + "/rule"
-    filenames = {stock: "Stock.ini", header: "Poker.h", exec: "PokerExec.c", card: "CardLib.c"}
-    params.each do |key, value|
-      file = path + "/" + filenames[key.to_sym]
-      File.open(file, "w") do |f|
-        f.puts params[key].read.force_encoding("utf-8")
-      end
-      `nkf --overwrite -w #{file}` # いつか直すかも
-    end
-  end
-
-  def set_rule(params)
-    (self.data_dir + "/rule/rule.json").tap do |path|
-      File.open(path, "w") {|f| f.puts ModelHelper.encode_json params}
-    end
   end
 end
 

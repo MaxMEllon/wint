@@ -30,7 +30,7 @@ class Rule
 
   def save
     FileUtils.mkdir(@path) unless File.exist?(@path)
-    reg = {change: @change, take: @take, try: @try}
+    reg = { change: @change, take: @take, try: @try }
     json_data = ModelHelper.encode_json reg
     write_file FileName::JSON, json_data
     write_file FileName::CARD, @card_data
@@ -74,7 +74,7 @@ class Rule
   public_class_method
 
   def self.create(attributes = {})
-    Rule.new(attributes).tap { |rule| rule.save }
+    Rule.new(attributes).tap(&:save)
   end
 
   def self.load(attributes = {})
