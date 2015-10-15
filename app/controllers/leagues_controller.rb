@@ -12,10 +12,10 @@ class LeaguesController < ApplicationController
 
   def create
     attributes = league_params
-    attributes[:card] = file_params[:card].read.force_encoding('utf-8')
-    attributes[:exec] = file_params[:exec].read.force_encoding('utf-8')
-    attributes[:header] = file_params[:header].read.force_encoding('utf-8')
-    attributes[:stock] = file_params[:stock].read.force_encoding('utf-8')
+    attributes[:card] = read_file file_params[:card]
+    attributes[:exec] = read_file file_params[:exec]
+    attributes[:header] = read_file file_params[:header]
+    attributes[:stock] = read_file file_params[:stock]
     attributes.merge!(rule_params)
     League.create(attributes)
     redirect_to leagues_path
@@ -25,9 +25,13 @@ class LeaguesController < ApplicationController
   end
 
   def update
-    render :edit and return unless @league.update(league_params)
-    @league.set_data(file_params) if file_params.present?
-    @league.set_rule(rule_params) if full_rule_params?
+    attributes = league_params
+    attributes[:card] = read_file file_params[:card]
+    attributes[:exec] = read_file file_params[:exec]
+    attributes[:header] = read_file file_params[:header]
+    attributes[:stock] = read_file file_params[:stock]
+    attributes.merge!(rule_params)
+    @league.update(attributes)
     render "shared/reload"
   end
 
@@ -42,12 +46,18 @@ class LeaguesController < ApplicationController
   end
 
   private
+
+  def read_file(data)
+    return nil if data.nil?
+    data.read.force_encoding('utf-8')
+  end
+
   def league_params
     params.require(:league).permit(:name, :start_at, :end_at, :limit_score)
   end
 
   def file_params
-    return nil if params[:file].nil?
+    return {} if params[:file].nil?
     params.require(:file).permit(:stock, :header, :exec, :card)
   end
 

@@ -26,7 +26,20 @@ class League < ActiveRecord::Base
     @rule ||= Rule.load(path: data_dir)
   end
 
-  def self.create(attributes)
+  def update(attributes = {})
+    rule.update(
+      change: attributes.delete(:change),
+      take: attributes.delete(:take),
+      try: attributes.delete(:try),
+      card: attributes.delete(:card),
+      exec: attributes.delete(:exec),
+      header: attributes.delete(:header),
+      stock: attributes.delete(:stock)
+    )
+    super(attributes)
+  end
+
+  def self.create(attributes = {})
     attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id)
     create_dirs(attributes[:data_dir])
     rule = Rule.create(

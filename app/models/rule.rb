@@ -29,7 +29,7 @@ class Rule
   end
 
   def save
-    FileUtils.mkdir(@path)
+    FileUtils.mkdir(@path) unless File.exist?(@path)
     reg = {change: @change, take: @take, try: @try}
     json_data = ModelHelper.encode_json reg
     write_file FileName::JSON, json_data
@@ -37,6 +37,20 @@ class Rule
     write_file FileName::EXEC, @exec_data
     write_file FileName::HEADER, @header_data
     write_file FileName::STOCK, @stock_data
+    true
+  rescue
+    false
+  end
+
+  def update(attributes = {})
+    @card_data = attributes[:card]
+    @exec_data = attributes[:exec]
+    @header_data = attributes[:header]
+    @stock_data = attributes[:stock]
+    @change = attributes[:change]
+    @take = attributes[:take]
+    @try = attributes[:try]
+    save
   end
 
   def text
