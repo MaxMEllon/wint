@@ -19,35 +19,57 @@ class Rule
 
   def initialize(attributes = {})
     @path = attributes[:path] + '/' + DIR_NAME
-    rules = read_rules
-    @change = rules[:change]
-    @take = rules[:take]
-    @try = rules[:try]
+    @change = attributes[:change]
+    @take = attributes[:take]
+    @try = attributes[:try]
+    @card_data = attributes[:card]
+    @exec_data = attributes[:exec]
+    @header_data = attributes[:header]
+    @stock_data = attributes[:stock]
+  end
+
+  def save
+    FileUtils.mkdir(@path)
+    reg = {change: @change, take: @take, try: @try}
+    json_data = ModelHelper.encode_json reg
+    write_file FileName::JSON, json_data
+    write_file FileName::CARD, @card_data
+    write_file FileName::EXEC, @exec_data
+    write_file FileName::HEADER, @header_data
+    write_file FileName::STOCK, @stock_data
   end
 
   def text
     [format('%02d', @change), format('%02d', @take), @try].join('-')
   end
 
-  private
-
-  def read_rules
-    rules = ModelHelper.decode_json File.read(@path + '/' + FileName::JSON)
-    rules.map { |k, v| [k, v.to_i] }.to_h
+  def regulation
+    reg = ModelHelper.decode_json File.read("#{@path}/#{FileName::JSON}")
+    reg.map { |k, v| [k, v.to_i] }.to_h
   rescue
     { change: 0, take: 0, try: 0 }
   end
 
-  private_class_method
+  private
+
+  def write_file(filename, data)
+    return if data.nil?
+    File.write "#{@path}/#{filename}", data
+  end
+
+  public_class_method
 
   def self.create(attributes = {})
-    path = attributes[:path] + '/' + DIR_NAME
-    FileUtils.mkdir(path)
-    File.write("#{path}/#{FileName::CARD}", attributes[:card])
-    File.write("#{path}/#{FileName::EXEC}", attributes[:exec])
-    File.write("#{path}/#{FileName::HEADER}", attributes[:header])
-    File.write("#{path}/#{FileName::STOCK}", attributes[:stock])
-    File.write("#{path}/#{FileName::JSON}", attributes[:rule_json])
+    Rule.new(attributes).tap { |rule| rule.save }
+  end
+
+  def self.load(attributes = {})
+    Rule.new(attributes).tap do |rule|
+      reg = rule.regulation
+      rule.change = reg[:change]
+      rule.take = reg[:take]
+      rule.try = reg[:try]
+    end
   end
 end
 

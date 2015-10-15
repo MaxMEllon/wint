@@ -23,21 +23,23 @@ class League < ActiveRecord::Base
   Scope.active(self)
 
   def rule
-    @rule ||= Rule.new(path: data_dir)
+    @rule ||= Rule.load(path: data_dir)
   end
 
   def self.create(attributes)
     attributes[:data_dir] = format("#{ModelHelper.data_root}/%03d", last_id)
     create_dirs(attributes[:data_dir])
-    Rule.create(
+    rule = Rule.create(
       path: attributes[:data_dir],
-      rule_json: attributes.delete(:rule_json),
+      change: attributes.delete(:change),
+      take: attributes.delete(:take),
+      try: attributes.delete(:try),
       card: attributes.delete(:card),
       exec: attributes.delete(:exec),
       header: attributes.delete(:header),
       stock: attributes.delete(:stock)
     )
-    attributes[:rule_file] = attributes[:data_dir] + '/rule/rule.json'
+    attributes[:rule_file] = rule.path
     super(attributes)
   end
 
