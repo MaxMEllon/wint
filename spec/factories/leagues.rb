@@ -36,9 +36,11 @@ FactoryGirl.define do
     compile_command 'gcc -O2 -I ${rule} ${src_file} ${rule}/PokerExec.c ${rule}/CardLib.c -DTYPE=5-7 -DTAKE=5 -DCHNG=7 -o ${exec_file}'
     exec_command '${exec_file} 10000 ${rule}/Stock.ini 0'
 
-    factory :factory_league do
-      data_dir "#{Rails.root}/spec/factories/data/001"
-      rule_file "#{Rails.root}/spec/factories/data/001/rule/rule.json"
+    factory :feature_league do
+      stock  "#{Rails.root}/spec/factories/data/001/rule/Stock.ini"
+      header "#{Rails.root}/spec/factories/data/001/rule/Poker.h"
+      exec   "#{Rails.root}/spec/factories/data/001/rule/PokerExec.c"
+      card   "#{Rails.root}/spec/factories/data/001/rule/CardLib.c"
     end
   end
 end
