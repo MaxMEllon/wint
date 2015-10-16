@@ -29,14 +29,18 @@ FactoryGirl.define do
     header File.read("#{Rails.root}/spec/factories/data/001/rule/Poker.h")
     exec   File.read("#{Rails.root}/spec/factories/data/001/rule/PokerExec.c")
     card   File.read("#{Rails.root}/spec/factories/data/001/rule/CardLib.c")
-    rule_json File.read("#{Rails.root}/spec/factories/data/001/rule/rule.json")
+    change 7
+    take 5
+    try 10_000
     # rule_files "#{Rails.root}/spec/factories/rule.zip"
     compile_command 'gcc -O2 -I ${rule} ${src_file} ${rule}/PokerExec.c ${rule}/CardLib.c -DTYPE=5-7 -DTAKE=5 -DCHNG=7 -o ${exec_file}'
     exec_command '${exec_file} 10000 ${rule}/Stock.ini 0'
 
-    factory :factory_league do
-      data_dir "#{Rails.root}/spec/factories/data/001"
-      rule_file "#{Rails.root}/spec/factories/data/001/rule/rule.json"
+    factory :feature_league do
+      stock  "#{Rails.root}/spec/factories/data/001/rule/Stock.ini"
+      header "#{Rails.root}/spec/factories/data/001/rule/Poker.h"
+      exec   "#{Rails.root}/spec/factories/data/001/rule/PokerExec.c"
+      card   "#{Rails.root}/spec/factories/data/001/rule/CardLib.c"
     end
   end
 end

@@ -30,7 +30,7 @@ br
           = format_time(league.start_at)
           | &nbsp;～&nbsp;
           = format_time(league.end_at)
-        td.rule= league.format_rule
+        td.rule= league.rule.text
         td.score= league.limit_score
         td.is_analy= link_to leagues_toggle_analy_path(lid: league.id) do
           = render partial: "shared/buttons/toggle_analy", locals: {is_analy: league.is_analy}

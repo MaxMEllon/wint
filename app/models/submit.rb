@@ -77,7 +77,6 @@ class Submit < ActiveRecord::Base
   end
 
   def filecheck
-    league = player.league
     status = ExecManager.filecheck(src_file)
     update(status: status)
     fail 'Syntax Error' if syntax_error?
@@ -85,14 +84,14 @@ class Submit < ActiveRecord::Base
 
   def compile
     league = player.league
-    status = ExecManager.compile(league.rule_path, league.rule, src_file, exec_file)
+    status = ExecManager.compile(league.rule, src_file, exec_file)
     update(status: status)
     fail 'Compile Error' if compile_error?
   end
 
   def execute
     league = player.league
-    status = ExecManager.exec(league.rule_path, league.rule, exec_file, id)
+    status = ExecManager.exec(league.rule, exec_file, id)
     update(status: status)
     fail 'Execute Error' if execute_error?
   end
