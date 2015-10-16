@@ -24,3 +24,4 @@ FactoryGirl.define do
     comment 'hoge狙い'
   end
 end
+

@@ -40,14 +40,6 @@ RSpec.describe League, type: :model do
       it { expect(league.source_path).to eq path + '/001/source' }
       it { expect(File).to exist league.source_path }
     end
-
-    context 'compile_command' do
-      it { expect(league.compile_command).to be_truthy }
-    end
-
-    context 'exec_command' do
-      it { expect(league.exec_command).to be_truthy }
-    end
   end
 end
 
