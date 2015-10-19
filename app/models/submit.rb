@@ -13,9 +13,9 @@
 #  updated_at :datetime
 #
 
-class Submit < ActiveRecord::Base
-  include ExecManager
+require 'rake'
 
+class Submit < ActiveRecord::Base
   module Status
     RUNNING = 0
     SUCCESS = 1
@@ -102,9 +102,24 @@ class Submit < ActiveRecord::Base
 
   def execute
     rule = player.league.rule
-    status = ExecManager.exec(league.rule, exec_file, id)
-    update(status: status)
-    fail 'Execute Error' if execute_error?
+    tmp_path = "#{Rails.root}/tmp/log/_tmp#{id}"
+    FileUtils.mkdir("#{Rails.root}/tmp/log") unless File.exist?("#{Rails.root}/tmp/log")
+    FileUtils.mkdir(tmp_path) unless File.exist?(tmp_path)
+    execute_by_timer(rule, exec_file, TIME_LIMIT, tmp_path)
+  rescue
+    update(status: Status::RUNTIME_ERROR)
+    raise 'Runtime Error'
+  end
+
+  def execute_by_timer(rule, exec_file, time_limit, tmp_path)
+    Timeout.timeout(time_limit) do
+      cmd = rule.execute_command(exec_file)
+      stdout, stderr, thread = Open3.capture3(cmd)
+      fail 'Runtime Error' unless stderr.blank?
+      game_log, result = stdout.split(/\r\n\r\n|\n\n/)
+      File.open(tmp_path + '/Game.log', 'w') { |f| f.puts game_log }
+      File.open(tmp_path + '/Result.txt', 'w') { |f| f.puts result }
+    end
   end
 
   def syntax_error?
