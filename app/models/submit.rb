@@ -94,7 +94,7 @@ class Submit < ActiveRecord::Base
   def compile
     rule = player.league.rule
     cmd = rule.compile_command(src_file, exec_file)
-    Rake::sh cmd, verbose: false
+    Rake.sh cmd, verbose: false
   rescue
     update(status: Status::COMPILE_ERROR)
     raise 'Compile Error'
@@ -114,7 +114,7 @@ class Submit < ActiveRecord::Base
   def execute_by_timer(rule, exec_file, time_limit, tmp_path)
     Timeout.timeout(time_limit) do
       cmd = rule.execute_command(exec_file)
-      stdout, stderr, thread = Open3.capture3(cmd)
+      stdout, stderr, _thread = Open3.capture3(cmd)
       fail 'Runtime Error' unless stderr.blank?
       game_log, result = stdout.split(/\r\n\r\n|\n\n/)
       File.open(tmp_path + '/Game.log', 'w') { |f| f.puts game_log }
