@@ -84,20 +84,24 @@ class Submit < ActiveRecord::Base
   end
 
   def filecheck
-    status = ExecManager.filecheck(src_file)
-    update(status: status)
-    fail 'Syntax Error' if syntax_error?
+    File.read(src_file).split(/\r\n|\n/).each do |line|
+      next unless line =~ /system/
+      update(status: Status::SYNTAX_ERROR)
+      fail 'Syntax Error'
+    end
   end
 
   def compile
-    league = player.league
-    status = ExecManager.compile(league.rule, src_file, exec_file)
-    update(status: status)
-    fail 'Compile Error' if compile_error?
+    rule = player.league.rule
+    cmd = rule.compile_command(src_file, exec_file)
+    Rake::sh cmd, verbose: false
+  rescue
+    update(status: Status::COMPILE_ERROR)
+    raise 'Compile Error'
   end
 
   def execute
-    league = player.league
+    rule = player.league.rule
     status = ExecManager.exec(league.rule, exec_file, id)
     update(status: status)
     fail 'Execute Error' if execute_error?

@@ -53,6 +53,12 @@ class Rule
     save
   end
 
+  def compile_command(src_file, exec_file)
+    files = "#{src_file} #{path}/#{FileName::EXEC} #{path}/#{FileName::CARD}"
+    opt = format('-DTYPE=%02d-%02d -DTAKE=%d -DCHNG=%d', take, change, take, change)
+    "gcc -O2 -w -I #{path} #{files} #{opt} -o #{exec_file}"
+  end
+
   def text
     [format('%02d', @change), format('%02d', @take), @try].join('-')
   end
