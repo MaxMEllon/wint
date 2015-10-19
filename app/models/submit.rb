@@ -16,15 +16,22 @@
 class Submit < ActiveRecord::Base
   include ExecManager
 
-  STATUS_RUNNING = 0
-  STATUS_SUCCESS = 1
-  STATUS_COMPILE_ERROR = 2
-  STATUS_EXEC_ERROR = 3
-  STATUS_TIME_OVER = 4
-  STATUS_SYNTAX_ERROR = 5
+  module Status
+    RUNNING = 0
+    SUCCESS = 1
+    COMPILE_ERROR = 2
+    RUNTIME_ERROR = 3
+    TIME_ERROR = 4
+    SYNTAX_ERROR = 5
+  end
 
   TIME_LIMIT = 30
   SIZE_LIMIT = 100.kilobytes
+
+  module FileName
+    SOURCE = 'PokerOpe.c'
+    EXEC = 'PokerOpe'
+  end
 
   belongs_to :player
   has_one :strategy
@@ -50,21 +57,21 @@ class Submit < ActiveRecord::Base
 
   def self.status_options
     {
-      STATUS_RUNNING => '実行中',
-      STATUS_SUCCESS => '成功',
-      STATUS_COMPILE_ERROR => 'コンパイルエラー',
-      STATUS_EXEC_ERROR => '実行時エラー',
-      STATUS_TIME_OVER => '時間超過',
-      STATUS_SYNTAX_ERROR => '危険なコード'
+      Status::RUNNING => '実行中',
+      Status::SUCCESS => '成功',
+      Status::COMPILE_ERROR => 'コンパイルエラー',
+      Status::RUNTIME_ERROR => '実行時エラー',
+      Status::TIME_ERROR => '時間超過',
+      Status::SYNTAX_ERROR => '危険なコード'
     }
   end
 
   def src_file
-    data_dir + '/PokerOpe.c'
+    "#{data_dir}/#{FileName::SOURCE}"
   end
 
   def exec_file
-    data_dir + '/PokerOpe'
+    "#{data_dir}/#{FileName::EXEC}"
   end
 
   def size_over?
@@ -97,15 +104,15 @@ class Submit < ActiveRecord::Base
   end
 
   def syntax_error?
-    status == STATUS_SYNTAX_ERROR
+    status == Status::SYNTAX_ERROR
   end
 
   def compile_error?
-    status == STATUS_COMPILE_ERROR
+    status == Status::COMPILE_ERROR
   end
 
   def execute_error?
-    status == STATUS_EXEC_ERROR
+    status == Status::RUNTIME_ERROR
   end
 end
 

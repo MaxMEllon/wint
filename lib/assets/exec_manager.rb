@@ -4,16 +4,16 @@ module ExecManager
 
   def filecheck(src_file)
     File.read(src_file).split(/\r\n|\n/).each do |line|
-      return Submit::STATUS_SYNTAX_ERROR if line =~ /system/
+      return Submit::Status::SYNTAX_ERROR if line =~ /system/
     end
-    Submit::STATUS_SUCCESS
+    Submit::Status::SUCCESS
   end
 
   def compile(rule, src_file, exec_file)
     take = format('%02d', rule.take)
     change = format('%02d', rule.change)
-    Rake::sh "gcc -O2 -w -I #{rule.path} #{src_file} #{rule.path}/PokerExec.c #{rule.path}/CardLib.c -DTYPE=#{take}-#{change} -DTAKE=#{rule.take} -DCHNG=#{rule.change} -o #{exec_file}", verbose: false rescue return Submit::STATUS_COMPILE_ERROR
-    Submit::STATUS_SUCCESS
+    Rake::sh "gcc -O2 -w -I #{rule.path} #{src_file} #{rule.path}/PokerExec.c #{rule.path}/CardLib.c -DTYPE=#{take}-#{change} -DTAKE=#{rule.take} -DCHNG=#{rule.change} -o #{exec_file}", verbose: false rescue return Submit::Status::COMPILE_ERROR
+    Submit::Status::SUCCESS
   end
 
   def exec(rule, exec_file, submit_id)
@@ -32,15 +32,15 @@ module ExecManager
           command = "docker run --rm #{volume_stock} #{volume_exec} ubuntu:14.04 /bin/bash -c '#{exec_command}'"
         end
         stdout, stderr, thread = Open3.capture3(command)
-        return Submit::STATUS_EXEC_ERROR unless stderr.blank?
+        return Submit::Status::RUNTIME_ERROR unless stderr.blank?
         game_log, result = stdout.split(/\r\n\r\n|\n\n/)
         File.open(tmp_path + '/Game.log', 'w') { |f| f.puts game_log }
         File.open(tmp_path + '/Result.txt', 'w') { |f| f.puts result }
       end
     rescue
-      return Submit::STATUS_TIME_OVER
+      return Submit::Status::TIME_ERROR
     end
-    Submit::STATUS_SUCCESS
+    Submit::Status::SUCCESS
   end
 
   module_function :filecheck, :compile, :exec
