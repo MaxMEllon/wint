@@ -27,7 +27,6 @@ class Submit < ActiveRecord::Base
     SYNTAX_ERROR = 5
   end
 
-  TIME_LIMIT = 30
   SIZE_LIMIT = 100.kilobytes
 
   module FileName
@@ -89,23 +88,17 @@ class Submit < ActiveRecord::Base
     rule = player.league.rule
     syntax_check(File.read(src_file))
     compile(rule.compile_command(src_file, exec_file))
-    stdout = execute(rule.execute_command(exec_file), TIME_LIMIT)
-  rescue SyntaxError => ex
-    # p ex.message
-    update(status: Status::SYNTAX_ERROR)
-  rescue CompileError => ex
-    # p ex.message
-    update(status: Status::COMPILE_ERROR)
-  rescue RuntimeError => ex
-    # p ex.message
-    update(status: Status::RUNTIME_ERROR)
-  rescue Timeout::Error => ex
-    p ex
-    update(status: Status::TIME_ERROR)
-  else
-    update(status: Status::SUCCESS)
-  ensure
-    return stdout
+    execute(rule.execute_command(exec_file), Rule::TIME_LIMIT).tap do
+      update(status: Status::SUCCESS)
+    end
+  rescue SyntaxError
+    update(status: Status::SYNTAX_ERROR) && nil
+  rescue CompileError
+    update(status: Status::COMPILE_ERROR) && nil
+  rescue ExecuteError
+    update(status: Status::RUNTIME_ERROR) && nil
+  rescue Timeout::Error
+    update(status: Status::TIME_ERROR) && nil
   end
 
   def syntax_error?

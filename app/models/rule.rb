@@ -1,6 +1,10 @@
 class Rule < ActiveModelBase
   attr_accessor :path, :change, :take, :try
 
+  public_constant
+
+  TIME_LIMIT = 30
+
   private_constant
 
   module FileName
@@ -67,7 +71,7 @@ class Rule < ActiveModelBase
     exec_cmd = [
       "mkdir #{docker_tmp}/log",
       "cd #{docker_tmp}",
-      "#{docker_tmp}/tmp.exe _tmp #{try} #{docker_tmp}/tmp.ini 1"
+      "timeout #{TIME_LIMIT} #{docker_tmp}/tmp.exe _tmp #{try} #{docker_tmp}/tmp.ini 1"
     ].join(' && ')
     cmd = [volume_stock, volume_exec, opt, "'#{exec_cmd}'"].join(' ')
     cmd = "--rm #{cmd}" unless ENV['CIRCLECI']

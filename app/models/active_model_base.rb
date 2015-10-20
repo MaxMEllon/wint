@@ -5,17 +5,17 @@ class ActiveModelBase
     fail 'Called abstract method'
   end
 
-  def update(attributes = {})
+  def update(_attributes = {})
     fail 'Called abstract method'
   end
 
   public_class_method
 
-  def self.create(attributes = {})
+  def self.create(_attributes = {})
     fail 'Called abstract method'
   end
 
-  def self.load(uniq_elem)
+  def self.load(_uniq_elem)
     fail 'Called abstract method'
   end
 end
