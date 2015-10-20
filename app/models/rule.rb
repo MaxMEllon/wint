@@ -53,6 +53,27 @@ class Rule
     save
   end
 
+  def compile_command(src_file, exec_file)
+    files = "#{src_file} #{path}/#{FileName::EXEC} #{path}/#{FileName::CARD}"
+    opt = format('-DTYPE=%02d-%02d -DTAKE=%d -DCHNG=%d', take, change, take, change)
+    "gcc -O2 -w -I #{path} #{files} #{opt} -o #{exec_file}"
+  end
+
+  def execute_command(exec_file)
+    docker_tmp = '/var/tmp'
+    volume_stock = "-v #{path}/#{FileName::STOCK}:#{docker_tmp}/tmp.ini"
+    volume_exec = "-v #{exec_file}:#{docker_tmp}/tmp.exe"
+    opt = 'ubuntu:14.04 /bin/bash -c'
+    exec_cmd = [
+      "mkdir #{docker_tmp}/log",
+      "cd #{docker_tmp}",
+      "#{docker_tmp}/tmp.exe _tmp #{try} #{docker_tmp}/tmp.ini 1"
+    ].join(' && ')
+    cmd = [volume_stock, volume_exec, opt, "'#{exec_cmd}'"].join(' ')
+    cmd = "--rm #{cmd}" unless ENV['CIRCLECI']
+    "docker run #{cmd}"
+  end
+
   def text
     [format('%02d', @change), format('%02d', @take), @try].join('-')
   end

@@ -13,18 +13,25 @@
 #  updated_at :datetime
 #
 
-class Submit < ActiveRecord::Base
-  include ExecManager
+require 'rake'
 
-  STATUS_RUNNING = 0
-  STATUS_SUCCESS = 1
-  STATUS_COMPILE_ERROR = 2
-  STATUS_EXEC_ERROR = 3
-  STATUS_TIME_OVER = 4
-  STATUS_SYNTAX_ERROR = 5
+class Submit < ActiveRecord::Base
+  module Status
+    RUNNING = 0
+    SUCCESS = 1
+    COMPILE_ERROR = 2
+    RUNTIME_ERROR = 3
+    TIME_ERROR = 4
+    SYNTAX_ERROR = 5
+  end
 
   TIME_LIMIT = 30
   SIZE_LIMIT = 100.kilobytes
+
+  module FileName
+    SOURCE = 'PokerOpe.c'
+    EXEC = 'PokerOpe'
+  end
 
   belongs_to :player
   has_one :strategy
@@ -50,21 +57,21 @@ class Submit < ActiveRecord::Base
 
   def self.status_options
     {
-      STATUS_RUNNING => '実行中',
-      STATUS_SUCCESS => '成功',
-      STATUS_COMPILE_ERROR => 'コンパイルエラー',
-      STATUS_EXEC_ERROR => '実行時エラー',
-      STATUS_TIME_OVER => '時間超過',
-      STATUS_SYNTAX_ERROR => '危険なコード'
+      Status::RUNNING => '実行中',
+      Status::SUCCESS => '成功',
+      Status::COMPILE_ERROR => 'コンパイルエラー',
+      Status::RUNTIME_ERROR => '実行時エラー',
+      Status::TIME_ERROR => '時間超過',
+      Status::SYNTAX_ERROR => '危険なコード'
     }
   end
 
   def src_file
-    data_dir + '/PokerOpe.c'
+    "#{data_dir}/#{FileName::SOURCE}"
   end
 
   def exec_file
-    data_dir + '/PokerOpe'
+    "#{data_dir}/#{FileName::EXEC}"
   end
 
   def size_over?
@@ -77,35 +84,54 @@ class Submit < ActiveRecord::Base
   end
 
   def filecheck
-    status = ExecManager.filecheck(src_file)
-    update(status: status)
-    fail 'Syntax Error' if syntax_error?
+    File.read(src_file).split(/\r\n|\n/).each do |line|
+      next unless line =~ /system/
+      update(status: Status::SYNTAX_ERROR)
+      fail 'Syntax Error'
+    end
   end
 
   def compile
-    league = player.league
-    status = ExecManager.compile(league.rule, src_file, exec_file)
-    update(status: status)
-    fail 'Compile Error' if compile_error?
+    rule = player.league.rule
+    cmd = rule.compile_command(src_file, exec_file)
+    Rake.sh cmd, verbose: false
+  rescue
+    update(status: Status::COMPILE_ERROR)
+    raise 'Compile Error'
   end
 
   def execute
-    league = player.league
-    status = ExecManager.exec(league.rule, exec_file, id)
-    update(status: status)
-    fail 'Execute Error' if execute_error?
+    rule = player.league.rule
+    tmp_path = "#{Rails.root}/tmp/log/_tmp#{id}"
+    FileUtils.mkdir("#{Rails.root}/tmp/log") unless File.exist?("#{Rails.root}/tmp/log")
+    FileUtils.mkdir(tmp_path) unless File.exist?(tmp_path)
+    execute_by_timer(rule, exec_file, TIME_LIMIT, tmp_path)
+  rescue
+    update(status: Status::RUNTIME_ERROR)
+    raise 'Runtime Error'
+  end
+
+  def execute_by_timer(rule, exec_file, time_limit, tmp_path)
+    Timeout.timeout(time_limit) do
+      cmd = rule.execute_command(exec_file)
+      stdout, stderr, _thread = Open3.capture3(cmd)
+      fail 'Runtime Error' unless stderr.blank?
+      game_log, result = stdout.split(/\r\n\r\n|\n\n/)
+      File.open(tmp_path + '/Game.log', 'w') { |f| f.puts game_log }
+      File.open(tmp_path + '/Result.txt', 'w') { |f| f.puts result }
+    end
   end
 
   def syntax_error?
-    status == STATUS_SYNTAX_ERROR
+    status == Status::SYNTAX_ERROR
   end
 
   def compile_error?
-    status == STATUS_COMPILE_ERROR
+    status == Status::COMPILE_ERROR
   end
 
   def execute_error?
-    status == STATUS_EXEC_ERROR
+    status == Status::RUNTIME_ERROR
   end
 end
 

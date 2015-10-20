@@ -24,13 +24,13 @@ br
         th.comment 戦略コメント
     tbody
       - @submits.each do |submit|
-        - if submit.status == Submit::STATUS_SUCCESS
+        - if submit.status == Submit::Status::SUCCESS
           | <tr>
           - if @league.is_analy
             td.number= link_to "%03d" % submit.number, main_strategy_path(num: submit.number)
           - else
             td.number= "%03d" % submit.number
-        - elsif submit.status == Submit::STATUS_RUNNING
+        - elsif submit.status == Submit::Status::RUNNING
           | <tr class="warning">
           td.number= "%03d" % submit.number
         - else
