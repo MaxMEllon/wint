@@ -1,6 +1,4 @@
-class Rule
-  include ActiveModel::Model
-
+class Rule < ActiveModelBase
   attr_accessor :path, :change, :take, :try
 
   private_constant
@@ -28,6 +26,7 @@ class Rule
     @stock_data = attributes[:stock]
   end
 
+  # @Override
   def save
     FileUtils.mkdir(@path) unless File.exist?(@path)
     reg = { change: @change, take: @take, try: @try }
@@ -42,6 +41,7 @@ class Rule
     false
   end
 
+  # @Override
   def update(attributes = {})
     @card_data = attributes[:card]
     @exec_data = attributes[:exec]
@@ -94,12 +94,14 @@ class Rule
 
   public_class_method
 
+  # @Override
   def self.create(attributes = {})
     Rule.new(attributes).tap(&:save)
   end
 
-  def self.load(attributes = {})
-    Rule.new(attributes).tap do |rule|
+  # @Override
+  def self.load(path)
+    Rule.new(path: path).tap do |rule|
       reg = rule.regulation
       rule.change = reg[:change]
       rule.take = reg[:take]

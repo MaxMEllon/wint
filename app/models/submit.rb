@@ -83,6 +83,9 @@ class Submit < ActiveRecord::Base
     submits.present? ? submits.last.number + 1 : 1
   end
 
+  def perform
+  end
+
   def filecheck
     File.read(src_file).split(/\r\n|\n/).each do |line|
       next unless line =~ /system/
