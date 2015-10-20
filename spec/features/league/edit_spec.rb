@@ -4,7 +4,7 @@ feature 'edit league', state: :league_list do
   background do
     visit leagues_path
     click_button '編集'
-    wait_for_action
+    wait_for_action(1.0)
   end
 
   context 'when name updated' do
