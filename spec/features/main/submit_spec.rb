@@ -59,7 +59,14 @@ feature '戦略の提出', js: true, state: :main_mypage do
   end
 
   context '時間超過となる戦略を提出した場合' do
-    pending
+    background do
+      stub_const("Rule::TIME_LIMIT", 0.1)
+      submit 'time_error.c'
+    end
+
+    scenario '時間超過と表示される' do
+      expect(page).to have_content '時間超過'
+    end
   end
 end
 

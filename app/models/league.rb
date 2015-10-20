@@ -25,7 +25,7 @@ class League < ActiveRecord::Base
   public
 
   def rule
-    @rule ||= Rule.load(path: data_dir)
+    @rule ||= Rule.load(data_dir)
   end
 
   def rule_path

@@ -13,9 +13,11 @@
 #  updated_at :datetime
 #
 
-require 'rake'
+require 'executer.rb'
 
 class Submit < ActiveRecord::Base
+  include Executer
+
   module Status
     RUNNING = 0
     SUCCESS = 1
@@ -25,7 +27,6 @@ class Submit < ActiveRecord::Base
     SYNTAX_ERROR = 5
   end
 
-  TIME_LIMIT = 30
   SIZE_LIMIT = 100.kilobytes
 
   module FileName
@@ -83,43 +84,21 @@ class Submit < ActiveRecord::Base
     submits.present? ? submits.last.number + 1 : 1
   end
 
-  def filecheck
-    File.read(src_file).split(/\r\n|\n/).each do |line|
-      next unless line =~ /system/
-      update(status: Status::SYNTAX_ERROR)
-      fail 'Syntax Error'
-    end
-  end
-
-  def compile
+  def perform
     rule = player.league.rule
-    cmd = rule.compile_command(src_file, exec_file)
-    Rake.sh cmd, verbose: false
-  rescue
-    update(status: Status::COMPILE_ERROR)
-    raise 'Compile Error'
-  end
-
-  def execute
-    rule = player.league.rule
-    tmp_path = "#{Rails.root}/tmp/log/_tmp#{id}"
-    FileUtils.mkdir("#{Rails.root}/tmp/log") unless File.exist?("#{Rails.root}/tmp/log")
-    FileUtils.mkdir(tmp_path) unless File.exist?(tmp_path)
-    execute_by_timer(rule, exec_file, TIME_LIMIT, tmp_path)
-  rescue
-    update(status: Status::RUNTIME_ERROR)
-    raise 'Runtime Error'
-  end
-
-  def execute_by_timer(rule, exec_file, time_limit, tmp_path)
-    Timeout.timeout(time_limit) do
-      cmd = rule.execute_command(exec_file)
-      stdout, stderr, _thread = Open3.capture3(cmd)
-      fail 'Runtime Error' unless stderr.blank?
-      game_log, result = stdout.split(/\r\n\r\n|\n\n/)
-      File.open(tmp_path + '/Game.log', 'w') { |f| f.puts game_log }
-      File.open(tmp_path + '/Result.txt', 'w') { |f| f.puts result }
+    syntax_check(File.read(src_file))
+    compile(rule.compile_command(src_file, exec_file))
+    execute(rule.execute_command(exec_file), Rule::TIME_LIMIT).tap do
+      update(status: Status::SUCCESS)
     end
+  rescue SyntaxError
+    update(status: Status::SYNTAX_ERROR) && nil
+  rescue CompileError
+    update(status: Status::COMPILE_ERROR) && nil
+  rescue ExecuteError
+    update(status: Status::RUNTIME_ERROR) && nil
+  rescue Timeout::Error
+    update(status: Status::TIME_ERROR) && nil
   end
 
   def syntax_error?
