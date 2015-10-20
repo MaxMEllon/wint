@@ -1,7 +1,7 @@
 feature 'register league', state: :league_list do
   background do
     click_button '登録'
-    wait_for_action
+    wait_for_action(0.7)
   end
 
   context 'when nothing inputted' do
