@@ -13,9 +13,11 @@
 #  updated_at :datetime
 #
 
-require 'rake'
+require 'executer.rb'
 
 class Submit < ActiveRecord::Base
+  include Executer
+
   module Status
     RUNNING = 0
     SUCCESS = 1
@@ -84,45 +86,26 @@ class Submit < ActiveRecord::Base
   end
 
   def perform
-  end
-
-  def filecheck
-    File.read(src_file).split(/\r\n|\n/).each do |line|
-      next unless line =~ /system/
-      update(status: Status::SYNTAX_ERROR)
-      fail 'Syntax Error'
-    end
-  end
-
-  def compile
     rule = player.league.rule
-    cmd = rule.compile_command(src_file, exec_file)
-    Rake.sh cmd, verbose: false
-  rescue
+    syntax_check(File.read(src_file))
+    compile(rule.compile_command(src_file, exec_file))
+    stdout = execute(rule.execute_command(exec_file), TIME_LIMIT)
+  rescue SyntaxError => ex
+    # p ex.message
+    update(status: Status::SYNTAX_ERROR)
+  rescue CompileError => ex
+    # p ex.message
     update(status: Status::COMPILE_ERROR)
-    raise 'Compile Error'
-  end
-
-  def execute
-    rule = player.league.rule
-    tmp_path = "#{Rails.root}/tmp/log/_tmp#{id}"
-    FileUtils.mkdir("#{Rails.root}/tmp/log") unless File.exist?("#{Rails.root}/tmp/log")
-    FileUtils.mkdir(tmp_path) unless File.exist?(tmp_path)
-    execute_by_timer(rule, exec_file, TIME_LIMIT, tmp_path)
-  rescue
+  rescue RuntimeError => ex
+    # p ex.message
     update(status: Status::RUNTIME_ERROR)
-    raise 'Runtime Error'
-  end
-
-  def execute_by_timer(rule, exec_file, time_limit, tmp_path)
-    Timeout.timeout(time_limit) do
-      cmd = rule.execute_command(exec_file)
-      stdout, stderr, _thread = Open3.capture3(cmd)
-      fail 'Runtime Error' unless stderr.blank?
-      game_log, result = stdout.split(/\r\n\r\n|\n\n/)
-      File.open(tmp_path + '/Game.log', 'w') { |f| f.puts game_log }
-      File.open(tmp_path + '/Result.txt', 'w') { |f| f.puts result }
-    end
+  rescue Timeout::Error => ex
+    p ex
+    update(status: Status::TIME_ERROR)
+  else
+    update(status: Status::SUCCESS)
+  ensure
+    return stdout
   end
 
   def syntax_error?
