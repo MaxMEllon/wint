@@ -2,6 +2,7 @@ class AnalysisManager
   attr_reader :result, :code, :log
 
   def initialize(path)
+    return nil if path.blank?
     @data = ModelHelper.decode_json(File.read(path))
     @result = ResultAnalysis.new(@data[:rpath])
     @code = CodeAnalysis.new(@data[:cpath])

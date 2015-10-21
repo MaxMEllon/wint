@@ -1,22 +1,22 @@
 class MainsController < ApplicationController
   def ranking
-    @league = League.where(id: session[:lid]).eager_load(players: {best: :strategy}).first
-    @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    @league = League.where(id: session[:lid]).first
+    @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.score <=> a.best.score}
   end
 
   def mypage
     @player = @current_player
-    @submits = Submit.where(player_id: @player.id).eager_load(:strategy)
+    @submits = Submit.where(player_id: @player.id)
     @league = @player.league
-    @line_score = GraphGenerator.line_score(@player.strategies.number_by.map {|s| [s.number, s.score]})
+    @line_score = GraphGenerator.line_score(@player.submits.number_by.map {|s| [s.number, s.score]})
   end
 
   def strategy
     @player = @current_player
-    @strategy = @player.submits.where(number: params[:num]).first.strategy
-    player_analy = AnalysisManager.new(@strategy.analy_file)
+    @submit = @player.submits.where(number: params[:num]).first
+    player_analy = AnalysisManager.new(@submit.analysis_file)
 
-    league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user, :submits, :strategies]).first
+    league = League.where(id: @player.league_id).first
     players = league.players_ranking
     analysis = players.map {|player| player.analysis_with_snum}
 

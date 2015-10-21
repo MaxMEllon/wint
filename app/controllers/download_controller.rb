@@ -4,7 +4,7 @@ class DownloadController < ApplicationController
   ROOT_DIR = "#{Rails.root}/tmp/downloads"
 
   def best_strategies
-    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
+    @league = League.where(id: params[:lid]).first
     tmp_dir = ROOT_DIR + "/best_strategies"
     Dir.mkdir(tmp_dir)
 
@@ -17,14 +17,14 @@ class DownloadController < ApplicationController
   end
 
   def all_strategies
-    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, {strategies: :submit}, :user]).first
+    @league = League.where(id: params[:lid]).first
     tmp_dir = ROOT_DIR + "/all_strategies"
     Dir.mkdir(tmp_dir)
 
     @league.players.each do |player|
-      player.strategies.each do |strategy|
-        filename = "#{player.user.snum}_%03d.c" % strategy.number
-        `cp #{strategy.submit.src_file} #{tmp_dir}/#{filename}`
+      player.submits.each.with_index(1) do |submit, i|
+        filename = "#{player.user.snum}_%03d.c" % i
+        `cp #{submit.src_file} #{tmp_dir}/#{filename}`
       end
     end
     `zip -j #{tmp_dir}.zip #{tmp_dir}/*`
@@ -32,12 +32,12 @@ class DownloadController < ApplicationController
   end
 
   def best_analysis
-    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
+    @league = League.where(id: params[:lid]).first
     @players = @league.players_ranking
 
     csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @players.each do |player|
-      analy = AnalysisManager.new(player.best.strategy.analy_file)
+      analy = AnalysisManager.new(player.best.analysis_file)
       csv << player.user.snum + "," + analy.to_csv
     end
 
@@ -48,13 +48,13 @@ class DownloadController < ApplicationController
   end
 
   def all_analysis
-    @league = League.where(id: params[:lid]).includes(players: [:strategies, :user]).first
+    @league = League.where(id: params[:lid]).first
 
     csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @league.players.each do |player|
-      player.strategies.each do |strategy|
-        analy = AnalysisManager.new(strategy.analy_file)
-        name = "#{player.user.snum}_%03d" % strategy.number
+      player.submits.each.with_index(1) do |submit, i|
+        analy = AnalysisManager.new(submit.analysis_file)
+        name = "#{player.user.snum}_%03d" % i
         csv << name + "," + analy.to_csv
       end
     end

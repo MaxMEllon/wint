@@ -47,7 +47,7 @@ class League < ActiveRecord::Base
   end
 
   def players_ranking
-    players.select(&:best).sort { |a, b| b.best.strategy.score <=> a.best.strategy.score }
+    players.select(&:best).sort { |a, b| b.best.score <=> a.best.score }
   end
 
   def open?
