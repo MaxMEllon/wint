@@ -25,9 +25,9 @@ class LogAnalysis
     %w().join(",")
   end
 
-  def self.create(data_dir, submit_id)
+  def self.create(data_dir, game_log)
     Dir::mkdir(data_dir)
-    `mv #{Rails.root}/tmp/log/_tmp#{submit_id}/Game.log #{data_dir}`
+    File.write(data_dir + '/Game.log', game_log)
     (data_dir + "/log.json").tap do |path|
       File.open(path, "w") do |f|
         f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Game.log"})

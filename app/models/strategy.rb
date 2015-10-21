@@ -12,8 +12,6 @@
 #  updated_at :datetime
 #
 
-require 'analysis/analysis_manager'
-
 class Strategy < ActiveRecord::Base
   belongs_to :submit
   has_one :player, through: :submit
@@ -33,11 +31,11 @@ class Strategy < ActiveRecord::Base
   }
 
   # override
-  def self.create(submit)
-    analy_file = AnalysisManager.create(submit.data_dir, submit.id)
-    analy = AnalysisManager.new(analy_file)
+  def self.create(submit, game_log, result)
+    AnalysisManager.create(submit.data_dir, game_log, result)
+    analy = AnalysisManager.new(submit.analysis_file)
     analy.update
-    super(submit_id: submit.id, analy_file: analy_file, score: analy.result.score, number: Strategy.get_number(submit))
+    super(submit_id: submit.id, analy_file: submit.analysis_file, score: analy.result.score, number: Strategy.get_number(submit))
   end
 
   def self.hand_text

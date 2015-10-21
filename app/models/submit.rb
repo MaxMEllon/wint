@@ -13,8 +13,6 @@
 #  updated_at :datetime
 #
 
-require 'executer.rb'
-
 class Submit < ActiveRecord::Base
   include Executer
 
@@ -48,8 +46,8 @@ class Submit < ActiveRecord::Base
     attributes[:number] = last_number(player)
     path = player.data_dir + format('/%03d', attributes[:number])
     FileUtils.mkdir(path)
-    File.open(path + '/PokerOpe.c', 'w') { |f| f.puts attributes[:data_dir] }
-    `nkf --overwrite -w #{path}/PokerOpe.c`
+    File.open("#{path}/#{FileName::SOURCE}", 'w') { |f| f.puts attributes[:data_dir] }
+    `nkf --overwrite -w #{path}/#{FileName::SOURCE}`
     attributes[:data_dir] = path
     super(attributes).tap do |submit|
       HardWorker.perform_async(submit.id)
@@ -65,6 +63,14 @@ class Submit < ActiveRecord::Base
       Status::TIME_ERROR => '時間超過',
       Status::SYNTAX_ERROR => '危険なコード'
     }
+  end
+
+  def best?
+    analy = AnalysisManager.new(analysis_file)
+    true
+    # submits = player.submits
+    # return true if strategies.blank? || score >= strategies.first.score
+    # false
   end
 
   def src_file
