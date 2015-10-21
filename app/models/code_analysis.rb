@@ -1,4 +1,3 @@
-
 class CodeAnalysis
   attr_reader :count, :line, :size, :gzip_size, :func_ref, :func_num
 

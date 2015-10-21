@@ -30,7 +30,7 @@ br
           td.number= @player.submits.to_a.count
         tr
           th 戦略数
-          td.number= @player.strategies.to_a.count
+          td.number= @player.submits.map { |s| s.analysis_file }.to_a.count
     .col-lg-8
       = high_chart("line_score", @line_score)
   br
@@ -47,13 +47,13 @@ br
         th.score 宣言数
         th.score 圧縮率
     tbody
-      - @strategies.zip(@degrees).each do |strategy, degree|
+      - @submits.zip(@degrees).each do |submit, degree|
         tr
-          td.number= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
-          td.number= link_to analysis_player_code_path(sid: strategy.submit.id), data: {remote: true}
+          td.number= link_to "%03d" % submit.number, analysis_strategy_path(num: submit.number)
+          td.number= link_to analysis_player_code_path(sid: submit.id), data: {remote: true}
             button.btn.btn-info リンク
-          td.score= format_score(strategy.score)
-          td.open= format_time(strategy.created_at)
+          td.score= format_score(submit.score)
+          td.open= format_time(submit.created_at)
           td.score= format_score(degree[:size])
           td.score= format_score(degree[:syntax])
           td.score= format_score(degree[:fun])

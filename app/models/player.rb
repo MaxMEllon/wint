@@ -19,7 +19,6 @@ class Player < ActiveRecord::Base
   belongs_to :league
   belongs_to :best, class_name: :Submit, foreign_key: :submit_id
   has_many :submits, dependent: :delete_all
-  has_many :strategies, through: :submits
 
   validates :name, presence: true, length: {maximum: 10}
 
@@ -40,8 +39,7 @@ class Player < ActiveRecord::Base
   end
 
   def analysis_with_snum
-    strategy = self.best.strategy
-    ["#{self.user.snum}_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
+    ["#{self.user.snum}_%03d" % best.number, AnalysisManager.new(best.analysis_file)]
   end
 
   def auditor?

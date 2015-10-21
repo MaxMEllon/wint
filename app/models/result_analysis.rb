@@ -1,4 +1,3 @@
-
 class ResultAnalysis
   attr_reader :score, :result_amount
 
@@ -36,9 +35,9 @@ class ResultAnalysis
     %w(得点).join(",")
   end
 
-  def self.create(data_dir, submit_id)
+  def self.create(data_dir, result)
     Dir::mkdir(data_dir)
-    `mv #{Rails.root}/tmp/log/_tmp#{submit_id}/Result.txt #{data_dir}`
+    File.write(data_dir + '/Result.txt', result)
     (data_dir + "/result.json").tap do |path|
       File.open(path, "w") do |f|
         f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Result.txt"})

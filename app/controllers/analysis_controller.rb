@@ -6,13 +6,13 @@ class AnalysisController < ApplicationController
   end
 
   def league
-    @league = League.where(id: params[:lid]).includes(players: [:submits, :strategies]).first
+    @league = League.where(id: params[:lid]).first
     sum = @league.start_at
     per_day = []
     total = [0]
-    strategies = @league.players.map {|p| p.strategies}.flatten
+    submits = @league.players.map {|p| p.submits}.flatten
     while sum < @league.end_at
-      per_day << strategies.select {|s| sum <= s.created_at && s.created_at < sum+1.days}.count
+      per_day << submits.select {|s| sum <= s.created_at && s.created_at < sum+1.days}.count
       total << per_day.last + total.last if sum < Time.new
       sum += 1.days
     end
@@ -24,15 +24,15 @@ class AnalysisController < ApplicationController
   def refresh
     @league = League.where(id: params[:lid]).first
     @league.players.each do |player|
-      player.strategies.each { |strategy| strategy.analysis_update }
+      player.submits.each { |submit| submit.analysis_update }
     end
     redirect_to analysis_league_path
   end
 
   def player
-    @player = Player.where(id: params[:pid]).includes(strategies: :submit).first
-    @strategies = @player.strategies.number_by
-    @league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user]).first
+    @player = Player.where(id: params[:pid]).first
+    @submits = @player.submits.number_by
+    @league = League.where(id: @player.league_id).first
     analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
 
     dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
@@ -40,8 +40,8 @@ class AnalysisController < ApplicationController
     dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
     dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
 
-    @degrees = @strategies.map do |strategy|
-      analy = AnalysisManager.new(strategy.analy_file)
+    @degrees = @submits.map do |submit|
+      analy = AnalysisManager.new(submit.analysis_file)
       {
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
@@ -50,7 +50,7 @@ class AnalysisController < ApplicationController
       }
     end
 
-    @line_score = GraphGenerator.line_score(@strategies.map {|s| [s.number, s.score]})
+    @line_score = GraphGenerator.line_score(@submits.map {|s| [s.number, s.score]})
   end
 
   def code
@@ -58,11 +58,11 @@ class AnalysisController < ApplicationController
   end
 
   def strategy
-    league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
+    league = League.where(id: params[:lid]).first
     analysis = league.players_ranking.map {|player| player.analysis_with_snum}
 
-    @strategy = league.players.where(id: params[:pid]).first.strategies.where(number: params[:num]).first
-    player_analy = AnalysisManager.new(@strategy.analy_file)
+    @submit = league.players.where(id: params[:pid]).first.submits.where(number: params[:num]).first
+    player_analy = AnalysisManager.new(@submit.analysis_file)
 
     dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
     dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
@@ -91,7 +91,7 @@ class AnalysisController < ApplicationController
   end
 
   def strategies
-    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
+    @league = League.where(id: params[:lid]).first
     analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
 
     if analysis.blank?
@@ -117,14 +117,14 @@ class AnalysisController < ApplicationController
   end
 
   def ranking
-    @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :strategies, :user, :submits]).first
+    @league = League.where(id: params[:lid]).first
     @players = @league.players_ranking
     player_analysis = @players.map {|player| player.analysis_with_snum}
 
-    strategies_analysis = []
+    submits_analysis = []
     @players.each do |player|
-      player.strategies.each do |strategy|
-        strategies_analysis << [player.user.snum + "_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
+      player.submits.each.with_index(1) do |submit, i|
+        submits_analysis << [player.user.snum + "_%03d" % i, AnalysisManager.new(submit.analy_file)]
       end
     end
 
@@ -145,8 +145,8 @@ class AnalysisController < ApplicationController
       }
     end
 
-    strategies_analysis.sort! {|a, b| b[1].result.score <=> a[1].result.score}
-    @strategies_degrees = strategies_analysis.map do |name, analy|
+    submits_analysis.sort! {|a, b| b[1].score <=> a[1].score}
+    @submits_degrees = submits_analysis.map do |name, analy|
       {
         name: name,
         score: analy.result.score,
@@ -157,7 +157,7 @@ class AnalysisController < ApplicationController
       }
     end
 
-    @bar_submits = GraphGenerator.bar_submits(@players.map {|p| [p.user.snum, p.strategies.to_a.count]})
+    @bar_submits = GraphGenerator.bar_submits(@players.map {|p| [p.user.snum, p.submits.to_a.count]})
   end
 end
 

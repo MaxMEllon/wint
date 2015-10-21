@@ -36,7 +36,7 @@ br
         - else
           | <tr class="danger">
           td.number= "%03d" % submit.number
-        td.score= submit.strategy ? format_score(submit.strategy.score) : "???"
+        td.score= submit.score ? format_score(submit.score) : "???"
         td.status= Submit.status_options[submit.status]
         td.created_at= format_time(submit.created_at)
         td.comment= submit.comment

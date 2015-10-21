@@ -13,8 +13,6 @@
 #  updated_at :datetime
 #
 
-require 'executer.rb'
-
 class Submit < ActiveRecord::Base
   include Executer
 
@@ -34,8 +32,17 @@ class Submit < ActiveRecord::Base
     EXEC = 'PokerOpe'
   end
 
+  RANK = {
+    0...30 => 'X',
+    30...35 => 'C',
+    35...40 => 'B',
+    40...45 => 'A',
+    45...50 => 'S',
+    50...75 => 'SS',
+    75..100 => 'SSS'
+  }
+
   belongs_to :player
-  has_one :strategy
 
   validates_presence_of :data_dir
   validates_length_of :comment, maximum: 20
@@ -43,13 +50,40 @@ class Submit < ActiveRecord::Base
   scope :number_by, -> { order('number') }
   Scope.active(self)
 
+  def self.hand_text
+    {
+      P0: 'ノーペア',
+      P1: 'ワンペア',
+      P2: 'ツーペア',
+      P3: 'スリーカード',
+      P4: 'ストレート',
+      P5: 'フラッシュ',
+      P6: 'フルハウス',
+      P7: 'フォーカード',
+      P8: 'ストレートフラッシュ',
+      P9: 'ロイヤルストレート'
+    }
+  end
+
+  def analysis
+    @analysis ||= AnalysisManager.new(analysis_file)
+  end
+
+  def score
+    analysis.result.score rescue nil
+  end
+
+  def analysis_update
+    analysis.update
+  end
+
   def self.create(attributes)
     player = Player.find(attributes[:player_id])
     attributes[:number] = last_number(player)
     path = player.data_dir + format('/%03d', attributes[:number])
     FileUtils.mkdir(path)
-    File.open(path + '/PokerOpe.c', 'w') { |f| f.puts attributes[:data_dir] }
-    `nkf --overwrite -w #{path}/PokerOpe.c`
+    File.open("#{path}/#{FileName::SOURCE}", 'w') { |f| f.puts attributes[:data_dir] }
+    `nkf --overwrite -w #{path}/#{FileName::SOURCE}`
     attributes[:data_dir] = path
     super(attributes).tap do |submit|
       HardWorker.perform_async(submit.id)
@@ -65,6 +99,14 @@ class Submit < ActiveRecord::Base
       Status::TIME_ERROR => '時間超過',
       Status::SYNTAX_ERROR => '危険なコード'
     }
+  end
+
+  def best?
+    analy = AnalysisManager.new(analysis_file)
+    true
+    # submits = player.submits
+    # return true if strategies.blank? || score >= strategies.first.score
+    # false
   end
 
   def src_file
