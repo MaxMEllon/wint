@@ -36,9 +36,9 @@ class ResultAnalysis
   end
 
   def self.create(data_dir, result)
-    Dir::mkdir(data_dir)
-    File.write(data_dir + '/Result.txt', result)
-    (data_dir + "/result.json").tap do |path|
+    result.path = data_dir + '/Result.txt'
+    result.write
+    "#{data_dir}/result.json".tap do |path|
       File.open(path, "w") do |f|
         f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Result.txt"})
       end

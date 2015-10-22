@@ -12,9 +12,6 @@ class HardWorker
     submit.update(analysis_file: "#{submit.data_dir}/analy/analy.json")
 
     FileUtils.mkdir(submit.data_dir + '/analy')
-    # FileUtils.mkdir(submit.data_dir + '/analy/result')
-    # FileUtils.mkdir(submit.data_dir + '/analy/code')
-    # FileUtils.mkdir(submit.data_dir + '/analy/log')
 
     AnalysisManager.create(
       path: submit.data_dir,

@@ -50,9 +50,9 @@ class AnalysisManager
 
   def self.create(attributes = {})
     path = attributes[:path] + "/analy"
-    rpath = ResultAnalysis.create(path + "/result", attributes[:result].data)
-    cpath = CodeAnalysis.create(path + "/code", attributes[:code].data)
-    lpath = LogAnalysis.create(path + "/log", attributes[:log].data)
+    rpath = ResultAnalysis.create(path + "/result", attributes[:result])
+    cpath = CodeAnalysis.create(path + "/code", attributes[:code])
+    lpath = LogAnalysis.create(path + "/log", attributes[:log])
     (path + "/analy.json").tap do |analy_file|
       File.open(analy_file, "w") do |f|
         f.puts ModelHelper.encode_json({rpath: rpath, cpath: cpath, lpath: lpath})
