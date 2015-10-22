@@ -10,11 +10,17 @@ class HardWorker
     log, result = stdout.split(/\r\n\r\n|\n\n/)
 
     submit.update(analysis_file: "#{submit.data_dir}/analy/analy.json")
+
+    FileUtils.mkdir(submit.data_dir + '/analy')
+    # FileUtils.mkdir(submit.data_dir + '/analy/result')
+    # FileUtils.mkdir(submit.data_dir + '/analy/code')
+    # FileUtils.mkdir(submit.data_dir + '/analy/log')
+
     AnalysisManager.create(
       path: submit.data_dir,
-      code: File.read(submit.src_file),
-      log: log,
-      result: result
+      code: MyFile.new(path: submit.src_file),
+      log: MyFile.new(data: log),
+      result: MyFile.new(data: result)
     )
     analy = AnalysisManager.new(submit.analysis_file)
     analy.update
