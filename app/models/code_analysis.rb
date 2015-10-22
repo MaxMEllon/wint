@@ -46,9 +46,9 @@ class CodeAnalysis
     %w(行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(",")
   end
 
-  def self.create(data_dir, source_file)
+  def self.create(data_dir, source)
     Dir::mkdir(data_dir)
-    CodeAnalysis.create_base(source_file, "#{data_dir}/comcut.c")
+    CodeAnalysis.create_base(source, "#{data_dir}/comcut.c")
     (data_dir + "/code.json").tap do |path|
       File.open(path, "w") do |f|
         f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/comcut.c"})
@@ -57,9 +57,9 @@ class CodeAnalysis
   end
 
   private
-  def self.create_base(source_file, base_path)
+  def self.create_base(source, base_path)
     File.open(base_path, "w") do |f|
-      f.puts File.read(source_file).gsub("#include", "hogefoobar")
+      f.puts source.gsub("#include", "hogefoobar")
     end
     comcut = `gcc -E -P #{base_path}`.split(/\r\n|\n/)
     File.open(base_path, "w") do |f|

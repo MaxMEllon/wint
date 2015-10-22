@@ -48,12 +48,12 @@ class AnalysisManager
     [ResultAnalysis.to_csv_header, CodeAnalysis.to_csv_header].join(",")
   end
 
-  def self.create(data_dir, game_log, result)
-    path = data_dir + "/analy"
+  def self.create(attributes = {})
+    path = attributes[:path] + "/analy"
     Dir::mkdir(path)
-    rpath = ResultAnalysis.create(path + "/result", result)
-    cpath = CodeAnalysis.create(path + "/code", data_dir + "/PokerOpe.c")
-    lpath = LogAnalysis.create(path + "/log", game_log)
+    rpath = ResultAnalysis.create(path + "/result", attributes[:result])
+    cpath = CodeAnalysis.create(path + "/code", attributes[:code])
+    lpath = LogAnalysis.create(path + "/log", attributes[:log])
     (path + "/analy.json").tap do |analy_file|
       File.open(analy_file, "w") do |f|
         f.puts ModelHelper.encode_json({rpath: rpath, cpath: cpath, lpath: lpath})

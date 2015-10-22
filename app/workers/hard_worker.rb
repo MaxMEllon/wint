@@ -7,10 +7,15 @@ class HardWorker
     submit = Submit.find(submit_id)
     stdout = submit.perform
     return unless stdout
-    game_log, result = stdout.split(/\r\n\r\n|\n\n/)
+    log, result = stdout.split(/\r\n\r\n|\n\n/)
 
     submit.update(analysis_file: "#{submit.data_dir}/analy/analy.json")
-    AnalysisManager.create(submit.data_dir, game_log, result)
+    AnalysisManager.create(
+      path: submit.data_dir,
+      code: File.read(submit.src_file),
+      log: log,
+      result: result
+    )
     analy = AnalysisManager.new(submit.analysis_file)
     analy.update
 
