@@ -4,9 +4,9 @@ class AnalysisManager
   def initialize(path)
     return nil if path.blank?
     @data = ModelHelper.decode_json(File.read(path))
-    @result = ResultAnalysis.new(@data[:rpath])
-    @code = CodeAnalysis.new(@data[:cpath])
-    @log = LogAnalysis.new(@data[:lpath])
+    @result = ResultAnalysis.new(path: @data[:rpath])
+    @code = CodeAnalysis.new(path: @data[:cpath])
+    @log = LogAnalysis.new(path: @data[:lpath])
   end
 
   def update
@@ -49,15 +49,18 @@ class AnalysisManager
   end
 
   def self.create(attributes = {})
-    path = attributes[:path] + "/analy"
-    rpath = ResultAnalysis.create(path + "/result", attributes[:result])
-    cpath = CodeAnalysis.create(path + "/code", attributes[:code])
-    lpath = LogAnalysis.create(path + "/log", attributes[:log])
-    (path + "/analy.json").tap do |analy_file|
-      File.open(analy_file, "w") do |f|
-        f.puts ModelHelper.encode_json({rpath: rpath, cpath: cpath, lpath: lpath})
-      end
-    end
+    path = attributes[:data_dir] + '/analy'
+    json = MyFile.new(path: attributes[:data_dir] + "/analy/analy.json")
+    rpath = ResultAnalysis.create(path, attributes[:result])
+    cpath = CodeAnalysis.create(path, attributes[:code])
+    lpath = LogAnalysis.create(path, attributes[:log])
+    json.data = ModelHelper.encode_json({
+      rpath: rpath,
+      cpath: cpath,
+      lpath: lpath
+    })
+    json.write
+    json.path
   end
 end
 

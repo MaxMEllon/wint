@@ -3,8 +3,8 @@ class CodeAnalysis
 
   VERSION = 1.0
 
-  def initialize(path)
-    data = ModelHelper.decode_json(File.read(path))
+  def initialize(attributes = {})
+    data = ModelHelper.decode_json(File.read(attributes[:path]))
     @ver = data[:ver].to_f
     @base_path = data[:base_path]
     @cflow_path = data[:cflow_path]
@@ -47,20 +47,12 @@ class CodeAnalysis
   end
 
   def self.create(data_dir, code)
+    path = data_dir + '/code'
     comcut = MyFile.new(
-      path: "#{data_dir}/comcut.c",
+      path: "#{path}/comcut.c",
       data: code.data.gsub("#include", "hogefoobar")
     )
-    CodeAnalysis.create_base(comcut)
-    (data_dir + "/code.json").tap do |path|
-      File.open(path, "w") do |f|
-        f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/comcut.c"})
-      end
-    end
-  end
 
-  private
-  def self.create_base(comcut)
     comcut.write
     comcut_data = `gcc -E -P #{comcut.path}`.split(/\r\n|\n/)
     File.open(comcut.path, "w") do |f|
@@ -69,7 +61,14 @@ class CodeAnalysis
         f.puts line
       end
     end
+
+    data = ModelHelper.encode_json({ver: 0.0, base_path: comcut.path})
+    json = MyFile.new(path: path + '/code.json', data: data)
+    json.write
+    json.path
   end
+
+  private
 
   def create_cflow
     @base_path.sub(/comcut.c/, "cflow.dat").tap do |path|

@@ -9,18 +9,16 @@ class HardWorker
     return unless stdout
     log, result = stdout.split(/\r\n\r\n|\n\n/)
 
-    submit.update(analysis_file: "#{submit.data_dir}/analy/analy.json")
-
-    FileUtils.mkdir(submit.data_dir + '/analy')
-
-    AnalysisManager.create(
-      path: submit.data_dir,
+    path = AnalysisManager.create(
+      data_dir: submit.data_dir,
       code: MyFile.new(path: submit.src_file),
       log: MyFile.new(data: log),
       result: MyFile.new(data: result)
     )
+    submit.update(analysis_file: path)
     analy = AnalysisManager.new(submit.analysis_file)
     analy.update
+
 
     submit.player.update(submit_id: submit.id) # if strategy.best?
     # strategy = Strategy.create(submit, game_log, result)

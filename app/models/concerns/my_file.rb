@@ -12,10 +12,8 @@ class MyFile
 
   def write
     return nil unless @path
-    File.write(@path, @data)
-  rescue Errno::ENOENT
     FileUtils.mkdir_p File.dirname(@path)
-    retry
+    File.write(@path, @data)
   end
 
   def exist?

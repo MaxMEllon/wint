@@ -4,8 +4,8 @@ class ResultAnalysis
   VERSION = 1.0
   HAND = 10  # 役の数
 
-  def initialize(path)
-    data = ModelHelper.decode_json(File.read(path))
+  def initialize(attributes = {})
+    data = ModelHelper.decode_json(File.read(attributes[:path]))
     @ver = data[:ver].to_f
     @base_path = data[:base_path]
     @score = data[:score].to_f
@@ -36,13 +36,13 @@ class ResultAnalysis
   end
 
   def self.create(data_dir, result)
-    result.path = data_dir + '/Result.txt'
+    path = data_dir + '/result'
+    result.path = path + '/Result.txt'
     result.write
-    "#{data_dir}/result.json".tap do |path|
-      File.open(path, "w") do |f|
-        f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Result.txt"})
-      end
-    end
+    data = ModelHelper.encode_json({ver: 0.0, base_path: result.path})
+    json = MyFile.new(path: path + '/result.json', data: data)
+    json.write
+    json.path
   end
 
   private
