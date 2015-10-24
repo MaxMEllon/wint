@@ -11,8 +11,8 @@ class HardWorker
 
     path = AnalysisManager.create(
       data_dir: submit.data_dir,
-      code: MyFile.new(path: submit.src_file),
-      log: MyFile.new(data: log),
+      code: MyFile.new(path: submit.src_file).data,
+      log: log,
       result: result
     )
     submit.update(analysis_file: path)
