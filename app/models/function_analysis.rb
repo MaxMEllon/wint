@@ -1,14 +1,14 @@
 class FunctionAnalysis
-  attr_reader :cflow_path, :func_ref_path
+  attr_reader :func_ref_path
 
   def initialize(cflow)
-    @cflow_path = cflow.path
+    @cflow = cflow
     @func_ref_path = create_func_ref
   end
 
   def create_func_ref
     reference = get_reference
-    @cflow_path.sub(/cflow.dat/, "func_ref.csv").tap do |path|
+    @cflow.path.sub(/cflow.dat/, "func_ref.csv").tap do |path|
       File.open(path, "w") { |f| f.puts reference_to_matrix(reference) }
     end
   end
@@ -16,7 +16,7 @@ class FunctionAnalysis
   def get_reference
     reference = {}
     key = ""
-    File.read(@cflow_path).split(/\r\n|\n/).each do |line|
+    @cflow.data.split(/\r\n|\n/).each do |line|
       if line =~ /^([^\s]*?)\(\)\s/
         key = $1
         reference[key] = []

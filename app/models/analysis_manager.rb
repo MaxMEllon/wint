@@ -5,20 +5,20 @@ class AnalysisManager
     return nil if path.blank?
     @data = ModelHelper.decode_json(File.read(path))
     @result = ResultAnalysis.new(path: File.dirname(File.dirname(@data[:rpath])))
-    @code = CodeAnalysis.new(path: @data[:cpath])
+    @code = CodeAnalysis.new(path: File.dirname(File.dirname(@data[:cpath])))
     @log = LogAnalysis.new(path: File.dirname(File.dirname(@data[:lpath])))
   end
 
   def update
     # @result.update
-    @code.update
+    # @code.update
     # @log.update
     save
   end
 
   def save
     # File.open(@data[:rpath], "w") {|f| f.puts ModelHelper.encode_json(@result)}
-    File.open(@data[:cpath], "w") {|f| f.puts ModelHelper.encode_json(@code)}
+    # File.open(@data[:cpath], "w") {|f| f.puts ModelHelper.encode_json(@code)}
     # File.open(@data[:lpath], "w") {|f| f.puts ModelHelper.encode_json(@log)}
   end
 
@@ -52,11 +52,11 @@ class AnalysisManager
     path = attributes[:data_dir] + '/analy'
     json = MyFile.new(path: attributes[:data_dir] + "/analy/analy.json")
     result = ResultAnalysis.create(path: path, data: attributes[:result])
-    cpath = CodeAnalysis.create(path, attributes[:code])
+    code = CodeAnalysis.create(path: path, data: attributes[:code])
     log = LogAnalysis.create(path: path, data: attributes[:log])
     json.data = ModelHelper.encode_json({
       rpath: result.main_json.path,
-      cpath: cpath,
+      cpath: code.main_json.path,
       lpath: log.main_json.path
     })
     json.write

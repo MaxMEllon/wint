@@ -1,91 +1,128 @@
 class CodeAnalysis
-  attr_reader :count, :line, :size, :gzip_size, :func_ref, :func_num
-
   VERSION = 1.0
 
-  def initialize(attributes = {})
-    data = ModelHelper.decode_json(File.read(attributes[:path]))
-    @ver = data[:ver].to_f
-    @base_path = data[:base_path]
-    @cflow_path = data[:cflow_path]
-    @func_ref_path = data[:func_ref_path]
-    @gzip_path = data[:gzip_path]
+  module DirName
+    MAIN = 'code'
+  end
 
-    @count = data[:count]
-    @line = data[:line]
-    @size = data[:size]
-    @gzip_size = data[:gzip_size]
-    @func_ref = data[:func_ref]
-    @func_num = data[:func_num]
+  module FileName
+    MAIN = 'code.json'
+    BASE = 'PokerOpe.c'
+  end
+
+  def initialize(attributes = {})
+    @path = attributes[:path] + '/' + DirName::MAIN
+    base_file.data = attributes[:data]
+    @ver = VERSION
+  end
+
+  def save
+    save! rescue false
+  end
+
+  def save!
+    base_file.write
+    json = { ver: @ver, base_path: base_file.path, line: line, size: size, gzip_size: gzip_size, count_if: count[:if], count_loop: count[:loop], func_ref_strategy: func_ref[:strategy], func_ref_max: func_ref[:max], func_ref_average: func_ref[:average], func_num: func_num }
+    main_json.data = ModelHelper.encode_json(json)
+    main_json.write
+    true
   end
 
   def latest?
     @ver >= VERSION
   end
 
-  def update
-    return if self.latest?
-    @ver = VERSION
-    @cflow_path = create_cflow
-    @gzip_path = create_gzip
+  def main_data
+    @main_data ||= ModelHelper.decode_json main_json.data
+  rescue
+    @main_data = {}
+  end
 
-    @function = FunctionAnalysis.new(MyFile.new(path: @cflow_path))
-    @func_ref_path = @function.func_ref_path
+  def main_json
+    @main_json ||= MyFile.new(path: "#{@path}/#{FileName::MAIN}")
+  end
 
-    @syntax = SyntaxAnalysis.new(MyFile.new(path: @base_path))
+  def base_file
+    @base_file ||= MyFile.new(path: "#{@path}/#{FileName::BASE}")
+  end
 
-    @count = @syntax.count_all_word
-    @line = File.read(@base_path).split(/\r\n|\n/).size
-    @size = File.stat(@base_path).size
-    @gzip_size = File.stat(@gzip_path).size
-    @func_ref = @function.amount_func_ref
-    @func_num = File.read(@func_ref_path).split(/\r\n|\n/).size - 2 # 一番上の行は要らない。strategyはカウントしない
+  def latest?
+    @ver >= VERSION
+  end
+
+  def cflow
+    return @cflow if @cflow
+    path = comcut.path.sub(/comcut.c/, "cflow.dat")
+    data = `cflow --omit-symbol-names --omit-arguments #{comcut.path}`
+    @cflow = MyFile.new(path: path, data: data)
+  end
+
+  def comcut
+    return @comcut if @comcut
+    tmp = MyFile.new(
+      path: "#{@path}/comcut_tmp.c",
+      data: base_file.data.gsub("#include", "hogefoobar")
+    )
+    tmp.write
+    comcut_data = `gcc -E -P #{tmp.path}`.split(/\r\n|\n/)
+    data = comcut_data.reject! { |line| line =~ /hogefoobar/ }.join('\n')
+    path = "#{@path}/comcut.c"
+    @comcut = MyFile.new(path: path, data: data).tap(&:write)
+  end
+
+  def gzip
+    return @gzip if @gzip
+    path = "#{@path}/comcut.gz"
+    data = `gzip -c -9 #{comcut.path}`
+    @gzip = MyFile.new(path: path, data: data).tap(&:write)
+  end
+
+  def function
+    @function ||= FunctionAnalysis.new(cflow)
+  end
+
+  def syntax
+    @syntax ||= SyntaxAnalysis.new(comcut)
+  end
+
+  def count
+    @count ||= syntax.count_all_word
+  end
+
+  def func_ref
+    @func_ref ||= function.amount_func_ref
+  end
+
+  def line
+    return main_data[:line] if main_data[:line]
+    @line ||= comcut.data.split(/\r\n|\n/).size
+  end
+
+  def size
+    return main_data[:size] if main_data[:size]
+    @size ||= File.stat(comcut.path).size
+  end
+
+  def func_num
+    return main_data[:func_num] if main_data[:func_num]
+    # 一番上の行は要らない。strategyはカウントしない
+    @func_num ||= File.read(function.func_ref_path).split(/\r\n|\n/).size - 2
+  end
+
+  def gzip_size
+    @gzip_size ||= File.stat(gzip.path).size
   end
 
   def to_csv
-    [@line, @size, @gzip_size, @count[:if], @count[:loop], @func_ref[:strategy], @func_ref[:max], @func_ref[:average], @func_num].join(",")
+    [line, size, @gzip_size, count[:if], count[:loop], func_ref[:strategy], func_ref[:max], func_ref[:average], func_num].join(",")
   end
 
   def self.to_csv_header
     %w(行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(",")
   end
 
-  def self.create(data_dir, data)
-    path = data_dir + '/code'
-    comcut = MyFile.new(
-      path: "#{path}/comcut.c",
-      data: data.gsub("#include", "hogefoobar")
-    )
-
-    comcut.write
-    comcut_data = `gcc -E -P #{comcut.path}`.split(/\r\n|\n/)
-    File.open(comcut.path, "w") do |f|
-      comcut_data.each do |line|
-        next if line =~ /hogefoobar/
-        f.puts line
-      end
-    end
-
-    data = ModelHelper.encode_json({ver: 0.0, base_path: comcut.path})
-    json = MyFile.new(path: path + '/code.json', data: data)
-    json.write
-    json.path
-  end
-
-  private
-
-  def create_cflow
-    @base_path.sub(/comcut.c/, "cflow.dat").tap do |path|
-      File.open(path, "w") do |f|
-        f.puts `cflow --omit-symbol-names --omit-arguments #{@base_path}`
-      end
-    end
-  end
-
-  def create_gzip
-    @base_path.sub(/comcut.c/, "comcut.gz").tap do |path|
-      `gzip -c -9 #{@base_path} > #{path}`
-    end
+  def self.create(attributes = {})
+    CodeAnalysis.new(attributes).tap(&:save!)
   end
 end
 
