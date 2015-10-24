@@ -43,7 +43,7 @@ class MainsController < ApplicationController
     ]
     @polar_dev = GraphGenerator.polar_dev(data)
 
-    @result_table = player_analy.result.get_result_table
+    @result_table = player_analy.result.table
   end
 
   def select

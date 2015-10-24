@@ -13,7 +13,7 @@ class HardWorker
       data_dir: submit.data_dir,
       code: MyFile.new(path: submit.src_file),
       log: MyFile.new(data: log),
-      result: MyFile.new(data: result)
+      result: result
     )
     submit.update(analysis_file: path)
     analy = AnalysisManager.new(submit.analysis_file)

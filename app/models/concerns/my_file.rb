@@ -1,5 +1,6 @@
 class MyFile
-  attr_accessor :path, :data
+  attr_accessor :path
+  attr_writer :data
 
   def initialize(attributes = {})
     @path = attributes[:path]
@@ -7,7 +8,8 @@ class MyFile
   end
 
   def data
-    @data ||= exist? && File.read(@path)
+    return @data if @data
+    File.read(@path) if exist?
   end
 
   def write

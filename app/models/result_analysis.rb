@@ -1,55 +1,94 @@
 class ResultAnalysis
-  attr_reader :score, :result_amount
+  public_constant
+
+  HAND = 10 # 役の数
+
+  private_constant
 
   VERSION = 1.0
-  HAND = 10  # 役の数
+
+  module DirName
+    MAIN = 'result'
+  end
+
+  module FileName
+    MAIN = 'result.json'
+    BASE = 'Result.txt'
+  end
+
+  public
 
   def initialize(attributes = {})
-    data = ModelHelper.decode_json(File.read(attributes[:path]))
-    @ver = data[:ver].to_f
-    @base_path = data[:base_path]
-    @score = data[:score].to_f
-    @result_amount = data[:result_amount]
+    @path = attributes[:path] + '/' + DirName::MAIN
+    base_file.data = attributes[:data]
+    @ver = VERSION
+  end
+
+  def save
+    save! rescue false
+  end
+
+  def save!
+    base_file.write
+    json = { ver: @ver, base_path: base_file.path, score: score, table_amount: table_amount }
+    main_json.data = ModelHelper.encode_json(json)
+    main_json.write
+    true
   end
 
   def latest?
     @ver >= VERSION
   end
 
-  def update
-    return if self.latest?
-    @ver = VERSION
-    @score = File.read(@base_path).split.last.to_f
-    @result_amount = get_result_amount(self.get_result_table)
-  end
-
-  def get_result_table
-    File.read(@base_path).split(/\r\n|\n/).map {|line| line.gsub(/\||-|\+/, "").split}.delete_if {|line| line.empty? || line.first == "平均得点"}
-  end
-
   def to_csv
-    [@score].join(",")
+    [score].join(',')
   end
+
+  def main_data
+    @main_data ||= ModelHelper.decode_json main_json.data
+  rescue
+    @main_data = {}
+  end
+
+  def main_json
+    @main_json ||= MyFile.new(path: "#{@path}/#{FileName::MAIN}")
+  end
+
+  def base_file
+    @base_file ||= MyFile.new(path: "#{@path}/#{FileName::BASE}")
+  end
+
+  def score
+    return main_data[:score] if main_data[:score]
+    @score ||= base_file.data.split.last.to_f
+  end
+
+  def table_amount
+    return main_data[:table_amount] if main_data[:table_amount]
+    return @table_amount if @table_amount
+
+    @table_amount = {}
+    table[1..-3].each.with_index(0) do |row, i|
+      @table_amount["P#{i}"] = row.last.to_i
+    end
+    @table_amount = @table_amount.symbolize_keys
+  end
+
+  def table
+    return @table if @table
+    @table = base_file.data.split(/\r\n|\n/)
+    @table.map! { |line| line.gsub(/\||-|\+/, '').split }
+    @table = @table.delete_if { |line| line.empty? || line.first == '平均得点' }
+  end
+
+  public_class_method
 
   def self.to_csv_header
-    %w(得点).join(",")
+    %w(得点).join(',')
   end
 
-  def self.create(data_dir, result)
-    path = data_dir + '/result'
-    result.path = path + '/Result.txt'
-    result.write
-    data = ModelHelper.encode_json({ver: 0.0, base_path: result.path})
-    json = MyFile.new(path: path + '/result.json', data: data)
-    json.write
-    json.path
-  end
-
-  private
-  def get_result_amount(table)
-    table.shift  # 一番上の行を削除
-    t = table.map {|t| t.last.to_i}
-    {P0: t[0], P1: t[1], P2: t[2], P3: t[3], P4: t[4], P5: t[5], P6: t[6], P7: t[7], P8: t[8], P9: t[9]}
+  def self.create(attributes = {})
+    ResultAnalysis.new(attributes).tap(&:save!)
   end
 end
 
