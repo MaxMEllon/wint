@@ -18,6 +18,8 @@ module Executer
     stdout = stderr = thread = nil
     Timeout.timeout(time_limit) do
       stdout, stderr, thread = Open3.capture3(cmd)
+      stderr = stderr.split(/\r\n|\n/)
+      stderr = stderr.reject { |line| line.match(/WARNING|(W|w)arning/) }.join('\n')
       fail ExecuteError, stderr unless stderr.blank?
     end
     stdout

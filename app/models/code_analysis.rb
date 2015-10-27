@@ -70,7 +70,7 @@ class CodeAnalysis
     )
     tmp.write
     comcut_data = `gcc -E -P #{tmp.path}`.split(/\r\n|\n/)
-    data = comcut_data.reject! { |line| line =~ /hogefoobar/ }.join('\n')
+    data = comcut_data.reject { |line| line =~ /hogefoobar/ }.join('\n')
     path = "#{@path}/comcut.c"
     @comcut = MyFile.new(path: path, data: data).tap(&:write)
   end

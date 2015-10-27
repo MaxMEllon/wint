@@ -1,6 +1,6 @@
 class SyntaxAnalysis
   def initialize(comcut)
-    @base_path = comcut.path
+    @comcut = comcut
   end
 
   def count_all_word
@@ -9,7 +9,7 @@ class SyntaxAnalysis
 
   def count_word(word)
     count = 0
-    File.read(@base_path).split(/\r\n|\n/).each do |line|
+    @comcut.data.split(/\r\n|\n/).each do |line|
       count += 1 if line =~ /(\t|\s)#{word}(\t|\s)*\(/
     end
     count
@@ -17,7 +17,7 @@ class SyntaxAnalysis
 
   def count_if
     count = 0
-    File.read(@base_path).split(/\r\n|\n/).each do |line|
+    @comcut.data.split(/\r\n|\n/).each do |line|
       count += 1 if line =~ /(\t|\s)if(\t|\s)*\(/
       count += 1 if line =~ /(&&|\|\|)/
     end
