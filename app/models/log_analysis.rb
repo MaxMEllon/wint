@@ -21,7 +21,9 @@ class LogAnalysis
   end
 
   def save
-    save! rescue false
+    save!
+  rescue
+    false
   end
 
   def save!
@@ -51,13 +53,13 @@ class LogAnalysis
   end
 
   def to_csv
-    [].join(",")
+    [].join(',')
   end
 
   public_class_method
 
   def self.to_csv_header
-    %w().join(",")
+    %w().join(',')
   end
 
   def self.create(attributes = {})

@@ -41,7 +41,7 @@ class AnalysisController < ApplicationController
     dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
 
     @degrees = @submits.map do |submit|
-      analy = AnalysisManager.new(submit.analysis_file)
+      analy = AnalysisManager.load(submit.analysis_file)
       {
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
@@ -62,7 +62,7 @@ class AnalysisController < ApplicationController
     analysis = league.players_ranking.map {|player| player.analysis_with_snum}
 
     @submit = league.players.where(id: params[:pid]).first.submits.where(number: params[:num]).first
-    player_analy = AnalysisManager.new(@submit.analysis_file)
+    player_analy = AnalysisManager.load(@submit.analysis_file)
 
     dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
     dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
@@ -124,7 +124,7 @@ class AnalysisController < ApplicationController
     submits_analysis = []
     @players.each do |player|
       player.submits.each.with_index(1) do |submit, i|
-        submits_analysis << [player.user.snum + "_%03d" % i, AnalysisManager.new(submit.analy_file)]
+        submits_analysis << [player.user.snum + "_%03d" % i, AnalysisManager.load(submit.analy_file)]
       end
     end
 

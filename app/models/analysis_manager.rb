@@ -1,66 +1,69 @@
 class AnalysisManager
-  attr_reader :result, :code, :log
+  attr_reader :path
 
-  def initialize(path)
-    return nil if path.blank?
-    @data = ModelHelper.decode_json(File.read(path))
-    @result = ResultAnalysis.new(path: File.dirname(File.dirname(@data[:rpath])))
-    @code = CodeAnalysis.new(path: File.dirname(File.dirname(@data[:cpath])))
-    @log = LogAnalysis.new(path: File.dirname(File.dirname(@data[:lpath])))
+  def initialize(attributes = {})
+    @path = attributes[:path]
+    result.base_file.data = attributes[:result]
+    code.base_file.data = attributes[:code]
+    log.base_file.data = attributes[:log]
+  end
+
+  def result
+    @result ||= ResultAnalysis.new(path: @path)
+  end
+
+  def code
+    @code ||= CodeAnalysis.new(path: @path)
+  end
+
+  def log
+    @log ||= LogAnalysis.new(path: @path)
+  end
+
+  def self.load(path)
+    AnalysisManager.new(path: path)
   end
 
   def update
-    # @result.update
-    # @code.update
-    # @log.update
     save
   end
 
   def save
-    # File.open(@data[:rpath], "w") {|f| f.puts ModelHelper.encode_json(@result)}
-    # File.open(@data[:cpath], "w") {|f| f.puts ModelHelper.encode_json(@code)}
-    # File.open(@data[:lpath], "w") {|f| f.puts ModelHelper.encode_json(@log)}
+    save!
+  rescue
+    false
+  end
+
+  def save!
+    result.save! && code.save! && log.save!
   end
 
   def plot_size
-    {x: @result.score, y: @code.size}
+    { x: result.score, y: code.size }
   end
 
   def plot_syntax
-    {x: @result.score, y: @code.count[:loop] + @code.count[:if]}
+    { x: result.score, y: code.count[:loop] + code.count[:if] }
   end
 
   def plot_fun
-    {x: @result.score, y: @code.func_num}
+    { x: result.score, y: code.func_num }
   end
 
   def plot_gzip
-    {x: @result.score, y: (1-(@code.gzip_size / @code.size.to_f))*100}
+    { x: result.score, y: (1 - (code.gzip_size / code.size.to_f)) * 100 }
   end
 
   def to_csv
-    # [@result.to_csv, @code.to_csv, @log.to_csv].join(",")
-    [@result.to_csv, @code.to_csv].join(",")
+    [result.to_csv, code.to_csv].join(',')
   end
 
   def self.to_csv_header
-    # [ResultAnalysis.to_csv_header, CodeAnalysis.to_csv_header, LogAnalysis.to_csv_header].join(",")
-    [ResultAnalysis.to_csv_header, CodeAnalysis.to_csv_header].join(",")
+    [ResultAnalysis.to_csv_header, CodeAnalysis.to_csv_header].join(',')
   end
 
   def self.create(attributes = {})
-    path = attributes[:data_dir] + '/analy'
-    json = MyFile.new(path: attributes[:data_dir] + "/analy/analy.json")
-    result = ResultAnalysis.create(path: path, data: attributes[:result])
-    code = CodeAnalysis.create(path: path, data: attributes[:code])
-    log = LogAnalysis.create(path: path, data: attributes[:log])
-    json.data = ModelHelper.encode_json({
-      rpath: result.main_json.path,
-      cpath: code.main_json.path,
-      lpath: log.main_json.path
-    })
-    json.write
-    json.path
+    AnalysisManager.new(attributes).tap(&:save!)
   end
 end
 

@@ -14,7 +14,7 @@ class MainsController < ApplicationController
   def strategy
     @player = @current_player
     @submit = @player.submits.where(number: params[:num]).first
-    player_analy = AnalysisManager.new(@submit.analysis_file)
+    player_analy = AnalysisManager.load(@submit.analysis_file)
 
     league = League.where(id: @player.league_id).first
     players = league.players_ranking

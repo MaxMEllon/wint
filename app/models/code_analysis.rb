@@ -17,12 +17,17 @@ class CodeAnalysis
   end
 
   def save
-    save! rescue false
+    save!
+  rescue
+    false
   end
 
   def save!
     base_file.write
-    json = { ver: @ver, base_path: base_file.path, line: line, size: size, gzip_size: gzip_size, count_if: count[:if], count_loop: count[:loop], func_ref_strategy: func_ref[:strategy], func_ref_max: func_ref[:max], func_ref_average: func_ref[:average], func_num: func_num }
+    json = { ver: @ver, base_path: base_file.path, line: line, size: size,
+             gzip_size: gzip_size, count_if: count[:if], count_loop: count[:loop],
+             func_ref_strategy: func_ref[:strategy], func_ref_max: func_ref[:max],
+             func_ref_average: func_ref[:average], func_num: func_num }
     main_json.data = ModelHelper.encode_json(json)
     main_json.write
     true
@@ -52,7 +57,7 @@ class CodeAnalysis
 
   def cflow
     return @cflow if @cflow
-    path = comcut.path.sub(/comcut.c/, "cflow.dat")
+    path = comcut.path.sub(/comcut.c/, 'cflow.dat')
     data = `cflow --omit-symbol-names --omit-arguments #{comcut.path}`
     @cflow = MyFile.new(path: path, data: data)
   end
@@ -61,7 +66,7 @@ class CodeAnalysis
     return @comcut if @comcut
     tmp = MyFile.new(
       path: "#{@path}/comcut_tmp.c",
-      data: base_file.data.gsub("#include", "hogefoobar")
+      data: base_file.data.gsub('#include', 'hogefoobar')
     )
     tmp.write
     comcut_data = `gcc -E -P #{tmp.path}`.split(/\r\n|\n/)
@@ -114,11 +119,13 @@ class CodeAnalysis
   end
 
   def to_csv
-    [line, size, @gzip_size, count[:if], count[:loop], func_ref[:strategy], func_ref[:max], func_ref[:average], func_num].join(",")
+    [line, size, gzip_size, count[:if], count[:loop],
+     func_ref[:strategy], func_ref[:max], func_ref[:average],
+     func_num].join(',')
   end
 
   def self.to_csv_header
-    %w(行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(",")
+    %w(行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
   end
 
   def self.create(attributes = {})

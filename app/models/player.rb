@@ -39,7 +39,7 @@ class Player < ActiveRecord::Base
   end
 
   def analysis_with_snum
-    ["#{self.user.snum}_%03d" % best.number, AnalysisManager.new(best.analysis_file)]
+    ["#{self.user.snum}_%03d" % best.number, AnalysisManager.load(best.analysis_file)]
   end
 
   def auditor?

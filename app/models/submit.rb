@@ -66,7 +66,7 @@ class Submit < ActiveRecord::Base
   end
 
   def analysis
-    @analysis ||= AnalysisManager.new(analysis_file)
+    @analysis ||= AnalysisManager.load(analysis_file)
   end
 
   def score
@@ -115,6 +115,10 @@ class Submit < ActiveRecord::Base
 
   def exec_file
     "#{data_dir}/#{FileName::EXEC}"
+  end
+
+  def analysis_dirname
+    "#{data_dir}/analy"
   end
 
   def size_over?

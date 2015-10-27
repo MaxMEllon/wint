@@ -37,7 +37,7 @@ class DownloadController < ApplicationController
 
     csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @players.each do |player|
-      analy = AnalysisManager.new(player.best.analysis_file)
+      analy = AnalysisManager.load(player.best.analysis_file)
       csv << player.user.snum + "," + analy.to_csv
     end
 
@@ -53,7 +53,7 @@ class DownloadController < ApplicationController
     csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @league.players.each do |player|
       player.submits.each.with_index(1) do |submit, i|
-        analy = AnalysisManager.new(submit.analysis_file)
+        analy = AnalysisManager.load(submit.analysis_file)
         name = "#{player.user.snum}_%03d" % i
         csv << name + "," + analy.to_csv
       end

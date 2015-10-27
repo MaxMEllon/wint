@@ -25,7 +25,9 @@ class ResultAnalysis
   end
 
   def save
-    save! rescue false
+    save!
+  rescue
+    false
   end
 
   def save!
