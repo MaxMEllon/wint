@@ -1,38 +1,69 @@
-
 class LogAnalysis
+  private_constant
+
   VERSION = 1.0
 
-  def initialize(path)
-    data = ModelHelper.decode_json(File.read(path))
-    @ver = data[:ver].to_f
-    @base_path = data[:base_path]
+  module DirName
+    MAIN = 'log'
+  end
+
+  module FileName
+    MAIN = 'log.json'
+    BASE = 'Game.log'
+  end
+
+  public
+
+  def initialize(attributes = {})
+    @path = attributes[:path] + '/' + DirName::MAIN
+    base_file.data = attributes[:data]
+    @ver = VERSION
+  end
+
+  def save
+    save!
+  rescue
+    false
+  end
+
+  def save!
+    base_file.write
+    json = { ver: @ver, base_path: base_file.path }
+    main_json.data = ModelHelper.encode_json(json)
+    main_json.write
+    true
   end
 
   def latest?
     @ver >= VERSION
   end
 
-  def update
-    return if self.latest?
-    @ver = VERSION
+  def main_data
+    @main_data ||= ModelHelper.decode_json main_json.data
+  rescue
+    @main_data = {}
+  end
+
+  def main_json
+    @main_json ||= MyFile.new(path: "#{@path}/#{FileName::MAIN}")
+  end
+
+  def base_file
+    @base_file ||= MyFile.new(path: "#{@path}/#{FileName::BASE}")
   end
 
   def to_csv
-    [].join(",")
+    [].join(',')
   end
+
+  public_class_method
 
   def self.to_csv_header
-    %w().join(",")
+    %w().join(',')
   end
 
-  def self.create(data_dir, game_log)
-    Dir::mkdir(data_dir)
-    File.write(data_dir + '/Game.log', game_log)
-    (data_dir + "/log.json").tap do |path|
-      File.open(path, "w") do |f|
-        f.puts ModelHelper.encode_json({ver: 0.0, base_path: "#{data_dir}/Game.log"})
-      end
-    end
+  def self.create(attributes = {})
+    LogAnalysis.new(attributes).tap(&:save!)
   end
 end
 

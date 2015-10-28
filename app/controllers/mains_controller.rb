@@ -14,7 +14,7 @@ class MainsController < ApplicationController
   def strategy
     @player = @current_player
     @submit = @player.submits.where(number: params[:num]).first
-    player_analy = AnalysisManager.new(@submit.analysis_file)
+    player_analy = AnalysisManager.load(@submit.analysis_file)
 
     league = League.where(id: @player.league_id).first
     players = league.players_ranking
@@ -43,7 +43,7 @@ class MainsController < ApplicationController
     ]
     @polar_dev = GraphGenerator.polar_dev(data)
 
-    @result_table = player_analy.result.get_result_table
+    @result_table = player_analy.result.table
   end
 
   def select
