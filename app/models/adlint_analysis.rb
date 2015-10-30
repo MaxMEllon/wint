@@ -12,7 +12,7 @@ class AdlintAnalysis
 
   def initialize(attributes = {})
     @path = attributes[:path] + '/' + DirName::MAIN
-    base_file.data = attributes[:data]
+    # base_file.data = attributes[:data]
     @ver = VERSION
   end
 
@@ -23,11 +23,15 @@ class AdlintAnalysis
   end
 
   def save!
+    base_file.data.gsub!(/^#include/, '// #include')
     base_file.write
     json = { ver: @ver, base_path: base_file.path, line: line,
-             count_if: count[:if], count_loop: count[:loop],
-             func_ref_strategy: func_ref[:strategy], func_ref_max: func_ref[:max],
-             func_ref_average: func_ref[:average], func_num: func_num }
+             count: { if: count[:if], loop: count[:loop] },
+             func_ref: {
+               strategy: func_ref[:strategy],
+               max: func_ref[:max],
+               average: func_ref[:average] },
+             func_num: func_num }
     main_json.data = ModelHelper.encode_json(json)
     main_json.write
     true
@@ -51,51 +55,60 @@ class AdlintAnalysis
     @base_file ||= MyFile.new(path: "#{@path}/#{FileName::BASE}")
   end
 
-  def cflow
-    return @cflow if @cflow
-    path = comcut.path.sub(/comcut.c/, 'cflow.dat')
-    data = `cflow --omit-symbol-names --omit-arguments #{comcut.path}`
-    @cflow = MyFile.new(path: path, data: data)
+
+
+  def functions
+    return @functions if @functions
+    @functions = []
+
+    unless base_file.exist?
+      base_file.data.gsub!(/^#include/, '// #include')
+      base_file.write
+    end
+
+    `cd #{@path} && adlintize -o analysis && cd #{@path}/analysis && make verbose-all`
+    data = File.read("#{@path}/analysis/PokerOpe.c.met.csv").split(/\n/)[1..-1]
+    result = split_keyword(data, 'FN_PATH').zip(split_keyword(data, 'FN_CYCM'))
+    result.map! {|r| r.flatten}
+    result.each do |r|
+      @functions << Function.new(r)
+    end
+    @functions
   end
 
-  def comcut
-    return @comcut if @comcut
-    tmp = MyFile.new(
-      path: "#{@path}/comcut_tmp.c",
-      data: base_file.data.gsub('#include', 'hogefoobar')
-    )
-    tmp.write
-    comcut_data = `gcc -E -P #{tmp.path}`.split(/\r\n|\n/)
-    data = comcut_data.reject { |line| line =~ /hogefoobar/ }.join('\n')
-    path = "#{@path}/comcut.c"
-    @comcut = MyFile.new(path: path, data: data).tap(&:write)
-  end
-
-  def function
-    @function ||= FunctionAnalysis.new(cflow)
-  end
-
-  def syntax
-    @syntax ||= SyntaxAnalysis.new(comcut)
+  def split_keyword(data, keyword)
+    result = []
+    loop do
+      i = data.index { |d| d =~ /#{keyword}/ }
+      break if i.nil?
+      result << data.slice!(0, i + 1)
+    end
+    result
   end
 
   def count
-    @count ||= syntax.count_all_word
+    return main_data[:count] if main_data[:count]
+    @count ||= { if: functions.map { |f| f.records[:path] }.inject(:+), loop: 0 }
   end
 
   def func_ref
-    @func_ref ||= function.amount_func_ref
+    return main_data[:func_ref] if main_data[:func_ref]
+    csubs = functions.map { |f| f.records[:csub] }
+    @func_ref ||= {
+      strategy: 0,
+      max: csubs.max,
+      average: csubs.inject(:+) / functions.count
+    }
   end
 
   def line
     return main_data[:line] if main_data[:line]
-    @line ||= comcut.data.split(/\r\n|\n/).size
+    @line ||= functions.map { |f| f.records[:line] }.inject(:+)
   end
 
   def func_num
     return main_data[:func_num] if main_data[:func_num]
-    # 一番上の行は要らない。strategyはカウントしない
-    @func_num ||= File.read(function.func_ref_path).split(/\r\n|\n/).size - 2
+    @func_num ||= functions.count
   end
 
   def to_csv

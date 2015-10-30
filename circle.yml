@@ -4,7 +4,8 @@ machine:
 
 dependencies:
   pre:
-    - sudo apt-get install nkf cflow phantomjs
+    - sudo apt-get install nkf phantomjs
+    - rbenv exec gem install adlint
     - sudo gpasswd -a ubuntu docker
     - sudo service docker restart
     - docker pull ubuntu:14.04
