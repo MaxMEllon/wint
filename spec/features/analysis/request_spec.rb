@@ -1,11 +1,13 @@
 feature 'Access to analysis page' do
   background do
+    DatabaseCleaner.clean
     sign_in user
     visit analysis_list_path
   end
 
   context 'when admin' do
-    given(:user) { FactoryGirl.create :admin }
+    given(:user) { create :admin }
+
     scenario 'move to analysis page' do
       expect(page).to have_content '分析ページ'
     end
@@ -13,6 +15,7 @@ feature 'Access to analysis page' do
 
   context 'when student' do
     given(:user) { create :student }
+
     scenario 'permission denied' do
       expect(page).to have_content 'looking for doesn\'t exist'
     end

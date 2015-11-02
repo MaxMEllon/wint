@@ -16,22 +16,21 @@
 
 RSpec.describe Player, type: :model do
   describe 'self.create' do
-    let(:player) { Player.create attributes_for :player }
-    let(:path) { player.league.source_path }
-
-    before do
-      League.create attributes_for :league
+    before(:all) do
+      @league = League.create attributes_for :league
+      @player = Player.create attributes_for :player
+      @path = @player.league.source_path
     end
 
     context 'data_dir' do
       context '最初の登録の場合' do
-        it { expect(player.data_dir).to eq path + '/0001' }
-        it { expect(File).to exist player.data_dir }
+        it { expect(@player.data_dir).to eq @path + '/0001' }
+        it { expect(File).to exist @player.data_dir }
       end
 
       context '2番目移行の登録の場合' do
-        before { Player.create attributes_for :player }
-        it { expect(player.data_dir).to eq path + '/0002' }
+        subject { Player.create(attributes_for :player).data_dir }
+        it { is_expected.to eq @path + '/0002' }
       end
     end
   end

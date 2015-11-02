@@ -1,7 +1,6 @@
 require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 require 'database_cleaner'
-require 'fakefs/spec_helpers'
 require 'sidekiq/testing'
 
 RSpec.configure do |config|
@@ -20,24 +19,19 @@ RSpec.configure do |config|
   end
 
   config.include Capybara::DSL
-  config.include FakeFS::SpecHelpers, fakefs: true
-
-  config.before do
-    allow(ModelHelper).to receive(:data_root).and_return("#{Rails.root}/tmp/data")
-    FileUtils.mkdir "#{Rails.root}/tmp" unless File.exist?("#{Rails.root}/tmp")
-  end
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
+    FileUtils.mkdir "#{Rails.root}/tmp" unless File.exist?("#{Rails.root}/tmp")
   end
 
-  config.before(:each) do
+  config.before(:all) do
     DatabaseCleaner.start
     FileUtils.rm_rf "#{Rails.root}/tmp/data" if File.exist?("#{Rails.root}/tmp/data")
     FileUtils.mkdir "#{Rails.root}/tmp/data"
   end
 
-  config.after(:each) do
+  config.after(:all) do
     DatabaseCleaner.clean
     FileUtils.rm_rf "#{Rails.root}/tmp/data"
   end
