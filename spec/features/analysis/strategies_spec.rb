@@ -1,9 +1,12 @@
 feature 'display test of analysis strategy page', state: :analysis_list do
-  background do
-    league = League.create attributes_for :league
+  before(:all) do
+    @league = League.create attributes_for :league
     Player.create attributes_for :player
     Submit.create attributes_for :submit
-    visit analysis_strategies_path(lid: league.id)
+  end
+
+  background do
+    visit analysis_strategies_path(lid: @league.id)
   end
 
   scenario 'file size graph', js: true do

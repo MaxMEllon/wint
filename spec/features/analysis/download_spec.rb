@@ -1,10 +1,12 @@
 feature 'download test of analysis league page', state: :analysis_list do
-  background do
-    league = League.create attributes_for :league
-    create :student
+  before(:all) do
+    @league = League.create attributes_for :league
     Player.create attributes_for :player
     Submit.create attributes_for :submit
-    visit analysis_league_path(lid: league.id)
+  end
+
+  background do
+    visit analysis_league_path(lid: @league.id)
   end
 
   context 'when download link of best strategies clicked' do

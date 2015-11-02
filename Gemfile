@@ -10,7 +10,6 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'fakefs', require: 'fakefs/safe'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'rubocop'
