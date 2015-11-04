@@ -26,7 +26,7 @@ class AdlintAnalysis
     base_file.data.gsub!(/^#include/, '// #include')
     base_file.write
     json = { ver: @ver, base_path: base_file.path, line: line,
-             count: { if: count[:if], loop: count[:loop] },
+             static_path: static_path,
              func_ref: {
                strategy: func_ref[:strategy],
                max: func_ref[:max],
@@ -62,7 +62,7 @@ class AdlintAnalysis
     @functions = []
 
     unless base_file.exist?
-      base_file.data.gsub!(/^#include/, '// #include')
+      base_file.data.gsub!(/#include/, '// #include')
       base_file.write
     end
 
@@ -86,16 +86,16 @@ class AdlintAnalysis
     result
   end
 
-  def count
-    return main_data[:count] if main_data[:count]
-    @count ||= { if: functions.map { |f| f.records[:path] }.inject(:+), loop: 0 }
+  def static_path
+    return main_data[:static_path] if main_data[:static_path]
+    @static_path ||= functions.map { |f| f.records[:path] }.inject(:+)
   end
 
   def func_ref
     return main_data[:func_ref] if main_data[:func_ref]
     csubs = functions.map { |f| f.records[:csub] }
     @func_ref ||= {
-      strategy: 0,
+      strategy: functions.find { |f| f.name == 'strategy' }.records[:csub],
       max: csubs.max,
       average: csubs.inject(:+) / functions.count
     }
@@ -112,12 +112,12 @@ class AdlintAnalysis
   end
 
   def to_csv
-    [line, count[:if], count[:loop], func_ref[:strategy],
+    [line, static_path, func_ref[:strategy],
      func_ref[:max], func_ref[:average], func_num].join(',')
   end
 
   def self.to_csv_header
-    %w(行数 ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
+    %w(行数 推定静的パス数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
   end
 
   def self.create(attributes = {})

@@ -48,7 +48,7 @@ class AnalysisManager
   end
 
   def plot_syntax
-    { x: result.score, y: adlint.count[:loop] + adlint.count[:if] }
+    { x: result.score, y: adlint.static_path }
   end
 
   def plot_fun
