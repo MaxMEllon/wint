@@ -9,6 +9,7 @@ module ModelHelper
   end
 
   def data_root
+    return "#{Rails.root}/tmp/data" if Rails.env.test?
     "#{Rails.root}/public/data"
   end
 

@@ -24,10 +24,7 @@ class CodeAnalysis
 
   def save!
     base_file.write
-    json = { ver: @ver, base_path: base_file.path, line: line, size: size,
-             gzip_size: gzip_size, count_if: count[:if], count_loop: count[:loop],
-             func_ref_strategy: func_ref[:strategy], func_ref_max: func_ref[:max],
-             func_ref_average: func_ref[:average], func_num: func_num }
+    json = { ver: @ver, base_path: base_file.path, size: size, gzip_size: gzip_size }
     main_json.data = ModelHelper.encode_json(json)
     main_json.write
     true
@@ -51,17 +48,6 @@ class CodeAnalysis
     @base_file ||= MyFile.new(path: "#{@path}/#{FileName::BASE}")
   end
 
-  def latest?
-    @ver >= VERSION
-  end
-
-  def cflow
-    return @cflow if @cflow
-    path = comcut.path.sub(/comcut.c/, 'cflow.dat')
-    data = `cflow --omit-symbol-names --omit-arguments #{comcut.path}`
-    @cflow = MyFile.new(path: path, data: data)
-  end
-
   def comcut
     return @comcut if @comcut
     tmp = MyFile.new(
@@ -82,36 +68,9 @@ class CodeAnalysis
     @gzip = MyFile.new(path: path, data: data).tap(&:write)
   end
 
-  def function
-    @function ||= FunctionAnalysis.new(cflow)
-  end
-
-  def syntax
-    @syntax ||= SyntaxAnalysis.new(comcut)
-  end
-
-  def count
-    @count ||= syntax.count_all_word
-  end
-
-  def func_ref
-    @func_ref ||= function.amount_func_ref
-  end
-
-  def line
-    return main_data[:line] if main_data[:line]
-    @line ||= comcut.data.split(/\r\n|\n/).size
-  end
-
   def size
     return main_data[:size] if main_data[:size]
     @size ||= File.stat(comcut.path).size
-  end
-
-  def func_num
-    return main_data[:func_num] if main_data[:func_num]
-    # 一番上の行は要らない。strategyはカウントしない
-    @func_num ||= File.read(function.func_ref_path).split(/\r\n|\n/).size - 2
   end
 
   def gzip_size
@@ -119,13 +78,11 @@ class CodeAnalysis
   end
 
   def to_csv
-    [line, size, gzip_size, count[:if], count[:loop],
-     func_ref[:strategy], func_ref[:max], func_ref[:average],
-     func_num].join(',')
+    [size, gzip_size].join(',')
   end
 
   def self.to_csv_header
-    %w(行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
+    %w(ファイルサイズ 圧縮ファイルサイズ).join(',')
   end
 
   def self.create(attributes = {})

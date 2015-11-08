@@ -15,34 +15,34 @@
 
 RSpec.describe Submit, type: :model do
   describe 'self.create' do
-    let(:submit) { Submit.create attributes_for :submit }
     let(:path) { "#{Rails.root}/tmp/data/001/source/0001" }
 
-    before do
+    before(:all) do
       League.create attributes_for :league
       Player.create attributes_for :player
+      @submit = Submit.create attributes_for :submit
     end
 
     context 'data_dir' do
       context 'when the first create' do
-        it { expect(submit.data_dir).to eq path + '/001' }
-        it { expect(File).to exist submit.data_dir }
+        it { expect(@submit.data_dir).to eq path + '/001' }
+        it { expect(File).to exist @submit.data_dir }
       end
 
       context 'when the second create' do
-        before { Submit.create attributes_for :submit }
-        it { expect(submit.data_dir).to eq path + '/002' }
+        subject { Submit.create(attributes_for :submit).data_dir }
+        it { is_expected.to eq path + '/002' }
       end
     end
 
     context 'src_file' do
-      it { expect(submit.src_file).to eq path + '/001/PokerOpe.c' }
-      it { expect(File).to exist submit.src_file }
+      it { expect(@submit.src_file).to eq path + '/001/PokerOpe.c' }
+      it { expect(File).to exist @submit.src_file }
     end
 
     context 'exec_file' do
-      it { expect(submit.exec_file).to eq path + '/001/PokerOpe' }
-      it { expect(File).to exist submit.exec_file }
+      it { expect(@submit.exec_file).to eq path + '/001/PokerOpe' }
+      it { expect(File).to exist @submit.exec_file }
     end
   end
 end

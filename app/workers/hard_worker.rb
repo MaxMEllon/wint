@@ -9,9 +9,11 @@ class HardWorker
     return unless stdout
     log, result = stdout.split(/\r\n\r\n|\n\n/)
 
+    source = MyFile.new(path: submit.src_file)
     analysis = AnalysisManager.create(
       path: submit.analysis_dirname,
-      code: MyFile.new(path: submit.src_file).data,
+      code: source.data,
+      adlint: source.data,
       log: log,
       result: result
     )

@@ -1,5 +1,7 @@
 feature 'edit league', state: :league_list do
-  given!(:league) { League.create attributes_for :league }
+  before(:all) do
+    @league = League.create attributes_for :league
+  end
 
   background do
     visit leagues_path

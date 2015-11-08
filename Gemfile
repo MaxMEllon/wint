@@ -10,7 +10,6 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'fakefs', require: 'fakefs/safe'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'rubocop'
@@ -31,11 +30,12 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
+gem 'adlint'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'font-awesome-rails', '4.1.0'
 gem 'jbuilder', '~> 1.2'
-gem 'jquery-datatables-rails', '~> 2.2.3'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'jquery-rails'
 gem 'lazy_high_charts'
 gem 'less-rails'
