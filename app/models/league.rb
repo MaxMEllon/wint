@@ -37,7 +37,7 @@ class League < ActiveRecord::Base
   end
 
   def rank(strategy)
-    Strategy::RANK.each do |range, rank|
+    Submit::RANK.each do |range, rank|
       return rank if range.include?(achievement(strategy))
     end
   end

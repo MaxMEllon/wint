@@ -30,10 +30,10 @@ br
             - else
               | <tr>
             td.id= i
-            td.rank= @league.rank(player.best.strategy)
-            td.score= format_score(player.best.strategy.score)
+            td.rank= @league.rank(player.best)
+            td.score= format_score(player.best.score)
             td.player= player.name
-            td.achievement= format_achievement(@league.achievement(player.best.strategy))
+            td.achievement= format_achievement(@league.achievement(player.best))
             td.comment= player.best.comment
     .tab-pane#rank
       table.table.table-base.datatable50
@@ -53,9 +53,9 @@ br
             - else
               | <tr>
             td.id= i
-            td.rank= @league.rank(player.best.strategy)
-            td.score= format_score(player.best.strategy.score)
+            td.rank= @league.rank(player.best)
+            td.score= format_score(player.best.score)
             td.player= player.name
-            td.achievement= format_achievement(@league.achievement(player.best.strategy))
+            td.achievement= format_achievement(@league.achievement(player.best))
             td.comment= player.best.comment
 
