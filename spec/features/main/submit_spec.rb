@@ -12,19 +12,15 @@ feature '戦略の提出', js: true, state: :main_mypage do
   end
 
   context '何も入力していない場合' do
-    pending
+    background do
+      click_button '提出'
+      wait_for_action
+    end
+
+    scenario '失敗する' do
+      expect(page).to have_content '入力してください'
+    end
   end
-
-  # context '何も入力していない場合' do
-  #   background do
-  #     click_button '提出'
-  #     wait_for_action
-  #   end
-
-  #   scenario '失敗する' do
-  #     expect(page).to have_content '入力してください'
-  #   end
-  # end
 
   context '正しい戦略を提出した場合' do
     background { submit 'success.c' }

@@ -78,6 +78,7 @@ class Submit < ActiveRecord::Base
   end
 
   def self.create(attributes)
+    fail 'data_dir does not exist' if attributes[:data_dir].blank?
     player = Player.find(attributes[:player_id])
     attributes[:number] = last_number(player)
     path = player.data_dir + format('/%03d', attributes[:number])
