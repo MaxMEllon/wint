@@ -19,9 +19,7 @@ class HardWorker
     )
     submit.update(analysis_file: analysis.path)
 
-    submit.player.update(submit_id: submit.id) # if strategy.best?
-    # strategy = Strategy.create(submit, game_log, result)
-    # strategy.submit.player.update(submit_id: submit.id) if strategy.best?
+    submit.player.update(submit_id: submit.id) if submit.best?
   end
 end
 

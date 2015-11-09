@@ -23,7 +23,7 @@ class AdlintAnalysis
   end
 
   def save!
-    base_file.data.gsub!(/^#include/, '// #include')
+    base_file.data.gsub!(/#include/, '// #include')
     base_file.write
     json = { ver: @ver, base_path: base_file.path, line: line,
              static_path: static_path,

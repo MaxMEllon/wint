@@ -102,11 +102,9 @@ class Submit < ActiveRecord::Base
   end
 
   def best?
-    analy = AnalysisManager.new(analysis_file)
-    true
-    # submits = player.submits
-    # return true if strategies.blank? || score >= strategies.first.score
-    # false
+    analy = AnalysisManager.new(path: analysis_file)
+    max_score = player.submits.map { |submit| submit.score }.max
+    score >= max_score
   end
 
   def src_file
