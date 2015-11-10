@@ -19,9 +19,10 @@ br
       tr
         th.number 提出番号
         th.score 得点
+        th.score 最大ABCサイズ
         th.status ステータス
         th.created_at 提出日時
-        th.comment 戦略コメント
+        th 戦略コメント
     tbody
       - @submits.each do |submit|
         - if submit.status == Submit::Status::SUCCESS
@@ -36,10 +37,11 @@ br
         - else
           | <tr class="danger">
           td.number= "%03d" % submit.number
-        td.score= submit.score ? format_score(submit.score) : "???"
+        td.score= submit.score ? format_score(submit.score) : '???'
+        td.score= submit.score ? format_score(submit.analysis.adlint.abc_size[:max]) : '???'
         td.status= Submit.status_options[submit.status]
         td.created_at= format_time(submit.created_at)
-        td.comment= submit.comment
+        td= submit.comment
 
   br
   = high_chart("line_score", @line_score)

@@ -54,5 +54,8 @@ class Function
     end
   end
 
+  def abc_size
+    Math.sqrt(@assignment_count**2 + @records[:csub]**2 + @records[:path]**2).round(2)
+  end
 end
 
