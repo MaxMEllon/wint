@@ -25,13 +25,13 @@ class AdlintAnalysis
   def save!
     base_file.data.gsub!(/#include/, '// #include')
     base_file.write
-    json = { ver: @ver, base_path: base_file.path, line: line,
-             static_path: static_path,
-             func_ref: {
-               strategy: func_ref[:strategy],
-               max: func_ref[:max],
-               average: func_ref[:average] },
-             func_num: func_num }
+    json = {
+      ver: @ver, base_path: base_file.path, line: line,
+      static_path: static_path,
+      func_ref: func_ref,
+      abc_size: abc_size,
+      func_num: func_num
+    }
     main_json.data = ModelHelper.encode_json(json)
     main_json.write
     true
@@ -54,8 +54,6 @@ class AdlintAnalysis
   def base_file
     @base_file ||= MyFile.new(path: "#{@path}/#{FileName::BASE}")
   end
-
-
 
   def functions
     return @functions if @functions
@@ -111,13 +109,25 @@ class AdlintAnalysis
     @func_num ||= functions.count
   end
 
+  def abc_size
+    return main_data[:abc_size] if main_data[:abc_size]
+    abc_sizes = functions.map { |f| f.abc_size }
+    @abc_size ||= {
+      total: abc_sizes.inject(:+),
+      max: abc_sizes.max,
+      average: abc_sizes.inject(:+) / functions.count
+    }
+  end
+
   def to_csv
     [line, static_path, func_ref[:strategy],
-     func_ref[:max], func_ref[:average], func_num].join(',')
+     func_ref[:max], func_ref[:average],
+     abc_size[:total], abc_size[:max], abc_size[:average],
+     func_num].join(',')
   end
 
   def self.to_csv_header
-    %w(行数 推定静的パス数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
+    %w(行数 推定静的パス数 strategy関数からの呼出回数 最多呼出回数 平均呼出回数 ABCサイズ ABCサイズ ABCサイズ 関数の定義数).join(',')
   end
 
   def self.create(attributes = {})

@@ -66,7 +66,7 @@ class Submit < ActiveRecord::Base
   end
 
   def analysis
-    @analysis ||= AnalysisManager.load(analysis_file)
+    @analysis ||= AnalysisManager.load(analysis_dirname)
   end
 
   def score

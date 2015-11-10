@@ -20,6 +20,7 @@ br
             th.id 順位
             th.rank ランク
             th.score 得点
+            th.score 最大ABCサイズ
             th.player プレイヤ名
             th.achievement 達成度
             th.comment コメント
@@ -32,6 +33,7 @@ br
             td.id= i
             td.rank= @league.rank(player.best)
             td.score= format_score(player.best.score)
+            td.score= format_score(player.best.analysis.adlint.abc_size[:max])
             td.player= player.name
             td.achievement= format_achievement(@league.achievement(player.best))
             td.comment= player.best.comment
@@ -42,6 +44,7 @@ br
             th.id 順位
             th.rank ランク
             th.score 得点
+            th.score 最大ABCサイズ
             th.player プレイヤ名
             th.achievement 達成度
             th.comment コメント
@@ -55,6 +58,7 @@ br
             td.id= i
             td.rank= @league.rank(player.best)
             td.score= format_score(player.best.score)
+            td.score= format_score(player.best.analysis.adlint.abc_size[:max])
             td.player= player.name
             td.achievement= format_achievement(@league.achievement(player.best))
             td.comment= player.best.comment

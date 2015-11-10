@@ -1,14 +1,14 @@
 class MainsController < ApplicationController
   def ranking
-    @league = League.where(id: session[:lid]).first
+    @league = League.where(id: session[:lid]).includes(players: :best).first
     @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.score <=> a.best.score}
   end
 
   def mypage
     @player = @current_player
-    @submits = Submit.where(player_id: @player.id)
+    @submits = @player.submits
     @league = @player.league
-    @line_score = GraphGenerator.line_score(@player.submits.number_by.map {|s| [s.number, s.score]})
+    @line_score = GraphGenerator.line_score(@submits.number_by.select {|s| s.analysis_file}.map.with_index(1) {|s, i| [i, s.score]})
   end
 
   def strategy
