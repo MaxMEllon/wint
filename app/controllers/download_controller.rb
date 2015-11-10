@@ -33,7 +33,7 @@ class DownloadController < ApplicationController
 
   def best_analysis
     @league = League.where(id: params[:lid]).first
-    @players = @league.players_ranking
+    @players = @league.ranking
 
     csv = ["学籍番号," + AnalysisManager.to_csv_header]
     @players.each do |player|

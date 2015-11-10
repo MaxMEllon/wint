@@ -46,10 +46,6 @@ class League < ActiveRecord::Base
     (strategy.score / limit_score) * 100
   end
 
-  def players_ranking
-    players.select(&:best).sort { |a, b| b.best.score <=> a.best.score }
-  end
-
   def open?
     now = Time.new
     start_at <= now && now < end_at
@@ -67,6 +63,11 @@ class League < ActiveRecord::Base
       stock: attributes.delete(:stock)
     )
     super(attributes)
+  end
+
+  def ranking
+    players = Player.includes(:submits, :best, :user).where(league_id: id)
+    players.select(&:best).sort { |a, b| b.best.score <=> a.best.score }
   end
 
   public_class_method

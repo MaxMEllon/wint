@@ -16,8 +16,7 @@ class MainsController < ApplicationController
     @submit = @player.submits.where(number: params[:num]).first
     player_analy = AnalysisManager.load(@submit.analysis_file)
 
-    league = League.where(id: @player.league_id).first
-    players = league.players_ranking
+    players = @player.league.ranking
     analysis = players.map {|player| player.analysis_with_snum}
 
     dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})

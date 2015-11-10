@@ -31,9 +31,9 @@ class AnalysisController < ApplicationController
 
   def player
     @player = Player.where(id: params[:pid]).first
-    @submits = @player.submits.number_by
-    @league = League.where(id: @player.league_id).first
-    analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
+    @submits = @player.submits.number_by.select {|s| s.analysis_file}
+    @league = @player.league
+    analysis = @league.ranking.map {|player| player.analysis_with_snum}
 
     dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
     dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
@@ -41,7 +41,8 @@ class AnalysisController < ApplicationController
     dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
 
     @degrees = @submits.map do |submit|
-      analy = AnalysisManager.load(submit.analysis_file)
+      next unless submit.analysis_file
+      analy = AnalysisManager.load(submit.analysis_dirname)
       {
         size: dev_size.degree(analy.plot_size),
         syntax: dev_syntax.degree(analy.plot_syntax),
@@ -50,7 +51,7 @@ class AnalysisController < ApplicationController
       }
     end
 
-    @line_score = GraphGenerator.line_score(@submits.map {|s| [s.number, s.score]})
+    @line_score = GraphGenerator.line_score(@submits.map.with_index(1) {|s, i| [i, s.score]})
   end
 
   def code
@@ -59,9 +60,9 @@ class AnalysisController < ApplicationController
 
   def strategy
     league = League.where(id: params[:lid]).first
-    analysis = league.players_ranking.map {|player| player.analysis_with_snum}
+    analysis = league.ranking.map {|player| player.analysis_with_snum}
 
-    @submit = league.players.where(id: params[:pid]).first.submits.where(number: params[:num]).first
+    @submit = Submit.where(player_id: params[:pid], number: params[:num]).first
     player_analy = AnalysisManager.load(@submit.analysis_file)
 
     dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
@@ -92,7 +93,7 @@ class AnalysisController < ApplicationController
 
   def strategies
     @league = League.where(id: params[:lid]).first
-    analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
+    analysis = @league.ranking.map {|player| player.analysis_with_snum}
 
     if analysis.blank?
       @scatter_size = @histgram_size = nil
@@ -118,13 +119,15 @@ class AnalysisController < ApplicationController
 
   def ranking
     @league = League.where(id: params[:lid]).first
-    @players = @league.players_ranking
+    @players = @league.ranking
     player_analysis = @players.map {|player| player.analysis_with_snum}
 
     submits_analysis = []
     @players.each do |player|
       player.submits.each.with_index(1) do |submit, i|
-        submits_analysis << [player.user.snum + "_%03d" % i, AnalysisManager.load(submit.analy_file)]
+        next unless submit.analysis_file
+        submits_analysis << ["#{submit.player.user.snum}_%03d" % submit.number, AnalysisManager.load(submit.analysis_file)]
+
       end
     end
 
@@ -145,7 +148,7 @@ class AnalysisController < ApplicationController
       }
     end
 
-    submits_analysis.sort! {|a, b| b[1].score <=> a[1].score}
+    submits_analysis.sort! {|a, b| b[1].result.score <=> a[1].result.score}
     @submits_degrees = submits_analysis.map do |name, analy|
       {
         name: name,

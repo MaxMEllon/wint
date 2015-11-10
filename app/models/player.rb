@@ -27,6 +27,10 @@ class Player < ActiveRecord::Base
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
 
+  def analysis_with_snum
+    ["#{user.snum}_%03d" % best.number, AnalysisManager.load(best.analysis_file)]
+  end
+
   def self.create(attributes)
     league = League.find(attributes[:league_id])
     attributes[:data_dir] = league.source_path + format('/%04d', last_id)
@@ -36,10 +40,6 @@ class Player < ActiveRecord::Base
 
   def self.last_id
     Player.count == 0 ? 1 : Player.last.id + 1
-  end
-
-  def analysis_with_snum
-    ["#{self.user.snum}_%03d" % best.number, AnalysisManager.load(best.analysis_file)]
   end
 
   def auditor?

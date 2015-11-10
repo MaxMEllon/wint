@@ -37,10 +37,10 @@ br
               - else
                 | <tr>
               td.id= i
-              td.snum= link_to "#{degree[:name]} (#{player.strategies.to_a.count})", analysis_player_path(pid: player.id)
+              td.snum= link_to "#{degree[:name]} (#{player.submits.to_a.count})", analysis_player_path(pid: player.id)
               td.user= player.user.name
-              td.user= format_time(player.strategies.max {|a, b| a.created_at <=> b.created_at}.created_at)
-              td.score= format_score(player.best.strategy.score)
+              td.user= format_time(player.submits.max {|a, b| a.created_at <=> b.created_at}.created_at)
+              td.score= format_score(player.best.score)
               td.score= format_score(degree[:size])
               td.score= format_score(degree[:syntax])
               td.score= format_score(degree[:fun])
@@ -69,7 +69,7 @@ br
             th.score 宣言
             th.score 圧縮
         tbody
-          - @strategies_degrees.each.with_index(1) do |degree, i|
+          - @submits_degrees.each.with_index(1) do |degree, i|
             tr
               td.id= i
               td.snum= degree[:name]
