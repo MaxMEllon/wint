@@ -1,12 +1,13 @@
-dependencies:
-  pre:
-    - sudo apt-get install nkf
-
 machine:
   timezone:
     Asia/Tokyo
   ruby:
     version: 2.2.2
+
+dependencies:
+  pre:
+    - sudo apt-get install nkf cflow
+    - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
 
 test:
   override:

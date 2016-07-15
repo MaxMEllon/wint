@@ -1,6 +1,5 @@
-
 module LoginHelper
-  def sign_in(user)
+  def login(user)
     visit login_path
     fill_in 'user[snum]', with: user.snum
     fill_in 'user[password]', with: user.password

@@ -19,7 +19,8 @@ FactoryGirl.define do
     submit_id 1
     score 1.5
     number 1
-    analy_file "MyString"
+    analy_file 'MyString'
     is_active false
   end
 end
+

@@ -18,10 +18,11 @@
 FactoryGirl.define do
   factory :submit do
     player_id 1
-    src_file "MyString"
-    comment "MyString"
+    src_file 'MyString'
+    comment 'MyString'
     number 1
     status 1
     is_active false
   end
 end
+
