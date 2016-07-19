@@ -1,19 +1,14 @@
 source 'https://rubygems.org'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'fakefs', require: 'fakefs/safe'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'test-unit'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 group :development do
@@ -30,7 +25,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'font-awesome-rails', '4.1.0'
 gem 'jbuilder', '~> 1.2'
-gem 'jquery-datatables-rails', '~> 2.2.3'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'jquery-rails'
 gem 'lazy_high_charts'
 gem 'less-rails'
@@ -44,4 +39,5 @@ gem 'therubyracer', platforms: :ruby
 gem 'twitter-bootstrap-rails', git: 'https://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'redis'
 

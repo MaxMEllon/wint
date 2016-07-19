@@ -1,12 +1,13 @@
+require 'capybara/rspec'
+require 'capybara/poltergeist'
 require 'database_cleaner'
-require 'fakefs/spec_helpers'
+require 'sidekiq/testing'
+require 'pry-rails'
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
-  require 'capybara/poltergeist'
-  Capybara.javascript_driver = :poltergeist
-  Capybara.register_driver :poltergeist do |app|
-    Capybara::Poltergeist::Driver.new(app, {js_errors: false})
-  end
+  config.order = 'random'
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -16,8 +17,14 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.include Capybara::DSL
-  config.include FakeFS::SpecHelpers, fakefs: true
+  Sidekiq::Testing.inline!
+
+  Capybara.default_max_wait_time = 5
+  Capybara.javascript_driver = :poltergeist
+
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, js_errors: true)
+  end
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -25,10 +32,15 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    `rm -rf #{Rails.root}/public/data/*`
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.after(:each, js: true) do
+    wait_for_ajax
   end
 end
 

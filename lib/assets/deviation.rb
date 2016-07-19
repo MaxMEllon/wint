@@ -9,8 +9,13 @@ class Deviation
     # y = ax + b => ax - y + b = 0
     # (ax - y + b) / sqrt(a^2 + (-1)^2)
     distance = @data.map {|d| get_distance(d[:x], d[:y])}
-    @ave = distance.inject(:+) / distance.size
-    @std_dev = Math.sqrt(distance.map {|d| (d-@ave)**2}.inject(:+) / distance.size) # 標準偏差
+    if distance.blank?
+      @ave = 0
+      @std_dev = 0
+    else
+      @ave = distance.inject(:+) / distance.size
+      @std_dev = Math.sqrt(distance.map {|d| (d-@ave)**2}.inject(:+) / distance.size) # 標準偏差
+    end
     @dev_val = distance.map {|d| ((d-@ave) / @std_dev)*10 + 50}  # 偏差値
   end
 

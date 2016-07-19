@@ -21,3 +21,5 @@ AllCops:
   Exclude:
     - '.bundle/**/*'
 
+inherit_from: .rubocop_todo.yml
+

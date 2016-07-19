@@ -20,9 +20,9 @@ FactoryGirl.define do
   factory :player do
     user_id 1
     league_id 1
-    name "MyString"
-    role 1
-    submit_id 1
-    is_active false
+    name '北海太郎'
+    role 0
+    submit_id 0
   end
 end
+
