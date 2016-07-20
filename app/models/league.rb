@@ -18,7 +18,7 @@
 class League < ActiveRecord::Base
   has_many :players, dependent: :destroy
 
-  validates_presence_of :name, :start_at, :end_at, :limit_score, :data_dir, :rule_file
+  validates_presence_of :name, :start_at, :end_at, :limit_score, :data_dir, :change, :take, :try
 
   Scope.active(self)
 
@@ -47,28 +47,13 @@ class League < ActiveRecord::Base
     self.all.map {|l| [l.name, l.id]}
   end
 
-  def rule(symbol = nil)
-    return nil if self.rule_file.blank?
-    rules = ModelHelper.decode_json(File.read(self.rule_file))
-    symbol.present? ? rules[symbol] : rules
-  end
-
   def format_rule
-    rules = rule
-    "#{"%02d" % rules[:change]}-#{"%02d" % rules[:take]}-#{rules[:try]}"
+    "#{"%02d" % change}-#{"%02d" % take}-#{try}"
   end
 
   def mkdir
     ("#{BASE_PATH}/%03d" % self.id).tap do |path|
       Dir::mkdir(path)
-      Dir::mkdir("#{path}/rule")
-      Dir::mkdir("#{path}/source")
-    end
-  end
-
-  def set_rule(params)
-    (self.data_dir + "/rule/rule.json").tap do |path|
-      File.open(path, "w") {|f| f.puts ModelHelper.encode_json params}
     end
   end
 end

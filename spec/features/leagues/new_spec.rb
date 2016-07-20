@@ -11,9 +11,9 @@ feature 'リーグ登録' do
     fill_in 'league[start_at]', with: '2015.09.01 00:00'
     fill_in 'league[end_at]', with: '2015.09.30 00:00'
 
-    fill_in 'rule[change]', with: 7
-    fill_in 'rule[take]', with: 5
-    fill_in 'rule[try]', with: 10_000
+    fill_in 'league[change]', with: 7
+    fill_in 'league[take]', with: 5
+    fill_in 'league[try]', with: 10_000
 
     click_button '作成'
   end

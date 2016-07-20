@@ -12,11 +12,10 @@ class LeaguesController < ApplicationController
 
   def create
     @league = League.new(league_params)
-    @league.data_dir = @league.rule_file = "dummy" if full_rule_params?
+    @league.data_dir = "dummy"
     render :new and return unless @league.save
 
     @league.data_dir = @league.mkdir
-    @league.rule_file = @league.set_rule(rule_params)
     @league.save!
     render 'shared/reload'
   end
@@ -26,7 +25,6 @@ class LeaguesController < ApplicationController
 
   def update
     render :edit and return unless @league.update(league_params)
-    @league.set_rule(rule_params) if full_rule_params?
     render "shared/reload"
   end
 
@@ -43,17 +41,7 @@ class LeaguesController < ApplicationController
   private
 
   def league_params
-    params.require(:league).permit(:name, :start_at, :end_at, :limit_score)
-  end
-
-  def rule_params
-    params.require(:rule).permit(:take, :change, :try)
-  end
-
-  def full_rule_params?
-    rule = params[:rule]
-    return false if rule.nil?
-    [rule[:take], rule[:change], rule[:try]].all? {|r| r.present?}
+    params.require(:league).permit(:name, :start_at, :end_at, :limit_score, :change, :take, :try)
   end
 
   def get_league

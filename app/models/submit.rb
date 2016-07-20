@@ -65,7 +65,7 @@ class Submit < ActiveRecord::Base
 
   def get_status
     league = self.player.league
-    rules = league.rule
+    rules = { change: league.change, take: league.take, try: league.try }
     rule_dir = "#{Rails.root}/lib/poker" # league.data_dir + "/rule"
 
     status = filecheck(self.src_file)

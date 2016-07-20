@@ -24,7 +24,9 @@ FactoryGirl.define do
     end_at '2016-10-20'
     limit_score 150.0
     data_dir "#{Rails.root}/tmp/data/001"
-    rule_file "#{Rails.root}/tmp/data/001/rule/rule.json"
+    change 7
+    take 5
+    try 10_000
   end
 end
 

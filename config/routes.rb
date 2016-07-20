@@ -60,13 +60,13 @@ Wint::Application.routes.draw do
   get   'admin/users/:uid/toggle'        => 'users#toggle', as: :users_toggle
 
   ##--  League
-  get  'admin/leagues'                   => 'leagues#list', as: :leagues
-  get  'admin/leagues/new'               => 'leagues#new', as: :leagues_new
-  post 'admin/leagues/new'               => 'leagues#create'
-  get  'admin/leagues/:lid/edit'         => 'leagues#edit', as: :leagues_edit
-  post 'admin/leagues/:lid/edit'         => 'leagues#update'
-  get  'admin/leagues/:lid/toggle'       => 'leagues#toggle', as: :leagues_toggle
-  get  'admin/leagues/:lid/toggle_analy' => 'leagues#toggle_analy', as: :leagues_toggle_analy
+  get   'admin/leagues'                   => 'leagues#list', as: :leagues
+  get   'admin/leagues/new'               => 'leagues#new', as: :leagues_new
+  post  'admin/leagues/new'               => 'leagues#create'
+  get   'admin/leagues/:lid/edit'         => 'leagues#edit', as: :leagues_edit
+  patch 'admin/leagues/:lid/edit'         => 'leagues#update'
+  get   'admin/leagues/:lid/toggle'       => 'leagues#toggle', as: :leagues_toggle
+  get   'admin/leagues/:lid/toggle_analy' => 'leagues#toggle_analy', as: :leagues_toggle_analy
 
   ##--  Player
   get   'admin/players'             => 'players#list', as: :players

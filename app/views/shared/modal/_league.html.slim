@@ -10,7 +10,7 @@ coffee:
   - render_submit = render partial: "shared/buttons/update"
 
 .modal-dialog.modal-content
-  = form_tag path, data: {remote: true}, multipart: true do
+  = form_for league, url: path, remote: true do |f|
     .modal-header
       h3= title
     .modal-body.leagues.form
@@ -18,11 +18,11 @@ coffee:
         tr
           th.name リーグ名
           td.name
-            = text_field :league, :name
+            = f.text_field :name
             = render partial: "shared/error_messages", locals: {object: league, column: :name}
           th.score 理想得点
           td.score
-            = text_field :league, :limit_score
+            = f.text_field :limit_score
             = render partial: "shared/error_messages", locals: {object: league, column: :limit_score}
       table.table-base
         tr
@@ -30,7 +30,7 @@ coffee:
         tr
           td.open
             .input-group.date.datepicker
-              = text_field :league, :start_at
+              = f.text_field :start_at
               span.input-group-addon
                 span.glyphicon.glyphicon-time
               = render partial: "shared/error_messages", locals: {object: league, column: :start_at}
@@ -38,7 +38,7 @@ coffee:
             | ～
           td.open
             .input-group.date.datepicker
-              = text_field :league, :end_at
+              = f.text_field :end_at
               span.input-group-addon
                 span.glyphicon.glyphicon-time
               = render partial: "shared/error_messages", locals: {object: league, column: :end_at}
@@ -49,9 +49,9 @@ coffee:
           th.rule テイク数
           th.rule トライ数
         tr
-          td.rule= text_field :rule, :change, value: league.rule("change")
-          td.rule= text_field :rule, :take, value: league.rule("take")
-          td.rule= text_field :rule, :try, value: league.rule("try")
+          td.rule= f.text_field :change
+          td.rule= f.text_field :take
+          td.rule= f.text_field :try
     .modal-footer
       = render_submit
       = render partial: "shared/buttons/cancel"

@@ -11,25 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927051537) do
+ActiveRecord::Schema.define(version: 20160720065043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "leagues", force: true do |t|
+  create_table "leagues", force: :cascade do |t|
     t.string   "name",                                        null: false
-    t.datetime "start_at",    default: '2014-10-24 15:06:30', null: false
-    t.datetime "end_at",      default: '2014-10-24 15:06:30', null: false
+    t.datetime "start_at",    default: '2016-07-20 16:29:00', null: false
+    t.datetime "end_at",      default: '2016-07-20 16:29:00', null: false
     t.float    "limit_score", default: 0.0,                   null: false
     t.boolean  "is_analy",    default: false,                 null: false
     t.string   "data_dir",    default: "",                    null: false
-    t.string   "rule_file",   default: "",                    null: false
     t.boolean  "is_active",   default: true,                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "change"
+    t.integer  "take"
+    t.integer  "try"
   end
 
-  create_table "players", force: true do |t|
+  create_table "players", force: :cascade do |t|
     t.integer  "user_id",                   null: false
     t.integer  "league_id",                 null: false
     t.string   "name",                      null: false
@@ -41,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140927051537) do
     t.string   "data_dir",                  null: false
   end
 
-  create_table "strategies", force: true do |t|
+  create_table "strategies", force: :cascade do |t|
     t.integer  "submit_id",                 null: false
     t.float    "score",      default: 0.0,  null: false
     t.integer  "number",                    null: false
@@ -51,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140927051537) do
     t.datetime "updated_at"
   end
 
-  create_table "submits", force: true do |t|
+  create_table "submits", force: :cascade do |t|
     t.integer  "player_id",                 null: false
     t.string   "data_dir",   default: "",   null: false
     t.string   "comment"
@@ -62,11 +64,11 @@ ActiveRecord::Schema.define(version: 20140927051537) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "snum",                           null: false
     t.string   "name",                           null: false
     t.integer  "depart",          default: 0,    null: false
-    t.integer  "entrance",        default: 2012, null: false
+    t.integer  "entrance",        default: 2014, null: false
     t.integer  "category",        default: 0,    null: false
     t.boolean  "is_active",       default: true, null: false
     t.string   "password_digest"

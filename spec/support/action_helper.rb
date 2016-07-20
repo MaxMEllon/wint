@@ -8,9 +8,9 @@ module ActionHelper
     fill_in 'league[start_at]', with: league.start_at
     fill_in 'league[end_at]', with: league.end_at
 
-    fill_in 'rule[change]', with: 7
-    fill_in 'rule[take]', with: 5
-    fill_in 'rule[try]', with: 10_000
+    fill_in 'league[change]', with: 7
+    fill_in 'league[take]', with: 5
+    fill_in 'league[try]', with: 10_000
 
     click_button '作成'
   end

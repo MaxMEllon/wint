@@ -45,7 +45,7 @@ class Player < ActiveRecord::Base
   end
 
   def mkdir
-    (self.league.data_dir + "/source/%04d" % self.id).tap do |path|
+    (self.league.data_dir + "/%04d" % self.id).tap do |path|
       Dir::mkdir(path)
     end
   end
