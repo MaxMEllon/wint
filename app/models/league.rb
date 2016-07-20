@@ -24,37 +24,46 @@ class League < ActiveRecord::Base
 
   BASE_PATH = "#{Rails.root}/public/data"
 
+  after_create do
+    path = format("#{BASE_PATH}/%03d", id)
+    Dir.mkdir(path)
+    update(data_dir: path)
+  end
+
   def rank(strategy)
     Strategy::RANK.each do |range, rank|
-      return rank if range.include?(self.achievement(strategy))
+      return rank if range.include?(achievement(strategy))
     end
   end
 
   def achievement(strategy)
-    (strategy.score / self.limit_score) * 100
+    (strategy.score / limit_score) * 100
   end
 
   def players_ranking
-    self.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    players.select(&:best).sort { |a, b| b.best.strategy.score <=> a.best.strategy.score }
   end
 
   def open?
     now = Time.new
-    self.start_at <= now && now < self.end_at
-  end
-
-  def self.select_format
-    self.all.map {|l| [l.name, l.id]}
+    start_at <= now && now < end_at
   end
 
   def format_rule
-    "#{"%02d" % change}-#{"%02d" % take}-#{try}"
+    format_change = format('%02d', change)
+    format_take = format('%02d', take)
+    "#{format_change}-#{format_take}-#{try}"
   end
 
-  def mkdir
-    ("#{BASE_PATH}/%03d" % self.id).tap do |path|
-      Dir::mkdir(path)
-    end
+  private_class_method
+
+  def self.select_format
+    all.map { |l| [l.name, l.id] }
+  end
+
+  def self.create(attributes)
+    attributes[:data_dir] = 'dummy'
+    super(attributes)
   end
 end
 
