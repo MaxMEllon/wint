@@ -1,7 +1,5 @@
 module ActionHelper
   def create_league(league)
-    files_path = "#{Rails.root}/spec/factories/files/"
-
     visit leagues_path
     click_button '登録'
 
@@ -9,11 +7,6 @@ module ActionHelper
     fill_in 'league[limit_score]', with: league.limit_score
     fill_in 'league[start_at]', with: league.start_at
     fill_in 'league[end_at]', with: league.end_at
-
-    attach_file 'file[stock]', files_path + 'Stock.ini'
-    attach_file 'file[header]', files_path + 'Poker.h'
-    attach_file 'file[exec]', files_path + 'PokerExec.c'
-    attach_file 'file[card]', files_path + 'CardLib.c'
 
     fill_in 'rule[change]', with: 7
     fill_in 'rule[take]', with: 5

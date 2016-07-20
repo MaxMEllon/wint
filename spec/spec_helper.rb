@@ -19,7 +19,7 @@ RSpec.configure do |config|
 
   Sidekiq::Testing.inline!
 
-  Capybara.default_max_wait_time = 10
+  Capybara.default_max_wait_time = 5
   Capybara.javascript_driver = :poltergeist
 
   Capybara.register_driver :poltergeist do |app|
@@ -34,7 +34,7 @@ RSpec.configure do |config|
     DatabaseCleaner.start
     stub_const('League::BASE_PATH', "#{Rails.root}/tmp/data")
     `rm -rf #{Rails.root}/tmp/data`
-    `mkdir #{Rails.root}/tmp/data`
+    `mkdir -p #{Rails.root}/tmp/data`
   end
 
   config.after(:each) do

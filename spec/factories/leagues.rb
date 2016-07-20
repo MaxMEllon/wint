@@ -23,8 +23,8 @@ FactoryGirl.define do
     start_at '2016-09-01'
     end_at '2016-10-20'
     limit_score 150.0
-    data_dir "#{Rails.root}/public/data/001"
-    rule_file "#{Rails.root}/public/data/001/rule/rule.json"
+    data_dir "#{Rails.root}/tmp/data/001"
+    rule_file "#{Rails.root}/tmp/data/001/rule/rule.json"
   end
 end
 

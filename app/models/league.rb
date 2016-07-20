@@ -66,18 +66,6 @@ class League < ActiveRecord::Base
     end
   end
 
-  def set_data(params)
-    path = self.data_dir + "/rule"
-    filenames = {stock: "Stock.ini", header: "Poker.h", exec: "PokerExec.c", card: "CardLib.c"}
-    params.each do |key, value|
-      file = path + "/" + filenames[key.to_sym]
-      File.open(file, "w") do |f|
-        f.puts params[key].read.force_encoding("utf-8")
-      end
-      `nkf --overwrite -w #{file}` # いつか直すかも
-    end
-  end
-
   def set_rule(params)
     (self.data_dir + "/rule/rule.json").tap do |path|
       File.open(path, "w") {|f| f.puts ModelHelper.encode_json params}

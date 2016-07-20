@@ -13,11 +13,6 @@ feature 'リーグ編集' do
     fill_in 'league[limit_score]', with: '200'
     fill_in 'league[start_at]', with: '2016.09.01 00:00'
     fill_in 'league[end_at]', with: '2016.09.30 00:00'
-    # ファイルを編集しようとするとコケる
-    # attach_file 'file[stock]', files_path + 'Stock.ini'
-    # attach_file 'file[header]', files_path + 'Poker.h'
-    # attach_file 'file[exec]', files_path + 'PokerExec.c'
-    # attach_file 'file[card]', files_path + 'CardLib.c'
     fill_in 'rule[change]', with: 6
     fill_in 'rule[take]', with: 6
     fill_in 'rule[try]', with: 10_000
