@@ -22,6 +22,8 @@ class League < ActiveRecord::Base
 
   Scope.active(self)
 
+  BASE_PATH = "#{Rails.root}/public/data"
+
   def rank(strategy)
     Strategy::RANK.each do |range, rank|
       return rank if range.include?(self.achievement(strategy))
@@ -57,7 +59,7 @@ class League < ActiveRecord::Base
   end
 
   def mkdir
-    ("#{Rails.root}/public/data/%03d" % self.id).tap do |path|
+    ("#{BASE_PATH}/%03d" % self.id).tap do |path|
       Dir::mkdir(path)
       Dir::mkdir("#{path}/rule")
       Dir::mkdir("#{path}/source")
