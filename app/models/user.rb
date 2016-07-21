@@ -28,18 +28,19 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates_presence_of :snum, :name
-  validates_inclusion_of :category, in: [CATEGORY_STUDENT, CATEGORY_TA, CATEGORY_TEACHER, CATEGORY_GUEST]
+  validates_inclusion_of :category, in: [CATEGORY_STUDENT, CATEGORY_TA,
+                                         CATEGORY_TEACHER, CATEGORY_GUEST]
 
   def admin?
-    self.category == CATEGORY_TEACHER
+    category == CATEGORY_TEACHER
   end
 
   def teacher_side?
-    self.admin? || self.category == CATEGORY_TA
+    self.admin? || category == CATEGORY_TA
   end
 
   def self.select_format
-    self.all.map {|u| [u.name, u.id]}
+    all.map { |u| [u.name, u.id] }
   end
 
   def self.category_options

@@ -21,20 +21,26 @@ class Player < ActiveRecord::Base
   has_many :submits, dependent: :delete_all
   has_many :strategies, through: :submits
 
-  validates :name, presence: true, length: {maximum: 10}
+  validates :name, presence: true, length: { maximum: 10 }
 
   Scope.active(self)
 
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
 
+  after_create do
+    path = format("#{league.data_dir}/%04d", id)
+    Dir.mkdir(path)
+    update(data_dir: path)
+  end
+
   def analysis_with_snum
-    strategy = self.best.strategy
-    ["#{self.user.snum}_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
+    strategy = best.strategy
+    [format("#{user.snum}_%03d", strategy.number), AnalysisManager.new(strategy.analy_file)]
   end
 
   def auditor?
-    self.role == ROLE_AUDITOR
+    role == ROLE_AUDITOR
   end
 
   def self.role_options
@@ -44,10 +50,12 @@ class Player < ActiveRecord::Base
     }
   end
 
-  def mkdir
-    (self.league.data_dir + "/%04d" % self.id).tap do |path|
-      Dir::mkdir(path)
-    end
+  public_class_method
+
+  def self.create(attributes)
+    attributes[:data_dir] ||= 'dummy'
+    attributes[:submit_id] ||= 0
+    super(attributes)
   end
 end
 
