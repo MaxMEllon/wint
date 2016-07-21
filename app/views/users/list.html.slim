@@ -17,8 +17,6 @@ br
         th.snum 学籍番号
         th.category 区分
         th.name 氏名
-        th.depart 所属
-        th.entrance 入学年度
         th.edit 編集
         th.password パスワード
         th.toggle 有効 / 無効
@@ -28,8 +26,6 @@ br
         td.snum= user.snum
         td.category= User.category_options[user.category]
         td.name= user.name
-        td.depart= User.depart_options[user.depart]
-        td.entrance= user.entrance
         td.edit= link_to users_edit_path(uid: user.id), remote: true do
           = render partial: "shared/buttons/edit"
         td.password= link_to users_edit_password_path(uid: user.id), remote: true do

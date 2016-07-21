@@ -23,16 +23,6 @@
             = f.text_field :name
             = render partial: "shared/error_messages", locals: {object: user, column: :name}
         tr
-          th.depart 学科
-          td.depart
-            = f.select :depart, User.depart_options.invert
-            = render partial: "shared/error_messages", locals: {object: user, column: :depart}
-        tr
-          th.entrance 入学年度
-          td.entrance
-            = f.select :entrance, User.entrance_options.reverse
-            = render partial: "shared/error_messages", locals: {object: user, column: :entrance}
-        tr
           th.category 区分
           td.category
             = f.select :category, User.category_options.invert

@@ -22,8 +22,6 @@ FactoryGirl.define do
     name '北海太郎'
     password 'hoge'
     password_confirmation 'hoge'
-    depart 0
-    entrance 2011
     is_active true
 
     factory :student do

@@ -27,8 +27,6 @@
           th.snum 学籍番号
           th.category 区分
           th.name 氏名
-          th.depart 学科
-          th.entrance 入学年度
       tbody
         - @users.each do |user|
           tr
@@ -36,6 +34,4 @@
             td.snum= user.snum
             td.category= User.category_options[user.category]
             td.name= user.name
-            td.depart= User.depart_options[user.depart]
-            td.entrance= user.entrance
 
