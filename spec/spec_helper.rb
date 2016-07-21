@@ -3,6 +3,7 @@ require 'capybara/poltergeist'
 require 'database_cleaner'
 require 'sidekiq/testing'
 require 'pry-rails'
+require 'rspec/retry'
 require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
@@ -24,6 +25,12 @@ RSpec.configure do |config|
 
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(app, js_errors: true)
+  end
+
+  config.verbose_retry = true
+  config.display_try_failure_messages = true
+  config.around(:each, :js) do |ex|
+    ex.run_with_retry retry: 3
   end
 
   config.before(:suite) do

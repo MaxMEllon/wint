@@ -9,6 +9,7 @@ group :test do
   gem 'rubocop'
   gem 'test-unit'
   gem 'codeclimate-test-reporter', require: false
+  gem 'rspec-retry'
 end
 
 group :development do
