@@ -1,11 +1,10 @@
 feature 'リーグ編集' do
   given(:user) { create :admin }
-  given(:league) { build :league }
-  given(:files_path) { "#{Rails.root}/spec/factories/files/" }
+  given(:league) { create :league }
 
   background do
     login user
-    create_league(league)
+    league
     visit leagues_path
     click_button '編集'
 

@@ -1,19 +1,17 @@
 feature '分析ページへのアクセス' do
   given(:user) { create :admin }
-  given(:league) { build :league }
-  given(:player) { build :player }
+  given(:league) { create :league }
+  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
+  given(:submit) { create(:submit, player_id: player.id) }
 
   background do
     login user
-    create_league(league)
-    allow_any_instance_of(League).to receive(:open?).and_return(true)
-    create_player(player)
-    create_submit
+    submit
   end
 
   context 'リーグ詳細ページへのリンクを選択した場合' do
     background do
-      visit analysis_league_path(lid: 1)
+      visit analysis_league_path(lid: league.id)
     end
 
     scenario 'リーグ詳細ページへ移動する', js: true do
@@ -23,7 +21,7 @@ feature '分析ページへのアクセス' do
 
   context '戦略コード分析ページへのリンクを選択した場合' do
     background do
-      visit analysis_strategies_path(lid: 1)
+      visit analysis_strategies_path(lid: league.id)
     end
 
     scenario '戦略コード分析ページへ移動する', js: true do
@@ -33,7 +31,7 @@ feature '分析ページへのアクセス' do
 
   context 'ランキングページへのリンクを選択した場合' do
     background do
-      visit analysis_ranking_path(lid: 1)
+      visit analysis_ranking_path(lid: league.id)
     end
 
     scenario '管理者用ランキングページへ移動する', js: true do
@@ -43,7 +41,7 @@ feature '分析ページへのアクセス' do
 
   context '戦略詳細ページを選択した場合' do
     background do
-      visit analysis_strategy_path(lid: 1, pid: 1, num: 1)
+      visit analysis_strategy_path(lid: league.id, pid: player.id, num: submit.id)
     end
 
     scenario '各プレイヤの戦略詳細ページへ移動する', js: true do

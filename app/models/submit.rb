@@ -13,8 +13,14 @@
 #  updated_at :datetime
 #
 
+require 'rake'
+require 'open3'
+
 class Submit < ActiveRecord::Base
-  include ExecManager
+  class PokerCompileError < StandardError; end
+  class PokerExecuteError < StandardError; end
+  class PokerTimeoutError < StandardError; end
+  class PokerSyntaxError < StandardError; end
 
   STATUS_RUNNING = 0
   STATUS_SUCCESS = 1
@@ -32,8 +38,84 @@ class Submit < ActiveRecord::Base
   validates_presence_of :data_dir
   validates_length_of :comment, maximum: 20
 
-  scope :number_by, -> {order("number")}
+  scope :number_by, -> { order('number') }
   Scope.active(self)
+
+  after_create do
+    num = last_number
+    path = format("#{player.data_dir}/%03d", num)
+    Dir.mkdir(path)
+    File.write("#{path}/PokerOpe.c", data_dir)
+    `nkf --overwrite -w #{path}/PokerOpe.c`
+    update(data_dir: path, number: num)
+    HardWorker.perform_async(id)
+  end
+
+  def src_file
+    data_dir + '/PokerOpe.c'
+  end
+
+  def exec_file
+    data_dir + '/PokerOpe'
+  end
+
+  def perform
+    syntax_check
+    compile
+    execute
+    update(status: STATUS_SUCCESS)
+  rescue PokerSyntaxError
+    update(status: STATUS_SYNTAX_ERROR)
+  rescue PokerCompileError
+    update(status: STATUS_COMPILE_ERROR)
+  rescue PokerExecuteError
+    update(status: STATUS_EXEC_ERROR)
+  rescue PokerTimeoutError
+    update(status: STATUS_TIME_OVER)
+  end
+
+  def exec_success?
+    status == STATUS_SUCCESS
+  end
+
+  private
+
+  def last_number
+    submits = player.submits.number_by
+    submits.present? ? submits.last.number + 1 : 1
+  end
+
+  def syntax_check
+    File.read(src_file).split(/\r\n|\n/).each do |line|
+      fail PokerSyntaxError if line =~ /system/
+    end
+  end
+
+  def compile
+    league = player.league
+    Rake.sh league.compile_command(src_file, exec_file)
+  rescue RuntimeError
+    raise PokerCompileError
+  end
+
+  def execute
+    league = player.league
+    Dir.mkdir("#{Rails.root}/tmp/log") unless File.exist?("#{Rails.root}/tmp/log")
+
+    cmd = league.execute_command(exec_file, id)
+    Open3.popen3(cmd, pgroup: true) do |_stdin, _stdout, stderr, thread|
+      begin
+        Timeout.timeout(TIME_LIMIT, PokerTimeoutError) do
+          fail PokerExecuteError unless stderr.read.blank?
+        end
+      rescue PokerTimeoutError
+        Process.kill(:TERM, -thread.pid)
+        raise PokerTimeoutError
+      end
+    end
+  end
+
+  public_class_method
 
   def self.status_options
     {
@@ -46,50 +128,10 @@ class Submit < ActiveRecord::Base
     }
   end
 
-  def src_file
-    self.data_dir + "/PokerOpe.c"
-  end
-
-  def exec_file
-    self.data_dir + "/PokerOpe"
-  end
-
-  def size_over?
-    self.data_dir.size >= SIZE_LIMIT
-  end
-
-  def get_number
-    submits = self.player.submits.number_by
-    submits.present? ? submits.last.number+1 : 1
-  end
-
-  def get_status
-    league = self.player.league
-    rules = { change: league.change, take: league.take, try: league.try }
-    rule_dir = "#{Rails.root}/lib/poker" # league.data_dir + "/rule"
-
-    status = filecheck(self.src_file)
-    return status unless status == STATUS_SUCCESS
-    status = compile(rule_dir, rules, self.src_file, self.exec_file)
-    return status unless status == STATUS_SUCCESS
-    status = exec(rule_dir, rules, self.exec_file, self.id)
-    return status unless status == STATUS_SUCCESS
-    STATUS_SUCCESS
-  end
-
-  def mkdir
-    (self.player.data_dir + "/%03d" % self.number).tap do |path|
-      Dir::mkdir(path)
-    end
-  end
-
-  def set_data(source)
-    File.open(self.src_file, "w") {|f| f.puts source}
-    `nkf --overwrite -w #{self.src_file}`
-  end
-
-  def exec_success?
-    self.status == STATUS_SUCCESS
+  def self.create(attributes)
+    attributes[:data_dir] = nil if attributes[:data_dir].size >= SIZE_LIMIT
+    attributes[:number] = 0
+    super(attributes)
   end
 end
 

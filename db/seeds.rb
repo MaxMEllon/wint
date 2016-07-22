@@ -8,10 +8,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.destroy_all
-League.destroy_all
 
-User.create(snum: "s11t230", name: "玄馬史也", password: "hoge", password_confirmation: "hoge")
-User.create(snum: "tmnghryk", name: "富永浩之", password: "hoge", password_confirmation: "hoge", category: 2)
+if Rails.env == 'development'
+  User.destroy_all
+  League.destroy_all
 
+  student = User.create(snum: 's00t000', name: '学生太郎', password: 'hoge')
+  admin = User.create(snum: 'admin', name: '教授者太郎', password: 'hoge', category: 2)
+
+  league = League.create(name: "test", start_at: Time.now - 5.day, end_at: Time.now + 5.day, limit_score: 100, change: 6, take: 6, try: 10000)
+
+  Player.create(name: "participant", role: Player::ROLE_PARTICIPANT, league_id: league.id, user_id: student.id)
+  Player.create(name: "auditor", role: Player::ROLE_AUDITOR, league_id: league.id, user_id: admin.id)
+end
 

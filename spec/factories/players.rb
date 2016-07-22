@@ -18,9 +18,10 @@
 
 FactoryGirl.define do
   factory :player do
-    user_id 1
-    league_id 1
+    # user_id 1
+    # league_id 1
     name '北海太郎'
+    data_dir 'dummy'
     role 0
     submit_id 0
   end

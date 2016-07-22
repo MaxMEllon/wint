@@ -1,10 +1,10 @@
 feature 'リーグ削除' do
   given(:user) { create :admin }
-  given(:league) { build :league }
+  given(:league) { create :league }
 
   background do
     login user
-    create_league(league)
+    league
     visit leagues_path
   end
 
@@ -20,7 +20,7 @@ feature 'リーグ削除' do
 
   context 'リーグが無効な場合', js: true do
     background do
-      League.first.update(is_active: false)
+      league.update(is_active: false)
       reload_page
       click_button '有効化'
     end

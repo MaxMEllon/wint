@@ -1,12 +1,11 @@
 feature 'プレイヤ削除' do
   given(:user) { create :admin }
-  given(:league) { build :league }
-  given(:player) { build :player }
+  given(:league) { create :league }
+  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
 
   background do
     login user
-    create_league(league)
-    create_player(player)
+    player
     visit players_path
   end
 
@@ -22,7 +21,7 @@ feature 'プレイヤ削除' do
 
   context 'プレイヤが無効な場合', js: true do
     background do
-      Player.first.update(is_active: false)
+      player.update(is_active: false)
       reload_page
       click_button '有効化'
     end

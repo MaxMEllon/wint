@@ -23,6 +23,7 @@ class League < ActiveRecord::Base
   Scope.active(self)
 
   BASE_PATH = "#{Rails.root}/public/data"
+  RULE_PATH = "#{Rails.root}/lib/poker"
 
   after_create do
     path = format("#{BASE_PATH}/%03d", id)
@@ -53,6 +54,17 @@ class League < ActiveRecord::Base
     format_change = format('%02d', change)
     format_take = format('%02d', take)
     "#{format_change}-#{format_take}-#{try}"
+  end
+
+  def compile_command(src_file, exec_file)
+    type = format('%02d-%02d', take, change)
+    files = "#{src_file} #{RULE_PATH}/PokerExec.c #{RULE_PATH}/CardLib.c"
+    options = "-DTYPE=#{type} -DTAKE=#{take} -DCHNG=#{change}"
+    "gcc -O2 -I#{RULE_PATH} #{files} #{options} -o#{exec_file}"
+  end
+
+  def execute_command(exec_file, submit_id)
+    "cd #{Rails.root}/tmp && #{exec_file} _tmp#{submit_id} #{try} #{RULE_PATH}/Stock.ini 0"
   end
 
   private_class_method

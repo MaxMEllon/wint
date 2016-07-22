@@ -1,12 +1,11 @@
 feature 'プレイヤ編集' do
   given(:user) { create :admin }
-  given(:league) { build :league }
-  given(:player) { build :player }
+  given(:league) { create :league }
+  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
 
   background do
     login user
-    create_league(league)
-    create_player(player)
+    player
     visit players_path
     click_button '編集'
 

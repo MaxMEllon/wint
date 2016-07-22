@@ -5,7 +5,7 @@ class HardWorker
 
   def perform(submit_id)
     @submit = Submit.where(id: submit_id).first
-    @submit.update(status: @submit.get_status)
+    @submit.perform
     if @submit.exec_success?
       strategy = Strategy.create(@submit)
       strategy.submit.player.update(submit_id: @submit.id) if strategy.best?

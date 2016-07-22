@@ -18,10 +18,10 @@
 FactoryGirl.define do
   factory :submit do
     player_id 1
-    src_file 'MyString'
-    comment 'MyString'
-    number 1
-    status 1
+    data_dir File.read("#{Rails.root}/spec/factories/files/PokerOpe/success.c")
+    comment 'コメント'
+    number 0
+    status 0
     is_active false
   end
 end

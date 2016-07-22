@@ -20,10 +20,10 @@
 FactoryGirl.define do
   factory :league do
     name 'テストリーグ'
-    start_at '2016-09-01'
-    end_at '2016-10-20'
+    start_at Time.now - 5.day
+    end_at Time.now + 5.day
     limit_score 150.0
-    data_dir "#{Rails.root}/tmp/data/001"
+    data_dir 'dummy'
     change 7
     take 5
     try 10_000

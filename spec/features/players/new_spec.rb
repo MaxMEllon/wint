@@ -1,10 +1,10 @@
 feature 'プレイヤ登録' do
   given(:user) { create :admin }
-  given(:league) { build :league }
+  given(:league) { create :league }
 
   background do
     login user
-    create_league(league)
+    league
 
     visit players_path
     click_button 'ユーザ選択画面へ'

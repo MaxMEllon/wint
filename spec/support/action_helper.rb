@@ -32,7 +32,7 @@ module ActionHelper
     visit main_set_player_path(pid: 1) # or click_link player.name
     click_button '戦略提出'
 
-    attach_file 'submit[data_dir]', "#{Rails.root}/spec/factories/files/PokerOpe.c"
+    fill_in 'submit[data_dir]', with: File.read("#{Rails.root}/spec/factories/files/PokerOpe.c")
     fill_in 'submit[comment]', with: 'てすと'
     click_button '提出'
   end

@@ -1,15 +1,12 @@
 feature 'マイページへのアクセス' do
   given(:user) { create :admin }
-  given(:league) { build :league }
-  given(:player) { build :player }
+  given(:league) { create :league }
+  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
 
   background do
     login user
-    create_league(league)
-    allow_any_instance_of(League).to receive(:open?).and_return(true)
-    create_player(player)
     visit main_select_path
-    visit main_set_player_path(pid: 1) # or click_link player.name
+    visit main_set_player_path(pid: player.id) # or click_link player.name
   end
 
   scenario 'マイページに移動する', js: true do
