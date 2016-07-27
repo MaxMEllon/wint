@@ -14,21 +14,19 @@ class MainsController < ApplicationController
   def strategy
     @player = @current_player
     @strategy = @player.submits.where(number: params[:num]).first.strategy
-    player_analy = AnalysisManager.new(@strategy.analy_file)
 
     league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user, :submits, :strategies]).first
     players = league.players_ranking
-    analysis = players.map {|player| player.analysis_with_snum}
 
-    dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
-    dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
-    dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
-    dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
+    dev_size = Deviation.new(players.map {|p| p.best.strategy.plot_size})
+    dev_syntax = Deviation.new(players.map {|p| p.best.strategy.plot_syntax})
+    dev_fun = Deviation.new(players.map {|p| p.best.strategy.plot_fun})
+    dev_gzip = Deviation.new(players.map {|p| p.best.strategy.plot_gzip})
 
-    player_size = player_analy.plot_size
-    player_syntax = player_analy.plot_syntax
-    player_fun = player_analy.plot_fun
-    player_gzip = player_analy.plot_gzip
+    player_size = @strategy.plot_size
+    player_syntax = @strategy.plot_syntax
+    player_fun = @strategy.plot_fun
+    player_gzip = @strategy.plot_gzip
 
     @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
     @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
@@ -43,7 +41,7 @@ class MainsController < ApplicationController
     ]
     @polar_dev = GraphGenerator.polar_dev(data)
 
-    @result_table = player_analy.result.get_result_table
+    @result_table = @strategy.get_result_table
   end
 
   def select

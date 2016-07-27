@@ -59,6 +59,10 @@ class Submit < ActiveRecord::Base
     data_dir + '/PokerOpe'
   end
 
+  def analysis_path
+    data_dir + '/analy'
+  end
+
   def perform
     syntax_check
     compile
