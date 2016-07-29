@@ -1,5 +1,5 @@
 class DownloadController < ApplicationController
-  before_action :mkdir, only: [:best_strategies, :all_strategies]
+  before_action :mkdir, only: [:best_strategies, :all_strategies, :best_analysis, :all_analysis]
 
   ROOT_DIR = "#{Rails.root}/tmp/downloads"
 
@@ -35,10 +35,9 @@ class DownloadController < ApplicationController
     @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
     @players = @league.players_ranking
 
-    csv = ["学籍番号," + AnalysisManager.to_csv_header]
+    csv = ["学籍番号," + Strategy.to_csv_header]
     @players.each do |player|
-      analy = AnalysisManager.new(player.best.strategy.analy_file)
-      csv << player.user.snum + "," + analy.to_csv
+      csv << player.user.snum + "," + player.best.strategy.to_csv
     end
 
     filename = ROOT_DIR + "/best_analysis.csv"
@@ -50,12 +49,11 @@ class DownloadController < ApplicationController
   def all_analysis
     @league = League.where(id: params[:lid]).includes(players: [:strategies, :user]).first
 
-    csv = ["学籍番号," + AnalysisManager.to_csv_header]
+    csv = ["学籍番号," + Strategy.to_csv_header]
     @league.players.each do |player|
       player.strategies.each do |strategy|
-        analy = AnalysisManager.new(strategy.analy_file)
         name = "#{player.user.snum}_%03d" % strategy.number
-        csv << name + "," + analy.to_csv
+        csv << name + "," + strategy.to_csv
       end
     end
 
@@ -66,6 +64,7 @@ class DownloadController < ApplicationController
   end
 
   private
+
   def mkdir
     `rm -rf #{ROOT_DIR}` if File.exist?(ROOT_DIR)
     Dir.mkdir(ROOT_DIR)

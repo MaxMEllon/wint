@@ -12,55 +12,137 @@
 #  updated_at :datetime
 #
 
-require "analysis/analysis_manager"
+require 'analysis/result_analysis.rb'
+require 'analysis/log_analysis.rb'
+require 'analysis/code_analysis.rb'
 
 class Strategy < ActiveRecord::Base
   belongs_to :submit
   has_one :player, through: :submit
   has_one :league, through: :player
 
-  scope :score_by, -> { order("score DESC") }
-  scope :number_by, -> { order("number") }
+  scope :score_by, -> { order('score DESC') }
+  scope :number_by, -> { order('number') }
 
-  RANK = {0...30 => "X", 30...35 => "C", 35...40 => "B", 40...45 => "A", 45...50 => "S", 50...75 => "SS", 75..100 => "SSS"}
+  RANK = {
+    0...30 => 'X',
+    30...35 => 'C',
+    35...40 => 'B',
+    40...45 => 'A',
+    45...50 => 'S',
+    50...75 => 'SS',
+    75..100 => 'SSS'
+  }
+
+  after_create do
+    path = submit.data_dir + '/analy'
+    Dir.mkdir(path)
+
+    # code
+    content = File.read(submit.src_file)
+    CodeAnalysis.create(submit.analysis_path, content)
+
+    # result
+    content = File.read("#{Rails.root}/tmp/log/_tmp#{submit.id}/Result.txt")
+    ResultAnalysis.create(submit.analysis_path, content)
+
+    # log
+    content = File.read("#{Rails.root}/tmp/log/_tmp#{submit.id}/Game.log")
+    LogAnalysis.create(submit.analysis_path, content)
+
+    func_ref = code_analysis.analyze_func_ref
+    update(
+      score: result_analysis.analyze_score,
+      line: code_analysis.analyze_line,
+      size: code_analysis.analyze_size,
+      gzip_size: code_analysis.analyze_gzip_size,
+      count_if: code_analysis.analyze_count_if,
+      count_loop: code_analysis.analyze_count_loop,
+      func_ref_strategy: func_ref[:strategy],
+      func_ref_max: func_ref[:max],
+      func_ref_average: func_ref[:average],
+      func_num: code_analysis.analyze_func_num
+    )
+  end
+
+  def result_analysis
+    @result_analysis ||= ResultAnalysis.new(submit.analysis_path)
+  end
+
+  def log_analysis
+    @log_analysis ||= LogAnalysis.new(submit.analysis_path)
+  end
+
+  def code_analysis
+    @code_analysis ||= CodeAnalysis.new(submit.analysis_path)
+  end
+
+  def get_result_table
+    result_analysis.result_table
+  end
+
+  def analysis_update
+  end
+
+  def best?
+    strategies = submit.player.strategies.score_by
+    return true if strategies.blank? || score >= strategies.first.score
+    false
+  end
+
+  def plot_size
+    { x: score, y: size }
+  end
+
+  def plot_syntax
+    { x: score, y: count_loop + count_if }
+  end
+
+  def plot_fun
+    { x: score, y: func_num }
+  end
+
+  def plot_gzip
+    { x: score, y: (1 - (gzip_size / size.to_f)) * 100 }
+  end
+
+  def to_csv
+    [score, line, size, gzip_size, count_if, count_loop,
+     func_ref_strategy, func_ref_max, func_ref_average, func_num].join(',')
+  end
+
+  private
+
+  def self.get_number(submit)
+    strategies = submit.player.strategies.number_by
+    strategies.present? ? strategies.last.number + 1 : 1
+  end
+
+  public_class_method
+
+  def self.to_csv_header
+    %w(得点 行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数
+       strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
+  end
 
   # override
   def self.create(submit)
-    analy_file = AnalysisManager.create(submit.data_dir, submit.id)
-    analy = AnalysisManager.new(analy_file)
-    analy.update
-    super(submit_id: submit.id, analy_file: analy_file, score: analy.result.score, number: Strategy.get_number(submit))
+    super(submit_id: submit.id, number: Strategy.get_number(submit))
   end
 
   def self.hand_text
     {
-      P0: "ノーペア",
-      P1: "ワンペア",
-      P2: "ツーペア",
-      P3: "スリーカード",
-      P4: "ストレート",
-      P5: "フラッシュ",
-      P6: "フルハウス",
-      P7: "フォーカード",
-      P8: "ストレートフラッシュ",
-      P9: "ロイヤルストレート",
+      P0: 'ノーペア',
+      P1: 'ワンペア',
+      P2: 'ツーペア',
+      P3: 'スリーカード',
+      P4: 'ストレート',
+      P5: 'フラッシュ',
+      P6: 'フルハウス',
+      P7: 'フォーカード',
+      P8: 'ストレートフラッシュ',
+      P9: 'ロイヤルストレート'
     }
-  end
-
-  def analysis_update
-    AnalysisManager.new(self.analy_file).update
-  end
-
-  def best?
-    strategies = self.submit.player.strategies.score_by
-    return true if strategies.blank? || self.score >= strategies.first.score
-    false
-  end
-
-  private
-  def self.get_number(submit)
-    strategies = submit.player.strategies.number_by
-    strategies.present? ? strategies.last.number+1 : 1
   end
 end
 

@@ -35,6 +35,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
+    `mkdir -p #{Rails.root}/tmp`
   end
 
   config.before(:each) do

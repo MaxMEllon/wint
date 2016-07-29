@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721050821) do
+ActiveRecord::Schema.define(version: 20160727065609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name",                                        null: false
-    t.datetime "start_at",    default: '2016-07-21 15:52:00', null: false
-    t.datetime "end_at",      default: '2016-07-21 15:52:00', null: false
+    t.datetime "start_at",    default: '2016-07-28 16:27:54', null: false
+    t.datetime "end_at",      default: '2016-07-28 16:27:54', null: false
     t.float    "limit_score", default: 0.0,                   null: false
     t.boolean  "is_analy",    default: false,                 null: false
     t.string   "data_dir",    default: "",                    null: false
@@ -44,13 +44,21 @@ ActiveRecord::Schema.define(version: 20160721050821) do
   end
 
   create_table "strategies", force: :cascade do |t|
-    t.integer  "submit_id",                 null: false
-    t.float    "score",      default: 0.0,  null: false
-    t.integer  "number",                    null: false
-    t.string   "analy_file", default: "",   null: false
-    t.boolean  "is_active",  default: true, null: false
+    t.integer  "submit_id",                        null: false
+    t.float    "score",             default: 0.0,  null: false
+    t.integer  "number",                           null: false
+    t.boolean  "is_active",         default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "line"
+    t.integer  "size"
+    t.integer  "gzip_size"
+    t.integer  "count_if"
+    t.integer  "count_loop"
+    t.integer  "func_ref_strategy"
+    t.integer  "func_ref_max"
+    t.integer  "func_ref_average"
+    t.integer  "func_num"
   end
 
   create_table "submits", force: :cascade do |t|

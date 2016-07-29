@@ -39,6 +39,10 @@ class Player < ActiveRecord::Base
     [format("#{user.snum}_%03d", strategy.number), AnalysisManager.new(strategy.analy_file)]
   end
 
+  def snum
+    format("#{user.snum}_%03d", best.strategy.number)
+  end
+
   def auditor?
     role == ROLE_AUDITOR
   end

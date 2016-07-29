@@ -35,18 +35,17 @@ class AnalysisController < ApplicationController
     @league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user]).first
     analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
 
-    dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
-    dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
-    dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
-    dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
+    dev_size = Deviation.new(@strategies.map {|s| s.plot_size})
+    dev_syntax = Deviation.new(@strategies.map {|s| s.plot_syntax})
+    dev_fun = Deviation.new(@strategies.map {|s| s.plot_fun})
+    dev_gzip = Deviation.new(@strategies.map {|s| s.plot_gzip})
 
     @degrees = @strategies.map do |strategy|
-      analy = AnalysisManager.new(strategy.analy_file)
       {
-        size: dev_size.degree(analy.plot_size),
-        syntax: dev_syntax.degree(analy.plot_syntax),
-        fun: dev_fun.degree(analy.plot_fun),
-        gzip: dev_gzip.degree(analy.plot_gzip)
+        size: dev_size.degree(strategy.plot_size),
+        syntax: dev_syntax.degree(strategy.plot_syntax),
+        fun: dev_fun.degree(strategy.plot_fun),
+        gzip: dev_gzip.degree(strategy.plot_gzip)
       }
     end
 
@@ -59,20 +58,19 @@ class AnalysisController < ApplicationController
 
   def strategy
     league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
-    analysis = league.players_ranking.map {|player| player.analysis_with_snum}
+    players_ranking = league.players_ranking
 
     @strategy = league.players.where(id: params[:pid]).first.strategies.where(number: params[:num]).first
-    player_analy = AnalysisManager.new(@strategy.analy_file)
 
-    dev_size = Deviation.new(analysis.map {|_, a| a.plot_size})
-    dev_syntax = Deviation.new(analysis.map {|_, a| a.plot_syntax})
-    dev_fun = Deviation.new(analysis.map {|_, a| a.plot_fun})
-    dev_gzip = Deviation.new(analysis.map {|_, a| a.plot_gzip})
+    dev_size = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_size})
+    dev_syntax = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_syntax})
+    dev_fun = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_fun})
+    dev_gzip = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_gzip})
 
-    player_size = player_analy.plot_size
-    player_syntax = player_analy.plot_syntax
-    player_fun = player_analy.plot_fun
-    player_gzip = player_analy.plot_gzip
+    player_size = @strategy.plot_size
+    player_syntax = @strategy.plot_syntax
+    player_fun = @strategy.plot_fun
+    player_gzip = @strategy.plot_gzip
 
     @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
     @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
@@ -87,20 +85,20 @@ class AnalysisController < ApplicationController
     ]
     @polar_dev = GraphGenerator.polar_dev(data)
 
-    @result_table = player_analy.result.get_result_table
+    @result_table = @strategy.get_result_table
   end
 
   def strategies
     @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :user]).first
-    analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
+    player_ranking = @league.players_ranking
 
-    if analysis.blank?
+    if player_ranking.blank?
       @scatter_size = @histgram_size = nil
     else
-      dev_size = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_size)})
-      dev_syntax = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_syntax)})
-      dev_fun = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_fun)})
-      dev_gzip = Deviation.new(analysis.map {|n, a| {name: n}.merge(a.plot_gzip)})
+      dev_size = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_size)})
+      dev_syntax = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_syntax)})
+      dev_fun = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_fun)})
+      dev_gzip = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_gzip)})
       #-- size
       @scatter_size = GraphGenerator.scatter_size(dev_size)
       @histgram_size = GraphGenerator.histgram(dev_size)
@@ -119,41 +117,33 @@ class AnalysisController < ApplicationController
   def ranking
     @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :strategies, :user, :submits]).first
     @players = @league.players_ranking
-    player_analysis = @players.map {|player| player.analysis_with_snum}
-
-    strategies_analysis = []
-    @players.each do |player|
-      player.strategies.each do |strategy|
-        strategies_analysis << [player.user.snum + "_%03d" % strategy.number, AnalysisManager.new(strategy.analy_file)]
-      end
-    end
 
     @players += @league.players.select {|p| !p.best}
 
-    dev_size = Deviation.new(player_analysis.map {|_, a| a.plot_size})
-    dev_syntax = Deviation.new(player_analysis.map {|_, a| a.plot_syntax})
-    dev_fun = Deviation.new(player_analysis.map {|_, a| a.plot_fun})
-    dev_gzip = Deviation.new(player_analysis.map {|_, a| a.plot_gzip})
+    dev_size = Deviation.new(@players.map {|p| p.best.strategy.plot_size})
+    dev_syntax = Deviation.new(@players.map {|p| p.best.strategy.plot_syntax})
+    dev_fun = Deviation.new(@players.map {|p| p.best.strategy.plot_fun})
+    dev_gzip = Deviation.new(@players.map {|p| p.best.strategy.plot_gzip})
 
-    @player_degrees = player_analysis.map do |name, analy|
+    @player_degrees = @players.map do |player|
       {
-        name: name,
-        size: dev_size.degree(analy.plot_size),
-        syntax: dev_syntax.degree(analy.plot_syntax),
-        fun: dev_fun.degree(analy.plot_fun),
-        gzip: dev_gzip.degree(analy.plot_gzip)
+        name: player.snum,
+        size: dev_size.degree(player.best.strategy.plot_size),
+        syntax: dev_syntax.degree(player.best.strategy.plot_syntax),
+        fun: dev_fun.degree(player.best.strategy.plot_fun),
+        gzip: dev_gzip.degree(player.best.strategy.plot_gzip)
       }
     end
 
-    strategies_analysis.sort! {|a, b| b[1].result.score <=> a[1].result.score}
-    @strategies_degrees = strategies_analysis.map do |name, analy|
+    strategies = @players.map { |player| player.strategies }.flatten.sort { |a, b| a.score <=> b.score }
+    @strategies_degrees = strategies.map do |strategy|
       {
-        name: name,
-        score: analy.result.score,
-        size: dev_size.degree(analy.plot_size),
-        syntax: dev_syntax.degree(analy.plot_syntax),
-        fun: dev_fun.degree(analy.plot_fun),
-        gzip: dev_gzip.degree(analy.plot_gzip)
+        name: strategy.player.snum,
+        score: strategy.score,
+        size: dev_size.degree(strategy.plot_size),
+        syntax: dev_syntax.degree(strategy.plot_syntax),
+        fun: dev_fun.degree(strategy.plot_fun),
+        gzip: dev_gzip.degree(strategy.plot_gzip)
       }
     end
 
