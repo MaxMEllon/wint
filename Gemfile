@@ -41,4 +41,5 @@ gem 'twitter-bootstrap-rails', git: 'https://github.com/seyhunak/twitter-bootstr
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'redis'
+gem 'adlint'
 

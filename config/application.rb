@@ -24,8 +24,7 @@ module Wint
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
 
-    config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    config.autoload_paths += Dir["#{config.root}/lib/**/", "#{config.root}/app/models/concerns/**/"]
 
     config.assets.precompile += %w(*.eot *.svg *.ttf *.woff)
 
