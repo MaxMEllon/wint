@@ -15,6 +15,7 @@
 require 'analysis/result_analysis.rb'
 require 'analysis/log_analysis.rb'
 require 'analysis/code_analysis.rb'
+require 'analysis/adlint_analysis.rb'
 
 class Strategy < ActiveRecord::Base
   belongs_to :submit
@@ -35,12 +36,15 @@ class Strategy < ActiveRecord::Base
   }
 
   after_create do
-    path = submit.data_dir + '/analy'
-    Dir.mkdir(path)
+    Dir.mkdir(submit.analysis_path)
 
     # code
     content = File.read(submit.src_file)
     CodeAnalysis.create(submit.analysis_path, content)
+
+    # adlint
+    content = File.read(submit.src_file)
+    AdlintAnalysis.create(submit.analysis_path, content)
 
     # result
     content = File.read("#{Rails.root}/tmp/log/_tmp#{submit.id}/Result.txt")
@@ -50,18 +54,17 @@ class Strategy < ActiveRecord::Base
     content = File.read("#{Rails.root}/tmp/log/_tmp#{submit.id}/Game.log")
     LogAnalysis.create(submit.analysis_path, content)
 
-    func_ref = code_analysis.analyze_func_ref
     update(
       score: result_analysis.analyze_score,
-      line: code_analysis.analyze_line,
+      line: adlint_analysis.analyze_line,
       size: code_analysis.analyze_size,
       gzip_size: code_analysis.analyze_gzip_size,
       count_if: code_analysis.analyze_count_if,
       count_loop: code_analysis.analyze_count_loop,
-      func_ref_strategy: func_ref[:strategy],
-      func_ref_max: func_ref[:max],
-      func_ref_average: func_ref[:average],
-      func_num: code_analysis.analyze_func_num
+      func_ref_strategy: adlint_analysis.analyze_func_ref_strategy,
+      func_ref_max: adlint_analysis.analyze_func_ref_max,
+      func_ref_average: adlint_analysis.analyze_func_ref_average,
+      func_num: adlint_analysis.analyze_func_num
     )
   end
 
@@ -75,6 +78,10 @@ class Strategy < ActiveRecord::Base
 
   def code_analysis
     @code_analysis ||= CodeAnalysis.new(submit.analysis_path)
+  end
+
+  def adlint_analysis
+    @adlint_analysis ||= AdlintAnalysis.new(submit.analysis_path)
   end
 
   def get_result_table
