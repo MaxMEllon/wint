@@ -1,0 +1,1247 @@
+VER,3.2.14,2016-08-17 14:40:29 +0900,/home/vagrant/wint/tmp/data/001/0001/001/analy/adlint/output
+DCL,../adlint.c,14,5,F,X,F,E,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)"
+DCL,../adlint.c,15,5,F,X,F,E,Straight,"int Straight((int const)[],int,int)"
+DCL,../adlint.c,16,5,F,X,F,E,Full_house,"int Full_house((int const)[],int,int)"
+DCL,../adlint.c,17,5,F,X,F,E,Flush,"int Flush((int const)[],int,int)"
+DCL,../adlint.c,19,5,F,X,F,E,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)"
+DCL,../adlint.c,20,5,F,X,F,E,Two_pair,"int Two_pair((int const)[],int,int)"
+DCL,../adlint.c,21,5,F,X,F,E,One_pair,"int One_pair((int const)[],int,int)"
+DCL,../adlint.c,22,5,F,X,F,E,Final,"int Final((int const)[],int,int)"
+DCL,../adlint.c,24,5,F,X,F,E,Combi,"int Combi(int,int)"
+DCL,../adlint.c,25,5,F,X,F,E,Permu,"int Permu(int,int)"
+DCL,../adlint.c,26,5,F,X,F,E,Reach_check,int Reach_check(void)
+DCL,../adlint.c,27,6,F,X,F,E,Separate_hand,void Separate_hand((int const)[])
+DCL,../adlint.c,28,6,F,X,F,E,Separate_dishand,"void Separate_dishand((int const)[],int)"
+DCL,../adlint.c,29,6,F,X,F,E,Check_len,void Check_len(void)
+DCL,../adlint.c,30,6,F,X,F,E,Init_flg,void Init_flg(void)
+DEF,../adlint.c,54,15,V,X,F,N,hand,(struct card)[6]
+DEF,../adlint.c,55,15,V,X,F,N,dishand,(struct card)[52]
+DEF,../adlint.c,57,7,V,X,F,N,sut,(int)[4]
+DEF,../adlint.c,58,7,V,X,F,N,Num,(int)[14]
+DEF,../adlint.c,59,7,V,X,F,N,udsut,(int)[4]
+DEF,../adlint.c,60,7,V,X,F,N,udNum,(int)[13]
+DEF,../adlint.c,61,7,V,X,F,N,flg,(int)[15]
+DEF,../adlint.c,62,7,V,X,F,N,count,int
+DEF,../adlint.c,63,7,V,X,F,N,deck_flg,(int)[52]
+DEF,../adlint.c,64,7,V,X,F,N,ch,int
+DEF,../adlint.c,67,5,F,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",34
+DEF,../adlint.c,67,25,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,67,41,V,I,P,N,fd,(int const)[]
+DEF,../adlint.c,67,51,V,I,P,N,cg,int
+DEF,../adlint.c,67,59,V,I,P,N,tk,int
+DEF,../adlint.c,67,73,V,I,P,N,ud,(int const)[]
+DEF,../adlint.c,67,83,V,I,P,N,us,int
+DEF,../adlint.c,68,7,V,I,B,N,i,int
+DEF,../adlint.c,69,7,V,I,B,N,ret,int
+DEP,../adlint.c,71,3,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Separate_hand,void Separate_hand((int const)[])
+DEP,../adlint.c,71,16,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Separate_hand,void Separate_hand((int const)[])
+DEP,../adlint.c,72,3,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Separate_dishand,"void Separate_dishand((int const)[],int)"
+DEP,../adlint.c,72,19,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Separate_dishand,"void Separate_dishand((int const)[],int)"
+DEP,../adlint.c,76,37,X,V,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",W,deck_flg
+DEP,../adlint.c,77,41,X,V,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",W,deck_flg
+DEP,../adlint.c,78,15,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,78,44,X,V,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",W,deck_flg
+DEP,../adlint.c,78,15,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,81,8,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Reach_check,int Reach_check(void)
+DEP,../adlint.c,81,19,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Reach_check,int Reach_check(void)
+DEP,../adlint.c,81,6,X,V,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",W,ch
+DEP,../adlint.c,84,12,X,V,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,ch
+DEP,../adlint.c,86,14,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Flush,"int Flush((int const)[],int,int)"
+DEP,../adlint.c,86,19,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Flush,"int Flush((int const)[],int,int)"
+DEP,../adlint.c,87,18,X,V,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,ch
+DEP,../adlint.c,88,14,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Flush,"int Flush((int const)[],int,int)"
+DEP,../adlint.c,88,19,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Flush,"int Flush((int const)[],int,int)"
+DEP,../adlint.c,94,21,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,95,24,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Final,"int Final((int const)[],int,int)"
+DEP,../adlint.c,95,29,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Final,"int Final((int const)[],int,int)"
+DEP,../adlint.c,96,26,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,Flush,"int Flush((int const)[],int,int)"
+DEP,../adlint.c,96,31,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",Flush,"int Flush((int const)[],int,int)"
+MET,FN_UNUV,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,1
+MET,FN_PATH,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,16
+DEF,../adlint.c,107,5,F,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",73
+DEF,../adlint.c,107,31,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,107,41,V,I,P,N,cg,int
+DEF,../adlint.c,107,49,V,I,P,N,us,int
+DEF,../adlint.c,108,7,V,I,B,N,i,int
+DEF,../adlint.c,108,10,V,I,B,N,j,int
+DEF,../adlint.c,109,7,V,I,B,N,num_min,int
+DEF,../adlint.c,110,7,V,I,B,N,target,int
+DEF,../adlint.c,111,16,V,I,B,N,deck,(struct card)[13]
+DEF,../adlint.c,112,7,V,I,B,N,ret,int
+DEF,../adlint.c,113,7,V,I,B,N,ret2,int
+DEF,../adlint.c,114,7,V,I,B,N,tmp1,int
+DEF,../adlint.c,114,18,V,I,B,N,tmp2,int
+DCL,../adlint.c,116,7,F,X,F,I,poker_point,int poker_point()
+DEP,../adlint.c,116,7,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,116,18,C,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,116,25,F,X,F,I,P7,int P7()
+DEP,../adlint.c,116,25,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,P7,int P7()
+DEP,../adlint.c,118,52,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,sut
+DEP,../adlint.c,118,52,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,udsut
+DEP,../adlint.c,119,50,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,119,50,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,udNum
+DEP,../adlint.c,125,16,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,131,39,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Full_house,"int Full_house((int const)[],int,int)"
+DEP,../adlint.c,131,49,C,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",Full_house,"int Full_house((int const)[],int,int)"
+DEP,../adlint.c,135,16,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,135,31,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,138,20,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,138,35,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,152,15,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,152,44,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,158,17,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,159,23,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,158,17,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,162,17,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,163,23,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",W,hand
+DEP,../adlint.c,163,23,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,164,23,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,165,27,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,166,21,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,166,47,X,V,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,hand
+DEP,../adlint.c,164,23,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,162,17,X,F,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,1
+MET,FN_PATH,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,123
+DEF,../adlint.c,189,5,F,X,F,Straight,"int Straight((int const)[],int,int)",95
+DEF,../adlint.c,189,25,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,189,35,V,I,P,N,cg,int
+DEF,../adlint.c,189,43,V,I,P,N,us,int
+DEF,../adlint.c,190,7,V,I,B,N,i,int
+DEF,../adlint.c,190,10,V,I,B,N,j,int
+DEF,../adlint.c,190,12,V,I,B,N,k,int
+DEF,../adlint.c,191,7,V,I,B,N,a,int
+DEF,../adlint.c,191,9,V,I,B,N,b,int
+DEF,../adlint.c,191,11,V,I,B,N,c,int
+DEF,../adlint.c,192,7,V,I,B,N,chng,int
+DEF,../adlint.c,193,7,V,I,B,N,ret,int
+DEF,../adlint.c,194,16,V,I,B,N,deck,(struct card)[14]
+DEF,../adlint.c,195,10,V,I,B,N,deck_pro,(double)[14]
+DEF,../adlint.c,196,10,V,I,B,N,hand_pro,(double)[13]
+DEF,../adlint.c,197,10,V,I,B,N,min,double
+DEF,../adlint.c,198,7,V,I,B,N,count,int
+DEF,../adlint.c,199,7,V,I,B,N,tmp1,int
+DEF,../adlint.c,199,13,V,I,B,N,tmp2,int
+DEP,../adlint.c,201,7,X,F,Straight,"int Straight((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,201,18,C,Straight,"int Straight((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,201,26,F,X,F,I,P4,int P4()
+DEP,../adlint.c,201,26,X,F,Straight,"int Straight((int const)[],int,int)",R,P4,int P4()
+DEP,../adlint.c,203,52,X,V,Straight,"int Straight((int const)[],int,int)",R,sut
+DEP,../adlint.c,203,52,X,V,Straight,"int Straight((int const)[],int,int)",R,udsut
+DEP,../adlint.c,204,50,X,V,Straight,"int Straight((int const)[],int,int)",R,Num
+DEP,../adlint.c,204,50,X,V,Straight,"int Straight((int const)[],int,int)",R,udNum
+DEP,../adlint.c,209,11,X,V,Straight,"int Straight((int const)[],int,int)",R,Num
+DEP,../adlint.c,210,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,211,25,X,V,Straight,"int Straight((int const)[],int,int)",R,hand
+DEP,../adlint.c,210,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,213,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,214,25,X,V,Straight,"int Straight((int const)[],int,int)",R,hand
+DEP,../adlint.c,213,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,225,15,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,227,23,X,V,Straight,"int Straight((int const)[],int,int)",R,hand
+DEP,../adlint.c,227,38,X,V,Straight,"int Straight((int const)[],int,int)",R,flg
+DEP,../adlint.c,228,16,X,V,Straight,"int Straight((int const)[],int,int)",W,flg
+DEP,../adlint.c,230,16,X,V,Straight,"int Straight((int const)[],int,int)",W,flg
+DEP,../adlint.c,225,15,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,234,11,X,V,Straight,"int Straight((int const)[],int,int)",R,flg
+DEP,../adlint.c,234,11,X,V,Straight,"int Straight((int const)[],int,int)",W,flg
+DEP,../adlint.c,240,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,241,18,X,V,Straight,"int Straight((int const)[],int,int)",R,flg
+DEP,../adlint.c,241,34,X,V,Straight,"int Straight((int const)[],int,int)",R,flg
+DEP,../adlint.c,242,11,X,V,Straight,"int Straight((int const)[],int,int)",R,flg
+DEP,../adlint.c,240,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,246,20,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,246,9,X,F,Straight,"int Straight((int const)[],int,int)",R,Permu,"int Permu(int,int)"
+DEP,../adlint.c,246,14,C,Straight,"int Straight((int const)[],int,int)",Permu,"int Permu(int,int)"
+DEP,../adlint.c,247,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DCL,../adlint.c,247,28,F,X,F,I,CHNG,int CHNG()
+DEP,../adlint.c,247,28,X,F,Straight,"int Straight((int const)[],int,int)",R,CHNG,int CHNG()
+DEP,../adlint.c,247,9,X,F,Straight,"int Straight((int const)[],int,int)",R,Permu,"int Permu(int,int)"
+DEP,../adlint.c,247,14,C,Straight,"int Straight((int const)[],int,int)",Permu,"int Permu(int,int)"
+DEP,../adlint.c,249,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,249,19,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,259,17,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,260,13,X,V,Straight,"int Straight((int const)[],int,int)",R,hand
+DEP,../adlint.c,259,17,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,276,15,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,277,21,X,V,Straight,"int Straight((int const)[],int,int)",R,hand
+DEP,../adlint.c,276,15,X,F,Straight,"int Straight((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,2
+MET,FN_PATH,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,41
+DEF,../adlint.c,289,5,F,X,F,Flush,"int Flush((int const)[],int,int)",48
+DEF,../adlint.c,289,22,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,289,32,V,I,P,N,cg,int
+DEF,../adlint.c,289,40,V,I,P,N,us,int
+DEF,../adlint.c,290,7,V,I,B,N,target,int
+DEF,../adlint.c,291,16,V,I,B,N,deck,(struct card)[13]
+DEF,../adlint.c,292,10,V,I,B,N,Mark,(double)[4]
+DEF,../adlint.c,293,10,V,I,B,N,hand_pro,(double)[5]
+DEF,../adlint.c,294,10,V,I,B,N,min,double
+DEF,../adlint.c,295,7,V,I,B,N,chng_mark,int
+DEF,../adlint.c,296,7,V,I,B,N,sut_max,int
+DEF,../adlint.c,297,7,V,I,B,N,ret,int
+DEF,../adlint.c,298,7,V,I,B,N,i,int
+DEF,../adlint.c,298,10,V,I,B,N,j,int
+DEF,../adlint.c,299,7,V,I,B,N,a,int
+DEF,../adlint.c,299,10,V,I,B,N,b,int
+DEP,../adlint.c,301,7,X,F,Flush,"int Flush((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,301,18,C,Flush,"int Flush((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,301,26,F,X,F,I,P5,int P5()
+DEP,../adlint.c,301,26,X,F,Flush,"int Flush((int const)[],int,int)",R,P5,int P5()
+DEP,../adlint.c,303,52,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,303,52,X,V,Flush,"int Flush((int const)[],int,int)",R,udsut
+DEP,../adlint.c,305,15,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,306,9,X,F,Flush,"int Flush((int const)[],int,int)",R,CHNG,int CHNG()
+DEP,../adlint.c,306,19,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,306,23,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,306,38,X,V,Flush,"int Flush((int const)[],int,int)",R,hand
+DEP,../adlint.c,309,22,X,V,Flush,"int Flush((int const)[],int,int)",R,hand
+DEP,../adlint.c,309,43,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,309,53,X,V,Flush,"int Flush((int const)[],int,int)",R,hand
+DEP,../adlint.c,309,48,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,309,11,X,F,Flush,"int Flush((int const)[],int,int)",R,Combi,"int Combi(int,int)"
+DEP,../adlint.c,309,16,C,Flush,"int Flush((int const)[],int,int)",Combi,"int Combi(int,int)"
+DEP,../adlint.c,310,25,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,310,32,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,310,42,X,V,Flush,"int Flush((int const)[],int,int)",R,hand
+DEP,../adlint.c,310,37,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,310,11,X,F,Flush,"int Flush((int const)[],int,int)",R,Combi,"int Combi(int,int)"
+DEP,../adlint.c,310,16,C,Flush,"int Flush((int const)[],int,int)",Combi,"int Combi(int,int)"
+DEP,../adlint.c,305,15,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,316,17,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,317,15,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,322,19,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,322,39,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,322,59,X,V,Flush,"int Flush((int const)[],int,int)",R,sut
+DEP,../adlint.c,323,17,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,324,24,X,V,Flush,"int Flush((int const)[],int,int)",R,hand
+DEP,../adlint.c,323,17,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,330,15,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,330,15,X,F,Flush,"int Flush((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,4
+MET,FN_PATH,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,25
+DEF,../adlint.c,340,5,F,X,F,Full_house,"int Full_house((int const)[],int,int)",54
+DEF,../adlint.c,340,27,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,340,37,V,I,P,N,cg,int
+DEF,../adlint.c,340,45,V,I,P,N,us,int
+DEF,../adlint.c,341,7,V,I,B,N,i,int
+DEF,../adlint.c,341,10,V,I,B,N,j,int
+DEF,../adlint.c,341,13,V,I,B,N,k,int
+DEF,../adlint.c,342,7,V,I,B,N,a,int
+DEF,../adlint.c,342,10,V,I,B,N,b,int
+DEF,../adlint.c,343,7,V,I,B,N,ret,int
+DEF,../adlint.c,344,10,V,I,B,N,hand_pro,(double)[5]
+DEF,../adlint.c,345,10,V,I,B,N,min,double
+DEF,../adlint.c,346,7,V,I,B,N,chng_num,int
+DEF,../adlint.c,347,16,V,I,B,N,deck,(struct card)[13]
+DEP,../adlint.c,349,52,X,V,Full_house,"int Full_house((int const)[],int,int)",R,sut
+DEP,../adlint.c,349,52,X,V,Full_house,"int Full_house((int const)[],int,int)",R,udsut
+DEP,../adlint.c,350,50,X,V,Full_house,"int Full_house((int const)[],int,int)",R,Num
+DEP,../adlint.c,350,50,X,V,Full_house,"int Full_house((int const)[],int,int)",R,udNum
+DEP,../adlint.c,352,7,X,F,Full_house,"int Full_house((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,352,18,C,Full_house,"int Full_house((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,352,25,F,X,F,I,P6,int P6()
+DEP,../adlint.c,352,25,X,F,Full_house,"int Full_house((int const)[],int,int)",R,P6,int P6()
+DEP,../adlint.c,353,7,X,F,Full_house,"int Full_house((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,353,18,C,Full_house,"int Full_house((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,353,26,F,X,F,I,P0,int P0()
+DEP,../adlint.c,353,26,X,F,Full_house,"int Full_house((int const)[],int,int)",R,P0,int P0()
+DEP,../adlint.c,353,31,X,F,Full_house,"int Full_house((int const)[],int,int)",R,One_pair,"int One_pair((int const)[],int,int)"
+DEP,../adlint.c,353,39,C,Full_house,"int Full_house((int const)[],int,int)",One_pair,"int One_pair((int const)[],int,int)"
+DEP,../adlint.c,354,7,X,F,Full_house,"int Full_house((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,354,18,C,Full_house,"int Full_house((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,354,26,F,X,F,I,P1,int P1()
+DEP,../adlint.c,354,26,X,F,Full_house,"int Full_house((int const)[],int,int)",R,P1,int P1()
+DEP,../adlint.c,354,31,X,F,Full_house,"int Full_house((int const)[],int,int)",R,Two_pair,"int Two_pair((int const)[],int,int)"
+DEP,../adlint.c,354,39,C,Full_house,"int Full_house((int const)[],int,int)",Two_pair,"int Two_pair((int const)[],int,int)"
+DEP,../adlint.c,360,16,X,V,Full_house,"int Full_house((int const)[],int,int)",R,Num
+DEP,../adlint.c,361,19,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,362,25,X,V,Full_house,"int Full_house((int const)[],int,int)",R,hand
+DEP,../adlint.c,363,37,X,V,Full_house,"int Full_house((int const)[],int,int)",R,hand
+DEP,../adlint.c,363,62,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,361,19,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,368,19,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,368,19,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,380,16,X,V,Full_house,"int Full_house((int const)[],int,int)",R,Num
+DEP,../adlint.c,382,20,X,V,Full_house,"int Full_house((int const)[],int,int)",R,Num
+DEP,../adlint.c,383,23,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,384,29,X,V,Full_house,"int Full_house((int const)[],int,int)",R,hand
+DEP,../adlint.c,384,49,X,V,Full_house,"int Full_house((int const)[],int,int)",R,hand
+DEP,../adlint.c,383,23,X,F,Full_house,"int Full_house((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,3
+MET,FN_PATH,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,33
+DEF,../adlint.c,397,5,F,X,F,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",15
+DEF,../adlint.c,397,32,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,397,42,V,I,P,N,cg,int
+DEF,../adlint.c,397,50,V,I,P,N,us,int
+DEF,../adlint.c,398,7,V,I,B,N,i,int
+DEF,../adlint.c,398,10,V,I,B,N,j,int
+DEP,../adlint.c,400,7,X,F,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,400,18,C,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,400,25,F,X,F,I,P3,int P3()
+DEP,../adlint.c,400,25,X,F,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",R,P3,int P3()
+DEP,../adlint.c,403,16,X,V,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",R,Num
+DEP,../adlint.c,407,21,X,V,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",R,hand
+MET,FN_UNUV,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,3
+MET,FN_PATH,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,5
+DEF,../adlint.c,416,5,F,X,F,Two_pair,"int Two_pair((int const)[],int,int)",31
+DEF,../adlint.c,416,25,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,416,35,V,I,P,N,cg,int
+DEF,../adlint.c,416,43,V,I,P,N,us,int
+DEF,../adlint.c,417,7,V,I,B,N,i,int
+DEF,../adlint.c,417,10,V,I,B,N,j,int
+DEF,../adlint.c,417,13,V,I,B,N,k,int
+DEF,../adlint.c,418,7,V,I,B,N,ret,int
+DEF,../adlint.c,419,10,V,I,B,N,hand_pro,(double)[5]
+DEF,../adlint.c,420,10,V,I,B,N,min,double
+DEF,../adlint.c,421,7,V,I,B,N,chng_num,int
+DEF,../adlint.c,422,16,V,I,B,N,deck,(struct card)[13]
+DEP,../adlint.c,424,52,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,sut
+DEP,../adlint.c,424,52,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,udsut
+DEP,../adlint.c,425,50,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,Num
+DEP,../adlint.c,425,50,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,udNum
+DEP,../adlint.c,427,7,X,F,Two_pair,"int Two_pair((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,427,18,C,Two_pair,"int Two_pair((int const)[],int,int)",poker_point,int poker_point()
+DCL,../adlint.c,427,25,F,X,F,I,P2,int P2()
+DEP,../adlint.c,427,25,X,F,Two_pair,"int Two_pair((int const)[],int,int)",R,P2,int P2()
+DEP,../adlint.c,430,16,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,Num
+DEP,../adlint.c,432,25,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,hand
+DEP,../adlint.c,433,37,X,V,Two_pair,"int Two_pair((int const)[],int,int)",R,hand
+DEP,../adlint.c,433,62,X,F,Two_pair,"int Two_pair((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,438,19,X,F,Two_pair,"int Two_pair((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,438,19,X,F,Two_pair,"int Two_pair((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,4
+MET,FN_PATH,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,6
+DEF,../adlint.c,450,5,F,X,F,One_pair,"int One_pair((int const)[],int,int)",20
+DEF,../adlint.c,450,25,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,450,35,V,I,P,N,cg,int
+DEF,../adlint.c,450,43,V,I,P,N,us,int
+DEF,../adlint.c,451,7,V,I,B,N,i,int
+DEF,../adlint.c,451,10,V,I,B,N,j,int
+DEF,../adlint.c,451,13,V,I,B,N,k,int
+DEF,../adlint.c,451,16,V,I,B,N,m,int
+DEF,../adlint.c,451,19,V,I,B,N,s,int
+DEF,../adlint.c,451,22,V,I,B,N,t,int
+DEF,../adlint.c,452,7,V,I,B,N,a,int
+DEF,../adlint.c,452,9,V,I,B,N,b,int
+DEF,../adlint.c,453,7,V,I,B,N,ret,int
+DEF,../adlint.c,454,10,V,I,B,N,hand_pro,(double)[5]
+DEF,../adlint.c,455,10,V,I,B,N,min,double
+DEF,../adlint.c,456,7,V,I,B,N,chng_num,int
+DEF,../adlint.c,457,16,V,I,B,N,deck,(struct card)[14]
+DEP,../adlint.c,459,52,X,V,One_pair,"int One_pair((int const)[],int,int)",R,sut
+DEP,../adlint.c,459,52,X,V,One_pair,"int One_pair((int const)[],int,int)",R,udsut
+DEP,../adlint.c,460,50,X,V,One_pair,"int One_pair((int const)[],int,int)",R,Num
+DEP,../adlint.c,460,50,X,V,One_pair,"int One_pair((int const)[],int,int)",R,udNum
+DEP,../adlint.c,462,15,X,F,One_pair,"int One_pair((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,462,54,X,V,One_pair,"int One_pair((int const)[],int,int)",R,hand
+DEP,../adlint.c,462,79,X,F,One_pair,"int One_pair((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,462,15,X,F,One_pair,"int One_pair((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,464,15,X,F,One_pair,"int One_pair((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,464,15,X,F,One_pair,"int One_pair((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,10
+MET,FN_PATH,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,2
+DEF,../adlint.c,473,5,F,X,F,Final,"int Final((int const)[],int,int)",79
+DEF,../adlint.c,473,22,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,473,32,V,I,P,N,cg,int
+DEF,../adlint.c,473,40,V,I,P,N,us,int
+DEF,../adlint.c,474,16,V,I,B,N,deck,(struct card)[13]
+DEF,../adlint.c,475,7,V,I,B,N,i,int
+DEF,../adlint.c,475,10,V,I,B,N,j,int
+DEF,../adlint.c,475,13,V,I,B,N,k,int
+DEF,../adlint.c,475,16,V,I,B,N,l,int
+DEF,../adlint.c,475,19,V,I,B,N,m,int
+DEF,../adlint.c,475,22,V,I,B,N,n,int
+DEF,../adlint.c,476,7,V,I,B,N,flag,(int)[5]
+DEF,../adlint.c,477,7,V,I,B,N,max_point,int
+DEF,../adlint.c,478,16,V,I,B,N,mer_deck,(struct card)[13]
+DEF,../adlint.c,479,16,V,I,B,N,ideal_hand,(struct card)[5]
+DEF,../adlint.c,480,8,V,I,B,N,vir_hand,(int)[5]
+DEF,../adlint.c,481,8,V,I,B,N,vir_deck,(int)[52]
+DEF,../adlint.c,482,7,V,I,B,N,deck_max,int
+DEP,../adlint.c,484,52,X,V,Final,"int Final((int const)[],int,int)",R,sut
+DEP,../adlint.c,484,52,X,V,Final,"int Final((int const)[],int,int)",R,udsut
+DEP,../adlint.c,485,50,X,V,Final,"int Final((int const)[],int,int)",R,Num
+DEP,../adlint.c,485,50,X,V,Final,"int Final((int const)[],int,int)",R,udNum
+DEP,../adlint.c,487,58,X,V,Final,"int Final((int const)[],int,int)",R,sut
+DEP,../adlint.c,488,58,X,V,Final,"int Final((int const)[],int,int)",R,Num
+DEP,../adlint.c,491,21,X,V,Final,"int Final((int const)[],int,int)",R,deck_flg
+DEP,../adlint.c,497,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,498,19,X,V,Final,"int Final((int const)[],int,int)",R,hand
+DEP,../adlint.c,497,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,517,29,X,F,Final,"int Final((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,517,40,C,Final,"int Final((int const)[],int,int)",poker_point,int poker_point()
+DEP,../adlint.c,518,27,X,F,Final,"int Final((int const)[],int,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,518,38,C,Final,"int Final((int const)[],int,int)",poker_point,int poker_point()
+DEP,../adlint.c,531,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,531,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,538,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,539,17,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,540,24,X,V,Final,"int Final((int const)[],int,int)",R,hand
+DEP,../adlint.c,539,17,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,538,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,546,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,546,15,X,F,Final,"int Final((int const)[],int,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,6
+MET,FN_PATH,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,56
+DEF,../adlint.c,555,6,F,X,F,Separate_hand,void Separate_hand((int const)[]),14
+DEF,../adlint.c,555,31,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,556,7,V,I,B,N,i,int
+DEP,../adlint.c,558,32,X,V,Separate_hand,void Separate_hand((int const)[]),W,sut
+DEP,../adlint.c,559,32,X,V,Separate_hand,void Separate_hand((int const)[]),W,Num
+DEP,../adlint.c,562,18,X,V,Separate_hand,void Separate_hand((int const)[]),W,hand
+DEP,../adlint.c,563,18,X,V,Separate_hand,void Separate_hand((int const)[]),W,hand
+DEP,../adlint.c,564,18,X,V,Separate_hand,void Separate_hand((int const)[]),W,hand
+DEP,../adlint.c,565,8,X,V,Separate_hand,void Separate_hand((int const)[]),R,hand
+DEP,../adlint.c,565,22,X,V,Separate_hand,void Separate_hand((int const)[]),W,sut
+DEP,../adlint.c,566,8,X,V,Separate_hand,void Separate_hand((int const)[]),R,hand
+DEP,../adlint.c,566,21,X,V,Separate_hand,void Separate_hand((int const)[]),W,Num
+MET,FN_UNUV,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,0
+MET,FN_PATH,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,1
+DEF,../adlint.c,573,6,F,X,F,Separate_dishand,"void Separate_dishand((int const)[],int)",14
+DEF,../adlint.c,573,34,V,I,P,N,ud,(int const)[]
+DEF,../adlint.c,573,44,V,I,P,N,us,int
+DEF,../adlint.c,574,7,V,I,B,N,i,int
+DEP,../adlint.c,576,34,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,udsut
+DEP,../adlint.c,577,34,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,udNum
+DEP,../adlint.c,580,21,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,dishand
+DEP,../adlint.c,581,21,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,dishand
+DEP,../adlint.c,582,21,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,dishand
+DEP,../adlint.c,583,10,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",R,dishand
+DEP,../adlint.c,583,27,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,udsut
+DEP,../adlint.c,584,10,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",R,dishand
+DEP,../adlint.c,584,26,X,V,Separate_dishand,"void Separate_dishand((int const)[],int)",W,udNum
+MET,FN_UNUV,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,0
+MET,FN_PATH,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,2
+DEF,../adlint.c,590,6,F,X,F,Check_len,void Check_len(void),25
+DEF,../adlint.c,591,7,V,I,B,N,i,int
+DEP,../adlint.c,593,9,X,V,Check_len,void Check_len(void),W,count
+DEP,../adlint.c,594,3,X,F,Check_len,void Check_len(void),R,Init_flg,void Init_flg(void)
+DEP,../adlint.c,594,11,C,Check_len,void Check_len(void),Init_flg,void Init_flg(void)
+DEP,../adlint.c,598,18,X,V,Check_len,void Check_len(void),R,Num
+DEP,../adlint.c,599,14,X,V,Check_len,void Check_len(void),W,count
+DEP,../adlint.c,601,15,X,V,Check_len,void Check_len(void),W,count
+DEP,../adlint.c,603,22,X,V,Check_len,void Check_len(void),R,Num
+DEP,../adlint.c,604,12,X,V,Check_len,void Check_len(void),W,count
+DEP,../adlint.c,606,13,X,V,Check_len,void Check_len(void),W,count
+DEP,../adlint.c,608,12,X,V,Check_len,void Check_len(void),R,count
+DEP,../adlint.c,608,12,X,V,Check_len,void Check_len(void),W,flg
+DEP,../adlint.c,612,15,X,V,Check_len,void Check_len(void),R,flg
+DEP,../adlint.c,612,30,X,V,Check_len,void Check_len(void),R,flg
+DEP,../adlint.c,612,45,X,V,Check_len,void Check_len(void),R,flg
+DEP,../adlint.c,612,45,X,V,Check_len,void Check_len(void),W,flg
+DEP,../adlint.c,612,72,X,V,Check_len,void Check_len(void),R,flg
+DEP,../adlint.c,612,63,X,V,Check_len,void Check_len(void),W,flg
+MET,FN_UNUV,Check_len,void Check_len(void),../adlint.c,590,6,0
+MET,FN_PATH,Check_len,void Check_len(void),../adlint.c,590,6,10
+DEF,../adlint.c,618,5,F,X,F,Combi,"int Combi(int,int)",10
+DEF,../adlint.c,618,16,V,I,P,N,a,int
+DEF,../adlint.c,618,23,V,I,P,N,b,int
+DEF,../adlint.c,619,7,V,I,B,N,i,int
+DEF,../adlint.c,620,7,V,I,B,N,tmp,int
+MET,FN_UNUV,Combi,"int Combi(int,int)",../adlint.c,618,5,0
+MET,FN_PATH,Combi,"int Combi(int,int)",../adlint.c,618,5,8
+DEF,../adlint.c,631,5,F,X,F,Permu,"int Permu(int,int)",9
+DEF,../adlint.c,631,16,V,I,P,N,a,int
+DEF,../adlint.c,631,23,V,I,P,N,b,int
+DEF,../adlint.c,632,7,V,I,B,N,i,int
+DEF,../adlint.c,633,7,V,I,B,N,tmp,int
+MET,FN_UNUV,Permu,"int Permu(int,int)",../adlint.c,631,5,0
+MET,FN_PATH,Permu,"int Permu(int,int)",../adlint.c,631,5,4
+DEF,../adlint.c,643,5,F,X,F,Reach_check,int Reach_check(void),49
+DEF,../adlint.c,645,16,V,I,B,N,vir_hand,(struct card)[5]
+DEF,../adlint.c,646,16,V,I,B,N,vir_deck,(struct card)[52]
+DEF,../adlint.c,647,7,V,I,B,N,deck_max,int
+DEF,../adlint.c,648,7,V,I,B,N,i,int
+DEF,../adlint.c,648,9,V,I,B,N,j,int
+DEF,../adlint.c,648,11,V,I,B,N,k,int
+DEF,../adlint.c,649,7,V,I,B,N,virNum,(int)[13]
+DEP,../adlint.c,653,21,X,V,Reach_check,int Reach_check(void),R,deck_flg
+DEP,../adlint.c,659,15,X,F,Reach_check,int Reach_check(void),R,HNUM,int HNUM()
+DEP,../adlint.c,660,24,X,V,Reach_check,int Reach_check(void),R,hand
+DEP,../adlint.c,659,15,X,F,Reach_check,int Reach_check(void),R,HNUM,int HNUM()
+DEP,../adlint.c,675,25,X,V,Reach_check,int Reach_check(void),W,Num
+DEP,../adlint.c,676,5,X,F,Reach_check,int Reach_check(void),R,Check_len,void Check_len(void)
+DEP,../adlint.c,676,14,C,Reach_check,int Reach_check(void),Check_len,void Check_len(void)
+DEP,../adlint.c,678,13,X,V,Reach_check,int Reach_check(void),R,flg
+DEP,../adlint.c,679,29,X,V,Reach_check,int Reach_check(void),W,Num
+DEP,../adlint.c,683,25,X,V,Reach_check,int Reach_check(void),W,Num
+DEP,../adlint.c,688,11,X,V,Reach_check,int Reach_check(void),R,sut
+MET,FN_UNUV,Reach_check,int Reach_check(void),../adlint.c,643,5,3
+MET,FN_PATH,Reach_check,int Reach_check(void),../adlint.c,643,5,12
+DEF,../adlint.c,695,6,F,X,F,Init_flg,void Init_flg(void),4
+DEF,../adlint.c,696,7,V,I,B,N,i,int
+DEP,../adlint.c,697,33,X,V,Init_flg,void Init_flg(void),W,flg
+MET,FN_UNUV,Init_flg,void Init_flg(void),../adlint.c,695,6,0
+MET,FN_PATH,Init_flg,void Init_flg(void),../adlint.c,695,6,1
+DCL,../adlint.c,49,10,T,S,card,struct card { int orig; int mark; int num; }
+LIT,../adlint.c,54,20,DN,,,6
+LIT,../adlint.c,54,26,DN,,,0
+INI,../adlint.c,54,15,hand,{0}
+LIT,../adlint.c,55,23,DN,,,52
+LIT,../adlint.c,55,30,DN,,,0
+INI,../adlint.c,55,15,dishand,{0}
+LIT,../adlint.c,57,11,DN,,,4
+LIT,../adlint.c,57,18,DN,,,0
+INI,../adlint.c,57,7,sut,{0}
+LIT,../adlint.c,58,11,DN,,,14
+LIT,../adlint.c,58,18,DN,,,0
+INI,../adlint.c,58,7,Num,{0}
+LIT,../adlint.c,59,13,DN,,,4
+LIT,../adlint.c,59,18,DN,,,0
+INI,../adlint.c,59,7,udsut,{0}
+LIT,../adlint.c,60,13,DN,,,13
+LIT,../adlint.c,60,18,DN,,,0
+INI,../adlint.c,60,7,udNum,{0}
+LIT,../adlint.c,61,11,DN,,,15
+LIT,../adlint.c,61,18,DN,,,0
+INI,../adlint.c,61,7,flg,{0}
+LIT,../adlint.c,62,15,DN,,,0
+INI,../adlint.c,62,7,count,0
+LIT,../adlint.c,63,16,DN,,,52
+LIT,../adlint.c,63,23,DN,,,0
+INI,../adlint.c,63,7,deck_flg,{0}
+LIT,../adlint.c,64,12,DN,,,0
+INI,../adlint.c,64,7,ch,0
+MET,FN_LINE,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,34
+MET,FN_PARA,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,6
+LIT,../adlint.c,69,14,DN,,,1
+INI,../adlint.c,69,7,ret,-1
+ASN,../adlint.c,76,9,i,= 0
+LIT,../adlint.c,76,10,DN,,,0
+LIT,../adlint.c,76,15,DN,,,52
+ASN,../adlint.c,76,37,deck_flg[i],= 0
+LIT,../adlint.c,76,39,DN,,,0
+ASN,../adlint.c,77,9,i,= 0
+LIT,../adlint.c,77,10,DN,,,0
+ASN,../adlint.c,77,41,deck_flg[ud[i]],= 1
+LIT,../adlint.c,77,43,DN,,,1
+ASN,../adlint.c,78,9,i,= 0
+LIT,../adlint.c,78,10,DN,,,0
+ASN,../adlint.c,78,44,deck_flg[hd[i]],= 1
+LIT,../adlint.c,78,46,DN,,,1
+ASN,../adlint.c,81,6,ch,= Reach_check()
+LIT,../adlint.c,83,12,DN,,,2
+LIT,../adlint.c,84,15,DN,,,1
+LIT,../adlint.c,87,21,DN,,,2
+LIT,../adlint.c,90,15,DN,,,1
+LIT,../adlint.c,94,13,DN,,,3
+LIT,../adlint.c,94,18,DN,,,52
+LIT,../adlint.c,94,32,DN,,,22
+LIT,../adlint.c,94,46,DN,,,1
+LIT,../adlint.c,95,13,DN,,,5
+ASN,../adlint.c,95,22,ret,"= Final(hd,cg,us)"
+LIT,../adlint.c,96,15,DN,,,1
+ASN,../adlint.c,96,24,ret,"= Flush(hd,cg,us)"
+MET,FN_STMT,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,28
+MET,FN_UNRC,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,0
+MET,FN_CSUB,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,7
+MET,FN_GOTO,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,0
+MET,FN_RETN,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,5
+MET,FN_UELS,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,0
+MET,FN_NEST,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,2
+MET,FN_CYCM,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,67,5,7
+MET,FN_LINE,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,73
+MET,FN_PARA,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,3
+LIT,../adlint.c,111,21,DN,,,13
+LIT,../adlint.c,111,28,DN,,,0
+INI,../adlint.c,111,16,deck,{0}
+LIT,../adlint.c,112,15,DN,,,1
+INI,../adlint.c,112,7,ret,-1
+LIT,../adlint.c,113,15,DN,,,1
+INI,../adlint.c,113,7,ret2,-1
+LIT,../adlint.c,114,15,DN,,,1
+LIT,../adlint.c,114,26,DN,,,1
+INI,../adlint.c,114,7,tmp1,-1
+INI,../adlint.c,114,18,tmp2,-1
+LIT,../adlint.c,116,39,DN,,,1
+ASN,../adlint.c,118,9,i,= 0
+LIT,../adlint.c,118,10,DN,,,0
+LIT,../adlint.c,118,16,DN,,,4
+ASN,../adlint.c,118,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,118,41,DN,,,13
+ASN,../adlint.c,119,9,i,= 0
+LIT,../adlint.c,119,10,DN,,,0
+LIT,../adlint.c,119,15,DN,,,13
+ASN,../adlint.c,119,38,deck[i].num,= 4 - (Num[i] + udNum[i])
+LIT,../adlint.c,119,40,DN,,,4
+ASN,../adlint.c,124,9,i,= 0
+LIT,../adlint.c,124,10,DN,,,0
+LIT,../adlint.c,124,15,DN,,,13
+LIT,../adlint.c,125,19,DN,,,3
+ASN,../adlint.c,126,14,target,= i
+LIT,../adlint.c,131,27,DN,,,1
+ASN,../adlint.c,134,9,i,= 0
+LIT,../adlint.c,134,10,DN,,,0
+LIT,../adlint.c,134,15,DN,,,13
+LIT,../adlint.c,135,19,DN,,,1
+LIT,../adlint.c,135,34,DN,,,2
+ASN,../adlint.c,136,12,tmp1,= i
+ASN,../adlint.c,137,13,j,= i + 1
+LIT,../adlint.c,137,16,DN,,,1
+LIT,../adlint.c,137,21,DN,,,13
+LIT,../adlint.c,138,23,DN,,,1
+LIT,../adlint.c,138,38,DN,,,2
+ASN,../adlint.c,139,16,tmp2,= j
+LIT,../adlint.c,146,16,DN,,,1
+ASN,../adlint.c,148,11,ret,= tmp1
+ASN,../adlint.c,150,11,ret,= tmp2
+ASN,../adlint.c,153,13,ret,= tmp1
+ASN,../adlint.c,155,13,ret,= tmp2
+ASN,../adlint.c,158,11,i,= 0
+LIT,../adlint.c,158,12,DN,,,0
+ASN,../adlint.c,162,11,i,= 0
+LIT,../adlint.c,162,12,DN,,,0
+ASN,../adlint.c,163,23,hand[i].num,= !target
+ASN,../adlint.c,164,15,j,= i + 1
+LIT,../adlint.c,164,18,DN,,,1
+MET,FN_STMT,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,54
+MET,FN_UNRC,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,0
+MET,FN_CSUB,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,2
+MET,FN_GOTO,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,0
+MET,FN_RETN,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,6
+MET,FN_UELS,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,1
+MET,FN_NEST,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,6
+MET,FN_CYCM,Four_of_a_kind,"int Four_of_a_kind((int const)[],int,int)",../adlint.c,107,5,15
+MET,FN_LINE,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,95
+MET,FN_PARA,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,3
+LIT,../adlint.c,192,13,DN,,,1
+INI,../adlint.c,192,7,chng,-1
+LIT,../adlint.c,193,14,DN,,,1
+INI,../adlint.c,193,7,ret,-1
+LIT,../adlint.c,194,21,DN,,,14
+LIT,../adlint.c,194,28,DN,,,0
+INI,../adlint.c,194,16,deck,{0}
+LIT,../adlint.c,195,19,DN,,,14
+LIT,../adlint.c,195,26,DN,,,0
+INI,../adlint.c,195,10,deck_pro,{0}
+LIT,../adlint.c,196,19,DN,,,13
+LIT,../adlint.c,196,26,DN,,,0
+INI,../adlint.c,196,10,hand_pro,{0}
+LIT,../adlint.c,197,15,DN,,,100
+INI,../adlint.c,197,10,min,100
+LIT,../adlint.c,198,15,DN,,,0
+INI,../adlint.c,198,7,count,0
+LIT,../adlint.c,201,40,DN,,,1
+ASN,../adlint.c,203,9,i,= 0
+LIT,../adlint.c,203,10,DN,,,0
+LIT,../adlint.c,203,16,DN,,,4
+ASN,../adlint.c,203,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,203,41,DN,,,13
+ASN,../adlint.c,204,9,i,= 0
+LIT,../adlint.c,204,10,DN,,,0
+LIT,../adlint.c,204,15,DN,,,13
+ASN,../adlint.c,204,38,deck[i].num,= 4 - (Num[i] + udNum[i])
+LIT,../adlint.c,204,40,DN,,,4
+ASN,../adlint.c,205,16,deck[13].num,= deck[0].num
+LIT,../adlint.c,205,8,DN,,,13
+LIT,../adlint.c,205,23,DN,,,0
+ASN,../adlint.c,208,9,i,= 0
+LIT,../adlint.c,208,10,DN,,,0
+LIT,../adlint.c,208,15,DN,,,4
+LIT,../adlint.c,209,9,DN,,,1
+ASN,../adlint.c,210,13,j,= 0
+LIT,../adlint.c,210,14,DN,,,0
+ASN,../adlint.c,211,39,tmp1,= j
+ASN,../adlint.c,213,13,k,= 0
+LIT,../adlint.c,213,14,DN,,,0
+ASN,../adlint.c,214,51,tmp2,= k
+ASN,../adlint.c,225,9,i,= 0
+LIT,../adlint.c,225,10,DN,,,0
+ASN,../adlint.c,226,11,j,= 0
+LIT,../adlint.c,226,12,DN,,,0
+LIT,../adlint.c,226,17,DN,,,14
+LIT,../adlint.c,227,42,DN,,,1
+ASN,../adlint.c,228,16,flg[j],= deck[j].num
+ASN,../adlint.c,230,16,flg[j],= -1
+LIT,../adlint.c,230,19,DN,,,1
+ASN,../adlint.c,234,11,flg[13],= flg[0]
+LIT,../adlint.c,234,7,DN,,,13
+LIT,../adlint.c,234,17,DN,,,0
+ASN,../adlint.c,237,9,i,= 0
+LIT,../adlint.c,237,10,DN,,,0
+LIT,../adlint.c,237,15,DN,,,14
+LIT,../adlint.c,237,18,DN,,,4
+ASN,../adlint.c,238,7,a,= 1
+LIT,../adlint.c,238,9,DN,,,1
+ASN,../adlint.c,239,11,count,= 0
+LIT,../adlint.c,239,13,DN,,,0
+ASN,../adlint.c,240,11,j,= i
+LIT,../adlint.c,241,22,DN,,,1
+LIT,../adlint.c,241,37,DN,,,0
+ASN,../adlint.c,242,11,a,*= flg[j]
+ASN,../adlint.c,246,7,b,"= Permu((52 - HNUM - us) - count,count)"
+LIT,../adlint.c,246,17,DN,,,52
+ASN,../adlint.c,247,7,c,"= Permu(52 - HNUM - us,CHNG - cg)"
+LIT,../adlint.c,247,16,DN,,,52
+ASN,../adlint.c,249,11,k,= i
+ASN,../adlint.c,250,21,deck_pro[k],+= (double) (a * b) / c
+ASN,../adlint.c,253,15,deck_pro[0],+= deck_pro[13]
+LIT,../adlint.c,253,12,DN,,,0
+LIT,../adlint.c,253,27,DN,,,13
+ASN,../adlint.c,258,9,i,= 0
+LIT,../adlint.c,258,10,DN,,,0
+LIT,../adlint.c,258,15,DN,,,13
+ASN,../adlint.c,259,11,j,= 0
+LIT,../adlint.c,259,12,DN,,,0
+ASN,../adlint.c,261,21,hand_pro[i],= deck_pro[i]
+ASN,../adlint.c,268,9,i,= 0
+LIT,../adlint.c,268,10,DN,,,0
+LIT,../adlint.c,268,15,DN,,,13
+LIT,../adlint.c,269,45,DN,,,0
+ASN,../adlint.c,270,11,min,= hand_pro[i]
+ASN,../adlint.c,271,12,chng,= i
+ASN,../adlint.c,276,9,i,= 0
+LIT,../adlint.c,276,10,DN,,,0
+ASN,../adlint.c,278,11,ret,= i
+MET,FN_STMT,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,77
+MET,FN_UNRC,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,1
+MET,FN_CSUB,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,3
+MET,FN_GOTO,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,0
+MET,FN_RETN,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,4
+MET,FN_UELS,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,0
+MET,FN_NEST,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,4
+MET,FN_CYCM,Straight,"int Straight((int const)[],int,int)",../adlint.c,189,5,11
+MET,FN_LINE,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,48
+MET,FN_PARA,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,3
+LIT,../adlint.c,291,21,DN,,,13
+LIT,../adlint.c,291,28,DN,,,0
+INI,../adlint.c,291,16,deck,{0}
+LIT,../adlint.c,292,15,DN,,,4
+LIT,../adlint.c,292,21,DN,,,0
+INI,../adlint.c,292,10,Mark,{0}
+LIT,../adlint.c,293,19,DN,,,5
+LIT,../adlint.c,293,25,DN,,,0
+INI,../adlint.c,293,10,hand_pro,{0}
+LIT,../adlint.c,294,16,DN,,,1
+INI,../adlint.c,294,10,min,1
+LIT,../adlint.c,295,19,DN,,,0
+INI,../adlint.c,295,7,chng_mark,0
+LIT,../adlint.c,296,17,DN,,,0
+INI,../adlint.c,296,7,sut_max,0
+LIT,../adlint.c,297,11,DN,,,0
+INI,../adlint.c,297,7,ret,0
+LIT,../adlint.c,301,40,DN,,,1
+ASN,../adlint.c,303,9,i,= 0
+LIT,../adlint.c,303,10,DN,,,0
+LIT,../adlint.c,303,16,DN,,,4
+ASN,../adlint.c,303,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,303,41,DN,,,13
+ASN,../adlint.c,305,9,i,= 0
+LIT,../adlint.c,305,10,DN,,,0
+LIT,../adlint.c,306,61,DN,,,0
+ASN,../adlint.c,307,19,hand_pro[i],= 0
+LIT,../adlint.c,307,21,DN,,,0
+ASN,../adlint.c,309,9,a,"= Combi(deck[hand[i].mark].mark,HNUM - sut[hand[i].mark])"
+ASN,../adlint.c,310,9,b,"= Combi((52 - us - HNUM),HNUM - sut[hand[i].mark])"
+LIT,../adlint.c,310,19,DN,,,52
+ASN,../adlint.c,311,19,hand_pro[i],= (double) a / b
+ASN,../adlint.c,315,9,i,= 0
+LIT,../adlint.c,315,10,DN,,,0
+LIT,../adlint.c,315,15,DN,,,4
+ASN,../adlint.c,317,15,sut_max,= sut[i]
+ASN,../adlint.c,318,14,target,= i
+LIT,../adlint.c,322,22,DN,,,2
+LIT,../adlint.c,322,42,DN,,,3
+LIT,../adlint.c,322,62,DN,,,4
+ASN,../adlint.c,323,11,j,= 0
+LIT,../adlint.c,323,12,DN,,,0
+ASN,../adlint.c,325,21,hand_pro[j],= 1.0
+LIT,../adlint.c,325,23,FN,,,1.0
+ASN,../adlint.c,330,9,i,= 0
+LIT,../adlint.c,330,10,DN,,,0
+ASN,../adlint.c,331,34,min,= hand_pro[i]
+ASN,../adlint.c,331,59,chng_mark,= i
+ASN,../adlint.c,333,7,ret,= chng_mark
+MET,FN_STMT,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,34
+MET,FN_UNRC,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,0
+MET,FN_CSUB,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,3
+MET,FN_GOTO,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,0
+MET,FN_RETN,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,2
+MET,FN_UELS,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,0
+MET,FN_NEST,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,3
+MET,FN_CYCM,Flush,"int Flush((int const)[],int,int)",../adlint.c,289,5,7
+MET,FN_LINE,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,54
+MET,FN_PARA,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,3
+LIT,../adlint.c,343,14,DN,,,1
+INI,../adlint.c,343,7,ret,-1
+LIT,../adlint.c,344,19,DN,,,5
+LIT,../adlint.c,344,25,DN,,,0
+INI,../adlint.c,344,10,hand_pro,{0}
+LIT,../adlint.c,345,16,DN,,,1
+INI,../adlint.c,345,10,min,1
+LIT,../adlint.c,346,18,DN,,,0
+INI,../adlint.c,346,7,chng_num,0
+LIT,../adlint.c,347,21,DN,,,13
+LIT,../adlint.c,347,28,DN,,,0
+INI,../adlint.c,347,16,deck,{0}
+ASN,../adlint.c,349,9,i,= 0
+LIT,../adlint.c,349,10,DN,,,0
+LIT,../adlint.c,349,16,DN,,,4
+ASN,../adlint.c,349,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,349,41,DN,,,13
+ASN,../adlint.c,350,9,i,= 0
+LIT,../adlint.c,350,10,DN,,,0
+LIT,../adlint.c,350,15,DN,,,13
+ASN,../adlint.c,350,38,deck[i].num,= 4 - (Num[i] + udNum[i])
+LIT,../adlint.c,350,40,DN,,,4
+LIT,../adlint.c,352,39,DN,,,1
+ASN,../adlint.c,359,9,i,= 0
+LIT,../adlint.c,359,10,DN,,,0
+LIT,../adlint.c,359,15,DN,,,13
+LIT,../adlint.c,360,19,DN,,,3
+ASN,../adlint.c,361,13,k,= 0
+LIT,../adlint.c,361,14,DN,,,0
+ASN,../adlint.c,363,23,hand_pro[k],= (double) deck[hand[k].num].num / (52 - us - HNUM)
+LIT,../adlint.c,363,56,DN,,,52
+ASN,../adlint.c,365,23,hand_pro[k],= 1.0
+LIT,../adlint.c,365,25,FN,,,1.0
+ASN,../adlint.c,368,13,i,= 0
+LIT,../adlint.c,368,14,DN,,,0
+ASN,../adlint.c,369,38,min,= hand_pro[i]
+ASN,../adlint.c,369,62,chng_num,= i
+ASN,../adlint.c,371,11,ret,= chng_num
+ASN,../adlint.c,379,9,i,= 0
+LIT,../adlint.c,379,10,DN,,,0
+LIT,../adlint.c,379,15,DN,,,13
+LIT,../adlint.c,380,19,DN,,,2
+ASN,../adlint.c,381,13,j,= i + 1
+LIT,../adlint.c,381,16,DN,,,1
+LIT,../adlint.c,381,21,DN,,,13
+LIT,../adlint.c,382,23,DN,,,2
+ASN,../adlint.c,383,17,k,= 0
+LIT,../adlint.c,383,18,DN,,,0
+LIT,../adlint.c,392,11,DN,,,1
+MET,FN_STMT,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,46
+MET,FN_UNRC,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,0
+MET,FN_CSUB,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,5
+MET,FN_GOTO,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,0
+MET,FN_RETN,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,4
+MET,FN_UELS,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,0
+MET,FN_NEST,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,6
+MET,FN_CYCM,Full_house,"int Full_house((int const)[],int,int)",../adlint.c,340,5,10
+MET,FN_LINE,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,15
+MET,FN_PARA,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,3
+LIT,../adlint.c,400,39,DN,,,1
+ASN,../adlint.c,402,9,i,= 0
+LIT,../adlint.c,402,10,DN,,,0
+LIT,../adlint.c,402,15,DN,,,13
+LIT,../adlint.c,403,19,DN,,,2
+ASN,../adlint.c,406,9,j,= 0
+LIT,../adlint.c,406,10,DN,,,0
+LIT,../adlint.c,406,15,DN,,,5
+LIT,../adlint.c,410,11,DN,,,1
+MET,FN_STMT,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,13
+MET,FN_UNRC,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,0
+MET,FN_CSUB,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,1
+MET,FN_GOTO,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,0
+MET,FN_RETN,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,3
+MET,FN_UELS,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,0
+MET,FN_NEST,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,2
+MET,FN_CYCM,Three_of_a_kind,"int Three_of_a_kind((int const)[],int,int)",../adlint.c,397,5,4
+MET,FN_LINE,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,31
+MET,FN_PARA,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,3
+LIT,../adlint.c,418,14,DN,,,1
+INI,../adlint.c,418,7,ret,-1
+LIT,../adlint.c,419,19,DN,,,5
+LIT,../adlint.c,419,25,DN,,,0
+INI,../adlint.c,419,10,hand_pro,{0}
+LIT,../adlint.c,420,16,DN,,,1
+INI,../adlint.c,420,10,min,1
+LIT,../adlint.c,421,18,DN,,,0
+INI,../adlint.c,421,7,chng_num,0
+LIT,../adlint.c,422,21,DN,,,13
+LIT,../adlint.c,422,28,DN,,,0
+INI,../adlint.c,422,16,deck,{0}
+ASN,../adlint.c,424,9,i,= 0
+LIT,../adlint.c,424,10,DN,,,0
+LIT,../adlint.c,424,16,DN,,,4
+ASN,../adlint.c,424,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,424,41,DN,,,13
+ASN,../adlint.c,425,9,i,= 0
+LIT,../adlint.c,425,10,DN,,,0
+LIT,../adlint.c,425,15,DN,,,13
+ASN,../adlint.c,425,38,deck[i].num,= 4 - (Num[i] + udNum[i])
+LIT,../adlint.c,425,40,DN,,,4
+LIT,../adlint.c,427,39,DN,,,1
+ASN,../adlint.c,429,9,i,= 0
+LIT,../adlint.c,429,10,DN,,,0
+LIT,../adlint.c,429,15,DN,,,13
+LIT,../adlint.c,430,19,DN,,,2
+ASN,../adlint.c,431,13,k,= 0
+LIT,../adlint.c,431,14,DN,,,0
+LIT,../adlint.c,431,19,DN,,,5
+ASN,../adlint.c,433,23,hand_pro[k],= (double) deck[hand[k].num].num / (52 - us - HNUM)
+LIT,../adlint.c,433,56,DN,,,52
+ASN,../adlint.c,435,23,hand_pro[k],= 1.0
+LIT,../adlint.c,435,25,FN,,,1.0
+ASN,../adlint.c,438,13,i,= 0
+LIT,../adlint.c,438,14,DN,,,0
+ASN,../adlint.c,439,38,min,= hand_pro[i]
+ASN,../adlint.c,439,62,chng_num,= i
+ASN,../adlint.c,441,11,ret,= chng_num
+LIT,../adlint.c,445,11,DN,,,1
+MET,FN_STMT,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,29
+MET,FN_UNRC,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,0
+MET,FN_CSUB,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,1
+MET,FN_GOTO,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,0
+MET,FN_RETN,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,3
+MET,FN_UELS,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,0
+MET,FN_NEST,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,4
+MET,FN_CYCM,Two_pair,"int Two_pair((int const)[],int,int)",../adlint.c,416,5,5
+MET,FN_LINE,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,20
+MET,FN_PARA,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,3
+LIT,../adlint.c,454,19,DN,,,5
+LIT,../adlint.c,454,25,DN,,,0
+INI,../adlint.c,454,10,hand_pro,{0}
+LIT,../adlint.c,455,16,DN,,,1
+INI,../adlint.c,455,10,min,1
+LIT,../adlint.c,456,18,DN,,,0
+INI,../adlint.c,456,7,chng_num,0
+LIT,../adlint.c,457,21,DN,,,14
+LIT,../adlint.c,457,28,DN,,,0
+INI,../adlint.c,457,16,deck,{0}
+ASN,../adlint.c,459,9,i,= 0
+LIT,../adlint.c,459,10,DN,,,0
+LIT,../adlint.c,459,16,DN,,,4
+ASN,../adlint.c,459,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,459,41,DN,,,13
+ASN,../adlint.c,460,9,i,= 0
+LIT,../adlint.c,460,10,DN,,,0
+LIT,../adlint.c,460,15,DN,,,13
+ASN,../adlint.c,460,38,deck[i].num,= 4 - (Num[i] + udNum[i])
+LIT,../adlint.c,460,40,DN,,,4
+ASN,../adlint.c,462,9,i,= 0
+LIT,../adlint.c,462,10,DN,,,0
+ASN,../adlint.c,462,40,hand_pro[i],= (double) deck[hand[i].num].num / (52 - us - HNUM)
+LIT,../adlint.c,462,73,DN,,,52
+ASN,../adlint.c,464,9,i,= 0
+LIT,../adlint.c,464,10,DN,,,0
+ASN,../adlint.c,465,34,min,= hand_pro[i]
+ASN,../adlint.c,465,58,chng_num,= i
+ASN,../adlint.c,467,7,ret,= chng_num
+MET,FN_STMT,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,20
+MET,FN_UNRC,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,0
+MET,FN_CSUB,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,0
+MET,FN_GOTO,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,0
+MET,FN_RETN,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,1
+MET,FN_UELS,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,0
+MET,FN_NEST,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,2
+MET,FN_CYCM,One_pair,"int One_pair((int const)[],int,int)",../adlint.c,450,5,2
+MET,FN_LINE,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,79
+MET,FN_PARA,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,3
+LIT,../adlint.c,474,21,DN,,,13
+LIT,../adlint.c,474,28,DN,,,0
+INI,../adlint.c,474,16,deck,{0}
+LIT,../adlint.c,476,12,DN,,,5
+LIT,../adlint.c,476,18,DN,,,0
+INI,../adlint.c,476,7,flag,{0}
+LIT,../adlint.c,477,19,DN,,,0
+INI,../adlint.c,477,7,max_point,0
+LIT,../adlint.c,478,25,DN,,,13
+LIT,../adlint.c,478,32,DN,,,0
+INI,../adlint.c,478,16,mer_deck,{0}
+LIT,../adlint.c,479,27,DN,,,5
+LIT,../adlint.c,479,32,DN,,,0
+INI,../adlint.c,479,16,ideal_hand,{0}
+LIT,../adlint.c,480,17,DN,,,5
+LIT,../adlint.c,480,24,DN,,,0
+INI,../adlint.c,480,8,vir_hand,{0}
+LIT,../adlint.c,481,17,DN,,,52
+LIT,../adlint.c,481,24,DN,,,0
+INI,../adlint.c,481,8,vir_deck,{0}
+LIT,../adlint.c,482,18,DN,,,0
+INI,../adlint.c,482,7,deck_max,0
+ASN,../adlint.c,484,9,i,= 0
+LIT,../adlint.c,484,10,DN,,,0
+LIT,../adlint.c,484,16,DN,,,4
+ASN,../adlint.c,484,39,deck[i].mark,= 13 - (sut[i] + udsut[i])
+LIT,../adlint.c,484,41,DN,,,13
+ASN,../adlint.c,485,9,i,= 0
+LIT,../adlint.c,485,10,DN,,,0
+LIT,../adlint.c,485,15,DN,,,13
+ASN,../adlint.c,485,38,deck[i].num,= 4 - (Num[i] + udNum[i])
+LIT,../adlint.c,485,40,DN,,,4
+ASN,../adlint.c,487,9,i,= 0
+LIT,../adlint.c,487,10,DN,,,0
+LIT,../adlint.c,487,16,DN,,,4
+ASN,../adlint.c,487,43,mer_deck[i].mark,= deck[i].mark + sut[i]
+ASN,../adlint.c,488,9,i,= 0
+LIT,../adlint.c,488,10,DN,,,0
+LIT,../adlint.c,488,15,DN,,,13
+ASN,../adlint.c,488,43,mer_deck[i].num,= deck[i].num + Num[i]
+ASN,../adlint.c,490,9,j,= 0
+LIT,../adlint.c,490,10,DN,,,0
+ASN,../adlint.c,490,14,i,= 0
+LIT,../adlint.c,490,15,DN,,,0
+LIT,../adlint.c,490,20,DN,,,52
+LIT,../adlint.c,491,24,DN,,,0
+ASN,../adlint.c,492,19,vir_deck[j],= i
+ASN,../adlint.c,497,9,i,= 0
+LIT,../adlint.c,497,10,DN,,,0
+ASN,../adlint.c,498,19,vir_deck[j],= hand[i].orig
+ASN,../adlint.c,505,12,deck_max,= j
+ASN,../adlint.c,506,13,max_point,= 0
+LIT,../adlint.c,506,15,DN,,,0
+ASN,../adlint.c,507,9,i,= 0
+LIT,../adlint.c,507,10,DN,,,0
+LIT,../adlint.c,507,24,DN,,,4
+ASN,../adlint.c,508,11,j,= i + 1
+LIT,../adlint.c,508,14,DN,,,1
+LIT,../adlint.c,508,28,DN,,,3
+ASN,../adlint.c,509,13,k,= j + 1
+LIT,../adlint.c,509,16,DN,,,1
+LIT,../adlint.c,509,30,DN,,,2
+ASN,../adlint.c,510,15,l,= k + 1
+LIT,../adlint.c,510,18,DN,,,1
+LIT,../adlint.c,510,32,DN,,,1
+ASN,../adlint.c,511,17,m,= l + 1
+LIT,../adlint.c,511,20,DN,,,1
+ASN,../adlint.c,512,25,vir_hand[0],= vir_deck[i]
+LIT,../adlint.c,512,22,DN,,,0
+ASN,../adlint.c,513,25,vir_hand[1],= vir_deck[j]
+LIT,../adlint.c,513,22,DN,,,1
+ASN,../adlint.c,514,25,vir_hand[2],= vir_deck[k]
+LIT,../adlint.c,514,22,DN,,,2
+ASN,../adlint.c,515,25,vir_hand[3],= vir_deck[l]
+LIT,../adlint.c,515,22,DN,,,3
+ASN,../adlint.c,516,25,vir_hand[4],= vir_deck[m]
+LIT,../adlint.c,516,22,DN,,,4
+ASN,../adlint.c,518,25,max_point,= poker_point(vir_hand)
+ASN,../adlint.c,519,34,ideal_hand[0].orig,= vir_hand[0]
+LIT,../adlint.c,519,26,DN,,,0
+LIT,../adlint.c,519,45,DN,,,0
+ASN,../adlint.c,520,34,ideal_hand[1].orig,= vir_hand[1]
+LIT,../adlint.c,520,26,DN,,,1
+LIT,../adlint.c,520,45,DN,,,1
+ASN,../adlint.c,521,34,ideal_hand[2].orig,= vir_hand[2]
+LIT,../adlint.c,521,26,DN,,,2
+LIT,../adlint.c,521,45,DN,,,2
+ASN,../adlint.c,522,34,ideal_hand[3].orig,= vir_hand[3]
+LIT,../adlint.c,522,26,DN,,,3
+LIT,../adlint.c,522,45,DN,,,3
+ASN,../adlint.c,523,34,ideal_hand[4].orig,= vir_hand[4]
+LIT,../adlint.c,523,26,DN,,,4
+LIT,../adlint.c,523,45,DN,,,4
+ASN,../adlint.c,531,9,i,= 0
+LIT,../adlint.c,531,10,DN,,,0
+ASN,../adlint.c,532,24,ideal_hand[i].mark,= ideal_hand[i].orig / 13
+LIT,../adlint.c,532,45,DN,,,13
+ASN,../adlint.c,533,24,ideal_hand[i].num,= ideal_hand[i].orig % 13
+LIT,../adlint.c,533,45,DN,,,13
+ASN,../adlint.c,538,9,i,= 0
+LIT,../adlint.c,538,10,DN,,,0
+ASN,../adlint.c,539,11,j,= 0
+LIT,../adlint.c,539,12,DN,,,0
+ASN,../adlint.c,541,17,flag[i],= 1
+LIT,../adlint.c,541,19,DN,,,1
+ASN,../adlint.c,546,9,i,= 0
+LIT,../adlint.c,546,10,DN,,,0
+LIT,../adlint.c,547,20,DN,,,0
+LIT,../adlint.c,550,11,DN,,,1
+MET,FN_STMT,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,75
+MET,FN_UNRC,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,0
+MET,FN_CSUB,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,2
+MET,FN_GOTO,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,0
+MET,FN_RETN,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,2
+MET,FN_UELS,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,0
+MET,FN_NEST,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,6
+MET,FN_CYCM,Final,"int Final((int const)[],int,int)",../adlint.c,473,5,5
+MET,FN_LINE,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,14
+MET,FN_PARA,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,1
+ASN,../adlint.c,558,9,i,= 0
+LIT,../adlint.c,558,10,DN,,,0
+LIT,../adlint.c,558,16,DN,,,4
+ASN,../adlint.c,558,32,sut[i],= 0
+LIT,../adlint.c,558,34,DN,,,0
+ASN,../adlint.c,559,9,i,= 0
+LIT,../adlint.c,559,10,DN,,,0
+LIT,../adlint.c,559,15,DN,,,13
+ASN,../adlint.c,559,32,Num[i],= 0
+LIT,../adlint.c,559,34,DN,,,0
+ASN,../adlint.c,561,9,i,= 0
+LIT,../adlint.c,561,10,DN,,,0
+LIT,../adlint.c,561,15,DN,,,5
+ASN,../adlint.c,562,18,hand[i].orig,= hd[i]
+ASN,../adlint.c,563,18,hand[i].mark,= hd[i] / 13
+LIT,../adlint.c,563,26,DN,,,13
+ASN,../adlint.c,564,18,hand[i].num,= hd[i] % 13
+LIT,../adlint.c,564,26,DN,,,13
+MET,FN_STMT,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,16
+MET,FN_UNRC,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,0
+MET,FN_CSUB,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,0
+MET,FN_GOTO,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,0
+MET,FN_RETN,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,1
+MET,FN_UELS,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,0
+MET,FN_NEST,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,1
+MET,FN_CYCM,Separate_hand,void Separate_hand((int const)[]),../adlint.c,555,6,1
+MET,FN_LINE,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,14
+MET,FN_PARA,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,2
+ASN,../adlint.c,576,9,i,= 0
+LIT,../adlint.c,576,10,DN,,,0
+LIT,../adlint.c,576,16,DN,,,4
+ASN,../adlint.c,576,34,udsut[i],= 0
+LIT,../adlint.c,576,36,DN,,,0
+ASN,../adlint.c,577,9,i,= 0
+LIT,../adlint.c,577,10,DN,,,0
+LIT,../adlint.c,577,15,DN,,,13
+ASN,../adlint.c,577,34,udNum[i],= 0
+LIT,../adlint.c,577,36,DN,,,0
+ASN,../adlint.c,579,9,i,= 0
+LIT,../adlint.c,579,10,DN,,,0
+ASN,../adlint.c,580,21,dishand[i].orig,= ud[i]
+ASN,../adlint.c,581,21,dishand[i].mark,= ud[i] / 13
+LIT,../adlint.c,581,29,DN,,,13
+ASN,../adlint.c,582,21,dishand[i].num,= ud[i] % 13
+LIT,../adlint.c,582,29,DN,,,13
+MET,FN_STMT,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,16
+MET,FN_UNRC,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,0
+MET,FN_CSUB,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,0
+MET,FN_GOTO,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,0
+MET,FN_RETN,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,1
+MET,FN_UELS,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,0
+MET,FN_NEST,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,1
+MET,FN_CYCM,Separate_dishand,"void Separate_dishand((int const)[],int)",../adlint.c,573,6,1
+MET,FN_LINE,Check_len,void Check_len(void),../adlint.c,590,6,25
+MET,FN_PARA,Check_len,void Check_len(void),../adlint.c,590,6,0
+ASN,../adlint.c,593,9,count,= 0
+LIT,../adlint.c,593,11,DN,,,0
+ASN,../adlint.c,596,9,i,= 1
+LIT,../adlint.c,596,10,DN,,,1
+LIT,../adlint.c,596,16,DN,,,13
+LIT,../adlint.c,597,14,DN,,,13
+LIT,../adlint.c,598,15,DN,,,0
+LIT,../adlint.c,598,21,DN,,,0
+ASN,../adlint.c,601,15,count,= 0
+LIT,../adlint.c,601,17,DN,,,0
+LIT,../adlint.c,603,25,DN,,,0
+ASN,../adlint.c,606,13,count,= 0
+LIT,../adlint.c,606,15,DN,,,0
+ASN,../adlint.c,608,12,flg[i],= count
+LIT,../adlint.c,612,11,DN,,,13
+LIT,../adlint.c,612,18,DN,,,0
+LIT,../adlint.c,612,27,DN,,,1
+LIT,../adlint.c,612,33,DN,,,0
+ASN,../adlint.c,612,45,flg[0],= flg[13]
+LIT,../adlint.c,612,42,DN,,,0
+LIT,../adlint.c,612,51,DN,,,13
+ASN,../adlint.c,612,63,flg[1],= flg[13] + 1
+LIT,../adlint.c,612,60,DN,,,1
+LIT,../adlint.c,612,69,DN,,,13
+LIT,../adlint.c,612,73,DN,,,1
+MET,FN_STMT,Check_len,void Check_len(void),../adlint.c,590,6,16
+MET,FN_UNRC,Check_len,void Check_len(void),../adlint.c,590,6,0
+MET,FN_CSUB,Check_len,void Check_len(void),../adlint.c,590,6,1
+MET,FN_GOTO,Check_len,void Check_len(void),../adlint.c,590,6,0
+MET,FN_RETN,Check_len,void Check_len(void),../adlint.c,590,6,1
+MET,FN_UELS,Check_len,void Check_len(void),../adlint.c,590,6,0
+MET,FN_NEST,Check_len,void Check_len(void),../adlint.c,590,6,3
+MET,FN_CYCM,Check_len,void Check_len(void),../adlint.c,590,6,5
+MET,FN_LINE,Combi,"int Combi(int,int)",../adlint.c,618,5,10
+MET,FN_PARA,Combi,"int Combi(int,int)",../adlint.c,618,5,2
+LIT,../adlint.c,620,13,DN,,,1
+INI,../adlint.c,620,7,tmp,1
+ASN,../adlint.c,622,9,i,= a
+ASN,../adlint.c,622,31,tmp,*= i
+ASN,../adlint.c,623,9,i,= b
+LIT,../adlint.c,623,13,DN,,,0
+ASN,../adlint.c,623,29,tmp,/= i
+LIT,../adlint.c,625,14,DN,,,0
+ASN,../adlint.c,625,23,tmp,= 1
+LIT,../adlint.c,625,25,DN,,,1
+MET,FN_STMT,Combi,"int Combi(int,int)",../adlint.c,618,5,11
+MET,FN_UNRC,Combi,"int Combi(int,int)",../adlint.c,618,5,0
+MET,FN_CSUB,Combi,"int Combi(int,int)",../adlint.c,618,5,0
+MET,FN_GOTO,Combi,"int Combi(int,int)",../adlint.c,618,5,0
+MET,FN_RETN,Combi,"int Combi(int,int)",../adlint.c,618,5,1
+MET,FN_UELS,Combi,"int Combi(int,int)",../adlint.c,618,5,0
+MET,FN_NEST,Combi,"int Combi(int,int)",../adlint.c,618,5,1
+MET,FN_CYCM,Combi,"int Combi(int,int)",../adlint.c,618,5,2
+MET,FN_LINE,Permu,"int Permu(int,int)",../adlint.c,631,5,9
+MET,FN_PARA,Permu,"int Permu(int,int)",../adlint.c,631,5,2
+LIT,../adlint.c,633,13,DN,,,1
+INI,../adlint.c,633,7,tmp,1
+ASN,../adlint.c,635,9,i,= a
+ASN,../adlint.c,635,31,tmp,*= i
+LIT,../adlint.c,637,11,DN,,,0
+LIT,../adlint.c,637,20,DN,,,0
+LIT,../adlint.c,637,32,DN,,,0
+ASN,../adlint.c,637,41,tmp,= 1
+LIT,../adlint.c,637,43,DN,,,1
+MET,FN_STMT,Permu,"int Permu(int,int)",../adlint.c,631,5,7
+MET,FN_UNRC,Permu,"int Permu(int,int)",../adlint.c,631,5,0
+MET,FN_CSUB,Permu,"int Permu(int,int)",../adlint.c,631,5,0
+MET,FN_GOTO,Permu,"int Permu(int,int)",../adlint.c,631,5,0
+MET,FN_RETN,Permu,"int Permu(int,int)",../adlint.c,631,5,1
+MET,FN_UELS,Permu,"int Permu(int,int)",../adlint.c,631,5,0
+MET,FN_NEST,Permu,"int Permu(int,int)",../adlint.c,631,5,1
+MET,FN_CYCM,Permu,"int Permu(int,int)",../adlint.c,631,5,2
+MET,FN_LINE,Reach_check,int Reach_check(void),../adlint.c,643,5,49
+MET,FN_PARA,Reach_check,int Reach_check(void),../adlint.c,643,5,0
+LIT,../adlint.c,645,25,DN,,,5
+LIT,../adlint.c,645,32,DN,,,0
+INI,../adlint.c,645,16,vir_hand,{0}
+LIT,../adlint.c,646,25,DN,,,52
+LIT,../adlint.c,646,32,DN,,,0
+INI,../adlint.c,646,16,vir_deck,{0}
+LIT,../adlint.c,649,14,DN,,,13
+LIT,../adlint.c,649,21,DN,,,0
+INI,../adlint.c,649,7,virNum,{0}
+ASN,../adlint.c,652,9,j,= 0
+LIT,../adlint.c,652,10,DN,,,0
+ASN,../adlint.c,652,14,i,= 0
+LIT,../adlint.c,652,15,DN,,,0
+LIT,../adlint.c,652,20,DN,,,52
+LIT,../adlint.c,653,24,DN,,,0
+ASN,../adlint.c,654,24,vir_deck[j].orig,= i
+ASN,../adlint.c,659,9,i,= 0
+LIT,../adlint.c,659,10,DN,,,0
+ASN,../adlint.c,660,24,vir_deck[j].orig,= hand[i].orig
+ASN,../adlint.c,664,12,deck_max,= j
+ASN,../adlint.c,666,9,i,= 0
+LIT,../adlint.c,666,10,DN,,,0
+ASN,../adlint.c,667,22,vir_deck[i].mark,= vir_deck[i].orig / 13
+LIT,../adlint.c,667,43,DN,,,13
+ASN,../adlint.c,668,22,vir_deck[i].num,= vir_deck[i].orig % 13
+LIT,../adlint.c,668,43,DN,,,13
+ASN,../adlint.c,671,9,i,= 0
+LIT,../adlint.c,671,10,DN,,,0
+LIT,../adlint.c,671,24,DN,,,5
+ASN,../adlint.c,674,9,i,= 0
+LIT,../adlint.c,674,10,DN,,,0
+ASN,../adlint.c,677,11,j,= 0
+LIT,../adlint.c,677,12,DN,,,0
+LIT,../adlint.c,677,17,DN,,,14
+LIT,../adlint.c,678,11,DN,,,4
+LIT,../adlint.c,680,16,DN,,,1
+ASN,../adlint.c,687,9,i,= 0
+LIT,../adlint.c,687,10,DN,,,0
+LIT,../adlint.c,687,15,DN,,,4
+LIT,../adlint.c,688,9,DN,,,3
+LIT,../adlint.c,688,30,DN,,,2
+LIT,../adlint.c,690,11,DN,,,1
+MET,FN_STMT,Reach_check,int Reach_check(void),../adlint.c,643,5,39
+MET,FN_UNRC,Reach_check,int Reach_check(void),../adlint.c,643,5,0
+MET,FN_CSUB,Reach_check,int Reach_check(void),../adlint.c,643,5,1
+MET,FN_GOTO,Reach_check,int Reach_check(void),../adlint.c,643,5,0
+MET,FN_RETN,Reach_check,int Reach_check(void),../adlint.c,643,5,3
+MET,FN_UELS,Reach_check,int Reach_check(void),../adlint.c,643,5,0
+MET,FN_NEST,Reach_check,int Reach_check(void),../adlint.c,643,5,3
+MET,FN_CYCM,Reach_check,int Reach_check(void),../adlint.c,643,5,4
+MET,FN_LINE,Init_flg,void Init_flg(void),../adlint.c,695,6,4
+MET,FN_PARA,Init_flg,void Init_flg(void),../adlint.c,695,6,0
+ASN,../adlint.c,697,9,i,= 0
+LIT,../adlint.c,697,10,DN,,,0
+LIT,../adlint.c,697,15,DN,,,15
+ASN,../adlint.c,697,33,flg[i],= 0
+LIT,../adlint.c,697,35,DN,,,0
+MET,FN_STMT,Init_flg,void Init_flg(void),../adlint.c,695,6,4
+MET,FN_UNRC,Init_flg,void Init_flg(void),../adlint.c,695,6,0
+MET,FN_CSUB,Init_flg,void Init_flg(void),../adlint.c,695,6,0
+MET,FN_GOTO,Init_flg,void Init_flg(void),../adlint.c,695,6,0
+MET,FN_RETN,Init_flg,void Init_flg(void),../adlint.c,695,6,1
+MET,FN_UELS,Init_flg,void Init_flg(void),../adlint.c,695,6,0
+MET,FN_NEST,Init_flg,void Init_flg(void),../adlint.c,695,6,1
+MET,FN_CYCM,Init_flg,void Init_flg(void),../adlint.c,695,6,1
+MET,FL_STMT,../adlint.c,485
+MET,FL_FUNC,../adlint.c,16

@@ -8,17 +8,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'factory_girl'
+Dir[Rails.root.join('spec/factories/*.rb')].each {|f| require f}
+require './spec/support/action_helper.rb'
 
 if Rails.env == 'development'
+  include ActionHelper
+  include FactoryGirl::Syntax::Methods
   User.destroy_all
   League.destroy_all
 
-  student = User.create(snum: 's00t000', name: '学生太郎', password: 'hoge')
-  admin = User.create(snum: 'admin', name: '教授者太郎', password: 'hoge', category: 2)
+  student = FactoryGirl.create(:student, snum: 's00t000')
+  admin = FactoryGirl.create(:admin, snum: 's99t999')
 
-  league = League.create(name: "test", start_at: Time.now - 5.day, end_at: Time.now + 5.day, limit_score: 100, change: 6, take: 6, try: 10000)
-
-  Player.create(name: "participant", role: Player::ROLE_PARTICIPANT, league_id: league.id, user_id: student.id)
-  Player.create(name: "auditor", role: Player::ROLE_AUDITOR, league_id: league.id, user_id: admin.id)
+  league = FactoryGirl.create(:league)
+  create_strategies(league)
+  `rm -rf #{Rails.root}/public/data/001`
+  `cp -r #{Rails.root}/tmp/data/001 #{Rails.root}/public/data/001`
 end
 

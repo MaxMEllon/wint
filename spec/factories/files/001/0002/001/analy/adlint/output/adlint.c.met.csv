@@ -1,0 +1,1242 @@
+VER,3.2.14,2016-08-17 14:37:41 +0900,/home/vagrant/wint/tmp/data/001/0001/001/analy/adlint/output
+DEF,../adlint.c,11,1,M,HIGH_CARDS,O
+DEF,../adlint.c,12,1,M,ONE_PAIR,O
+DEF,../adlint.c,13,1,M,TWO_PAIR,O
+DEF,../adlint.c,14,1,M,THREE_OF_A_KIND,O
+DEF,../adlint.c,15,1,M,STRAIGHT,O
+DEF,../adlint.c,16,1,M,FLUSH,O
+DEF,../adlint.c,17,1,M,FULL_HOUSE,O
+DEF,../adlint.c,18,1,M,FOUR_OF_A_KIND,O
+DEF,../adlint.c,19,1,M,STRAIGHT_FLUSH,O
+DEF,../adlint.c,20,1,M,ROYAL_STRAIGHT_FLUSH,O
+DEF,../adlint.c,21,1,M,DEFAULT_NUM,O
+DCL,../adlint.c,41,5,F,X,F,E,flush,"int flush((Handcard)[],Cards,Cards,int)"
+DCL,../adlint.c,42,5,F,X,F,E,pair,"int pair((Handcard)[],Cards,Cards,Cards)"
+DCL,../adlint.c,43,5,F,X,F,E,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DCL,../adlint.c,44,5,F,X,F,E,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)"
+DCL,../adlint.c,45,5,F,X,F,E,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)"
+DCL,../adlint.c,46,5,F,X,F,E,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)"
+DCL,../adlint.c,47,5,F,X,F,E,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)"
+DCL,../adlint.c,48,5,F,X,F,E,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)"
+DCL,../adlint.c,50,5,F,X,F,E,check_straight,"int check_straight(Cards,Cards)"
+DCL,../adlint.c,51,8,F,X,F,E,combination,"double combination(int,int)"
+DCL,../adlint.c,52,8,F,X,F,E,permutation,"double permutation(int,int)"
+DCL,../adlint.c,54,6,F,X,F,E,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)"
+DCL,../adlint.c,55,6,F,X,F,E,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DCL,../adlint.c,57,5,F,X,F,E,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])"
+DCL,../adlint.c,59,5,F,X,F,E,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)"
+DCL,../adlint.c,60,6,F,X,F,E,sum_exps,"void sum_exps((Handcard)[],int)"
+DEF,../adlint.c,81,5,F,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",37
+DEF,../adlint.c,81,24,V,I,P,N,hd,(int const)[]
+DEF,../adlint.c,81,40,V,I,P,N,fd,(int const)[]
+DEF,../adlint.c,81,50,V,I,P,N,cg,int
+DEF,../adlint.c,81,58,V,I,P,N,tk,int
+DEF,../adlint.c,81,72,V,I,P,N,ud,(int const)[]
+DEF,../adlint.c,81,82,V,I,P,N,us,int
+DEF,../adlint.c,83,7,V,I,B,N,disc_num,int
+DEF,../adlint.c,84,7,V,I,B,N,t,int
+DEF,../adlint.c,85,7,V,I,B,N,k,int
+DEF,../adlint.c,85,10,V,I,B,N,k1,int
+DEF,../adlint.c,85,14,V,I,B,N,k2,int
+DEF,../adlint.c,86,12,V,I,B,N,hands,(Handcard)[5]
+DEF,../adlint.c,87,9,V,I,B,N,hand_card,Cards
+DEF,../adlint.c,87,20,V,I,B,N,deck_card,Cards
+DEF,../adlint.c,87,31,V,I,B,N,remain_card,Cards
+DEP,../adlint.c,90,21,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,90,21,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,97,3,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)"
+DEP,../adlint.c,97,12,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)"
+DCL,../adlint.c,99,19,F,X,F,I,poker_point,int poker_point()
+DEP,../adlint.c,99,19,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,poker_point,int poker_point()
+DEP,../adlint.c,99,30,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",poker_point,int poker_point()
+DCL,../adlint.c,99,38,F,X,F,I,P6,int P6()
+DEP,../adlint.c,99,38,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,P6,int P6()
+DEP,../adlint.c,101,14,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])"
+DEP,../adlint.c,101,24,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])"
+DEP,../adlint.c,103,8,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,103,22,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,104,12,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,104,20,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,107,21,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,109,14,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,109,19,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,107,21,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,HNUM,int HNUM()
+DCL,../adlint.c,113,8,F,X,F,I,poker_point_pair,int poker_point_pair()
+DEP,../adlint.c,113,8,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,poker_point_pair,int poker_point_pair()
+DEP,../adlint.c,113,24,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",poker_point_pair,int poker_point_pair()
+DCL,../adlint.c,113,43,F,X,F,I,P3,int P3()
+DEP,../adlint.c,113,43,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,P3,int P3()
+DEP,../adlint.c,114,12,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,pair,"int pair((Handcard)[],Cards,Cards,Cards)"
+DEP,../adlint.c,114,16,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",pair,"int pair((Handcard)[],Cards,Cards,Cards)"
+DEP,../adlint.c,116,10,X,F,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",R,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)"
+DEP,../adlint.c,116,24,C,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)"
+MET,FN_UNUV,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,5
+MET,FN_PATH,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,6
+DEF,../adlint.c,123,6,F,X,F,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",57
+DEF,../adlint.c,123,25,V,I,P,N,hand,(Handcard)[]
+DEF,../adlint.c,123,40,V,I,P,N,remain_card,Cards *
+DEF,../adlint.c,123,60,V,I,P,N,deck_card,Cards *
+DEF,../adlint.c,123,78,V,I,P,N,hand_card,Cards *
+DEF,../adlint.c,123,99,V,I,P,N,ud,(int const)[]
+DEF,../adlint.c,123,109,V,I,P,N,us,int
+DEF,../adlint.c,125,7,V,I,B,N,k1,int
+DEF,../adlint.c,125,11,V,I,B,N,k2,int
+DEF,../adlint.c,125,15,V,I,B,N,card_num,int
+DEP,../adlint.c,134,22,X,F,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,134,22,X,F,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,139,23,X,F,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,166,33,X,F,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",R,HNUM,int HNUM()
+MET,FN_UNUV,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,0
+MET,FN_PATH,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,2
+DEF,../adlint.c,182,5,F,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",43
+DEF,../adlint.c,182,20,V,I,P,N,cg,int
+DEF,../adlint.c,182,28,V,I,P,N,tk,int
+DEF,../adlint.c,182,41,V,I,P,N,hands,(Handcard)[]
+DEF,../adlint.c,182,56,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,182,75,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,182,92,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,182,107,V,I,P,N,hd,(int)[]
+DEF,../adlint.c,184,7,V,I,B,N,t,int
+DEF,../adlint.c,185,7,V,I,B,N,k,int
+DEF,../adlint.c,186,7,V,I,B,N,flag,int
+DEP,../adlint.c,189,10,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,189,24,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,191,10,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,poker_point,int poker_point()
+DEP,../adlint.c,191,21,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",poker_point,int poker_point()
+DEP,../adlint.c,191,29,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,P3,int P3()
+DEP,../adlint.c,197,10,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,197,24,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,198,10,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,poker_point,int poker_point()
+DEP,../adlint.c,198,21,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",poker_point,int poker_point()
+DEP,../adlint.c,198,29,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,P3,int P3()
+DEP,../adlint.c,210,16,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,210,21,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,213,10,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,213,24,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,214,14,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,214,22,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,216,10,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,poker_point,int poker_point()
+DEP,../adlint.c,216,21,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",poker_point,int poker_point()
+DEP,../adlint.c,216,29,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,P3,int P3()
+DEP,../adlint.c,217,14,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,pair,"int pair((Handcard)[],Cards,Cards,Cards)"
+DEP,../adlint.c,217,18,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",pair,"int pair((Handcard)[],Cards,Cards,Cards)"
+DEP,../adlint.c,222,27,X,F,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",R,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,222,39,C,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)"
+MET,FN_UNUV,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,3
+MET,FN_PATH,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,728
+DEF,../adlint.c,226,5,F,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",15
+DEF,../adlint.c,226,29,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,226,41,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,226,60,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,226,77,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,226,92,V,I,P,N,cg,int
+DEF,../adlint.c,226,100,V,I,P,N,tk,int
+DEP,../adlint.c,229,3,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,229,17,C,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,231,3,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,231,8,C,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,233,3,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,233,11,C,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,235,3,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,235,13,C,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,237,3,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,sum_exps,"void sum_exps((Handcard)[],int)"
+DEP,../adlint.c,237,11,C,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",sum_exps,"void sum_exps((Handcard)[],int)"
+DEP,../adlint.c,238,24,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,238,3,X,F,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,238,19,C,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+MET,FN_UNUV,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,0
+MET,FN_PATH,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,1
+DEF,../adlint.c,242,5,F,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",56
+DEF,../adlint.c,242,27,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,242,39,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,242,58,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,242,75,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,242,90,V,I,P,N,cg,int
+DEF,../adlint.c,244,7,V,I,B,N,k1,int
+DEF,../adlint.c,245,7,V,I,B,N,len,int
+DEF,../adlint.c,246,7,V,I,B,N,flag,int
+DEF,../adlint.c,247,7,V,I,B,N,disc_num,int
+DEP,../adlint.c,248,12,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEF,../adlint.c,248,7,V,I,B,N,hand,(int)[1]
+DEP,../adlint.c,251,22,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,251,22,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,254,8,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,254,19,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",poker_point,int poker_point()
+DCL,../adlint.c,254,29,F,X,F,I,P9,int P9()
+DEP,../adlint.c,254,29,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,P9,int P9()
+DEP,../adlint.c,255,14,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,255,34,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,259,8,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,259,19,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",poker_point,int poker_point()
+DCL,../adlint.c,259,29,F,X,F,I,P8,int P8()
+DEP,../adlint.c,259,29,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,P8,int P8()
+DEP,../adlint.c,260,14,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,260,28,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,264,8,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,264,19,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",poker_point,int poker_point()
+DCL,../adlint.c,264,29,F,X,F,I,P7,int P7()
+DEP,../adlint.c,264,29,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,P7,int P7()
+DEP,../adlint.c,265,14,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,265,28,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,270,8,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,270,19,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",poker_point,int poker_point()
+DCL,../adlint.c,270,29,F,X,F,I,P4,int P4()
+DEP,../adlint.c,270,29,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,P4,int P4()
+DEP,../adlint.c,276,24,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,276,32,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",straight,"int straight((Handcard)[],Cards,Cards,Cards,int)"
+DEP,../adlint.c,280,8,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,280,19,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",poker_point,int poker_point()
+DCL,../adlint.c,280,29,F,X,F,I,P5,int P5()
+DEP,../adlint.c,280,29,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,P5,int P5()
+DEP,../adlint.c,285,16,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,285,21,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",flush,"int flush((Handcard)[],Cards,Cards,int)"
+DEP,../adlint.c,289,8,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,poker_point,int poker_point()
+DEP,../adlint.c,289,19,C,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",poker_point,int poker_point()
+DEP,../adlint.c,289,29,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,P6,int P6()
+DEP,../adlint.c,290,21,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,290,21,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,293,21,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,293,21,X,F,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,1
+MET,FN_PATH,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,55
+DEF,../adlint.c,299,5,F,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",32
+DEF,../adlint.c,299,20,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,299,32,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,299,49,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,299,64,V,I,P,N,cg,int
+DEF,../adlint.c,301,7,V,I,B,N,max_sut,int
+DEF,../adlint.c,302,7,V,I,B,N,k,int
+DEF,../adlint.c,302,10,V,I,B,N,k1,int
+DEF,../adlint.c,302,14,V,I,B,N,k2,int
+DEF,../adlint.c,303,10,V,I,B,N,exp_num,(double)[4]
+DEF,../adlint.c,304,7,V,I,B,N,reqire_num,int
+DCL,../adlint.c,305,20,F,X,F,I,CHNG,int CHNG()
+DEP,../adlint.c,305,20,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,CHNG,int CHNG()
+DEF,../adlint.c,305,7,V,I,B,N,change_num,int
+DEF,../adlint.c,306,10,V,I,B,N,denominator,double
+DEF,../adlint.c,307,10,V,I,B,N,numerator,double
+DEP,../adlint.c,311,18,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,318,22,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,318,33,C,flush,"int flush((Handcard)[],Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,318,59,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,318,70,C,flush,"int flush((Handcard)[],Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,320,21,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,permutation,"double permutation(int,int)"
+DEP,../adlint.c,320,32,C,flush,"int flush((Handcard)[],Cards,Cards,int)",permutation,"double permutation(int,int)"
+DEP,../adlint.c,321,21,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,permutation,"double permutation(int,int)"
+DEP,../adlint.c,321,32,C,flush,"int flush((Handcard)[],Cards,Cards,int)",permutation,"double permutation(int,int)"
+DEP,../adlint.c,325,22,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,326,48,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,P5,int P5()
+DEP,../adlint.c,325,22,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,328,24,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,328,3,X,F,flush,"int flush((Handcard)[],Cards,Cards,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,328,19,C,flush,"int flush((Handcard)[],Cards,Cards,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+MET,FN_UNUV,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,2
+MET,FN_PATH,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,6
+DEF,../adlint.c,332,5,F,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",35
+DEF,../adlint.c,332,19,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,332,31,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,332,48,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,332,65,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,334,7,V,I,B,N,disc_num,int
+DEF,../adlint.c,335,7,V,I,B,N,k1,int
+DEF,../adlint.c,335,11,V,I,B,N,k2,int
+DEF,../adlint.c,335,15,V,I,B,N,k,int
+DEF,../adlint.c,336,7,V,I,B,N,two_pair,int
+DEP,../adlint.c,342,22,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,342,22,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,347,22,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,347,22,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,351,22,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,352,27,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,352,27,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,351,22,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,362,20,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+DEP,../adlint.c,362,20,X,F,pair,"int pair((Handcard)[],Cards,Cards,Cards)",R,HNUM,int HNUM()
+MET,FN_UNUV,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,0
+MET,FN_PATH,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,30
+DEF,../adlint.c,368,5,F,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",45
+DEF,../adlint.c,368,23,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,368,35,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,368,54,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,368,71,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,368,86,V,I,P,N,cg,int
+DEF,../adlint.c,370,7,V,I,B,N,k1,int
+DEF,../adlint.c,370,11,V,I,B,N,k2,int
+DEF,../adlint.c,370,15,V,I,B,N,num,int
+DEF,../adlint.c,371,10,V,I,B,N,exp_num,(double)[13]
+DEF,../adlint.c,372,10,V,I,B,N,prob,double
+DEF,../adlint.c,373,7,V,I,B,N,reqire_num,int
+DEP,../adlint.c,374,20,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,CHNG,int CHNG()
+DEF,../adlint.c,374,7,V,I,B,N,change_num,int
+DEP,../adlint.c,377,8,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,377,22,C,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",check_straight,"int check_straight(Cards,Cards)"
+DEP,../adlint.c,378,24,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,379,29,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,379,29,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,378,24,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,407,22,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,408,52,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,P4,int P4()
+DEP,../adlint.c,407,22,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,410,24,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,410,3,X,F,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,410,19,C,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+MET,FN_UNUV,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,0
+MET,FN_PATH,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,92
+DEF,../adlint.c,415,5,F,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",59
+DEF,../adlint.c,415,29,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,415,41,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,415,58,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,415,73,V,I,P,N,cg,int
+DEF,../adlint.c,417,7,V,I,B,N,flag,int
+DEF,../adlint.c,417,17,V,I,B,N,exist_flag,int
+DEF,../adlint.c,418,7,V,I,B,N,k1,int
+DEF,../adlint.c,418,11,V,I,B,N,k2,int
+DEF,../adlint.c,418,15,V,I,B,N,k3,int
+DEF,../adlint.c,418,19,V,I,B,N,num,int
+DEF,../adlint.c,419,7,V,I,B,N,reqire_num,int
+DEP,../adlint.c,420,20,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,CHNG,int CHNG()
+DEF,../adlint.c,420,7,V,I,B,N,change_num,int
+DEF,../adlint.c,421,10,V,I,B,N,exp_num,((double)[13])[4]
+DEF,../adlint.c,422,10,V,I,B,N,numerator,double
+DEF,../adlint.c,422,21,V,I,B,N,denominator,double
+DEF,../adlint.c,423,10,V,I,B,N,prob,double
+DEP,../adlint.c,442,21,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,442,32,C,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,443,23,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,443,34,C,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,454,22,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,455,69,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,P8,int P8()
+DEP,../adlint.c,454,22,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,458,26,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,458,5,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,458,21,C,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,459,24,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,460,29,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DCL,../adlint.c,461,14,F,X,F,I,fabs,int fabs()
+DEP,../adlint.c,461,14,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,fabs,int fabs()
+DEP,../adlint.c,461,18,C,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",fabs,int fabs()
+DEP,../adlint.c,461,55,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,fabs,int fabs()
+DEP,../adlint.c,461,59,C,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",fabs,int fabs()
+DEP,../adlint.c,460,29,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,459,24,X,F,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,0
+MET,FN_PATH,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,420
+DEF,../adlint.c,476,5,F,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",42
+DEF,../adlint.c,476,29,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,476,41,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,476,60,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,476,77,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,476,92,V,I,P,N,cg,int
+DEF,../adlint.c,478,7,V,I,B,N,k1,int
+DEF,../adlint.c,478,11,V,I,B,N,k2,int
+DEF,../adlint.c,479,7,V,I,B,N,reqire_num,int
+DEP,../adlint.c,480,20,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,CHNG,int CHNG()
+DEF,../adlint.c,480,7,V,I,B,N,change_num,int
+DEF,../adlint.c,481,7,V,I,B,N,min_num,int
+DEF,../adlint.c,482,7,V,I,B,N,min_pos,int
+DEF,../adlint.c,483,7,V,I,B,N,flag,int
+DEF,../adlint.c,484,10,V,I,B,N,exp_num,(double)[13]
+DEF,../adlint.c,485,10,V,I,B,N,numerator,double
+DEF,../adlint.c,485,21,V,I,B,N,denominator,double
+DEP,../adlint.c,494,21,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,494,32,C,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,495,19,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,495,30,C,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,501,22,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,502,57,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,P7,int P7()
+DEP,../adlint.c,501,22,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,505,26,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,505,5,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,505,21,C,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,508,24,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,508,24,X,F,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,2
+MET,FN_PATH,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,8
+DEF,../adlint.c,519,5,F,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",52
+DEF,../adlint.c,519,35,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,519,47,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,519,66,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,519,81,V,I,P,N,cg,int
+DEF,../adlint.c,521,7,V,I,B,N,k1,int
+DEF,../adlint.c,521,11,V,I,B,N,k2,int
+DEF,../adlint.c,521,15,V,I,B,N,num,int
+DEF,../adlint.c,522,7,V,I,B,N,reqire_num,int
+DEP,../adlint.c,523,20,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,CHNG,int CHNG()
+DEF,../adlint.c,523,7,V,I,B,N,change_num,int
+DEF,../adlint.c,524,7,V,I,B,N,flag,int
+DEF,../adlint.c,524,17,V,I,B,N,valid_flag,int
+DEF,../adlint.c,525,10,V,I,B,N,denominator,double
+DEF,../adlint.c,526,10,V,I,B,N,numerator,double
+DEF,../adlint.c,527,10,V,I,B,N,exp_num,((double)[13])[4]
+DEP,../adlint.c,540,19,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,540,30,C,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,541,21,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,541,32,C,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,550,22,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,551,75,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,P9,int P9()
+DEP,../adlint.c,550,22,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,555,26,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,555,5,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,555,21,C,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,556,24,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,557,29,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,558,14,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,fabs,int fabs()
+DEP,../adlint.c,558,18,C,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",fabs,int fabs()
+DEP,../adlint.c,558,61,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,fabs,int fabs()
+DEP,../adlint.c,558,65,C,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",fabs,int fabs()
+DEP,../adlint.c,557,29,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,556,24,X,F,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",R,HNUM,int HNUM()
+MET,FN_UNUV,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,0
+MET,FN_PATH,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,128
+DEF,../adlint.c,572,5,F,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",72
+DEF,../adlint.c,572,25,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,572,37,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,572,56,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,572,73,V,I,P,N,deck_card,Cards
+DEF,../adlint.c,572,88,V,I,P,N,cg,int
+DEF,../adlint.c,574,7,V,I,B,N,k1,int
+DEF,../adlint.c,574,11,V,I,B,N,k2,int
+DEF,../adlint.c,575,7,V,I,B,N,reqire_num1,int
+DEF,../adlint.c,576,7,V,I,B,N,reqire_num2,int
+DEF,../adlint.c,577,7,V,I,B,N,change_num,int
+DEF,../adlint.c,578,7,V,I,B,N,min_num,int
+DEF,../adlint.c,579,7,V,I,B,N,min_pos,int
+DEF,../adlint.c,580,7,V,I,B,N,flag,int
+DEF,../adlint.c,581,10,V,I,B,N,exp_num,(double)[13]
+DEF,../adlint.c,582,10,V,I,B,N,numerator,double
+DEF,../adlint.c,582,21,V,I,B,N,denominator,double
+DEF,../adlint.c,583,10,V,I,B,N,prob,double
+DEP,../adlint.c,586,18,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,CHNG,int CHNG()
+DEP,../adlint.c,598,48,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,598,59,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,599,48,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,599,59,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,601,24,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,601,35,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,603,23,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,permutation,"double permutation(int,int)"
+DEP,../adlint.c,603,34,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",permutation,"double permutation(int,int)"
+DEP,../adlint.c,603,61,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,permutation,"double permutation(int,int)"
+DEP,../adlint.c,603,72,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",permutation,"double permutation(int,int)"
+DEP,../adlint.c,621,48,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,621,59,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,622,48,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,622,59,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,624,24,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,combination,"double combination(int,int)"
+DEP,../adlint.c,624,35,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",combination,"double combination(int,int)"
+DEP,../adlint.c,626,23,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,permutation,"double permutation(int,int)"
+DEP,../adlint.c,626,34,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",permutation,"double permutation(int,int)"
+DEP,../adlint.c,626,61,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,permutation,"double permutation(int,int)"
+DEP,../adlint.c,626,72,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",permutation,"double permutation(int,int)"
+DEP,../adlint.c,635,22,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,636,53,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,P6,int P6()
+DEP,../adlint.c,635,22,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,639,26,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,HNUM,int HNUM()
+DEP,../adlint.c,639,5,X,F,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",R,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+DEP,../adlint.c,639,21,C,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)"
+MET,FN_UNUV,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,2
+MET,FN_PATH,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,10368
+DEF,../adlint.c,646,6,F,X,F,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",14
+DEF,../adlint.c,646,32,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,646,42,V,I,P,N,n,int
+DEF,../adlint.c,646,49,V,I,P,N,role,int
+DEF,../adlint.c,648,7,V,I,B,N,i,int
+DEF,../adlint.c,648,10,V,I,B,N,j,int
+DEF,../adlint.c,649,12,V,I,B,N,t,Handcard
+MET,FN_UNUV,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,1
+MET,FN_PATH,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,4
+DEF,../adlint.c,662,5,F,X,F,check_straight,"int check_straight(Cards,Cards)",27
+DEF,../adlint.c,662,26,V,I,P,N,remain_card,Cards
+DEF,../adlint.c,662,45,V,I,P,N,hand_card,Cards
+DEF,../adlint.c,664,7,V,I,B,N,len,int
+DEF,../adlint.c,665,7,V,I,B,N,k1,int
+DEF,../adlint.c,665,11,V,I,B,N,k2,int
+DEF,../adlint.c,666,7,V,I,B,N,wait_num,int
+MET,FN_UNUV,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,1
+MET,FN_PATH,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,11
+DEF,../adlint.c,690,8,F,X,F,combination,"double combination(int,int)",11
+DEF,../adlint.c,690,24,V,I,P,N,n,int
+DEF,../adlint.c,690,31,V,I,P,N,m,int
+DEF,../adlint.c,692,10,V,I,B,N,c_num,double
+DEF,../adlint.c,693,7,V,I,B,N,i,int
+MET,FN_UNUV,combination,"double combination(int,int)",../adlint.c,690,8,0
+MET,FN_PATH,combination,"double combination(int,int)",../adlint.c,690,8,3
+DEF,../adlint.c,702,8,F,X,F,permutation,"double permutation(int,int)",11
+DEF,../adlint.c,702,24,V,I,P,N,n,int
+DEF,../adlint.c,702,31,V,I,P,N,m,int
+DEF,../adlint.c,704,10,V,I,B,N,c_num,double
+DEF,../adlint.c,705,7,V,I,B,N,i,int
+MET,FN_UNUV,permutation,"double permutation(int,int)",../adlint.c,702,8,0
+MET,FN_PATH,permutation,"double permutation(int,int)",../adlint.c,702,8,3
+DEF,../adlint.c,714,6,F,X,F,sum_exps,"void sum_exps((Handcard)[],int)",18
+DEF,../adlint.c,714,24,V,I,P,N,hd,(Handcard)[]
+DEF,../adlint.c,714,34,V,I,P,N,tk,int
+DEF,../adlint.c,716,7,V,I,B,N,k1,int
+DEF,../adlint.c,716,11,V,I,B,N,k2,int
+DEF,../adlint.c,717,10,V,I,B,N,exp,double
+DEP,../adlint.c,718,22,X,F,sum_exps,"void sum_exps((Handcard)[],int)",R,HNUM,int HNUM()
+DEP,../adlint.c,718,22,X,F,sum_exps,"void sum_exps((Handcard)[],int)",R,HNUM,int HNUM()
+MET,FN_UNUV,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,1
+MET,FN_PATH,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,16
+PRE,../adlint.c,11,1,#define,HIGH_CARDS
+PRE,../adlint.c,12,1,#define,ONE_PAIR
+PRE,../adlint.c,13,1,#define,TWO_PAIR
+PRE,../adlint.c,14,1,#define,THREE_OF_A_KIND
+PRE,../adlint.c,15,1,#define,STRAIGHT
+PRE,../adlint.c,16,1,#define,FLUSH
+PRE,../adlint.c,17,1,#define,FULL_HOUSE
+PRE,../adlint.c,18,1,#define,FOUR_OF_A_KIND
+PRE,../adlint.c,19,1,#define,STRAIGHT_FLUSH
+PRE,../adlint.c,20,1,#define,ROYAL_STRAIGHT_FLUSH
+PRE,../adlint.c,21,1,#define,DEFAULT_NUM
+LIT,../adlint.c,28,14,DN,,,11
+DCL,../adlint.c,23,16,T,S,handcard,struct handcard { int num_val; int num; int sut; int pos; (double)[11] exp; }
+DCL,../adlint.c,29,3,T,T,Handcard,struct handcard { int num_val; int num; int sut; int pos; (double)[11] exp; }
+LIT,../adlint.c,33,11,DN,,,4
+LIT,../adlint.c,34,11,DN,,,13
+LIT,../adlint.c,35,12,DN,,,4
+LIT,../adlint.c,35,15,DN,,,13
+DCL,../adlint.c,31,16,T,S,cards,struct cards { int amount; (int)[4] sut; (int)[13] num; ((int)[13])[4] card; }
+DCL,../adlint.c,36,3,T,T,Cards,struct cards { int amount; (int)[4] sut; (int)[13] num; ((int)[13])[4] card; }
+MET,FN_LINE,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,37
+MET,FN_PARA,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,6
+LIT,../adlint.c,86,18,DN,,,5
+ASN,../adlint.c,90,11,k1,= 0
+LIT,../adlint.c,90,13,DN,,,0
+ASN,../adlint.c,91,23,hands[k1].num_val,= hd[k1]
+ASN,../adlint.c,92,23,hands[k1].num,= hd[k1] % 13
+LIT,../adlint.c,92,34,DN,,,13
+ASN,../adlint.c,93,23,hands[k1].sut,= hd[k1] / 13
+LIT,../adlint.c,93,34,DN,,,13
+ASN,../adlint.c,94,23,hands[k1].pos,= k1
+ASN,../adlint.c,95,14,k2,= 0
+LIT,../adlint.c,95,16,DN,,,0
+LIT,../adlint.c,95,24,DN,,,11
+ASN,../adlint.c,95,55,hands[k1].exp[k2],= 0
+LIT,../adlint.c,95,57,DN,,,0
+LIT,../adlint.c,99,14,DN,,,5
+LIT,../adlint.c,99,53,DN,,,1
+ASN,../adlint.c,101,12,disc_num,"= limit_take(cg,tk,hands,remain_card,hand_card,deck_card,hd)"
+LIT,../adlint.c,101,98,DN,,,10
+LIT,../adlint.c,103,50,DN,,,1
+ASN,../adlint.c,107,11,k1,= 0
+LIT,../adlint.c,107,13,DN,,,0
+LIT,../adlint.c,108,31,DN,,,4
+LIT,../adlint.c,108,57,DN,,,2
+MET,FN_STMT,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,27
+MET,FN_UNRC,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,0
+MET,FN_CSUB,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,9
+MET,FN_GOTO,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,0
+MET,FN_RETN,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,6
+MET,FN_UELS,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,0
+MET,FN_NEST,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,2
+MET,FN_CYCM,strategy,"int strategy((int const)[],(int const)[],int,int,(int const)[],int)",../adlint.c,81,5,6
+MET,FN_LINE,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,57
+MET,FN_PARA,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,6
+LIT,../adlint.c,125,26,DN,,,0
+INI,../adlint.c,125,15,card_num,0
+ASN,../adlint.c,128,12,k1,= 0
+LIT,../adlint.c,128,14,DN,,,0
+LIT,../adlint.c,128,22,DN,,,13
+ASN,../adlint.c,128,54,hand_card->num[k1],= 0
+LIT,../adlint.c,128,56,DN,,,0
+ASN,../adlint.c,129,12,k1,= 0
+LIT,../adlint.c,129,14,DN,,,0
+LIT,../adlint.c,129,22,DN,,,4
+ASN,../adlint.c,129,53,hand_card->sut[k1],= 0
+LIT,../adlint.c,129,55,DN,,,0
+ASN,../adlint.c,130,12,k1,= 0
+LIT,../adlint.c,130,14,DN,,,0
+LIT,../adlint.c,130,22,DN,,,4
+ASN,../adlint.c,131,14,k2,= 0
+LIT,../adlint.c,131,16,DN,,,0
+LIT,../adlint.c,131,24,DN,,,13
+ASN,../adlint.c,131,61,hand_card->card[k1][k2],= 0
+LIT,../adlint.c,131,63,DN,,,0
+ASN,../adlint.c,134,12,k1,= 0
+LIT,../adlint.c,134,14,DN,,,0
+ASN,../adlint.c,139,21,hand_card->amount,= HNUM
+ASN,../adlint.c,142,12,k1,= 0
+LIT,../adlint.c,142,14,DN,,,0
+LIT,../adlint.c,142,22,DN,,,13
+ASN,../adlint.c,142,56,remain_card->num[k1],= 4
+LIT,../adlint.c,142,58,DN,,,4
+ASN,../adlint.c,143,12,k1,= 0
+LIT,../adlint.c,143,14,DN,,,0
+LIT,../adlint.c,143,22,DN,,,4
+ASN,../adlint.c,143,55,remain_card->sut[k1],= 13
+LIT,../adlint.c,143,57,DN,,,13
+ASN,../adlint.c,144,12,k1,= 0
+LIT,../adlint.c,144,14,DN,,,0
+LIT,../adlint.c,144,22,DN,,,4
+ASN,../adlint.c,145,14,k2,= 0
+LIT,../adlint.c,145,16,DN,,,0
+LIT,../adlint.c,145,24,DN,,,13
+ASN,../adlint.c,146,33,remain_card->card[k1][k2],= 1
+LIT,../adlint.c,146,35,DN,,,1
+ASN,../adlint.c,151,12,k1,= 0
+LIT,../adlint.c,151,14,DN,,,0
+LIT,../adlint.c,152,31,DN,,,13
+LIT,../adlint.c,153,31,DN,,,13
+LIT,../adlint.c,154,32,DN,,,13
+LIT,../adlint.c,154,45,DN,,,13
+ASN,../adlint.c,157,23,remain_card->amount,= card_num
+ASN,../adlint.c,160,12,k1,= 0
+LIT,../adlint.c,160,14,DN,,,0
+LIT,../adlint.c,160,22,DN,,,13
+ASN,../adlint.c,160,54,deck_card->num[k1],= 0
+LIT,../adlint.c,160,56,DN,,,0
+ASN,../adlint.c,161,12,k1,= 0
+LIT,../adlint.c,161,14,DN,,,0
+LIT,../adlint.c,161,22,DN,,,4
+ASN,../adlint.c,161,53,deck_card->sut[k1],= 0
+LIT,../adlint.c,161,55,DN,,,0
+ASN,../adlint.c,162,12,k1,= 0
+LIT,../adlint.c,162,14,DN,,,0
+LIT,../adlint.c,162,22,DN,,,4
+ASN,../adlint.c,163,14,k2,= 0
+LIT,../adlint.c,163,16,DN,,,0
+LIT,../adlint.c,163,24,DN,,,13
+ASN,../adlint.c,163,61,deck_card->card[k1][k2],= 0
+LIT,../adlint.c,163,63,DN,,,0
+ASN,../adlint.c,166,21,deck_card->amount,= 52 - us - HNUM
+LIT,../adlint.c,166,23,DN,,,52
+ASN,../adlint.c,167,12,k1,= 0
+LIT,../adlint.c,167,14,DN,,,0
+LIT,../adlint.c,167,22,DN,,,4
+ASN,../adlint.c,168,24,deck_card->sut[k1],= remain_card->sut[k1] - hand_card->sut[k1]
+ASN,../adlint.c,170,12,k1,= 0
+LIT,../adlint.c,170,14,DN,,,0
+LIT,../adlint.c,170,22,DN,,,13
+ASN,../adlint.c,171,24,deck_card->num[k1],= remain_card->num[k1] - hand_card->num[k1]
+ASN,../adlint.c,173,12,k1,= 0
+LIT,../adlint.c,173,14,DN,,,0
+LIT,../adlint.c,173,22,DN,,,4
+ASN,../adlint.c,174,14,k2,= 0
+LIT,../adlint.c,174,16,DN,,,0
+LIT,../adlint.c,174,24,DN,,,13
+ASN,../adlint.c,175,31,deck_card->card[k1][k2],= remain_card->card[k1][k2] - hand_card->card[k1][k2]
+MET,FN_STMT,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,77
+MET,FN_UNRC,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,0
+MET,FN_CSUB,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,0
+MET,FN_GOTO,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,0
+MET,FN_RETN,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,1
+MET,FN_UELS,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,0
+MET,FN_NEST,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,2
+MET,FN_CYCM,calc_card,"void calc_card((Handcard)[],Cards *,Cards *,Cards *,(int const)[],int)",../adlint.c,123,6,1
+MET,FN_LINE,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,43
+MET,FN_PARA,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,7
+LIT,../adlint.c,186,14,DN,,,0
+INI,../adlint.c,186,7,flag,0
+LIT,../adlint.c,188,14,DN,,,0
+LIT,../adlint.c,189,52,DN,,,1
+ASN,../adlint.c,189,63,flag,= 1
+LIT,../adlint.c,189,65,DN,,,1
+ASN,../adlint.c,190,13,k,= 0
+LIT,../adlint.c,190,15,DN,,,0
+LIT,../adlint.c,190,22,DN,,,4
+LIT,../adlint.c,190,58,DN,,,4
+ASN,../adlint.c,190,69,flag,= 1
+LIT,../adlint.c,190,71,DN,,,1
+ASN,../adlint.c,191,41,flag,= 1
+LIT,../adlint.c,191,43,DN,,,1
+LIT,../adlint.c,192,18,DN,,,0
+LIT,../adlint.c,192,32,DN,,,1
+LIT,../adlint.c,195,14,DN,,,1
+ASN,../adlint.c,196,13,k,= 0
+LIT,../adlint.c,196,15,DN,,,0
+LIT,../adlint.c,196,22,DN,,,4
+LIT,../adlint.c,196,58,DN,,,4
+ASN,../adlint.c,196,69,flag,= 1
+LIT,../adlint.c,196,71,DN,,,1
+LIT,../adlint.c,197,52,DN,,,3
+ASN,../adlint.c,197,63,flag,= 1
+LIT,../adlint.c,197,65,DN,,,1
+ASN,../adlint.c,198,41,flag,= 1
+LIT,../adlint.c,198,43,DN,,,1
+LIT,../adlint.c,199,18,DN,,,0
+LIT,../adlint.c,199,32,DN,,,1
+LIT,../adlint.c,202,14,DN,,,4
+LIT,../adlint.c,202,39,DN,,,11
+LIT,../adlint.c,202,54,DN,,,1
+LIT,../adlint.c,203,14,DN,,,3
+LIT,../adlint.c,203,39,DN,,,22
+LIT,../adlint.c,203,54,DN,,,1
+LIT,../adlint.c,207,13,DN,,,3
+LIT,../adlint.c,207,24,DN,,,4
+ASN,../adlint.c,208,13,k,= 0
+LIT,../adlint.c,208,15,DN,,,0
+LIT,../adlint.c,208,22,DN,,,4
+LIT,../adlint.c,209,32,DN,,,4
+LIT,../adlint.c,213,52,DN,,,1
+LIT,../adlint.c,219,13,DN,,,1
+LIT,../adlint.c,222,14,DN,,,5
+LIT,../adlint.c,223,10,DN,,,10
+MET,FN_STMT,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,42
+MET,FN_UNRC,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,0
+MET,FN_CSUB,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,10
+MET,FN_GOTO,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,0
+MET,FN_RETN,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,10
+MET,FN_UELS,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,0
+MET,FN_NEST,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,3
+MET,FN_CYCM,limit_take,"int limit_take(int,int,(Handcard)[],Cards,Cards,Cards,(int)[])",../adlint.c,182,5,18
+MET,FN_LINE,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,15
+MET,FN_PARA,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,6
+LIT,../adlint.c,238,30,DN,,,10
+LIT,../adlint.c,239,13,DN,,,0
+MET,FN_STMT,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,7
+MET,FN_UNRC,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,0
+MET,FN_CSUB,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,6
+MET,FN_GOTO,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,0
+MET,FN_RETN,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,1
+MET,FN_UELS,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,0
+MET,FN_NEST,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,0
+MET,FN_CYCM,decide_discard,"int decide_discard((Handcard)[],Cards,Cards,Cards,int,int)",../adlint.c,226,5,1
+MET,FN_LINE,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,56
+MET,FN_PARA,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,5
+LIT,../adlint.c,245,13,DN,,,0
+INI,../adlint.c,245,7,len,0
+ASN,../adlint.c,251,12,k1,= 0
+LIT,../adlint.c,251,14,DN,,,0
+ASN,../adlint.c,251,46,hand[k1],= hd[k1].num_val
+LIT,../adlint.c,254,44,DN,,,1
+ASN,../adlint.c,255,12,disc_num,"= royal_straight_flush(hd,remain_card,deck_card,cg)"
+LIT,../adlint.c,256,21,DN,,,1
+LIT,../adlint.c,259,44,DN,,,1
+ASN,../adlint.c,260,12,disc_num,"= straight_flush(hd,hand_card,deck_card,cg)"
+LIT,../adlint.c,261,21,DN,,,1
+LIT,../adlint.c,264,44,DN,,,1
+ASN,../adlint.c,265,12,disc_num,"= four_of_a_kind(hd,remain_card,hand_card,deck_card,cg)"
+LIT,../adlint.c,266,21,DN,,,1
+ASN,../adlint.c,269,8,flag,= 0
+LIT,../adlint.c,269,10,DN,,,0
+LIT,../adlint.c,270,44,DN,,,1
+ASN,../adlint.c,271,12,k1,= 0
+LIT,../adlint.c,271,14,DN,,,0
+LIT,../adlint.c,271,22,DN,,,13
+LIT,../adlint.c,272,33,DN,,,1
+ASN,../adlint.c,273,16,len,= 0
+LIT,../adlint.c,273,18,DN,,,0
+LIT,../adlint.c,274,17,DN,,,5
+ASN,../adlint.c,274,27,flag,= 1
+LIT,../adlint.c,274,29,DN,,,1
+ASN,../adlint.c,278,8,flag,= 0
+LIT,../adlint.c,278,10,DN,,,0
+LIT,../adlint.c,280,44,DN,,,1
+ASN,../adlint.c,281,12,k1,= 0
+LIT,../adlint.c,281,14,DN,,,0
+LIT,../adlint.c,281,22,DN,,,4
+LIT,../adlint.c,282,33,DN,,,5
+ASN,../adlint.c,282,44,flag,= 1
+LIT,../adlint.c,282,46,DN,,,1
+ASN,../adlint.c,285,14,disc_num,"= flush(hd,hand_card,deck_card,cg)"
+LIT,../adlint.c,289,44,DN,,,1
+ASN,../adlint.c,290,11,k1,= 0
+LIT,../adlint.c,290,13,DN,,,0
+LIT,../adlint.c,291,41,DN,,,1
+ASN,../adlint.c,293,11,k1,= 0
+LIT,../adlint.c,293,13,DN,,,0
+LIT,../adlint.c,294,41,DN,,,2
+MET,FN_STMT,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,56
+MET,FN_UNRC,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,0
+MET,FN_CSUB,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,11
+MET,FN_GOTO,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,0
+MET,FN_RETN,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,14
+MET,FN_UELS,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,0
+MET,FN_NEST,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,2
+MET,FN_CYCM,final_attack,"int final_attack((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,242,5,17
+MET,FN_LINE,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,32
+MET,FN_PARA,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,4
+LIT,../adlint.c,303,18,DN,,,4
+LIT,../adlint.c,303,24,DN,,,0
+INI,../adlint.c,303,10,exp_num,{0}
+INI,../adlint.c,305,7,change_num,CHNG - cg
+ASN,../adlint.c,310,12,k1,= 0
+LIT,../adlint.c,310,14,DN,,,0
+LIT,../adlint.c,310,22,DN,,,4
+ASN,../adlint.c,311,16,reqire_num,= HNUM - hand_card.sut[k1]
+ASN,../adlint.c,312,15,numerator,= 0
+LIT,../adlint.c,312,17,DN,,,0
+ASN,../adlint.c,315,19,exp_num[k1],= 1
+LIT,../adlint.c,315,21,DN,,,1
+ASN,../adlint.c,317,16,k2,= reqire_num
+ASN,../adlint.c,318,19,numerator,"+= combination(deck_card.sut[k1],k2) * combination(deck_card.amount - deck_card.sut[k1],change_num - k2)"
+ASN,../adlint.c,320,19,denominator,"= permutation(deck_card.amount,change_num)"
+ASN,../adlint.c,321,19,exp_num[k1],"= permutation(change_num,change_num) * numerator / denominator"
+ASN,../adlint.c,325,12,k1,= 0
+LIT,../adlint.c,325,14,DN,,,0
+ASN,../adlint.c,326,23,hd[k1].exp[5],= (exp_num[hd[k1].sut] * P5)
+LIT,../adlint.c,326,16,DN,,,5
+LIT,../adlint.c,328,30,DN,,,5
+LIT,../adlint.c,329,13,DN,,,0
+MET,FN_STMT,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,21
+MET,FN_UNRC,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,0
+MET,FN_CSUB,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,5
+MET,FN_GOTO,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,0
+MET,FN_RETN,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,1
+MET,FN_UELS,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,0
+MET,FN_NEST,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,3
+MET,FN_CYCM,flush,"int flush((Handcard)[],Cards,Cards,int)",../adlint.c,299,5,3
+MET,FN_LINE,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,35
+MET,FN_PARA,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,4
+LIT,../adlint.c,334,19,DN,,,1
+INI,../adlint.c,334,7,disc_num,-1
+LIT,../adlint.c,336,18,DN,,,0
+INI,../adlint.c,336,7,two_pair,0
+ASN,../adlint.c,338,11,k,= 0
+LIT,../adlint.c,338,13,DN,,,0
+LIT,../adlint.c,338,20,DN,,,13
+LIT,../adlint.c,339,30,DN,,,2
+LIT,../adlint.c,341,20,DN,,,2
+ASN,../adlint.c,342,13,k,= 0
+LIT,../adlint.c,342,15,DN,,,0
+LIT,../adlint.c,343,40,DN,,,1
+ASN,../adlint.c,347,12,k1,= 0
+LIT,../adlint.c,347,14,DN,,,0
+LIT,../adlint.c,348,41,DN,,,1
+ASN,../adlint.c,351,12,k1,= 0
+LIT,../adlint.c,351,14,DN,,,0
+LIT,../adlint.c,351,27,DN,,,1
+ASN,../adlint.c,352,14,k2,= k1 + 1
+LIT,../adlint.c,352,19,DN,,,1
+LIT,../adlint.c,353,41,DN,,,1
+LIT,../adlint.c,353,75,DN,,,1
+ASN,../adlint.c,362,11,k,= 0
+LIT,../adlint.c,362,13,DN,,,0
+LIT,../adlint.c,363,38,DN,,,1
+MET,FN_STMT,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,32
+MET,FN_UNRC,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,0
+MET,FN_CSUB,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,0
+MET,FN_GOTO,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,0
+MET,FN_RETN,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,6
+MET,FN_UELS,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,0
+MET,FN_NEST,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,4
+MET,FN_CYCM,pair,"int pair((Handcard)[],Cards,Cards,Cards)",../adlint.c,332,5,8
+MET,FN_LINE,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,45
+MET,FN_PARA,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,5
+LIT,../adlint.c,371,18,DN,,,13
+LIT,../adlint.c,371,25,DN,,,0
+INI,../adlint.c,371,10,exp_num,{0}
+INI,../adlint.c,374,7,change_num,CHNG - cg
+ASN,../adlint.c,378,14,k1,= 0
+LIT,../adlint.c,378,16,DN,,,0
+LIT,../adlint.c,378,31,DN,,,1
+ASN,../adlint.c,379,16,k2,= k1 + 1
+LIT,../adlint.c,379,21,DN,,,1
+ASN,../adlint.c,387,12,k1,= 0
+LIT,../adlint.c,387,14,DN,,,0
+LIT,../adlint.c,387,22,DN,,,10
+ASN,../adlint.c,388,10,prob,= 1
+LIT,../adlint.c,388,12,DN,,,1
+ASN,../adlint.c,389,16,reqire_num,= 0
+LIT,../adlint.c,389,18,DN,,,0
+ASN,../adlint.c,391,14,k2,= k1
+LIT,../adlint.c,391,30,DN,,,5
+LIT,../adlint.c,392,18,DN,,,13
+ASN,../adlint.c,392,29,num,= 0
+LIT,../adlint.c,392,31,DN,,,0
+ASN,../adlint.c,393,18,num,= k2
+LIT,../adlint.c,394,34,DN,,,0
+ASN,../adlint.c,395,14,prob,*= ((double) deck_card.num[num] / deck_card.amount)
+ASN,../adlint.c,399,43,prob,= 0
+LIT,../adlint.c,399,45,DN,,,0
+ASN,../adlint.c,401,14,k2,= k1
+LIT,../adlint.c,401,30,DN,,,5
+LIT,../adlint.c,402,18,DN,,,13
+ASN,../adlint.c,402,29,num,= 0
+LIT,../adlint.c,402,31,DN,,,0
+ASN,../adlint.c,403,18,num,= k2
+ASN,../adlint.c,404,20,exp_num[num],+= prob
+ASN,../adlint.c,407,12,k1,= 0
+LIT,../adlint.c,407,14,DN,,,0
+ASN,../adlint.c,408,26,hd[k1].exp[4],+= (exp_num[hd[k1].num] * P4)
+LIT,../adlint.c,408,16,DN,,,4
+LIT,../adlint.c,410,30,DN,,,4
+LIT,../adlint.c,411,13,DN,,,0
+MET,FN_STMT,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,40
+MET,FN_UNRC,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,0
+MET,FN_CSUB,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,2
+MET,FN_GOTO,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,0
+MET,FN_RETN,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,3
+MET,FN_UELS,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,0
+MET,FN_NEST,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,5
+MET,FN_CYCM,straight,"int straight((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,368,5,8
+MET,FN_LINE,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,59
+MET,FN_PARA,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,4
+LIT,../adlint.c,417,14,DN,,,0
+INI,../adlint.c,417,7,flag,0
+INI,../adlint.c,420,7,change_num,CHNG - cg
+LIT,../adlint.c,421,18,DN,,,4
+LIT,../adlint.c,421,21,DN,,,13
+LIT,../adlint.c,421,28,DN,,,0
+INI,../adlint.c,421,10,exp_num,{0}
+ASN,../adlint.c,425,12,k1,= 0
+LIT,../adlint.c,425,14,DN,,,0
+LIT,../adlint.c,425,22,DN,,,4
+ASN,../adlint.c,426,14,k2,= 0
+LIT,../adlint.c,426,16,DN,,,0
+LIT,../adlint.c,426,24,DN,,,10
+ASN,../adlint.c,427,18,exist_flag,= 1
+LIT,../adlint.c,427,20,DN,,,1
+ASN,../adlint.c,428,18,reqire_num,= 0
+LIT,../adlint.c,428,20,DN,,,0
+ASN,../adlint.c,429,16,k3,= k2
+LIT,../adlint.c,429,32,DN,,,5
+LIT,../adlint.c,430,20,DN,,,13
+ASN,../adlint.c,430,31,num,= 0
+LIT,../adlint.c,430,33,DN,,,0
+ASN,../adlint.c,431,20,num,= k3
+LIT,../adlint.c,432,41,DN,,,0
+LIT,../adlint.c,434,43,DN,,,0
+ASN,../adlint.c,434,60,exist_flag,= 0
+LIT,../adlint.c,434,62,DN,,,0
+LIT,../adlint.c,437,53,DN,,,0
+ASN,../adlint.c,438,12,flag,= 1
+LIT,../adlint.c,438,14,DN,,,1
+ASN,../adlint.c,440,14,prob,= 1
+LIT,../adlint.c,440,16,DN,,,1
+ASN,../adlint.c,442,19,numerator,"= combination(deck_card.amount - reqire_num,change_num - reqire_num)"
+ASN,../adlint.c,443,21,denominator,"= combination(deck_card.amount,change_num)"
+ASN,../adlint.c,444,14,prob,= numerator / denominator
+ASN,../adlint.c,446,16,k3,= k2
+LIT,../adlint.c,446,32,DN,,,5
+LIT,../adlint.c,447,20,DN,,,13
+ASN,../adlint.c,447,31,num,= 0
+LIT,../adlint.c,447,33,DN,,,0
+ASN,../adlint.c,448,20,num,= k3
+ASN,../adlint.c,449,26,exp_num[k1][num],+= prob
+ASN,../adlint.c,454,12,k1,= 0
+LIT,../adlint.c,454,14,DN,,,0
+ASN,../adlint.c,455,32,hd[k1].exp[8],= (exp_num[hd[k1].sut][hd[k1].num] * P8)
+LIT,../adlint.c,455,16,DN,,,8
+LIT,../adlint.c,458,32,DN,,,8
+ASN,../adlint.c,459,14,k1,= 0
+LIT,../adlint.c,459,16,DN,,,0
+LIT,../adlint.c,459,29,DN,,,1
+ASN,../adlint.c,460,16,k2,= k1 + 1
+LIT,../adlint.c,460,21,DN,,,1
+LIT,../adlint.c,461,30,DN,,,8
+LIT,../adlint.c,461,50,DN,,,0
+LIT,../adlint.c,461,71,DN,,,8
+LIT,../adlint.c,461,91,DN,,,0
+LIT,../adlint.c,470,15,DN,,,0
+LIT,../adlint.c,472,11,DN,,,1
+MET,FN_STMT,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,51
+MET,FN_UNRC,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,0
+MET,FN_CSUB,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,5
+MET,FN_GOTO,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,0
+MET,FN_RETN,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,4
+MET,FN_UELS,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,0
+MET,FN_NEST,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,5
+MET,FN_CYCM,straight_flush,"int straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,415,5,10
+MET,FN_LINE,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,42
+MET,FN_PARA,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,5
+INI,../adlint.c,480,7,change_num,CHNG - cg
+LIT,../adlint.c,483,14,DN,,,0
+INI,../adlint.c,483,7,flag,0
+LIT,../adlint.c,484,18,DN,,,13
+LIT,../adlint.c,484,25,DN,,,0
+INI,../adlint.c,484,10,exp_num,{0}
+ASN,../adlint.c,487,12,k1,= 0
+LIT,../adlint.c,487,14,DN,,,0
+LIT,../adlint.c,487,22,DN,,,13
+ASN,../adlint.c,488,16,reqire_num,= 4 - hand_card.num[k1]
+LIT,../adlint.c,488,18,DN,,,4
+ASN,../adlint.c,490,10,flag,= 1
+LIT,../adlint.c,490,12,DN,,,1
+ASN,../adlint.c,492,19,exp_num[k1],= 1
+LIT,../adlint.c,492,21,DN,,,1
+ASN,../adlint.c,494,19,denominator,"= combination(deck_card.amount,change_num)"
+ASN,../adlint.c,495,17,numerator,"= combination(deck_card.amount - deck_card.num[k1],change_num - reqire_num)"
+ASN,../adlint.c,496,19,exp_num[k1],= numerator / denominator
+ASN,../adlint.c,501,12,k1,= 0
+LIT,../adlint.c,501,14,DN,,,0
+ASN,../adlint.c,502,32,hd[k1].exp[7],= (exp_num[hd[k1].num] * P7)
+LIT,../adlint.c,502,16,DN,,,7
+LIT,../adlint.c,505,32,DN,,,7
+ASN,../adlint.c,506,13,min_num,= remain_card.num[hd[0].num]
+LIT,../adlint.c,506,34,DN,,,0
+ASN,../adlint.c,507,13,min_pos,= hd[0].pos
+LIT,../adlint.c,507,18,DN,,,0
+ASN,../adlint.c,508,14,k1,= 1
+LIT,../adlint.c,508,16,DN,,,1
+ASN,../adlint.c,510,17,min_num,= remain_card.num[hd[k1].num]
+ASN,../adlint.c,511,17,min_pos,= hd[k1].pos
+LIT,../adlint.c,516,11,DN,,,1
+MET,FN_STMT,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,28
+MET,FN_UNRC,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,1
+MET,FN_CSUB,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,3
+MET,FN_GOTO,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,0
+MET,FN_RETN,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,2
+MET,FN_UELS,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,0
+MET,FN_NEST,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,3
+MET,FN_CYCM,four_of_a_kind,"int four_of_a_kind((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,476,5,5
+MET,FN_LINE,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,52
+MET,FN_PARA,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,4
+INI,../adlint.c,523,7,change_num,CHNG - cg
+LIT,../adlint.c,524,14,DN,,,0
+LIT,../adlint.c,524,30,DN,,,0
+INI,../adlint.c,524,7,flag,0
+INI,../adlint.c,524,17,valid_flag,0
+LIT,../adlint.c,527,18,DN,,,4
+LIT,../adlint.c,527,21,DN,,,13
+LIT,../adlint.c,527,28,DN,,,0
+INI,../adlint.c,527,10,exp_num,{0}
+ASN,../adlint.c,529,12,k1,= 0
+LIT,../adlint.c,529,14,DN,,,0
+LIT,../adlint.c,529,22,DN,,,4
+ASN,../adlint.c,530,16,reqire_num,= 0
+LIT,../adlint.c,530,18,DN,,,0
+ASN,../adlint.c,531,14,k2,= 9
+LIT,../adlint.c,531,16,DN,,,9
+LIT,../adlint.c,531,24,DN,,,14
+LIT,../adlint.c,532,18,DN,,,13
+ASN,../adlint.c,532,29,num,= 0
+LIT,../adlint.c,532,31,DN,,,0
+ASN,../adlint.c,533,18,num,= k2
+LIT,../adlint.c,534,39,DN,,,1
+LIT,../adlint.c,535,41,DN,,,0
+ASN,../adlint.c,535,52,flag,= 0
+LIT,../adlint.c,535,54,DN,,,0
+ASN,../adlint.c,536,12,flag,= 1
+LIT,../adlint.c,536,14,DN,,,1
+ASN,../adlint.c,539,18,valid_flag,= 1
+LIT,../adlint.c,539,20,DN,,,1
+ASN,../adlint.c,540,17,numerator,"= combination(deck_card.amount - reqire_num,change_num - reqire_num)"
+ASN,../adlint.c,541,19,denominator,"= combination(deck_card.amount,change_num)"
+ASN,../adlint.c,542,16,k2,= 9
+LIT,../adlint.c,542,18,DN,,,9
+LIT,../adlint.c,542,26,DN,,,14
+LIT,../adlint.c,543,20,DN,,,13
+ASN,../adlint.c,543,31,num,= 0
+LIT,../adlint.c,543,33,DN,,,0
+ASN,../adlint.c,544,20,num,= k2
+ASN,../adlint.c,545,65,exp_num[k1][num],= 1
+LIT,../adlint.c,545,67,DN,,,1
+ASN,../adlint.c,546,33,exp_num[k1][num],= numerator / denominator
+ASN,../adlint.c,550,12,k1,= 0
+LIT,../adlint.c,550,14,DN,,,0
+ASN,../adlint.c,551,38,hd[k1].exp[9],= (exp_num[hd[k1].sut][hd[k1].num] * P9)
+LIT,../adlint.c,551,16,DN,,,9
+LIT,../adlint.c,555,32,DN,,,9
+ASN,../adlint.c,556,14,k1,= 0
+LIT,../adlint.c,556,16,DN,,,0
+LIT,../adlint.c,556,29,DN,,,1
+ASN,../adlint.c,557,16,k2,= k1 + 1
+LIT,../adlint.c,557,21,DN,,,1
+LIT,../adlint.c,558,30,DN,,,9
+LIT,../adlint.c,558,56,DN,,,0
+LIT,../adlint.c,558,77,DN,,,9
+LIT,../adlint.c,558,103,DN,,,0
+LIT,../adlint.c,567,15,DN,,,0
+LIT,../adlint.c,569,11,DN,,,1
+MET,FN_STMT,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,47
+MET,FN_UNRC,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,1
+MET,FN_CSUB,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,5
+MET,FN_GOTO,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,0
+MET,FN_RETN,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,4
+MET,FN_UELS,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,0
+MET,FN_NEST,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,5
+MET,FN_CYCM,royal_straight_flush,"int royal_straight_flush((Handcard)[],Cards,Cards,int)",../adlint.c,519,5,10
+MET,FN_LINE,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,72
+MET,FN_PARA,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,5
+LIT,../adlint.c,580,14,DN,,,0
+INI,../adlint.c,580,7,flag,0
+LIT,../adlint.c,581,18,DN,,,13
+LIT,../adlint.c,581,25,DN,,,0
+INI,../adlint.c,581,10,exp_num,{0}
+ASN,../adlint.c,585,12,k1,= 0
+LIT,../adlint.c,585,14,DN,,,0
+LIT,../adlint.c,585,22,DN,,,12
+ASN,../adlint.c,586,16,change_num,= CHNG - cg
+LIT,../adlint.c,588,32,DN,,,2
+ASN,../adlint.c,589,17,reqire_num1,= 2 - hand_card.num[k1]
+LIT,../adlint.c,589,19,DN,,,2
+ASN,../adlint.c,590,14,k2,= 1
+LIT,../adlint.c,590,16,DN,,,1
+LIT,../adlint.c,590,24,DN,,,13
+ASN,../adlint.c,591,17,numerator,= 1
+LIT,../adlint.c,591,19,DN,,,1
+LIT,../adlint.c,592,34,DN,,,3
+ASN,../adlint.c,593,19,reqire_num2,= 3 - hand_card.num[k2]
+LIT,../adlint.c,593,21,DN,,,3
+ASN,../adlint.c,596,14,prob,= 1
+LIT,../adlint.c,596,16,DN,,,1
+LIT,../adlint.c,598,29,DN,,,0
+ASN,../adlint.c,598,45,numerator,"*= combination(deck_card.num[k1],reqire_num1)"
+LIT,../adlint.c,599,29,DN,,,0
+ASN,../adlint.c,599,45,numerator,"*= combination(deck_card.num[k2],reqire_num2)"
+ASN,../adlint.c,601,21,numerator,"*= combination(deck_card.amount - deck_card.num[k1] - deck_card.num[k2],change_num - reqire_num1 - reqire_num2)"
+ASN,../adlint.c,603,21,denominator,"= permutation(change_num,change_num) / permutation(deck_card.amount,change_num)"
+ASN,../adlint.c,604,14,prob,= numerator * denominator
+ASN,../adlint.c,606,12,flag,= 1
+LIT,../adlint.c,606,14,DN,,,1
+ASN,../adlint.c,607,19,exp_num[k1],+= prob
+ASN,../adlint.c,607,40,exp_num[k2],+= prob
+LIT,../adlint.c,611,32,DN,,,3
+ASN,../adlint.c,612,17,reqire_num1,= 3 - hand_card.num[k1]
+LIT,../adlint.c,612,19,DN,,,3
+ASN,../adlint.c,613,14,k2,= 1
+LIT,../adlint.c,613,16,DN,,,1
+LIT,../adlint.c,613,24,DN,,,13
+ASN,../adlint.c,614,17,numerator,= 1
+LIT,../adlint.c,614,19,DN,,,1
+LIT,../adlint.c,615,34,DN,,,2
+ASN,../adlint.c,616,19,reqire_num2,= 2 - hand_card.num[k2]
+LIT,../adlint.c,616,21,DN,,,2
+ASN,../adlint.c,619,14,prob,= 1
+LIT,../adlint.c,619,16,DN,,,1
+LIT,../adlint.c,621,29,DN,,,0
+ASN,../adlint.c,621,45,numerator,"*= combination(deck_card.num[k1],reqire_num1)"
+LIT,../adlint.c,622,29,DN,,,0
+ASN,../adlint.c,622,45,numerator,"*= combination(deck_card.num[k2],reqire_num2)"
+ASN,../adlint.c,624,21,numerator,"*= combination(deck_card.amount - deck_card.num[k1] - deck_card.num[k2],change_num - reqire_num1 - reqire_num2)"
+ASN,../adlint.c,626,21,denominator,"= permutation(change_num,change_num) / permutation(deck_card.amount,change_num)"
+ASN,../adlint.c,627,14,prob,= numerator * denominator
+ASN,../adlint.c,629,12,flag,= 1
+LIT,../adlint.c,629,14,DN,,,1
+ASN,../adlint.c,630,19,exp_num[k1],+= prob
+ASN,../adlint.c,630,40,exp_num[k2],+= prob
+ASN,../adlint.c,635,12,k1,= 0
+LIT,../adlint.c,635,14,DN,,,0
+ASN,../adlint.c,636,28,hd[k1].exp[6],= (exp_num[hd[k1].num] * P6)
+LIT,../adlint.c,636,16,DN,,,6
+LIT,../adlint.c,638,16,DN,,,1
+LIT,../adlint.c,639,32,DN,,,6
+LIT,../adlint.c,640,15,DN,,,0
+LIT,../adlint.c,642,11,DN,,,1
+MET,FN_STMT,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,62
+MET,FN_UNRC,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,0
+MET,FN_CSUB,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,11
+MET,FN_GOTO,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,0
+MET,FN_RETN,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,2
+MET,FN_UELS,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,0
+MET,FN_NEST,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,4
+MET,FN_CYCM,full_house,"int full_house((Handcard)[],Cards,Cards,Cards,int)",../adlint.c,572,5,16
+MET,FN_LINE,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,14
+MET,FN_PARA,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,3
+ASN,../adlint.c,650,11,i,= 0
+LIT,../adlint.c,650,13,DN,,,0
+LIT,../adlint.c,650,23,DN,,,1
+ASN,../adlint.c,651,13,j,= n - 1
+LIT,../adlint.c,651,18,DN,,,1
+LIT,../adlint.c,652,17,DN,,,1
+ASN,../adlint.c,653,11,t,= hd[j]
+ASN,../adlint.c,654,15,hd[j],= hd[j - 1]
+LIT,../adlint.c,654,22,DN,,,1
+ASN,../adlint.c,655,17,hd[j - 1],= t
+LIT,../adlint.c,655,14,DN,,,1
+MET,FN_STMT,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,10
+MET,FN_UNRC,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,0
+MET,FN_CSUB,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,0
+MET,FN_GOTO,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,0
+MET,FN_RETN,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,1
+MET,FN_UELS,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,0
+MET,FN_NEST,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,3
+MET,FN_CYCM,bubble_sort_role,"void bubble_sort_role((Handcard)[],int,int)",../adlint.c,646,6,2
+MET,FN_LINE,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,27
+MET,FN_PARA,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,2
+LIT,../adlint.c,666,18,DN,,,0
+INI,../adlint.c,666,7,wait_num,0
+ASN,../adlint.c,669,12,k1,= 0
+LIT,../adlint.c,669,14,DN,,,0
+LIT,../adlint.c,669,22,DN,,,13
+LIT,../adlint.c,671,31,DN,,,0
+LIT,../adlint.c,671,59,DN,,,0
+ASN,../adlint.c,672,11,len,= 0
+LIT,../adlint.c,672,13,DN,,,0
+ASN,../adlint.c,673,25,hand_card.num[k1],= 1
+LIT,../adlint.c,673,27,DN,,,1
+ASN,../adlint.c,674,16,k2,= 0
+LIT,../adlint.c,674,18,DN,,,0
+LIT,../adlint.c,674,26,DN,,,13
+LIT,../adlint.c,675,35,DN,,,1
+ASN,../adlint.c,676,20,len,= 0
+LIT,../adlint.c,676,22,DN,,,0
+LIT,../adlint.c,677,20,DN,,,12
+LIT,../adlint.c,677,33,DN,,,4
+LIT,../adlint.c,677,52,DN,,,0
+LIT,../adlint.c,677,58,DN,,,1
+ASN,../adlint.c,678,20,wait_num,+= remain_card.num[k1]
+LIT,../adlint.c,680,21,DN,,,5
+ASN,../adlint.c,680,36,wait_num,+= remain_card.num[k1]
+ASN,../adlint.c,682,25,hand_card.num[k1],= 0
+LIT,../adlint.c,682,27,DN,,,0
+LIT,../adlint.c,686,20,DN,,,1
+LIT,../adlint.c,687,10,DN,,,0
+MET,FN_STMT,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,20
+MET,FN_UNRC,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,1
+MET,FN_CSUB,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,0
+MET,FN_GOTO,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,0
+MET,FN_RETN,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,2
+MET,FN_UELS,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,0
+MET,FN_NEST,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,4
+MET,FN_CYCM,check_straight,"int check_straight(Cards,Cards)",../adlint.c,662,5,6
+MET,FN_LINE,combination,"double combination(int,int)",../adlint.c,690,8,11
+MET,FN_PARA,combination,"double combination(int,int)",../adlint.c,690,8,2
+LIT,../adlint.c,692,18,DN,,,1
+INI,../adlint.c,692,10,c_num,1
+LIT,../adlint.c,695,21,DN,,,0
+LIT,../adlint.c,695,30,DN,,,0
+LIT,../adlint.c,695,43,DN,,,0
+ASN,../adlint.c,696,11,i,= 1
+LIT,../adlint.c,696,13,DN,,,1
+ASN,../adlint.c,697,11,c_num,*= (n - i + 1.0) / i
+LIT,../adlint.c,697,23,FN,,,1.0
+MET,FN_STMT,combination,"double combination(int,int)",../adlint.c,690,8,7
+MET,FN_UNRC,combination,"double combination(int,int)",../adlint.c,690,8,0
+MET,FN_CSUB,combination,"double combination(int,int)",../adlint.c,690,8,0
+MET,FN_GOTO,combination,"double combination(int,int)",../adlint.c,690,8,0
+MET,FN_RETN,combination,"double combination(int,int)",../adlint.c,690,8,2
+MET,FN_UELS,combination,"double combination(int,int)",../adlint.c,690,8,0
+MET,FN_NEST,combination,"double combination(int,int)",../adlint.c,690,8,1
+MET,FN_CYCM,combination,"double combination(int,int)",../adlint.c,690,8,2
+MET,FN_LINE,permutation,"double permutation(int,int)",../adlint.c,702,8,11
+MET,FN_PARA,permutation,"double permutation(int,int)",../adlint.c,702,8,2
+LIT,../adlint.c,704,18,DN,,,1
+INI,../adlint.c,704,10,c_num,1
+LIT,../adlint.c,707,25,DN,,,0
+ASN,../adlint.c,708,11,i,= 1
+LIT,../adlint.c,708,13,DN,,,1
+ASN,../adlint.c,709,11,c_num,*= (n - i + 1.0)
+LIT,../adlint.c,709,23,FN,,,1.0
+MET,FN_STMT,permutation,"double permutation(int,int)",../adlint.c,702,8,7
+MET,FN_UNRC,permutation,"double permutation(int,int)",../adlint.c,702,8,0
+MET,FN_CSUB,permutation,"double permutation(int,int)",../adlint.c,702,8,0
+MET,FN_GOTO,permutation,"double permutation(int,int)",../adlint.c,702,8,0
+MET,FN_RETN,permutation,"double permutation(int,int)",../adlint.c,702,8,2
+MET,FN_UELS,permutation,"double permutation(int,int)",../adlint.c,702,8,0
+MET,FN_NEST,permutation,"double permutation(int,int)",../adlint.c,702,8,1
+MET,FN_CYCM,permutation,"double permutation(int,int)",../adlint.c,702,8,2
+MET,FN_LINE,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,18
+MET,FN_PARA,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,2
+ASN,../adlint.c,718,12,k1,= 0
+LIT,../adlint.c,718,14,DN,,,0
+ASN,../adlint.c,719,14,k2,= 0
+LIT,../adlint.c,719,16,DN,,,0
+LIT,../adlint.c,719,24,DN,,,10
+ASN,../adlint.c,720,11,exp,= hd[k1].exp[k2]
+LIT,../adlint.c,722,18,DN,,,4
+ASN,../adlint.c,722,35,exp,*= 13.375
+LIT,../adlint.c,722,38,FN,,,13.375
+LIT,../adlint.c,724,18,DN,,,6
+ASN,../adlint.c,724,37,exp,/= 10
+LIT,../adlint.c,724,40,DN,,,10
+LIT,../adlint.c,726,18,DN,,,4
+ASN,../adlint.c,726,28,exp,*= 2
+LIT,../adlint.c,726,31,DN,,,2
+LIT,../adlint.c,727,18,DN,,,3
+LIT,../adlint.c,727,29,DN,,,2
+ASN,../adlint.c,727,39,exp,*= 1.5
+LIT,../adlint.c,727,42,FN,,,1.5
+ASN,../adlint.c,728,22,hd[k1].exp[10],+= exp
+LIT,../adlint.c,728,18,DN,,,10
+MET,FN_STMT,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,16
+MET,FN_UNRC,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,0
+MET,FN_CSUB,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,0
+MET,FN_GOTO,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,0
+MET,FN_RETN,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,1
+MET,FN_UELS,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,0
+MET,FN_NEST,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,3
+MET,FN_CYCM,sum_exps,"void sum_exps((Handcard)[],int)",../adlint.c,714,6,5
+MET,FL_STMT,../adlint.c,550
+MET,FL_FUNC,../adlint.c,17

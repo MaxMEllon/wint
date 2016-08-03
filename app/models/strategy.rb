@@ -25,6 +25,8 @@ class Strategy < ActiveRecord::Base
   scope :score_by, -> { order('score DESC') }
   scope :number_by, -> { order('number') }
 
+  after_create :after_create
+
   RANK = {
     0...30 => 'X',
     30...35 => 'C',
@@ -35,7 +37,7 @@ class Strategy < ActiveRecord::Base
     75..100 => 'SSS'
   }
 
-  after_create do
+  def after_create
     Dir.mkdir(submit.analysis_path)
 
     # code

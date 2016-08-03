@@ -15,11 +15,11 @@ class CodeAnalysis
   end
 
   def analyze_count_if
-    File.read(@base_file_path).count('if')
+    File.read(@base_file_path).scan(/\sif/).count
   end
 
   def analyze_count_loop
-    File.read(@base_file_path).count('for') + File.read(@base_file_path).count('while')
+    File.read(@base_file_path).scan(/\sfor/).count + File.read(@base_file_path).scan(/\swhile/).count
   end
 
   public_class_method

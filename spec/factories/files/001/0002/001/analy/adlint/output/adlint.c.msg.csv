@@ -1,0 +1,1435 @@
+V,3.2.14,2016-08-17 14:37:41 +0900,/home/vagrant/wint/tmp/data/001/0001/001/analy/adlint/output
+W,../adlint.c,1,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,2,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,2,1,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,3,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,5,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,6,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,7,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,9,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,10,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,24,19,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,24,19,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,25,19,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,25,19,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,26,19,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,26,19,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,27,19,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,27,19,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,28,21,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,28,21,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,32,16,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,32,16,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,33,16,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,33,16,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,34,16,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,35,20,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,35,20,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,38,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,39,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,39,1,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,40,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,62,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,63,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,63,1,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,64,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,66,1,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,83,18,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,83,18,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,85,18,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,85,18,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,86,22,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,86,22,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,89,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,89,3,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,98,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,98,3,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,102,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,102,3,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,106,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,120,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,121,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,122,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,127,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,141,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,159,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,181,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,181,1,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,185,10,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,206,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,221,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,228,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,230,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,232,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,234,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,236,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,248,19,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,250,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,253,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,258,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,263,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,268,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,279,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,288,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,303,32,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,304,32,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,305,32,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,306,32,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,307,32,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,309,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,324,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,324,3,c_builtin,W0576,UNC,X99,基本ソース文字集合に含まれない文字が、ソースファイル `../adlint.c' のコメントの中で使われています。
+W,../adlint.c,371,29,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,372,16,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,373,19,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,376,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,390,5,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,400,5,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,414,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,417,29,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,423,16,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,427,23,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,453,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,475,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,483,17,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,500,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,525,23,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,526,22,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,553,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,580,17,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,583,16,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,587,5,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,610,5,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,634,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,645,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,661,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,666,21,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,668,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,670,5,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,685,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,694,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,706,3,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,713,1,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,721,7,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,723,7,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,725,7,c_builtin,W0511,UNC,X99,C++ コメント `//' が使われています。
+W,../adlint.c,41,5,c_builtin,W0118,UNC,X99,外部結合を持つ `flush' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,42,5,c_builtin,W0118,UNC,X99,外部結合を持つ `pair' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,43,5,c_builtin,W0118,UNC,X99,外部結合を持つ `straight' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,44,5,c_builtin,W0118,UNC,X99,外部結合を持つ `full_house' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,45,5,c_builtin,W0118,UNC,X99,外部結合を持つ `four_of_a_kind' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,46,5,c_builtin,W0118,UNC,X99,外部結合を持つ `straight_flush' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,47,5,c_builtin,W0118,UNC,X99,外部結合を持つ `royal_straight_flush' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,48,5,c_builtin,W0118,UNC,X99,外部結合を持つ `final_attack' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,50,5,c_builtin,W0118,UNC,X99,外部結合を持つ `check_straight' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,51,8,c_builtin,W0118,UNC,X99,外部結合を持つ `combination' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,52,8,c_builtin,W0118,UNC,X99,外部結合を持つ `permutation' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,54,6,c_builtin,W0118,UNC,X99,外部結合を持つ `calc_card' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,55,6,c_builtin,W0118,UNC,X99,外部結合を持つ `bubble_sort_role' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,57,5,c_builtin,W0118,UNC,X99,外部結合を持つ `limit_take' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,59,5,c_builtin,W0118,UNC,X99,外部結合を持つ `decide_discard' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,60,6,c_builtin,W0118,UNC,X99,外部結合を持つ `sum_exps' の宣言が、ヘッダファイルの中にありません。
+W,../adlint.c,81,5,c_builtin,W0117,UNC,X99,`strategy' の定義は外部結合を持ちますが、定義より前にその宣言がありません。
+W,../adlint.c,90,16,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,90,19,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,91,11,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,92,11,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,93,11,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,94,11,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,95,43,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,95,57,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,97,20,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,87,31,c_builtin,C1003,INF,X99,ここで該当変数が初期値を指定せずに定義されています。
+W,../adlint.c,97,34,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,87,20,c_builtin,C1003,INF,X99,ここで該当変数が初期値を指定せずに定義されています。
+W,../adlint.c,97,46,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,87,9,c_builtin,C1003,INF,X99,ここで該当変数が初期値を指定せずに定義されています。
+W,../adlint.c,99,19,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int poker_point()' を挿入します。
+W,../adlint.c,99,38,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P6()' を挿入します。
+W,../adlint.c,99,30,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,99,35,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,101,24,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,103,22,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,104,20,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,107,16,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,107,19,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,108,24,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,108,28,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,108,50,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,108,54,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,109,19,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,113,8,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int poker_point_pair()' を挿入します。
+W,../adlint.c,113,43,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P3()' を挿入します。
+W,../adlint.c,113,24,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,113,40,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,114,16,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,116,24,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,83,7,c_builtin,W0100,UNC,X99,変数 `disc_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,84,7,c_builtin,W0100,UNC,X99,変数 `t' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,85,7,c_builtin,W0100,UNC,X99,変数 `k' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,87,20,c_builtin,W0100,UNC,X99,変数 `deck_card' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,87,31,c_builtin,W0100,UNC,X99,変数 `remain_card' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,81,40,c_builtin,W0031,UNC,X99,仮引数 `fd' は、この関数の中で使われていません。
+W,../adlint.c,81,50,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,81,58,c_builtin,W0104,UNC,X99,仮引数 `tk' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,81,82,c_builtin,W0104,UNC,X99,仮引数 `us' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,81,5,c_builtin,W1071,UNC,X99,関数 `strategy' には複数の終了点があります。
+W,../adlint.c,128,44,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,129,43,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,131,46,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,134,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,134,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,135,14,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,135,28,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,25,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,136,14,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,136,28,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,25,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,137,14,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,137,29,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,25,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,137,43,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,25,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,139,12,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,139,23,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,142,46,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,143,45,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,146,18,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,152,16,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,152,29,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,153,16,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,153,29,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,154,16,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,154,30,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,154,43,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,157,14,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,160,44,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,161,43,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,163,46,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,166,12,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,166,26,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,166,26,c_builtin,W0578,UNC,X99,暗黙的に汎整数型 `int' の複合式からより大きな型 `int(*)()' に型変換されています。
+W,../adlint.c,166,26,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,166,31,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,166,31,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,168,14,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,168,37,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,168,58,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,168,47,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,171,14,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,171,37,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,171,58,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,171,47,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,175,16,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,60,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,175,44,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,40,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,175,70,c_builtin,W0422,UNC,X99,値が NULL になることがあるポインタに対して間接参照が行われています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,123,78,c_builtin,C1005,INF,X99,ここで該当変数に NULL の可能性がある値を割り当てました。
+W,../adlint.c,175,59,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,123,25,c_builtin,W0104,UNC,X99,仮引数 `hand' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,123,40,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,123,60,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,123,78,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,123,109,c_builtin,W0104,UNC,X99,仮引数 `us' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,123,40,c_builtin,W0105,UNC,X99,ポインタ仮引数 `remain_card' が指しているオブジェクトは関数内で変わらないので、const オブジェクトを指すポインタ型として宣言できる可能性があります。
+W,../adlint.c,123,60,c_builtin,W0105,UNC,X99,ポインタ仮引数 `deck_card' が指しているオブジェクトは関数内で変わらないので、const オブジェクトを指すポインタ型として宣言できる可能性があります。
+W,../adlint.c,123,78,c_builtin,W0105,UNC,X99,ポインタ仮引数 `hand_card' が指しているオブジェクトは関数内で変わらないので、const オブジェクトを指すポインタ型として宣言できる可能性があります。
+W,../adlint.c,101,24,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,189,24,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,190,55,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,191,21,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,191,21,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,191,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,196,55,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,197,24,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,198,21,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,198,21,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,198,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,209,29,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,210,21,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,213,24,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,214,22,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,216,21,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,216,21,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,216,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,217,18,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,222,39,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,184,7,c_builtin,W0100,UNC,X99,変数 `t' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,182,20,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,182,28,c_builtin,W0104,UNC,X99,仮引数 `tk' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,182,56,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,182,75,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,182,92,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,182,5,c_builtin,W1071,UNC,X99,関数 `limit_take' には複数の終了点があります。
+W,../adlint.c,229,17,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,231,8,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,233,11,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,235,13,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,238,24,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,226,41,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,226,60,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,226,77,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,226,92,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,226,100,c_builtin,W0104,UNC,X99,仮引数 `tk' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,229,17,c_builtin,W1073,UNC,X99,関数 `four_of_a_kind' の戻り値を破棄しています。
+W,../adlint.c,231,8,c_builtin,W1073,UNC,X99,関数 `flush' の戻り値を破棄しています。
+W,../adlint.c,233,11,c_builtin,W1073,UNC,X99,関数 `straight' の戻り値を破棄しています。
+W,../adlint.c,235,13,c_builtin,W1073,UNC,X99,関数 `full_house' の戻り値を破棄しています。
+W,../adlint.c,251,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,251,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,251,42,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,254,19,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,254,29,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P9()' を挿入します。
+W,../adlint.c,254,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,254,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,255,34,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,259,19,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,259,29,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P8()' を挿入します。
+W,../adlint.c,259,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,259,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,260,28,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,264,19,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,264,29,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P7()' を挿入します。
+W,../adlint.c,264,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,264,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,265,28,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,270,19,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,270,29,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P4()' を挿入します。
+W,../adlint.c,270,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,270,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,272,30,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,276,32,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,280,19,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,280,29,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int P5()' を挿入します。
+W,../adlint.c,280,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,280,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,282,30,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,285,21,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,289,19,c_builtin,W0581,UNC,X99,実引数の個数か型が、この関数の以前の使用時と異なります。
+W,../adlint.c,289,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,289,26,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,290,16,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,290,19,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,291,32,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,242,27,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,255,34,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,260,28,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,265,28,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,291,38,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,293,16,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,293,19,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,294,32,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,242,27,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,255,34,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,260,28,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,265,28,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,294,38,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,242,39,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,242,58,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,242,75,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,242,90,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,242,5,c_builtin,W1071,UNC,X99,関数 `final_attack' には複数の終了点があります。
+W,../adlint.c,303,24,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,305,20,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int CHNG()' を挿入します。
+W,../adlint.c,305,27,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,305,25,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,305,25,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,311,38,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,311,23,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,311,23,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,311,23,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,312,17,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,313,55,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,315,21,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,318,47,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,318,88,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,318,88,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,318,57,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,321,57,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,321,69,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,306,10,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,320,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,325,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,325,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,326,40,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,299,20,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,326,48,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `double' 型のオブジェクトに変換されています。
+W,../adlint.c,326,46,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,328,24,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,301,7,c_builtin,W0100,UNC,X99,変数 `max_sut' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,302,7,c_builtin,W0100,UNC,X99,変数 `k' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,305,7,c_builtin,W0100,UNC,X99,変数 `change_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,299,32,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,299,49,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,299,64,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,339,27,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,342,18,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,342,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,343,31,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,343,37,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,347,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,347,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,348,32,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,348,38,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,351,27,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,351,26,c_builtin,W0024,UNC,X99,ポインタ型の変数に対してインクリメントまたはデクリメントが行われています。
+W,../adlint.c,351,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,351,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,352,18,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,352,22,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,352,25,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,353,32,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,353,38,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,353,66,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,353,72,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,354,34,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,354,62,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,354,40,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,362,16,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,362,18,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,363,29,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,332,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,363,35,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,334,7,c_builtin,W0100,UNC,X99,変数 `disc_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,332,19,c_builtin,W0104,UNC,X99,仮引数 `hd' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,332,31,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,332,48,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,332,65,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,332,5,c_builtin,W1071,UNC,X99,関数 `pair' には複数の終了点があります。
+W,../adlint.c,370,15,c_builtin,W0492,UNC,X99,同じ識別子名 `num' が構造体/共用体のメンバの他に、ラベル、タグ、または通常の識別子としても使われています。
+C,../adlint.c,25,10,c_builtin,C0001,INF,X99,この識別子 `num' で警告を検知しました。
+C,../adlint.c,34,7,c_builtin,C0001,INF,X99,この識別子 `num' で警告を検知しました。
+W,../adlint.c,371,25,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,374,27,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,374,25,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,374,25,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,377,22,c_builtin,W0493,UNC,X99,構造体あるいは共用体の値を関数の実引数として渡しています。
+W,../adlint.c,378,31,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,378,29,c_builtin,W0024,UNC,X99,ポインタ型の変数に対してインクリメントまたはデクリメントが行われています。
+W,../adlint.c,378,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,378,22,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,379,20,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,379,24,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,379,27,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,381,36,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,368,23,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,381,64,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,368,23,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,381,42,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,388,12,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,394,31,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,395,18,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,395,56,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,395,45,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,368,71,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,395,14,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,399,45,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,407,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,407,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,408,44,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,368,23,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,408,52,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `double' 型のオブジェクトに変換されています。
+W,../adlint.c,408,50,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,410,24,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,374,7,c_builtin,W0100,UNC,X99,変数 `change_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,368,35,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,368,54,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,368,71,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,368,86,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,368,5,c_builtin,W1071,UNC,X99,関数 `straight' には複数の終了点があります。
+W,../adlint.c,418,19,c_builtin,W0492,UNC,X99,同じ識別子名 `num' が構造体/共用体のメンバの他に、ラベル、タグ、または通常の識別子としても使われています。
+C,../adlint.c,25,10,c_builtin,C0001,INF,X99,この識別子 `num' で警告を検知しました。
+C,../adlint.c,34,7,c_builtin,C0001,INF,X99,この識別子 `num' で警告を検知しました。
+W,../adlint.c,420,27,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,420,25,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,420,25,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,421,28,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `(double)[13]' 型のオブジェクトに変換されています。
+W,../adlint.c,432,38,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,434,40,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,440,16,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,444,26,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,422,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,443,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,454,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,454,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,455,49,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,415,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,455,61,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,415,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,455,69,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `double' 型のオブジェクトに変換されています。
+W,../adlint.c,455,67,c_builtin,W0460,UNC,X99,変数 `exp_num' の値は、この式の評価時点では設定されていないことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,421,10,c_builtin,C1003,INF,X99,ここで該当変数が初期値を指定せずに定義されています。
+C,../adlint.c,425,20,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,426,22,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,446,25,c_builtin,C1002,INF,X99,この制御式を偽として評価しました。
+W,../adlint.c,455,67,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,458,26,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,459,29,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,459,28,c_builtin,W0024,UNC,X99,ポインタ型の変数に対してインクリメントまたはデクリメントが行われています。
+W,../adlint.c,459,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,459,22,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,460,20,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,460,24,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,460,27,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,461,14,c_builtin,W0109,UNC,X99,この関数の宣言が見つかりません。省略されたものとみなし、`extern int fabs()' を挿入します。
+W,../adlint.c,462,36,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,415,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,457,8,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,458,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,462,64,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,415,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,457,8,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,458,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,462,42,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,420,7,c_builtin,W0100,UNC,X99,変数 `change_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,415,41,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,415,58,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,415,73,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,415,5,c_builtin,W1071,UNC,X99,関数 `straight_flush' には複数の終了点があります。
+W,../adlint.c,480,27,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,480,25,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,480,25,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,484,25,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,488,20,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,488,20,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,489,28,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,492,21,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,495,48,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,495,48,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,495,80,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,496,31,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,485,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,494,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,501,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,501,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,502,49,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,476,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,502,57,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `double' 型のオブジェクトに変換されています。
+W,../adlint.c,502,55,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,504,8,c_builtin,W0612,UNC,X99,この if 条件式の値は常に真です。
+W,../adlint.c,505,26,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,506,36,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+W,../adlint.c,506,13,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,508,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,508,22,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,509,34,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,476,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,504,8,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,505,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,509,40,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,510,42,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,476,29,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,504,8,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,505,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,510,17,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,478,11,c_builtin,W0100,UNC,X99,変数 `k2' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,480,7,c_builtin,W0100,UNC,X99,変数 `change_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,476,41,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,476,60,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,476,77,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,476,92,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,521,15,c_builtin,W0492,UNC,X99,同じ識別子名 `num' が構造体/共用体のメンバの他に、ラベル、タグ、または通常の識別子としても使われています。
+C,../adlint.c,25,10,c_builtin,C0001,INF,X99,この識別子 `num' で警告を検知しました。
+C,../adlint.c,34,7,c_builtin,C0001,INF,X99,この識別子 `num' で警告を検知しました。
+W,../adlint.c,523,27,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,523,25,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,523,25,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,527,28,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `(double)[13]' 型のオブジェクトに変換されています。
+W,../adlint.c,534,36,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,535,38,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,538,10,c_builtin,W0612,UNC,X99,この if 条件式の値は常に真です。
+W,../adlint.c,540,48,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,545,67,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,546,45,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,525,10,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,529,20,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,538,10,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,541,19,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,550,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,550,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,551,55,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,519,35,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,551,67,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,519,35,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,551,75,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `double' 型のオブジェクトに変換されています。
+W,../adlint.c,551,73,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,554,8,c_builtin,W0612,UNC,X99,この if 条件式の値は常に真です。
+W,../adlint.c,555,26,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,556,29,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,556,28,c_builtin,W0024,UNC,X99,ポインタ型の変数に対してインクリメントまたはデクリメントが行われています。
+W,../adlint.c,556,19,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,556,22,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,557,20,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,557,24,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,557,27,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,559,36,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,519,35,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,554,8,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,555,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,559,64,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,519,35,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+C,../adlint.c,554,8,c_builtin,C1001,INF,X99,この制御式を真として評価しました。
+C,../adlint.c,555,21,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,559,42,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,523,7,c_builtin,W0100,UNC,X99,変数 `change_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,519,47,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,519,66,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,519,81,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,519,5,c_builtin,W1071,UNC,X99,関数 `royal_straight_flush' には複数の終了点があります。
+W,../adlint.c,581,25,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,586,25,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,586,23,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,586,23,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,588,30,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,589,21,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,589,21,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,591,19,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,592,32,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,593,23,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,593,23,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,594,24,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,596,16,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,598,73,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,598,45,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,599,73,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,599,45,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,600,26,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,601,53,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,601,53,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,601,73,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,601,73,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,601,105,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,601,119,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,601,21,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,603,59,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,604,26,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,611,30,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,612,21,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,612,21,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,614,19,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,615,32,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,616,23,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,616,23,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,617,24,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,619,16,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,621,73,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,621,45,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,622,73,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,622,45,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,623,26,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,624,53,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,624,53,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,624,73,c_builtin,W0459,UNC,X99,変数 `deck_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,624,73,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,624,105,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,624,119,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,624,21,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,626,59,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,627,26,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,635,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,635,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,636,45,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,572,25,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,636,53,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `double' 型のオブジェクトに変換されています。
+W,../adlint.c,636,51,c_builtin,W0023,UNC,X99,ポインタ型の変数に対して算術演算が行われています。
+W,../adlint.c,639,26,c_builtin,W9003,UNC,X99,暗黙的に `int(*)()' 型のオブジェクトが `int' 型のオブジェクトに変換されています。
+W,../adlint.c,578,7,c_builtin,W0100,UNC,X99,変数 `min_num' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,579,7,c_builtin,W0100,UNC,X99,変数 `min_pos' は初期値を設定後に再代入されません。変数を const 付きで初期値を指定して定義できる可能性があります。
+W,../adlint.c,572,37,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,572,56,c_builtin,W0104,UNC,X99,仮引数 `hand_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,572,73,c_builtin,W0104,UNC,X99,仮引数 `deck_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,572,88,c_builtin,W0104,UNC,X99,仮引数 `cg' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,572,5,c_builtin,W1071,UNC,X99,関数 `full_house' には複数の終了点があります。
+W,../adlint.c,238,19,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,328,19,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,410,19,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,458,21,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,505,21,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,555,21,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,639,21,c_builtin,W0583,UNC,X99,実引数の個数か型が、この後で見つかる関数定義と異なります。
+W,../adlint.c,650,22,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,651,17,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,652,16,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,652,24,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,646,49,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,652,42,c_builtin,W0705,UNC,X99,配列の添字が領域外を指すことがあります。
+C,,,,c_builtin,C1000,INF,X99,次の実行パスで警告を検知しました。
+C,../adlint.c,646,49,c_builtin,C1006,INF,X99,ここで該当変数に値を割り当てました。
+W,../adlint.c,652,30,c_builtin,W0459,UNC,X99,変数 `hd' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,654,21,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,655,13,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,646,42,c_builtin,W0104,UNC,X99,仮引数 `n' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,646,49,c_builtin,W0104,UNC,X99,仮引数 `role' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,671,28,c_builtin,W0459,UNC,X99,変数 `hand_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,671,56,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,678,20,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,680,36,c_builtin,W0459,UNC,X99,変数 `remain_card' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,662,26,c_builtin,W0104,UNC,X99,仮引数 `remain_card' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,662,5,c_builtin,W1071,UNC,X99,関数 `check_straight' には複数の終了点があります。
+W,../adlint.c,692,18,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,695,43,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,695,36,c_builtin,W0331,UNC,X99,signed int 型の値が関数 `double combination()' から返されています。
+W,../adlint.c,697,17,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,697,30,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,697,11,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,690,24,c_builtin,W0104,UNC,X99,仮引数 `n' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,690,31,c_builtin,W0104,UNC,X99,仮引数 `m' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,690,8,c_builtin,W1071,UNC,X99,関数 `combination' には複数の終了点があります。
+W,../adlint.c,704,18,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,707,25,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,707,18,c_builtin,W0331,UNC,X99,signed int 型の値が関数 `double permutation()' から返されています。
+W,../adlint.c,709,17,c_builtin,W0723,UNC,X99,符号付きの式の値がオーバーフローする可能性があります。
+W,../adlint.c,709,17,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,709,11,c_builtin,W0093,UNC,X99,ゼロになることがある値で除算しています。
+W,../adlint.c,702,24,c_builtin,W0104,UNC,X99,仮引数 `n' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,702,31,c_builtin,W0104,UNC,X99,仮引数 `m' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,702,8,c_builtin,W1071,UNC,X99,関数 `permutation' には複数の終了点があります。
+W,../adlint.c,717,10,c_builtin,W0492,UNC,X99,同じ識別子名 `exp' が構造体/共用体のメンバの他に、ラベル、タグ、または通常の識別子としても使われています。
+C,../adlint.c,28,10,c_builtin,C0001,INF,X99,この識別子 `exp' で警告を検知しました。
+W,../adlint.c,718,17,c_builtin,W9003,UNC,X99,暗黙的に `int' 型のオブジェクトが `int(*)()' 型のオブジェクトに変換されています。
+W,../adlint.c,718,20,c_builtin,W0027,UNC,X99,ポインタ型の変数に対して比較演算が行われています。
+W,../adlint.c,720,11,c_builtin,W0459,UNC,X99,変数 `hd' の値は、この式の評価時点では設定されていません。このプログラムは危険です。
+W,../adlint.c,724,40,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,726,31,c_builtin,W0195,UNC,X99,暗黙的に signed int 型から double 型に型変換されています。
+W,../adlint.c,714,34,c_builtin,W0104,UNC,X99,仮引数 `tk' は値が変わりません。const 付きで宣言できる可能性があります。
+W,../adlint.c,86,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `5' が直接使われています。
+W,../adlint.c,99,8,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,99,8,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,99,8,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,99,16,c_builtin,W0508,UNC,X99,`&&' あるいは `||' 演算子の右オペランドに副作用があります。
+W,../adlint.c,108,10,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,108,10,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,108,10,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,108,10,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,202,8,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,202,8,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,202,8,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,203,8,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,203,8,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,203,8,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,207,8,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,207,8,c_builtin,W0499,UNC,X99,+ - * / % 以外の二項演算子のうち、同じ優先順位の異なる二項演算子が共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,207,8,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,303,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `4' が直接使われています。
+W,../adlint.c,313,10,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,313,10,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,313,10,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,313,10,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,313,72,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,321,7,c_builtin,W0498,UNC,X99,二項演算子 + - * / のうち、同じ優先順位の異なる演算子が共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,351,17,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,353,12,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,353,12,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,353,12,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,353,12,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,371,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `13' が直接使われています。
+W,../adlint.c,378,19,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,391,20,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,401,20,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,421,28,c_builtin,W0828,UNC,X99,ネストされた配列の初期値の各要素が `{}' で囲まれていません。
+W,../adlint.c,421,21,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `13' が直接使われています。
+W,../adlint.c,421,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `4' が直接使われています。
+W,../adlint.c,429,22,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,437,12,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,437,12,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,437,59,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,446,22,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,459,19,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,461,14,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,461,14,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,461,14,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,461,14,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,461,52,c_builtin,W0508,UNC,X99,`&&' あるいは `||' 演算子の右オペランドに副作用があります。
+W,../adlint.c,484,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `13' が直接使われています。
+W,../adlint.c,489,10,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,489,10,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,489,10,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,489,10,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,489,72,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,516,3,c_builtin,W9001,UNC,X99,この文には制御が到達しません。
+W,../adlint.c,527,28,c_builtin,W0828,UNC,X99,ネストされた配列の初期値の各要素が `{}' で囲まれていません。
+W,../adlint.c,527,21,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `13' が直接使われています。
+W,../adlint.c,527,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `4' が直接使われています。
+W,../adlint.c,556,19,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,558,14,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,558,14,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,558,14,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,558,14,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,558,58,c_builtin,W0508,UNC,X99,`&&' あるいは `||' 演算子の右オペランドに副作用があります。
+W,../adlint.c,569,3,c_builtin,W9001,UNC,X99,この文には制御が到達しません。
+W,../adlint.c,581,18,c_builtin,W0950,UNC,X99,配列のサイズ定義に、数値 `13' が直接使われています。
+W,../adlint.c,588,38,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,592,40,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,594,12,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,594,55,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,600,14,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,611,38,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,615,40,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,617,12,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,617,55,c_builtin,W0013,UNC,X99,繰り返し文の中で、continue 文が使用されています。
+W,../adlint.c,623,14,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,650,16,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,671,10,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,671,10,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,671,10,c_builtin,W0499,UNC,X99,+ - * / % 以外の二項演算子のうち、同じ優先順位の異なる二項演算子が共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,671,10,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,676,16,c_builtin,W9001,UNC,X99,この文には制御が到達しません。
+W,../adlint.c,677,14,c_builtin,W0488,UNC,X99,関数呼び出し `()'、配列添字演算 `[]'、あるいは構造体/共用体メンバ演算 `->' または `.' が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,677,14,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,677,14,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,677,14,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,695,8,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,695,8,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,695,8,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,697,14,c_builtin,W0498,UNC,X99,二項演算子 + - * / のうち、同じ優先順位の異なる演算子が共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,709,14,c_builtin,W0498,UNC,X99,二項演算子 + - * / のうち、同じ優先順位の異なる演算子が共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,727,12,c_builtin,W0490,UNC,X99,二項演算子が、`&&' あるいは `||' と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,727,12,c_builtin,W0497,UNC,X99,シフト演算子、関係演算子、あるいは等価演算子が複数回使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,727,12,c_builtin,W0502,UNC,X99,+ - * / % 以外の二項演算子が、異なる優先順位の二項演算子と共に使われています。`()' で結合を明確にすることを勧めます。
+W,../adlint.c,276,3,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,284,3,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,377,3,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,457,3,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,504,3,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,538,5,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,554,3,c_builtin,W0114,UNC,X99,この制御式は明示的な論理演算ではありません。
+W,../adlint.c,85,10,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,85,14,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,87,20,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,87,31,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,101,81,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,101,114,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,125,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,125,15,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,302,10,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,302,14,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,335,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,335,15,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,370,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,370,15,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,417,17,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,418,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,418,15,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,418,19,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,422,21,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,478,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,485,21,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,521,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,521,15,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,524,17,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,535,57,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,574,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,582,21,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,607,28,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,630,28,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,648,10,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,665,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,716,11,c_builtin,W0425,UNC,X99,一つの行に複数の宣言または文が存在します。
+W,../adlint.c,24,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,25,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,26,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,27,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,28,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,32,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,33,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,34,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,35,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,83,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,84,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,85,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,86,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,87,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,90,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,91,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,92,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,93,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,94,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,95,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,96,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,97,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,99,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,101,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,103,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,104,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,105,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,107,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,108,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,109,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,110,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,111,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,113,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,114,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,115,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,116,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,125,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,128,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,129,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,130,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,131,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,132,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,134,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,135,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,136,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,137,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,138,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,139,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,142,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,143,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,144,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,145,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,146,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,147,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,148,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,149,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,151,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,152,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,153,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,154,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,155,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,156,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,157,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,160,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,161,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,162,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,163,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,164,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,166,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,167,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,168,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,169,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,170,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,171,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,172,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,173,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,174,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,175,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,176,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,177,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,184,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,185,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,186,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,188,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,189,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,190,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,191,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,192,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,193,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,195,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,196,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,197,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,198,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,199,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,200,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,202,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,203,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,207,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,208,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,209,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,210,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,211,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,212,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,213,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,214,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,215,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,216,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,217,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,218,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,219,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,220,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,222,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,223,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,229,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,231,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,233,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,235,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,237,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,238,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,239,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,244,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,245,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,246,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,247,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,248,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,251,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,254,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,255,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,256,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,259,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,260,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,261,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,264,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,265,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,266,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,269,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,270,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,271,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,272,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,273,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,274,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,275,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,276,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,278,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,280,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,281,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,282,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,283,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,284,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,285,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,286,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,287,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,289,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,290,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,291,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,292,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,293,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,294,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,295,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,296,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,301,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,302,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,303,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,304,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,305,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,306,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,307,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,310,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,311,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,312,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,313,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,314,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,315,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,316,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,317,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,318,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,319,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,320,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,321,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,322,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,323,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,325,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,326,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,327,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,328,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,329,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,334,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,335,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,336,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,338,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,339,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,340,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,341,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,342,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,343,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,344,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,345,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,347,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,348,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,349,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,351,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,352,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,353,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,354,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,355,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,356,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,357,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,358,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,359,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,360,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,361,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,362,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,363,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,364,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,365,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,370,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,371,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,372,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,373,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,374,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,377,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,378,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,379,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,380,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,381,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,382,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,383,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,384,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,385,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,386,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,387,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,388,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,389,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,391,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,392,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,393,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,394,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,395,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,396,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,397,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,398,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,399,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,401,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,402,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,403,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,404,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,405,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,406,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,407,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,408,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,409,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,410,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,411,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,417,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,418,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,419,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,420,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,421,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,422,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,423,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,425,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,426,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,427,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,428,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,429,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,430,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,431,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,432,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,433,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,434,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,435,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,436,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,437,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,438,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,439,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,440,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,441,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,442,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,443,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,444,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,445,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,446,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,447,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,448,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,449,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,450,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,451,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,452,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,454,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,455,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,456,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,457,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,458,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,459,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,460,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,461,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,462,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,463,13,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,464,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,465,13,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,466,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,467,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,468,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,469,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,470,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,471,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,472,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,478,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,479,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,480,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,481,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,482,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,483,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,484,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,485,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,487,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,488,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,489,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,490,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,491,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,492,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,493,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,494,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,495,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,496,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,497,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,498,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,501,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,502,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,503,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,504,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,505,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,506,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,507,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,508,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,509,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,510,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,511,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,512,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,513,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,514,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,515,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,516,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,521,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,522,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,523,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,524,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,525,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,526,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,527,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,529,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,530,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,531,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,532,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,533,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,534,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,535,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,536,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,537,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,538,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,539,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,540,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,541,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,542,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,543,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,544,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,545,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,546,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,547,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,548,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,549,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,550,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,551,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,552,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,554,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,555,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,556,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,557,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,558,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,559,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,560,13,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,561,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,562,13,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,563,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,564,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,565,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,566,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,567,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,568,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,569,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,574,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,575,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,576,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,577,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,578,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,579,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,580,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,581,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,582,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,583,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,585,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,586,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,588,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,589,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,590,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,591,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,592,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,593,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,594,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,595,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,596,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,597,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,598,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,599,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,600,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,601,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,602,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,603,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,604,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,605,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,606,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,607,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,608,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,611,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,612,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,613,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,614,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,615,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,616,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,617,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,618,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,619,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,620,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,621,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,622,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,623,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,624,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,625,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,626,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,627,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,628,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,629,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,630,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,631,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,632,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,635,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,636,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,637,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,638,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,639,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,640,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,641,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,642,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,648,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,649,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,650,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,651,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,652,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,653,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,654,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,655,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,656,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,657,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,658,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,664,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,665,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,666,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,669,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,671,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,672,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,673,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,674,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,675,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,676,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,677,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,678,11,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,679,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,680,9,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,681,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,682,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,683,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,684,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,686,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,687,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,692,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,693,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,695,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,696,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,697,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,698,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,699,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,704,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,705,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,707,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,708,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,709,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,710,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,711,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,716,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,717,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,718,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,719,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,720,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,722,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,724,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,726,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,727,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,728,7,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,729,5,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,730,3,c_builtin,W0432,UNC,X99,この行はプロジェクトのインデントスタイルと合っていません。
+W,../adlint.c,,,c_builtin,W0059,UNC,X99,このファイルの行末に Ctrl-M(^M) 制御文字が見つかりました。

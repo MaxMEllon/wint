@@ -1,21 +1,19 @@
-feature '戦略ファイルの提出' do
+feature '戦略詳細の閲覧' do
   given(:user) { create :admin }
-  given(:league) { create :league }
-  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
+  given(:league) { create(:league, is_analy: true) }
 
   background do
     login user
-    player
-    league.update(is_analy: true)
+
+    player = create(:player1, league_id: league.id, user_id: user.id)
+    submit = create(:submit, player_id: player.id)
+    create(:strategy, :type1, submit_id: submit.id)
+
+    `cp -r #{Rails.root}/spec/factories/files/001/0001/001 #{player.data_dir}`
+
     visit main_select_path
     visit main_set_player_path(pid: player.id) # or click_link player.name
-    click_button '戦略提出'
 
-    fill_in 'submit[data_dir]', with: File.read("#{Rails.root}/spec/factories/files/PokerOpe/success.c")
-    fill_in 'submit[comment]', with: 'てすと'
-    click_button '提出'
-
-    reload_page
     click_link '001'
   end
 
