@@ -17,12 +17,20 @@
 
 FactoryGirl.define do
   factory :submit do
-    player_id 1
-    data_dir File.read("#{Rails.root}/spec/factories/files/PokerOpe/success.c")
+    id 1
+    data_dir "#{Rails.root}/tmp/data/001/0001/001"
     comment 'コメント'
-    number 0
-    status 0
-    is_active false
+    number 1
+    status 1
+    is_active true
+
+    before :create do
+      Submit.skip_callback(:create, :after, :after_create)
+    end
+
+    after :create do
+      Submit.set_callback(:create, :after, :after_create)
+    end
   end
 end
 

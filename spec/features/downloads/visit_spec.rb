@@ -1,20 +1,11 @@
 feature 'ダウンロードリンクへのアクセス' do
   given(:user) { create :admin }
   given(:league) { create :league }
-  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
 
   background do
     login user
-    player
 
-    visit main_select_path
-    visit main_set_player_path(pid: player.id) # or click_link player.name
-    click_button '戦略提出'
-
-    fill_in 'submit[data_dir]', with: File.read("#{Rails.root}/spec/factories/files/PokerOpe/success.c")
-    fill_in 'submit[comment]', with: 'てすと'
-    click_button '提出'
-
+    create_strategies(league)
     visit analysis_league_path(lid: league.id)
   end
 

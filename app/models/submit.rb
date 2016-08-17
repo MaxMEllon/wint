@@ -41,7 +41,9 @@ class Submit < ActiveRecord::Base
   scope :number_by, -> { order('number') }
   Scope.active(self)
 
-  after_create do
+  after_create :after_create
+
+  def after_create
     num = last_number
     path = format("#{player.data_dir}/%03d", num)
     Dir.mkdir(path)

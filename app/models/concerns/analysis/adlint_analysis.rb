@@ -32,6 +32,7 @@ class AdlintAnalysis
 
     data = File.read(@adlint_metrix_path).split(/\r\n|\n/)
     data.each do |line|
+      next unless line =~ /^(DEF|MET)/
       e = str2arr(line)
       if e.first == 'DEF' && e[4] == 'F'
         @records.add AdlintDefinition.new(e[0], e[4], e[7])

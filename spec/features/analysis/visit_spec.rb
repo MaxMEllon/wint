@@ -1,12 +1,10 @@
 feature '分析ページへのアクセス' do
   given(:user) { create :admin }
   given(:league) { create :league }
-  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
-  given(:submit) { create(:submit, player_id: player.id) }
 
   background do
     login user
-    submit
+    create_strategies(league)
   end
 
   context 'リーグ詳細ページへのリンクを選択した場合' do
@@ -41,7 +39,8 @@ feature '分析ページへのアクセス' do
 
   context '戦略詳細ページを選択した場合' do
     background do
-      visit analysis_strategy_path(lid: league.id, pid: player.id, num: submit.id)
+      player = league.players.first
+      visit analysis_strategy_path(lid: league.id, pid: player.id, num: player.submits.first.id)
     end
 
     scenario '各プレイヤの戦略詳細ページへ移動する', js: true do
