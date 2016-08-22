@@ -1,5 +1,9 @@
 module GraphGenerator
   ##--  scatter
+  def scatter_abc_size(deviation, user_data = nil)
+    scatter(deviation, user_data, {title: "最大ABCサイズと得点", yAxis: "最大ABCサイズ", pointFormat: "score : {point.x:.2f}<br />abc size : {point.y}"})
+  end
+
   def scatter_size(deviation, user_data = nil)
     scatter(deviation, user_data, {title: "ファイルサイズと得点", yAxis: "ファイルサイズ", pointFormat: "score : {point.x:.2f}<br />size : {point.y}"})
   end
@@ -125,7 +129,7 @@ module GraphGenerator
     dataset
   end
 
-  module_function :scatter, :scatter_size, :scatter_line, :scatter_syntax, :scatter_fun, :scatter_gzip,
+  module_function :scatter, :scatter_abc_size, :scatter_size, :scatter_line, :scatter_syntax, :scatter_fun, :scatter_gzip,
                   :histgram, :polar_dev,
                   :line_score, :bar_submits, :pie_result,
                   :column_strategies_per_day, :column_strategies_total, :column_strategies,

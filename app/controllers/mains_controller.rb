@@ -18,16 +18,19 @@ class MainsController < ApplicationController
     league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user, :submits, :strategies]).first
     players = league.players_ranking
 
+    dev_abc_size = Deviation.new(players.map {|p| p.best.strategy.plot_abc_size})
     dev_size = Deviation.new(players.map {|p| p.best.strategy.plot_size})
     dev_syntax = Deviation.new(players.map {|p| p.best.strategy.plot_syntax})
     dev_fun = Deviation.new(players.map {|p| p.best.strategy.plot_fun})
     dev_gzip = Deviation.new(players.map {|p| p.best.strategy.plot_gzip})
 
+    player_abc_size = @strategy.plot_abc_size
     player_size = @strategy.plot_size
     player_syntax = @strategy.plot_syntax
     player_fun = @strategy.plot_fun
     player_gzip = @strategy.plot_gzip
 
+    @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size, [player_abc_size.values])
     @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
     @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
     @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [player_fun.values])

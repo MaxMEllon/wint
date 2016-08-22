@@ -28,6 +28,8 @@ FactoryGirl.define do
 
     trait :type1 do
       score 49.43895
+      abc_size 22.567
+      statement 300
       line 350
       size 8779
       gzip_size 1998
@@ -41,6 +43,8 @@ FactoryGirl.define do
 
     trait :type2 do
       score 44.82215
+      abc_size 32.192
+      statement 590
       line 626
       size 18_992
       gzip_size 3021
@@ -54,6 +58,8 @@ FactoryGirl.define do
 
     trait :type3 do
       score 32.36735
+      abc_size 13.334
+      statement 140
       line 206
       size 3948
       gzip_size 804
@@ -67,6 +73,8 @@ FactoryGirl.define do
 
     trait :type4 do
       score 52.02475
+      abc_size 35.21
+      statement 245
       line 308
       size 7610
       gzip_size 1690
@@ -80,6 +88,8 @@ FactoryGirl.define do
 
     trait :type5 do
       score 35.20245
+      abc_size 53.123
+      statement 520
       line 574
       size 12_586
       gzip_size 2427

@@ -33,7 +33,6 @@ class AnalysisController < ApplicationController
     @player = Player.where(id: params[:pid]).includes(strategies: :submit).first
     @strategies = @player.strategies.number_by
     @league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user]).first
-    analysis = @league.players_ranking.map {|player| player.analysis_with_snum}
 
     dev_size = Deviation.new(@strategies.map {|s| s.plot_size})
     dev_syntax = Deviation.new(@strategies.map {|s| s.plot_syntax})
@@ -62,16 +61,19 @@ class AnalysisController < ApplicationController
 
     @strategy = league.players.where(id: params[:pid]).first.strategies.where(number: params[:num]).first
 
+    dev_abc_size = Deviation.new(players_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_abc_size)})
     dev_size = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_size})
     dev_syntax = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_syntax})
     dev_fun = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_fun})
     dev_gzip = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_gzip})
 
+    player_abc_size = @strategy.plot_abc_size
     player_size = @strategy.plot_size
     player_syntax = @strategy.plot_syntax
     player_fun = @strategy.plot_fun
     player_gzip = @strategy.plot_gzip
 
+    @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size, [player_abc_size.values])
     @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
     @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
     @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [player_fun.values])
@@ -93,12 +95,16 @@ class AnalysisController < ApplicationController
     player_ranking = @league.players_ranking
 
     if player_ranking.blank?
-      @scatter_size = @histgram_size = nil
+      @scatter_abc_size = @histgram_abc_size = nil
     else
+      dev_abc_size = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_abc_size)})
       dev_size = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_size)})
       dev_syntax = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_syntax)})
       dev_fun = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_fun)})
       dev_gzip = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_gzip)})
+      #-- abc_size
+      @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size)
+      @histgram_abc_size = GraphGenerator.histgram(dev_abc_size)
       #-- size
       @scatter_size = GraphGenerator.scatter_size(dev_size)
       @histgram_size = GraphGenerator.histgram(dev_size)

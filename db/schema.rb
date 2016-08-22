@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727065609) do
+ActiveRecord::Schema.define(version: 20160826081739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name",                                        null: false
-    t.datetime "start_at",    default: '2016-08-17 17:21:37', null: false
-    t.datetime "end_at",      default: '2016-08-17 17:21:37', null: false
+    t.datetime "start_at",    default: '2016-08-31 17:30:19', null: false
+    t.datetime "end_at",      default: '2016-08-31 17:30:19', null: false
     t.float    "limit_score", default: 0.0,                   null: false
     t.boolean  "is_analy",    default: false,                 null: false
     t.string   "data_dir",    default: "",                    null: false
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160727065609) do
     t.integer  "func_ref_max"
     t.integer  "func_ref_average"
     t.integer  "func_num"
+    t.float    "abc_size"
+    t.integer  "statement"
   end
 
   create_table "submits", force: :cascade do |t|

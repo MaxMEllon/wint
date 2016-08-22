@@ -18,7 +18,11 @@
 FactoryGirl.define do
   factory :submit do
     id 1
-    data_dir "#{Rails.root}/tmp/data/001/0001/001"
+    if Rails.env.test?
+      data_dir { "#{Rails.root}/tmp/data/001/#{format('%04d', id)}/001" }
+    else
+      data_dir { "#{Rails.root}/public/data/001/#{format('%04d', id)}/001" }
+    end
     comment 'コメント'
     number 1
     status 1
