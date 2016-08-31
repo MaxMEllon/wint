@@ -37,6 +37,17 @@ feature '分析ページへのアクセス' do
     end
   end
 
+  context 'プレイヤ詳細ページへのリンクを選択した場合' do
+    background do
+      player = league.players.first
+      visit analysis_player_path(lid: league.id, pid: player.id)
+    end
+
+    scenario 'プレイヤ詳細ページへ移動する', js: true do
+      expect(page).to have_content 'プレイヤ詳細'
+    end
+  end
+
   context '戦略詳細ページを選択した場合' do
     background do
       player = league.players.first

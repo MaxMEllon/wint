@@ -58,6 +58,8 @@ class Strategy < ActiveRecord::Base
 
     update(
       score: result_analysis.analyze_score,
+      abc_size: adlint_analysis.analyze_abc_size,
+      statement: adlint_analysis.analyze_statement,
       line: adlint_analysis.analyze_line,
       size: code_analysis.analyze_size,
       gzip_size: code_analysis.analyze_gzip_size,
@@ -97,6 +99,10 @@ class Strategy < ActiveRecord::Base
     strategies = submit.player.strategies.score_by
     return true if strategies.blank? || score >= strategies.first.score
     false
+  end
+
+  def plot_abc_size
+    { x: score, y: abc_size }
   end
 
   def plot_size

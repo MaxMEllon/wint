@@ -10,6 +10,15 @@ br
 .analysis.strategy
 
   - if @scatter_size && @histgram_size
+    h3 最大ABCサイズ
+    hr
+    .row
+      .col-lg-6
+        = high_chart("scatter_abc_size", @scatter_abc_size)
+        br
+      .col-lg-6
+        = high_chart("histgram_abc_size", @histgram_abc_size)
+        br
     h3 ファイルサイズ
     hr
     .row
