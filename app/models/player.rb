@@ -34,11 +34,6 @@ class Player < ActiveRecord::Base
     update(data_dir: path)
   end
 
-  def analysis_with_snum
-    strategy = best.strategy
-    [format("#{user.snum}_%03d", strategy.number), AnalysisManager.new(strategy.analy_file)]
-  end
-
   def snum
     format("#{user.snum}_%03d", best.strategy.number)
   end

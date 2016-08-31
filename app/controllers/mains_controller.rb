@@ -19,30 +19,8 @@ class MainsController < ApplicationController
     players = league.players_ranking
 
     dev_abc_size = Deviation.new(players.map {|p| p.best.strategy.plot_abc_size})
-    dev_size = Deviation.new(players.map {|p| p.best.strategy.plot_size})
-    dev_syntax = Deviation.new(players.map {|p| p.best.strategy.plot_syntax})
-    dev_fun = Deviation.new(players.map {|p| p.best.strategy.plot_fun})
-    dev_gzip = Deviation.new(players.map {|p| p.best.strategy.plot_gzip})
-
     player_abc_size = @strategy.plot_abc_size
-    player_size = @strategy.plot_size
-    player_syntax = @strategy.plot_syntax
-    player_fun = @strategy.plot_fun
-    player_gzip = @strategy.plot_gzip
-
     @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size, [player_abc_size.values])
-    @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
-    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
-    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [player_fun.values])
-    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [player_gzip.values])
-
-    data = [
-      {x: "ファイルサイズ", y: dev_size.degree(player_size)},
-      {x: "制御構文の条件の数", y: dev_size.degree(player_syntax)},
-      {x: "関数の宣言数", y: dev_size.degree(player_fun)},
-      {x: "圧縮率", y: dev_size.degree(player_gzip)}
-    ]
-    @polar_dev = GraphGenerator.polar_dev(data)
 
     @result_table = @strategy.get_result_table
   end

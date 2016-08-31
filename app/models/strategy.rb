@@ -60,14 +60,6 @@ class Strategy < ActiveRecord::Base
       score: result_analysis.analyze_score,
       abc_size: adlint_analysis.analyze_abc_size,
       statement: adlint_analysis.analyze_statement,
-      line: adlint_analysis.analyze_line,
-      size: code_analysis.analyze_size,
-      gzip_size: code_analysis.analyze_gzip_size,
-      count_if: code_analysis.analyze_count_if,
-      count_loop: code_analysis.analyze_count_loop,
-      func_ref_strategy: adlint_analysis.analyze_func_ref_strategy,
-      func_ref_max: adlint_analysis.analyze_func_ref_max,
-      func_ref_average: adlint_analysis.analyze_func_ref_average,
       func_num: adlint_analysis.analyze_func_num
     )
   end
@@ -122,8 +114,7 @@ class Strategy < ActiveRecord::Base
   end
 
   def to_csv
-    [score, line, size, gzip_size, count_if, count_loop,
-     func_ref_strategy, func_ref_max, func_ref_average, func_num].join(',')
+    [score, abc_size, statement, func_num].join(',')
   end
 
   private
@@ -136,8 +127,7 @@ class Strategy < ActiveRecord::Base
   public_class_method
 
   def self.to_csv_header
-    %w(得点 行数 ファイルサイズ 圧縮ファイルサイズ ifの条件の数 loopの数
-       strategy関数からの呼出回数 最多呼出回数 平均呼出回数 関数の定義数).join(',')
+    %w(得点 ABCサイズ ステート数 関数の定義数).join(',')
   end
 
   # override

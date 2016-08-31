@@ -2,24 +2,6 @@ class CodeAnalysis
   def initialize(analysis_path)
     @path = analysis_path + '/code'
     @base_file_path = @path + '/comcut.c'
-    @gzip_path = @path + '/comcut.gz'
-  end
-
-  def analyze_size
-    File.stat(@base_file_path).size
-  end
-
-  def analyze_gzip_size
-    `gzip -c -9 #{@base_file_path} > #{@gzip_path}`
-    File.stat(@gzip_path).size
-  end
-
-  def analyze_count_if
-    File.read(@base_file_path).scan(/\sif/).count
-  end
-
-  def analyze_count_loop
-    File.read(@base_file_path).scan(/\sfor/).count + File.read(@base_file_path).scan(/\swhile/).count
   end
 
   public_class_method

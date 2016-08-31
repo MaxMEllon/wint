@@ -34,20 +34,6 @@ class AnalysisController < ApplicationController
     @strategies = @player.strategies.number_by
     @league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user]).first
 
-    dev_size = Deviation.new(@strategies.map {|s| s.plot_size})
-    dev_syntax = Deviation.new(@strategies.map {|s| s.plot_syntax})
-    dev_fun = Deviation.new(@strategies.map {|s| s.plot_fun})
-    dev_gzip = Deviation.new(@strategies.map {|s| s.plot_gzip})
-
-    @degrees = @strategies.map do |strategy|
-      {
-        size: dev_size.degree(strategy.plot_size),
-        syntax: dev_syntax.degree(strategy.plot_syntax),
-        fun: dev_fun.degree(strategy.plot_fun),
-        gzip: dev_gzip.degree(strategy.plot_gzip)
-      }
-    end
-
     @line_score = GraphGenerator.line_score(@strategies.map {|s| [s.number, s.score]})
   end
 
@@ -62,30 +48,9 @@ class AnalysisController < ApplicationController
     @strategy = league.players.where(id: params[:pid]).first.strategies.where(number: params[:num]).first
 
     dev_abc_size = Deviation.new(players_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_abc_size)})
-    dev_size = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_size})
-    dev_syntax = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_syntax})
-    dev_fun = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_fun})
-    dev_gzip = Deviation.new(players_ranking.map {|p| p.best.strategy.plot_gzip})
-
     player_abc_size = @strategy.plot_abc_size
-    player_size = @strategy.plot_size
-    player_syntax = @strategy.plot_syntax
-    player_fun = @strategy.plot_fun
-    player_gzip = @strategy.plot_gzip
 
     @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size, [player_abc_size.values])
-    @scatter_size = GraphGenerator.scatter_size(dev_size, [player_size.values])
-    @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax, [player_syntax.values])
-    @scatter_fun = GraphGenerator.scatter_fun(dev_fun, [player_fun.values])
-    @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip, [player_gzip.values])
-
-    data = [
-      {x: "ファイルサイズ", y: dev_size.degree(player_size)},
-      {x: "制御構文の条件の数", y: dev_size.degree(player_syntax)},
-      {x: "関数の宣言数", y: dev_size.degree(player_fun)},
-      {x: "圧縮率", y: dev_size.degree(player_gzip)}
-    ]
-    @polar_dev = GraphGenerator.polar_dev(data)
 
     @result_table = @strategy.get_result_table
   end
@@ -98,62 +63,19 @@ class AnalysisController < ApplicationController
       @scatter_abc_size = @histgram_abc_size = nil
     else
       dev_abc_size = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_abc_size)})
-      dev_size = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_size)})
-      dev_syntax = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_syntax)})
-      dev_fun = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_fun)})
-      dev_gzip = Deviation.new(player_ranking.map {|p| {name: p.snum}.merge(p.best.strategy.plot_gzip)})
-      #-- abc_size
       @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size)
       @histgram_abc_size = GraphGenerator.histgram(dev_abc_size)
-      #-- size
-      @scatter_size = GraphGenerator.scatter_size(dev_size)
-      @histgram_size = GraphGenerator.histgram(dev_size)
-      #-- syntax
-      @scatter_syntax = GraphGenerator.scatter_syntax(dev_syntax)
-      @histgram_syntax = GraphGenerator.histgram(dev_syntax)
-      #-- fun
-      @scatter_fun = GraphGenerator.scatter_fun(dev_fun)
-      @histgram_fun = GraphGenerator.histgram(dev_fun)
-      #-- gzip
-      @scatter_gzip = GraphGenerator.scatter_gzip(dev_gzip)
-      @histgram_gzip = GraphGenerator.histgram(dev_gzip)
     end
   end
 
   def ranking
     @league = League.where(id: params[:lid]).includes(players: [{best: :strategy}, :strategies, :user, :submits]).first
     @players = @league.players_ranking
-
     @players += @league.players.select {|p| !p.best}
 
-    dev_size = Deviation.new(@players.map {|p| p.best.strategy.plot_size})
-    dev_syntax = Deviation.new(@players.map {|p| p.best.strategy.plot_syntax})
-    dev_fun = Deviation.new(@players.map {|p| p.best.strategy.plot_fun})
-    dev_gzip = Deviation.new(@players.map {|p| p.best.strategy.plot_gzip})
+    @strategies = @players.map { |player| player.strategies }.flatten.sort { |a, b| b.score <=> a.score }
 
-    @player_degrees = @players.map do |player|
-      {
-        name: player.snum,
-        size: dev_size.degree(player.best.strategy.plot_size),
-        syntax: dev_syntax.degree(player.best.strategy.plot_syntax),
-        fun: dev_fun.degree(player.best.strategy.plot_fun),
-        gzip: dev_gzip.degree(player.best.strategy.plot_gzip)
-      }
-    end
-
-    strategies = @players.map { |player| player.strategies }.flatten.sort { |a, b| a.score <=> b.score }
-    @strategies_degrees = strategies.map do |strategy|
-      {
-        name: strategy.player.snum,
-        score: strategy.score,
-        size: dev_size.degree(strategy.plot_size),
-        syntax: dev_syntax.degree(strategy.plot_syntax),
-        fun: dev_fun.degree(strategy.plot_fun),
-        gzip: dev_gzip.degree(strategy.plot_gzip)
-      }
-    end
-
-    @bar_submits = GraphGenerator.bar_submits(@players.map {|p| [p.user.snum, p.strategies.to_a.count]})
+    @bar_submits = GraphGenerator.bar_submits(@players.map {|p| [p.user.snum, p.strategies.count]})
   end
 end
 

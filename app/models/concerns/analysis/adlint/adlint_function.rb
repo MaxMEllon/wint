@@ -21,14 +21,6 @@ class AdlintFunction
     @text = text
   end
 
-  def csub
-    @metrix['FN_CSUB'] || 0
-  end
-
-  def line
-    @metrix['FN_LINE'] || 0
-  end
-
   def statement
     @metrix['FN_STMT'] || 0
   end

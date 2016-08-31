@@ -27,10 +27,10 @@ br
           td.snum= @player.user.snum
         tr
           th 提出数
-          td.number= @player.submits.to_a.count
+          td.number= @player.submits.count
         tr
           th 戦略数
-          td.number= @player.strategies.to_a.count
+          td.number= @player.strategies.count
     .col-lg-8
       = high_chart("line_score", @line_score)
   br
@@ -42,20 +42,18 @@ br
         th.code コード
         th.score 得点
         th.open 提出日時
-        th.score サイズ
-        th.score 条件式
-        th.score 宣言数
-        th.score 圧縮率
+        th.score ABCサイズ
+        th.score ステート数
+        th.score 関数の定義数
     tbody
-      - @strategies.zip(@degrees).each do |strategy, degree|
+      - @strategies.each do |strategy|
         tr
           td.number= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
           td.number= link_to analysis_player_code_path(sid: strategy.submit.id), data: {remote: true}
             button.btn.btn-info リンク
           td.score= format_score(strategy.score)
           td.open= format_time(strategy.created_at)
-          td.score= format_score(degree[:size])
-          td.score= format_score(degree[:syntax])
-          td.score= format_score(degree[:fun])
-          td.score= format_score(degree[:gzip])
+          td.score= format_score(strategy.abc_size)
+          td.score= strategy.statement
+          td.score= strategy.func_num
 
