@@ -5,22 +5,6 @@ class AdlintAnalysis
     @adlint_metrix_path = @path + '/output/adlint.c.met.csv'
   end
 
-  def analyze_func_ref_strategy
-    functions['strategy'].csub
-  end
-
-  def analyze_func_ref_max
-    functions.values.map { |function| function.csub }.max
-  end
-
-  def analyze_func_ref_average
-    functions.values.map { |function| function.csub }.inject(:+) / analyze_func_num
-  end
-
-  def analyze_line
-    functions.values.map { |function| function.line }.inject(:+)
-  end
-
   def analyze_func_num
     functions.values.count
   end

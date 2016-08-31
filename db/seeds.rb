@@ -21,7 +21,7 @@ if Rails.env == 'development'
   student = FactoryGirl.create(:student, snum: 's00t000')
   admin = FactoryGirl.create(:admin, snum: 's99t999')
 
-  league = FactoryGirl.create(:league)
+  league = FactoryGirl.create(:league, is_analy: true)
   create_strategies(league)
   `rm -rf #{Rails.root}/public/data/001`
   `cp -r #{Rails.root}/tmp/data/001 #{Rails.root}/public/data/001`

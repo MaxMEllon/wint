@@ -24,34 +24,30 @@ br
             th.user ユーザ名
             th.user 最終提出日
             th.score 得点
-            th.score Size
-            th.score 条件
-            th.score 宣言
-            th.score 圧縮
+            th.score 最大ABCサイズ
+            th.score ステート数
+            th.score 関数の定義数
         tbody
-          - @players.zip(@player_degrees).each.with_index(1) do |data, i|
-            - player, degree = data
+          - @players.each.with_index(1) do |player, i|
             - if player.best
               - if player.auditor?
                 | <tr class="warning">
               - else
                 | <tr>
               td.id= i
-              td.snum= link_to "#{degree[:name]} (#{player.strategies.to_a.count})", analysis_player_path(pid: player.id)
+              td.snum= link_to "#{player.snum} (#{player.strategies.count})", analysis_player_path(pid: player.id)
               td.user= player.user.name
               td.user= format_time(player.strategies.max {|a, b| a.created_at <=> b.created_at}.created_at)
               td.score= format_score(player.best.strategy.score)
-              td.score= format_score(degree[:size])
-              td.score= format_score(degree[:syntax])
-              td.score= format_score(degree[:fun])
-              td.score= format_score(degree[:gzip])
+              td.score= format_score(player.best.strategy.abc_size)
+              td.score= player.best.strategy.statement
+              td.score= player.best.strategy.func_num
             - else
               tr.danger
                 td.id= i
                 td.snum= player.user.snum
                 td.user= player.user.name
                 td.user 未提出
-                td.score 0
                 td.score 0
                 td.score 0
                 td.score 0
@@ -64,20 +60,18 @@ br
             th.id 順位
             th.snum 戦略名
             th.score 得点
-            th.score Size
-            th.score 条件
-            th.score 宣言
-            th.score 圧縮
+            th.score 最大ABCサイズ
+            th.score ステート数
+            th.score 関数の定義数
         tbody
-          - @strategies_degrees.each.with_index(1) do |degree, i|
+          - @strategies.each.with_index(1) do |strategy, i|
             tr
               td.id= i
-              td.snum= degree[:name]
-              td.score= format_score(degree[:score])
-              td.score= format_score(degree[:size])
-              td.score= format_score(degree[:syntax])
-              td.score= format_score(degree[:fun])
-              td.score= format_score(degree[:gzip])
+              td.snum= strategy.player.snum
+              td.score= format_score(strategy.score)
+              td.score= format_score(strategy.abc_size)
+              td.score= strategy.statement
+              td.score= strategy.func_num
 
     .tab-pane#submits
       = high_chart("bar_submits", @bar_submits)
