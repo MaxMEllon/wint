@@ -17,6 +17,7 @@
 
 class League < ActiveRecord::Base
   has_many :players, dependent: :destroy
+  has_many :strategies, through: :players
 
   validates_presence_of :name, :start_at, :end_at, :limit_score, :data_dir, :change, :take, :try
 
@@ -45,6 +46,10 @@ class League < ActiveRecord::Base
     players.select(&:best).sort { |a, b| b.best.strategy.score <=> a.best.strategy.score }
   end
 
+  def best_strategies
+    players_ranking.map { |player| player.best.strategy }
+  end
+
   def open?
     now = Time.new
     start_at <= now && now < end_at
@@ -65,6 +70,16 @@ class League < ActiveRecord::Base
 
   def execute_command(exec_file, submit_id)
     "cd #{Rails.root}/tmp && #{exec_file} _tmp#{submit_id} #{try} #{RULE_PATH}/Stock.ini 0"
+  end
+
+  def submissions_count_per_day
+    sum = start_at
+    per_day = {}
+    while sum < end_at
+      per_day[sum] = strategies.where(created_at: sum..(sum + 1.days)).count
+      sum += 1.days
+    end
+    per_day
   end
 
   private_class_method

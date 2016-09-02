@@ -94,23 +94,7 @@ class Strategy < ActiveRecord::Base
   end
 
   def plot_abc_size
-    { x: score, y: abc_size }
-  end
-
-  def plot_size
-    { x: score, y: size }
-  end
-
-  def plot_syntax
-    { x: score, y: count_loop + count_if }
-  end
-
-  def plot_fun
-    { x: score, y: func_num }
-  end
-
-  def plot_gzip
-    { x: score, y: (1 - (gzip_size / size.to_f)) * 100 }
+    { name: player.user.snum, x: score, y: abc_size }
   end
 
   def to_csv

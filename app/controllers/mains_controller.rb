@@ -1,28 +1,23 @@
 class MainsController < ApplicationController
+  include GraphGenerator
+
   def ranking
     @league = League.where(id: session[:lid]).eager_load(players: {best: :strategy}).first
     @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
   end
 
   def mypage
-    @player = @current_player
-    @submits = Submit.where(player_id: @player.id).eager_load(:strategy)
+    @player = current_player
+    @submits = @player.submits.includes(:strategy)
     @league = @player.league
-    @line_score = GraphGenerator.line_score(@player.strategies.number_by.map {|s| [s.number, s.score]})
+    @line_score = line_score(@player.id)
   end
 
   def strategy
-    @player = @current_player
-    @strategy = @player.submits.where(number: params[:num]).first.strategy
-
-    league = League.where(id: @player.league_id).includes(players: [{best: :strategy}, :user, :submits, :strategies]).first
-    players = league.players_ranking
-
-    dev_abc_size = Deviation.new(players.map {|p| p.best.strategy.plot_abc_size})
-    player_abc_size = @strategy.plot_abc_size
-    @scatter_abc_size = GraphGenerator.scatter_abc_size(dev_abc_size, [player_abc_size.values])
-
-    @result_table = @strategy.get_result_table
+    player = current_player
+    strategy = player.submits.where(number: params[:num]).first.strategy
+    @scatter_abc_size = scatter_abc_size(player.league_id, strategy.id)
+    @result_table = strategy.get_result_table
   end
 
   def select
@@ -61,6 +56,7 @@ class MainsController < ApplicationController
   end
 
   private
+
   def player_params
     params.require(:player).permit(:name)
   end
