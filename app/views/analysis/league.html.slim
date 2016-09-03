@@ -4,55 +4,57 @@
     .col-xs-5
       h2= "リーグ詳細 -#{@league.name}-"
     .col-xs-7
-      br
-      - if @current_user.admin?
-        = link_to analysis_refresh_path do
-          button.btn.btn-success
-            = fa_icon "refresh", text: "再分析"
 br
 br
 
-p= link_to "最良戦略 (zip)", download_best_strategies_path
-p= link_to "全戦略 (zip)", download_all_strategies_path
-p= link_to "最良戦略の分析結果 (csv)", download_best_analysis_path
-p= link_to "全戦略の分析結果 (csv)", download_all_analysis_path
-br
+.col-md-3
+  = render partial: 'shared/sidemenu', locals: { lid: @league.id, active: { league: 'active' } }
 
-.analysis.league
-
-  - participants = @league.players.select {|player| !player.auditor?}
-  - auditors = @league.players.select {|player| player.auditor?}
-  table.table.table-base
-    tr
-      th
-      th.player プレイヤ数
-      th.submit 提出数
-      th.strategy 戦略数
-      th.max 最多提出数
-    tr
-      th 受講者
-      td.player= participants.to_a.count
-      td.submit= participants.map {|p| p.submits.to_a.count}.inject(:+)
-      td.strategy= participants.map {|p| p.strategies.to_a.count}.inject(:+)
-      td.max= participants.map {|p| p.strategies.to_a.count}.max
-    tr
-      th 聴講者
-      td.player= auditors.to_a.count
-      td.submit= auditors.map {|p| p.submits.to_a.count}.inject(:+)
-      td.strategy= auditors.map {|p| p.strategies.to_a.count}.inject(:+)
-      td.max= auditors.map {|p| p.strategies.to_a.count}.max
-    tr
-      th 合計
-      td.player= @league.players.to_a.count
-      td.submit= @league.players.map {|p| p.submits.to_a.count}.inject(:+)
-      td.strategy= @league.players.map {|p| p.strategies.to_a.count}.inject(:+)
-      td.max= @league.players.map {|p| p.strategies.to_a.count}.max
-
+.col-md-9
   .row
-    .col-lg-6
-      = high_chart('column_strategies_per_day', @column_strategies_per_day)
-      br
-    .col-lg-6
-      = high_chart('line_strategies_total', @line_strategies_total)
-      br
+    - participants = @league.participants
+    - auditors = @league.auditors
+
+    - participants_submits = participants_strategies = participants_max = 0
+    - auditors_submits = auditors_strategies = auditors_max = 0
+
+    table.table.table-base
+      tr
+        th
+        th プレイヤ数
+        th 提出数
+        th 戦略数
+        th 最多提出数
+      tr
+        - unless participants.blank?
+          - participants_submits = participants.map { |p| p.submits.count }.inject(:+)
+          - participants_strategies = participants.map { |p| p.strategies.count }.inject(:+)
+          - participants_max = participants.map { |p| p.strategies.count }.max
+        th 受講者
+        td.right= participants.count
+        td.right= participants_submits
+        td.right= participants_strategies
+        td.right= participants_max
+      tr
+        - unless auditors.blank?
+          - auditors_submits = auditors.map { |p| p.submits.count }.inject(:+)
+          - auditors_strategies = auditors.map { |p| p.strategies.count }.inject(:+)
+          - auditors_max = auditors.map { |p| p.strategies.count }.max
+        th 聴講者
+        td.right= auditors.count
+        td.right= auditors_submits
+        td.right= auditors_strategies
+        td.right= auditors_max
+      tr
+        th 合計
+        td.right= @league.players.count
+        td.right= participants_submits + auditors_submits
+        td.right= participants_strategies + auditors_strategies
+        td.right= participants_max > auditors_max ? participants_max : auditors_max
+
+    .row
+      .col-lg-6
+        = high_chart('column_strategies_per_day', @column_strategies_per_day)
+      .col-lg-6
+        = high_chart('line_strategies_total', @line_strategies_total)
 

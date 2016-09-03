@@ -11,49 +11,49 @@
 br
 br
 
-.analysis.player
-
+.col-md-3
+  = render partial: 'shared/sidemenu', locals: { lid: @lid, active: { player_ranking: 'active' } }
+.col-md-9
   .row
-    .col-lg-4
+    .col-md-4
       table.table-base
         tr
           th プレイヤ名
-          td.player= @player.name
+          td.center= @player.name
         tr
           th ユーザ名
-          td.user= @player.user.name
+          td.center= @player.user.name
         tr
           th 学籍番号
-          td.snum= @player.user.snum
+          td.center= @player.user.snum
         tr
           th 提出数
-          td.number= @player.submits.count
+          td.center= @player.submits.count
         tr
           th 戦略数
-          td.number= @player.strategies.count
-    .col-lg-8
-      = high_chart("line_score", @line_score)
-  br
+          td.center= @player.strategies.count
+    .col-md-8
+      = high_chart('line_score', @line_score)
 
   table.table-base.datatable-desc
     thead
       tr
-        th.number 戦略番号
-        th.code コード
-        th.score 得点
-        th.open 提出日時
-        th.score ABCサイズ
-        th.score ステート数
-        th.score 関数の定義数
+        th 戦略番号
+        th コード
+        th 得点
+        th 提出日時
+        th ABCサイズ
+        th ステート数
+        th 関数の定義数
     tbody
       - @strategies.each do |strategy|
         tr
-          td.number= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
-          td.number= link_to analysis_player_code_path(sid: strategy.submit.id), data: {remote: true}
-            button.btn.btn-info リンク
-          td.score= format_score(strategy.score)
-          td.open= format_time(strategy.created_at)
-          td.score= format_score(strategy.abc_size)
-          td.score= strategy.statement
-          td.score= strategy.func_num
+          td.center= link_to "%03d" % strategy.number, analysis_strategy_path(num: strategy.number)
+          td.center= link_to analysis_player_code_path(sid: strategy.submit.id), data: {remote: true}
+            button.btn.btn-info コードを見る
+          td.right= format_score(strategy.score)
+          td.center= format_time(strategy.created_at)
+          td.right= format_score(strategy.abc_size)
+          td.right= strategy.statement
+          td.right= strategy.func_num
 

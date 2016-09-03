@@ -1,0 +1,47 @@
+
+.title
+  h2 プレイヤランキング
+br
+br
+
+.col-md-3
+  = render partial: 'shared/sidemenu', locals: { lid: @league.id, active: { player_ranking: 'active' } }
+
+.col-md-9
+  table.table-base.datatable50
+    thead
+      tr
+        th 順位
+        th 最良戦略
+        th ユーザ名
+        th 最終提出日
+        th 得点
+        th 最大ABCサイズ
+        th ステート数
+        th 関数の定義数
+    tbody
+      - @players.each.with_index(1) do |player, i|
+        - if player.best
+          - if player.auditor?
+            | <tr class="warning">
+          - else
+            | <tr>
+          td.center= i
+          td.center= link_to "#{player.snum} (#{player.strategies.count})", analysis_player_path(pid: player.id)
+          td.center= player.user.name
+          td.center= format_time(player.strategies.max {|a, b| a.created_at <=> b.created_at}.created_at)
+          td.right= format_score(player.best.strategy.score)
+          td.right= format_score(player.best.strategy.abc_size)
+          td.right= player.best.strategy.statement
+          td.right= player.best.strategy.func_num
+        - else
+          tr.danger
+            td.center= i
+            td.center= player.user.snum
+            td.center= player.user.name
+            td.center 未提出
+            td.right 0
+            td.right 0
+            td.right 0
+            td.right 0
+

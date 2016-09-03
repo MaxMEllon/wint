@@ -50,6 +50,14 @@ class League < ActiveRecord::Base
     players_ranking.map { |player| player.best.strategy }
   end
 
+  def participants
+    players.where(role: Player::ROLE_PARTICIPANT)
+  end
+
+  def auditors
+    players.where(role: Player::ROLE_AUDITOR)
+  end
+
   def open?
     now = Time.new
     start_at <= now && now < end_at
