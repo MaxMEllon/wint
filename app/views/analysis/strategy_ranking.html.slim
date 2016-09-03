@@ -1,0 +1,31 @@
+
+.title
+  h2 戦略ランキング
+br
+br
+
+.col-md-3
+  = render partial: 'shared/sidemenu', locals: { lid: @league.id, active: { strategy_ranking: 'active' } }
+
+.col-md-9
+  table.table-base.datatable50
+    thead
+      tr
+        th 順位
+        th 戦略名
+        th 提出日時
+        th 得点
+        th 最大ABCサイズ
+        th ステート数
+        th 関数の定義数
+    tbody
+      - @strategies.each.with_index(1) do |strategy, i|
+        tr
+          td.center= i
+          td.center= strategy.player.snum
+          td.center= format_time(strategy.created_at)
+          td.right= format_score(strategy.score)
+          td.right= format_score(strategy.abc_size)
+          td.right= strategy.statement
+          td.right= strategy.func_num
+

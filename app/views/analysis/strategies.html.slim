@@ -7,13 +7,12 @@
 br
 br
 
-.analysis.strategy
+.col-md-3
+  = render partial: 'shared/sidemenu', locals: { lid: @lid, active: { strategies: 'active' } }
 
-  - if @scatter_abc_size
-    h3 最大ABCサイズ
-    hr
-    .row
-      .col-lg-6
-        = high_chart('scatter_abc_size', @scatter_abc_size)
-        br
+.col-md-9
+  .col-lg-12
+    = high_chart('scatter_abc_size', @scatter_abc_size)
+  .col-lg-12
+    = high_chart('bar_submits', @bar_submits)
 

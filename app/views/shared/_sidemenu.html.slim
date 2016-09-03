@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading リンク
+  ul.nav.nav-pills.nav-stacked
+    li class="#{active[:league]}"
+      = link_to 'リーグ詳細', analysis_league_path(lid: lid)
+    li class="#{active[:strategies]}"
+      = link_to '戦略コード分析', analysis_strategies_path(lid: lid)
+    li class="#{active[:player_ranking]}"
+      = link_to 'プレイヤランキング', analysis_player_ranking_path(lid: lid)
+    li class="#{active[:strategy_ranking]}"
+      = link_to '戦略ランキング', analysis_strategy_ranking_path(lid: lid)
+  .panel-footer ダウンロード
+  ul.nav.nav-pills.nav-stacked
+    li= link_to '最良戦略 (zip)', download_best_strategies_path(lid: lid)
+    li= link_to '全戦略 (zip)', download_all_strategies_path(lid: lid)
+    li= link_to '最良戦略の分析結果 (csv)', download_best_analysis_path(lid: lid)
+    li= link_to '全戦略の分析結果 (csv)', download_all_analysis_path(lid: lid)
+

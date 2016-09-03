@@ -11,8 +11,9 @@
 br
 br
 
-.analysis.strategy
-
+.col-md-3
+  = render partial: 'shared/sidemenu', locals: { lid: @lid, active: { player_ranking: 'active' } }
+.col-md-9
   .row
     .col-lg-6
       table.table-base
