@@ -21,16 +21,23 @@ class AdlintFunction
     @text = text
   end
 
+  def branch
+    @metrix['FN_CSUB'] || 0
+  end
+
   def statement
     @metrix['FN_STMT'] || 0
   end
 
+  def condition
+    @text.gsub(/&&/, 'and').gsub(/\|\|/, 'or')
+         .scan(/\s(if|while|for|case|and|or)/).count
+  end
+
   def abc_size
-    return 0 if @name == 'global'
     a = @assignment.count
-    b = @metrix['FN_CSUB']
-    c = @text.gsub(/&&/, 'and').gsub(/\|\|/, 'or')
-             .scan(/\s(if|while|for|case|and|or)/).count
+    b = branch
+    c = condition
     Math.sqrt(a**2 + b**2 + c**2)
   end
 
