@@ -12,35 +12,36 @@
 br
 br
 
-.main.mypage
-
-  table.table.table-base.datatable-desc
+.row
+  table.table-base.datatable-desc
     thead
       tr
-        th.number 提出番号
-        th.score 得点
-        th.status ステータス
-        th.created_at 提出日時
-        th.comment 戦略コメント
+        th 提出番号
+        th 得点
+        th 最大ABCサイズ
+        th ステータス
+        th 提出日時
+        th 戦略コメント
     tbody
       - @submits.each do |submit|
-        - if submit.status == Submit::STATUS_SUCCESS
+        - if submit.exec_success?
           | <tr>
           - if @league.is_analy
-            td.number= link_to "%03d" % submit.number, main_strategy_path(num: submit.number)
+            td.center= link_to "%03d" % submit.number, main_strategy_path(num: submit.number)
           - else
-            td.number= "%03d" % submit.number
+            td.center= "%03d" % submit.number
         - elsif submit.status == Submit::STATUS_RUNNING
           | <tr class="warning">
-          td.number= "%03d" % submit.number
+          td.center= "%03d" % submit.number
         - else
           | <tr class="danger">
-          td.number= "%03d" % submit.number
-        td.score= submit.strategy ? format_score(submit.strategy.score) : "???"
-        td.status= Submit.status_options[submit.status]
-        td.created_at= format_time(submit.created_at)
-        td.comment= submit.comment
+          td.center= "%03d" % submit.number
+        td.right= submit.strategy ? format_score(submit.strategy.score) : '???'
+        td.right= submit.strategy ? format_score(submit.strategy.abc_size) : '???'
+        td.center= Submit.status_options[submit.status]
+        td.center= format_time(submit.created_at)
+        td= submit.comment
 
-  br
-  = high_chart("line_score", @line_score)
+.row
+  = high_chart('line_score', @line_score)
 

@@ -28,5 +28,27 @@ br
               - line.each do |elem|
                 td.num= elem
     .col-lg-6
-      = high_chart("scatter_abc_size", @scatter_abc_size)
+      = high_chart('scatter_abc_size', @scatter_abc_size)
+  .row
+    table.table.table-base.datatable
+      thead
+        tr
+          th 行番号
+          th 関数名
+          th ABCサイズ
+          th 代入回数
+          th 関数の呼出回数
+          th 条件文の数
+      tbody
+        - @strategy.adlint_analysis.functions.values.each do |function|
+          - abc_size = function.abc_size
+          - klass = 'warning' if abc_size > 20
+          - klass = 'danger' if abc_size > 30
+          tr class="#{klass}"
+            td.center= function.position
+            td.center= function.name
+            td.right= format_score(abc_size)
+            td.right= function.assignment.count
+            td.right= function.branch
+            td.right= function.condition
 

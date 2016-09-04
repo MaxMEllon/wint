@@ -7,21 +7,47 @@
 br
 br
 
-.main.strategy
-
-  .row
-    .col-lg-6
-      table.table-base
-        thead
+.row
+  .col-lg-6
+    table.table-base
+      thead
+        tr
+          - @result_table.shift.each do |head|
+            th= head
+      tbody
+        - @result_table.each do |line|
           tr
-            - @result_table.shift.each do |head|
-              th= head
-        tbody
-          - @result_table.each do |line|
-            tr
-              td.name style="font-weight: bold;" = line.shift
-              - line.each do |elem|
-                td.num= elem
-    .col-lg-6
-      = high_chart("scatter_abc_size", @scatter_abc_size)
+            td.name style="font-weight: bold;" = line.shift
+            - line.each do |elem|
+              td.num= elem
+  .col-lg-6
+    = high_chart("scatter_abc_size", @scatter_abc_size)
+
+br
+.row
+  .col-lg-5
+    textarea.form-control disabled='disabled' style='height: 600px'
+      = File.read(@strategy.submit.src_file)
+  .col-lg-7
+    table.table.table-base.datatable
+      thead
+        tr
+          th 行番号
+          th 関数名
+          th ABCサイズ
+          th 代入回数
+          th 関数の呼出回数
+          th 条件文の数
+      tbody
+        - @strategy.adlint_analysis.functions.values.each do |function|
+          - abc_size = function.abc_size
+          - klass = 'warning' if abc_size > 20
+          - klass = 'danger' if abc_size > 30
+          tr class="#{klass}"
+            td.center= function.position
+            td.center= function.name
+            td.right= format_score(abc_size)
+            td.right= function.assignment.count
+            td.right= function.branch
+            td.right= function.condition
 

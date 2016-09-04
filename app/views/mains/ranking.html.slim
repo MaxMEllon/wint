@@ -4,58 +4,56 @@
 br
 br
 
-.main.ranking
+ul.nav.nav-tabs
+  li.active
+    a href="#all" data-toggle="tab" 全体ランキング
+  li
+    a href="#rank" data-toggle="tab" 受講者ランキング
+br
 
-  ul.nav.nav-tabs
-    li.active
-      a href="#all" data-toggle="tab" 全体ランキング
-    li
-      a href="#rank" data-toggle="tab" 受講者ランキング
-  br
-  .tab-content
-    .tab-pane.active#all
-      table.table.table-base.datatable50
-        thead
-          tr
-            th.id 順位
-            th.rank ランク
-            th.score 得点
-            th.player プレイヤ名
-            th.achievement 達成度
-            th.comment コメント
-        tbody
-          - @players.each.with_index(1) do |player, i|
-            - if @current_player.id == player.id
-              | <tr class="info">
-            - else
-              | <tr>
-            td.id= i
-            td.rank= @league.rank(player.best.strategy)
-            td.score= format_score(player.best.strategy.score)
-            td.player= player.name
-            td.achievement= format_achievement(@league.achievement(player.best.strategy))
-            td.comment= player.best.comment
-    .tab-pane#rank
-      table.table.table-base.datatable50
-        thead
-          tr
-            th.id 順位
-            th.rank ランク
-            th.score 得点
-            th.player プレイヤ名
-            th.achievement 達成度
-            th.comment コメント
-        tbody
-          - @players.each.with_index(1) do |player, i|
-            - next if player.role == Player::ROLE_AUDITOR
-            - if @current_player.id == player.id
-              | <tr class="info">
-            - else
-              | <tr>
-            td.id= i
-            td.rank= @league.rank(player.best.strategy)
-            td.score= format_score(player.best.strategy.score)
-            td.player= player.name
-            td.achievement= format_achievement(@league.achievement(player.best.strategy))
-            td.comment= player.best.comment
+.tab-content
+  .tab-pane.active#all
+    table.table.table-base.datatable50
+      thead
+        tr
+          th 順位
+          th ランク
+          th 得点
+          th 最大ABCサイズ
+          th プレイヤ名
+          th 達成度
+          th コメント
+      tbody
+        - @players.each.with_index(1) do |player, i|
+          - klass = 'info' if @current_player.id == player.id
+          tr class="#{klass}"
+            td.center= i
+            td.center= @league.rank(player.best.strategy)
+            td.right= format_score(player.best.strategy.score)
+            td.right= format_score(player.best.strategy.abc_size)
+            td.center= player.name
+            td.right= format_achievement(@league.achievement(player.best.strategy))
+            td= player.best.comment
+  .tab-pane#rank
+    table.table.table-base.datatable50
+      thead
+        tr
+          th 順位
+          th ランク
+          th 得点
+          th 最大ABCサイズ
+          th プレイヤ名
+          th 達成度
+          th コメント
+      tbody
+        - @players.select { |p| !p.auditor? }.each.with_index(1) do |player, i|
+          - klass = 'info' if @current_player.id == player.id
+          tr class="#{klass}"
+            td.center= i
+            td.center= @league.rank(player.best.strategy)
+            td.right= format_score(player.best.strategy.score)
+            td.right= format_score(player.best.strategy.abc_size)
+            td.center= player.name
+            td.right= format_achievement(@league.achievement(player.best.strategy))
+            td= player.best.comment
 

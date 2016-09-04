@@ -2,8 +2,8 @@ class MainsController < ApplicationController
   include GraphGenerator
 
   def ranking
-    @league = League.where(id: session[:lid]).eager_load(players: {best: :strategy}).first
-    @players = @league.players.select {|p| p.best}.sort {|a, b| b.best.strategy.score <=> a.best.strategy.score}
+    @league = League.includes(players: {best: :strategy}).find(session[:lid])
+    @players = @league.players_ranking
   end
 
   def mypage
@@ -15,9 +15,9 @@ class MainsController < ApplicationController
 
   def strategy
     player = current_player
-    strategy = player.submits.where(number: params[:num]).first.strategy
-    @scatter_abc_size = scatter_abc_size(player.league_id, strategy.id)
-    @result_table = strategy.get_result_table
+    @strategy = player.submits.where(number: params[:num]).first.strategy
+    @scatter_abc_size = scatter_abc_size(player.league_id, @strategy.id)
+    @result_table = @strategy.get_result_table
   end
 
   def select

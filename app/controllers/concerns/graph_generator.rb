@@ -37,12 +37,19 @@ module GraphGenerator
 
   def line_score(player_id)
     player = Player.find(player_id)
-    data = player.strategies.map { |s| [s.number, s.score] }
+    score_data = player.strategies.map { |s| [s.number, s.score] }
+    abc_size_data = player.strategies.map { |s| [s.number, s.abc_size] }
+
     create_charts do |f|
-      f.title text: '得点の推移'
+      f.title text: '得点とメトリクスの推移'
       f.xAxis title: axis_style('戦略番号'), allowDecimals: false
-      f.yAxis title: axis_style('得点')
-      f.series type: 'line', name: '得点', data: data
+      f.options[:yAxis] = [
+        { title: axis_style('得点') },
+        { title: axis_style('最大ABCサイズ'), opposite: true }
+      ]
+      f.series type: :line, name: '得点', data: score_data, yAxis: 0
+      f.series type: :line, name: '最大ABCサイズ', data: abc_size_data, yAxis: 1
+      f.legend layout: :horizontal
     end
   end
 
