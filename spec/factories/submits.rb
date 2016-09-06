@@ -18,11 +18,7 @@
 FactoryGirl.define do
   factory :submit do
     id 1
-    if Rails.env.test?
-      data_dir { "#{Rails.root}/tmp/data/001/#{format('%04d', id)}/001" }
-    else
-      data_dir { "#{Rails.root}/public/data/001/#{format('%04d', id)}/001" }
-    end
+    data_dir { "data/#{Rails.env}/001/#{format('%04d', id)}/001" }
     comment 'コメント'
     number 1
     status 1
@@ -35,6 +31,15 @@ FactoryGirl.define do
     after :create do
       Submit.set_callback(:create, :after, :after_create)
     end
+  end
+
+  factory :submit_model_test, class: Submit do
+    id 1
+    data_dir File.read("#{Rails.root}/spec/factories/files/PokerOpe/success.c")
+    comment 'コメント'
+    number 0
+    status 1
+    is_active true
   end
 end
 

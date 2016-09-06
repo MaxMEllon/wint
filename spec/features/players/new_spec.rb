@@ -1,6 +1,6 @@
 feature 'プレイヤ登録' do
   given(:user) { create :admin }
-  given(:league) { create :league }
+  given(:league) { create :league_model_test }
 
   background do
     login user

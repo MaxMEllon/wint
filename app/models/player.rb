@@ -28,7 +28,9 @@ class Player < ActiveRecord::Base
   ROLE_PARTICIPANT = 0
   ROLE_AUDITOR = 1
 
-  after_create do
+  after_create :after_create
+
+  def after_create
     path = format("#{league.data_dir}/%04d", id)
     Dir.mkdir(path)
     update(data_dir: path)

@@ -10,11 +10,11 @@ class AdlintAnalysis
   end
 
   def analyze_abc_size
-    functions.values.map { |function| function.abc_size }.max
+    functions.values.map(&:abc_size).max
   end
 
   def analyze_statement
-    functions.values.map { |function| function.statement }.inject(:+)
+    functions.values.map(&:statement).inject(:+)
   end
 
   def functions
@@ -35,7 +35,7 @@ class AdlintAnalysis
   private
 
   def split_functions_analysis
-    func = {'global' => AdlintFunction.global }
+    func = { 'global' => AdlintFunction.global }
     data = File.read(@adlint_metrix_path).split(/\r\n|\n/)
     data.each do |line|
       next unless line =~ /^(DEF|MET|ASN|INI)/

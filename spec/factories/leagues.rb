@@ -24,7 +24,27 @@ FactoryGirl.define do
     start_at Time.now - 5.day
     end_at Time.now + 5.day
     limit_score 150.0
-    data_dir "#{Rails.root}/tmp/data/001"
+    data_dir "data/#{Rails.env}/001"
+    change 7
+    take 5
+    try 10_000
+
+    before :create do
+      League.skip_callback(:create, :after, :after_create)
+    end
+
+    after :create do
+      League.set_callback(:create, :after, :after_create)
+    end
+  end
+
+  factory :league_model_test, class: League do
+    id 1
+    name 'テストリーグ'
+    start_at Time.now - 5.day
+    end_at Time.now + 5.day
+    limit_score 150.0
+    data_dir "data/#{Rails.env}/001"
     change 7
     take 5
     try 10_000

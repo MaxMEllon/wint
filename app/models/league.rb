@@ -23,11 +23,15 @@ class League < ActiveRecord::Base
 
   Scope.active(self)
 
-  BASE_PATH = "#{Rails.root}/public/data"
   RULE_PATH = "#{Rails.root}/lib/poker"
 
-  after_create do
-    path = format("#{BASE_PATH}/%03d", id)
+  after_create :after_create
+
+  def after_create
+    base_path = "data/#{Rails.env}"
+    Dir.mkdir(base_path) unless File.exist?(base_path)
+
+    path = format("#{base_path}/%03d", id)
     Dir.mkdir(path)
     update(data_dir: path)
   end

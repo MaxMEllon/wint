@@ -1,6 +1,6 @@
 feature '分析ページへのアクセス' do
   given(:user) { create :admin }
-  given(:league) { create :league }
+  given(:league) { create :league_model_test }
 
   background do
     login user

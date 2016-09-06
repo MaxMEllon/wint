@@ -17,7 +17,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  path = "#{Rails.root}/tmp/data/001"
+  path = "data/#{Rails.env}/001"
 
   factory :player do
     id 1
@@ -26,6 +26,14 @@ FactoryGirl.define do
     data_dir "#{path}/0001"
     role 0
     submit_id 1
+
+    before :create do
+      Player.skip_callback(:create, :after, :after_create)
+    end
+
+    after :create do
+      Player.set_callback(:create, :after, :after_create)
+    end
 
     factory :player1 do
       id 1
@@ -61,6 +69,15 @@ FactoryGirl.define do
       data_dir "#{path}/0005"
       submit_id 5
     end
+  end
+
+  factory :player_model_test, class: Player do
+    id 1
+    user_id 1
+    name '北海太郎'
+    data_dir "#{path}/0001"
+    role 0
+    submit_id 1
   end
 end
 
