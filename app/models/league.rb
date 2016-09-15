@@ -77,7 +77,7 @@ class League < ActiveRecord::Base
     type = format('%02d-%02d', take, change)
     files = "#{src_file} #{RULE_PATH}/PokerExec.c #{RULE_PATH}/CardLib.c"
     options = "-DTYPE=#{type} -DTAKE=#{take} -DCHNG=#{change}"
-    "gcc -O2 -I#{RULE_PATH} #{files} #{options} -o#{exec_file}"
+    "gcc -O2 -I#{RULE_PATH} #{files} #{options} -o#{exec_file} -Wno-format-security -Wno-unused-result"
   end
 
   def execute_command(exec_file, submit_id)

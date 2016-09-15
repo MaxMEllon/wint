@@ -166,11 +166,11 @@ double poker_exec(FILE *fp, int point[])
   switch ( Disp_Mode ) {
   case 1:
     // トライ得点の表示(ログ保存付)
-    my_printf_i(Game_Log, "トライ得点 : %4d\n", try_p);
+    my_printf_i(Game_Log, "トライ得点 : %4f\n", try_p);
     break;
   case 0:
     // トライ得点のログへの保存
-    fprintf(Game_Log, "トライ得点 : %4d\n", try_p);
+    fprintf(Game_Log, "トライ得点 : %4f\n", try_p);
     break;
   }
   
