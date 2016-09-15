@@ -9,7 +9,8 @@ feature '戦略詳細の閲覧' do
     submit = create(:submit, player_id: player.id)
     create(:strategy, :type1, submit_id: submit.id)
 
-    `cp -r #{Rails.root}/spec/factories/files/001/0001/001 #{player.data_dir}`
+    Dir.mkdir("#{Rails.root}/data/test")
+    `cp -r #{Rails.root}/spec/factories/files/001 #{league.data_dir}`
 
     visit main_select_path
     visit main_set_player_path(pid: player.id) # or click_link player.name

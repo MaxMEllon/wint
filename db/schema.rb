@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160831125626) do
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name",                                        null: false
-    t.datetime "start_at",    default: '2016-08-31 22:04:25', null: false
-    t.datetime "end_at",      default: '2016-08-31 22:04:25', null: false
+    t.datetime "start_at",    default: '2016-09-07 14:54:25', null: false
+    t.datetime "end_at",      default: '2016-09-07 14:54:25', null: false
     t.float    "limit_score", default: 0.0,                   null: false
     t.boolean  "is_analy",    default: false,                 null: false
     t.string   "data_dir",    default: "",                    null: false

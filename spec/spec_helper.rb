@@ -35,18 +35,16 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
-    `mkdir -p #{Rails.root}/tmp`
   end
 
   config.before(:each) do
     DatabaseCleaner.start
-    stub_const('League::BASE_PATH', "#{Rails.root}/tmp/data")
-    `rm -rf #{Rails.root}/tmp/data`
-    `mkdir -p #{Rails.root}/tmp/data`
   end
 
   config.after(:each) do
-    DatabaseCleaner.clean
+    DatabaseCleaner.cleaning do
+      `rm -rf #{Rails.root}/data/test`
+    end
   end
 
   config.after(:each, js: true) do

@@ -54,15 +54,15 @@ class Submit < ActiveRecord::Base
   end
 
   def src_file
-    data_dir + '/PokerOpe.c'
+    "#{Rails.root}/" + data_dir + '/PokerOpe.c'
   end
 
   def exec_file
-    data_dir + '/PokerOpe'
+    "#{Rails.root}/" + data_dir + '/PokerOpe'
   end
 
   def analysis_path
-    data_dir + '/analy'
+    "#{Rails.root}/" + data_dir + '/analy'
   end
 
   def perform

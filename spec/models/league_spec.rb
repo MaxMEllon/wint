@@ -18,5 +18,14 @@
 require 'rails_helper'
 
 RSpec.describe League, type: :model do
+  let(:league) { create :league_model_test }
+
+  it 'idに応じたパスが保存される' do
+    expect(league.data_dir).to eq 'data/test/001'
+  end
+
+  it 'ディレクトリが生成される' do
+    expect(File.exist?(league.data_dir)).to eq true
+  end
 end
 

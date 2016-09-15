@@ -12,7 +12,7 @@ require 'factory_girl'
 Dir[Rails.root.join('spec/factories/*.rb')].each {|f| require f}
 require './spec/support/action_helper.rb'
 
-if Rails.env == 'development'
+if Rails.env.development?
   include ActionHelper
   include FactoryGirl::Syntax::Methods
   User.destroy_all
@@ -22,8 +22,8 @@ if Rails.env == 'development'
   admin = FactoryGirl.create(:admin, snum: 's99t999')
 
   league = FactoryGirl.create(:league, is_analy: true)
+  `rm -rf #{Rails.root}/data/development`
+  Dir.mkdir("#{Rails.root}/data/development")
   create_strategies(league)
-  `rm -rf #{Rails.root}/public/data/001`
-  `cp -r #{Rails.root}/tmp/data/001 #{Rails.root}/public/data/001`
 end
 

@@ -15,8 +15,8 @@
 /log/*.log
 /tmp
 
-/public/data/*
-!/public/data/.keep
-
 /public/assets
+
+/data/*
+!/data/.keep
 

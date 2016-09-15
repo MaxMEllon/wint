@@ -2,8 +2,8 @@ feature '戦略ファイルの提出' do
   PATH = "#{Rails.root}/spec/factories/files/PokerOpe"
 
   given(:user) { create :admin }
-  given(:league) { create :league }
-  given(:player) { create(:player, league_id: league.id, user_id: user.id) }
+  given(:league) { create :league_model_test }
+  given(:player) { create(:player_model_test, league_id: league.id, user_id: user.id) }
 
   background do
     login user

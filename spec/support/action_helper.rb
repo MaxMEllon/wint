@@ -7,8 +7,8 @@ module ActionHelper
       create(:strategy, "type#{index}".to_sym, submit_id: submit.id)
     end
 
-    `rm -rf #{Rails.root}/tmp/data/001`
-    `cp -r #{Rails.root}/spec/factories/files/001 #{Rails.root}/tmp/data/001`
+    `rm -rf #{league.data_dir}`
+    `cp -r #{Rails.root}/spec/factories/files/001 #{league.data_dir}`
   end
 
   def reload_page

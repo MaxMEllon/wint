@@ -17,5 +17,16 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
+  let(:league) { create :league_model_test }
+  let(:user) { create :student }
+  let(:player) { create(:player_model_test, league_id: league.id, user_id: user.id) }
+
+  it 'idに応じたパスが保存される' do
+    expect(player.data_dir).to eq 'data/test/001/0001'
+  end
+
+  it 'ディレクトリが生成される' do
+    expect(File.exist?(player.data_dir)).to eq true
+  end
 end
 
