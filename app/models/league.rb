@@ -36,6 +36,14 @@ class League < ActiveRecord::Base
     update(data_dir: path)
   end
 
+  def weights
+    ws = Array.new(10, 1.0)
+    weight.split(/,/).each.with_index do |w, i|
+      ws[i] = w.to_f
+    end
+    ws
+  end
+
   def rank(strategy)
     Strategy::RANK.each do |range, rank|
       return rank if range.include?(achievement(strategy))
@@ -76,7 +84,8 @@ class League < ActiveRecord::Base
   def compile_command(src_file, exec_file)
     type = format('%02d-%02d', take, change)
     files = "#{src_file} #{RULE_PATH}/PokerExec.c #{RULE_PATH}/CardLib.c"
-    options = "-DTYPE=#{type} -DTAKE=#{take} -DCHNG=#{change}"
+    weight_ratio = weights.map.with_index(1) { |w, i| "-DW#{i}=#{w}" }.join(' ')
+    options = "-DTYPE=#{type} -DTAKE=#{take} -DCHNG=#{change} #{weight_ratio}"
     "gcc -O2 -I#{RULE_PATH} #{files} #{options} -o#{exec_file} -Wno-format-security -Wno-unused-result"
   end
 
