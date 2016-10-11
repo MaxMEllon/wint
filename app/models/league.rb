@@ -19,7 +19,7 @@ class League < ActiveRecord::Base
   has_many :players, dependent: :destroy
   has_many :strategies, through: :players
 
-  validates_presence_of :name, :start_at, :end_at, :limit_score, :data_dir, :change, :take, :try
+  validates_presence_of :name, :start_at, :end_at, :limit_score, :data_dir, :change, :take, :try, :weight
 
   Scope.active(self)
 

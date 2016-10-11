@@ -16,14 +16,20 @@ coffee:
     .modal-body.leagues.form
       table.table-base
         tr
-          th.name リーグ名
-          td.name
+          th リーグ名
+          td
             = f.text_field :name
             = render partial: "shared/error_messages", locals: {object: league, column: :name}
-          th.score 理想得点
-          td.score
+        tr
+          th 理想得点
+          td
             = f.text_field :limit_score
             = render partial: "shared/error_messages", locals: {object: league, column: :limit_score}
+        tr
+          th 傾斜掛率
+          td
+            = f.text_field :weight
+            = render partial: "shared/error_messages", locals: {object: league, column: :weight}
       table.table-base
         tr
           th.open colspan="3" 開催期間

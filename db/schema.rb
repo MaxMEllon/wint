@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831125626) do
+ActiveRecord::Schema.define(version: 20161007054843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name",                                        null: false
-    t.datetime "start_at",    default: '2016-09-07 14:54:25', null: false
-    t.datetime "end_at",      default: '2016-09-07 14:54:25', null: false
+    t.datetime "start_at",    default: '2016-09-07 15:20:07', null: false
+    t.datetime "end_at",      default: '2016-09-07 15:20:07', null: false
     t.float    "limit_score", default: 0.0,                   null: false
     t.boolean  "is_analy",    default: false,                 null: false
     t.string   "data_dir",    default: "",                    null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160831125626) do
     t.integer  "change"
     t.integer  "take"
     t.integer  "try"
+    t.string   "weight"
   end
 
   create_table "players", force: :cascade do |t|

@@ -24,6 +24,7 @@ FactoryGirl.define do
     start_at Time.now - 5.day
     end_at Time.now + 5.day
     limit_score 150.0
+    weight '1.0,1.0,1.0,1.0,1.0'
     data_dir "data/#{Rails.env}/001"
     change 7
     take 5
@@ -44,6 +45,7 @@ FactoryGirl.define do
     start_at Time.now - 5.day
     end_at Time.now + 5.day
     limit_score 150.0
+    weight '1.0,1.0,1.0,1.0,1.0'
     data_dir "data/#{Rails.env}/001"
     change 7
     take 5

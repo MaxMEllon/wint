@@ -8,6 +8,7 @@ feature 'リーグ登録' do
 
     fill_in 'league[name]', with: 'hogeリーグ'
     fill_in 'league[limit_score]', with: '150'
+    fill_in 'league[weight]', with: '1.0,1.0,1.0,1.0,1.0'
     fill_in 'league[start_at]', with: '2015.09.01 00:00'
     fill_in 'league[end_at]', with: '2015.09.30 00:00'
 
