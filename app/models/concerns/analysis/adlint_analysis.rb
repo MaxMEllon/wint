@@ -10,7 +10,8 @@ class AdlintAnalysis
   end
 
   def analyze_abc_size
-    functions.values.map(&:abc_size).max
+    value = functions.values.map(&:abc_size).inject(0) { |sum, v| sum + v**2 }
+    Math.sqrt(value / analyze_func_num)
   end
 
   def analyze_statement
@@ -20,58 +21,38 @@ class AdlintAnalysis
   def functions
     return @functions if @functions
 
-    @functions = split_functions_analysis
-    data = File.read(@adlint_file_path).split(/\r\n|\n/)
-    last_line = data.size - 1
-    @functions.values.reverse_each do |function|
-      line = function.position - 1
-      function.add_text(data[line...last_line].join("\n"))
-      last_line = line
-    end
+    @functions = { 'global' => AdlintFunction.global }
+    file_data = File.read(@adlint_file_path).split(/\r\n|\n/)
+    data = File.read(@adlint_metrix_path).split(/\r\n|\n/)
 
+    data.each do |line|
+      next unless line =~ /^(DEF|MET|ASN|INI)/
+      e = CSV.parse(line).first
+      if e.first == 'DEF' && e[4] == 'F'
+        name = e[7]
+        start_line = e[2].to_i - 1
+        end_line = start_line + e[9].to_i
+        @functions[name] = AdlintFunction.new(name, start_line)
+        @functions[name].add_text(file_data[start_line...end_line].join("\n"))
+      elsif line =~ /^MET,FN/
+        name = e[2]
+        @functions[name].add_metrix(e[1], e[7].to_i)
+      elsif line =~ /^(ASN|INI)/
+        pos = e[2].to_i
+        name = function_name(@functions.values, pos)
+        @functions[name].add_assignment(pos, e[4], e[5])
+      end
+    end
     @functions
   end
 
   private
-
-  def split_functions_analysis
-    func = { 'global' => AdlintFunction.global }
-    data = File.read(@adlint_metrix_path).split(/\r\n|\n/)
-    data.each do |line|
-      next unless line =~ /^(DEF|MET|ASN|INI)/
-      e = str2arr(line)
-      if e.first == 'DEF' && e[4] == 'F'
-        name = e[7]
-        func[name] = AdlintFunction.new(name, e[2].to_i)
-      elsif line =~ /^MET,FN/
-        name = e[2]
-        func[name].add_metrix(e[1], e[7].to_i)
-      elsif line =~ /^(ASN|INI)/
-        pos = e[2].to_i
-        name = function_name(func.values, pos)
-        func[name].add_assignment(pos, e[4], e[5])
-      end
-    end
-    func
-  end
 
   def function_name(functions, position)
     functions.reverse_each do |function|
       return function.name if function.position < position
     end
     'global'
-  end
-
-  # @str    => "DEF,../adlint.c,7,5,F,X,F,strategy,\"int strategy(int,(int const)[],int)\",4"
-  # @return => ["DEF","../adlint.c","7","5","F","X","F","strategy",
-  #             "int strategy(int,(int const)[],int)","4"]
-  def str2arr(str)
-    a, b, c = str.split(/\"/)
-    return str.split(',') if b.nil?
-    return a.split(',') << b if c.nil?
-    elem = c.split(',')
-    elem[0] = b
-    a.split(',') + elem
   end
 
   public_class_method

@@ -28,37 +28,37 @@ FactoryGirl.define do
 
     trait :type1 do
       score 49.43895
-      abc_size 22.567
-      statement 300
-      func_num 16
+      abc_size 11.765
+      statement 256
+      func_num 17
     end
 
     trait :type2 do
       score 44.82215
-      abc_size 32.192
-      statement 590
-      func_num 17
+      abc_size 21.540
+      statement 550
+      func_num 18
     end
 
     trait :type3 do
       score 32.36735
-      abc_size 13.334
-      statement 140
-      func_num 5
+      abc_size 15.346
+      statement 142
+      func_num 6
     end
 
     trait :type4 do
       score 52.02475
-      abc_size 35.21
-      statement 245
-      func_num 7
+      abc_size 22.667
+      statement 289
+      func_num 8
     end
 
     trait :type5 do
       score 35.20245
-      abc_size 53.123
-      statement 520
-      func_num 16
+      abc_size 23.309
+      statement 485
+      func_num 17
     end
   end
 end
