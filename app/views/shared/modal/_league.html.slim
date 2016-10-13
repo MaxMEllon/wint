@@ -29,6 +29,7 @@ coffee:
           th 傾斜掛率
           td
             = f.text_field :weight
+            p ※入力例 : 1.0,1.5,1.5,1.0,1.0
             = render partial: "shared/error_messages", locals: {object: league, column: :weight}
       table.table-base
         tr

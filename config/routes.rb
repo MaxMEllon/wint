@@ -54,6 +54,8 @@ Wint::Application.routes.draw do
   get   'admin/users'                    => 'users#list', as: :users
   get   'admin/users/new'                => 'users#new', as: :users_new
   post  'admin/users/new'                => 'users#create'
+  get   'admin/users/new_many'           => 'users#new_many', as: :users_new_many
+  post  'admin/users/new_many'           => 'users#create_many'
   get   'admin/users/:uid/edit'          => 'users#edit', as: :users_edit
   patch 'admin/users/:uid/edit'          => 'users#update'
   get   'admin/users/:uid/edit_password' => 'users#edit_password', as: :users_edit_password

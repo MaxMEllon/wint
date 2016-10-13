@@ -1,0 +1,14 @@
+
+.modal-dialog.modal-content
+  = form_tag path, remote: true do
+    .modal-header
+      h3 ユーザ一括登録
+    .modal-body
+      p ※入力例
+      p s00t000,ほげほげ
+      p s00t001,ふがふが
+      = text_area_tag 'snum_and_name', '', class: 'form-control'
+    .modal-footer
+      = render partial: "shared/buttons/create"
+      = render partial: "shared/buttons/cancel"
+

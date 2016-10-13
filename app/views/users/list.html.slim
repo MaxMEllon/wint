@@ -7,29 +7,33 @@
       br
       = link_to users_new_path, data: {remote: true} do
         = render partial: "shared/buttons/new"
+      | &nbsp;
+      = link_to users_new_many_path, data: {remote: true} do
+        button.btn.btn-primary
+          = fa_icon "tags", text: "一括登録"
+
 br
 br
 
-.users.list
-  table.table.table-base.datatable
-    thead
-      tr
-        th.snum 学籍番号
-        th.category 区分
-        th.name 氏名
-        th.edit 編集
-        th.password パスワード
-        th.toggle 有効 / 無効
-    tbody
-      - @users.each do |user|
-        = render partial: "shared/row", locals: {is_active: user.is_active}
-        td.snum= user.snum
-        td.category= User.category_options[user.category]
-        td.name= user.name
-        td.edit= link_to users_edit_path(uid: user.id), remote: true do
-          = render partial: "shared/buttons/edit"
-        td.password= link_to users_edit_password_path(uid: user.id), remote: true do
-          = render partial: "shared/buttons/password"
-        td.toggle= link_to users_toggle_path(uid: user.id) do
-          = render partial: "shared/buttons/toggle", locals: {is_active: user.is_active}
+table.table.table-base.datatable
+  thead
+    tr
+      th 学籍番号
+      th 区分
+      th 氏名
+      th 編集
+      th パスワード
+      th 有効 / 無効
+  tbody
+    - @users.each do |user|
+      = render partial: "shared/row", locals: {is_active: user.is_active}
+      td.center= user.snum
+      td.center= User.category_options[user.category]
+      td.center= user.name
+      td.center= link_to users_edit_path(uid: user.id), remote: true do
+        = render partial: "shared/buttons/edit"
+      td.center= link_to users_edit_password_path(uid: user.id), remote: true do
+        = render partial: "shared/buttons/password"
+      td.center= link_to users_toggle_path(uid: user.id) do
+        = render partial: "shared/buttons/toggle", locals: {is_active: user.is_active}
 

@@ -9,8 +9,21 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.password = @user.password_confirmation = @user.snum.split('').reverse.join
+    @user.password = @user.password_confirmation = @user.snum.reverse
     render :new && return unless @user.save
+    render template: 'shared/reload'
+  end
+
+  def new_many
+  end
+
+  def create_many
+    users = params[:snum_and_name].split(/\r\n|\n/).map { |user| user.split(',') }
+    users.each do |snum, name|
+      user = User.new(snum: snum, name: name, category: User::CATEGORY_STUDENT)
+      user.password = user.password_confirmation = user.snum.reverse
+      user.save
+    end
     render template: 'shared/reload'
   end
 
