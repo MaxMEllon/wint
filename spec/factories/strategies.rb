@@ -60,6 +60,13 @@ FactoryGirl.define do
       statement 485
       func_num 17
     end
+
+    trait :type6 do
+      score 400
+      abc_size 1.0
+      statement 1
+      func_num 1
+    end
   end
 end
 
