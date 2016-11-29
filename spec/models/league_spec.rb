@@ -28,9 +28,8 @@ RSpec.describe League, type: :model do
     expect(File.exist?(league.data_dir)).to eq true
   end
 
-  describe 'Leagues#rank' do
-
-    it '正常のスコアで期待したランクが表示される' do
+  describe 'League#rank' do
+    it '各スコアに対して適切なランクが得られる' do
       rank_list = [nil, 'C', 'X', 'X', 'C', 'X', 'SSSS']
       1.upto(6) do |i|
         sym = ('type' + i.to_s).to_sym
@@ -39,7 +38,5 @@ RSpec.describe League, type: :model do
       end
     end
   end
-
-
 end
 
